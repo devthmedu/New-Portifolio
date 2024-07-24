@@ -170,7 +170,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Estilos para o título h1 */
 .title h1 {
-  background-image: url(../img/Perfil/TE.png);
     font-size: 4rem; /* Tamanho do título */
     margin-bottom: 10px; /* Espaçamento inferior */
     text-shadow: -2px 2px 2px rgba(12, 75, 184, 0.872); /* Sombra do texto */
@@ -456,7 +455,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .skill-box img {
-  max-width: 20%; /* Ajustei para que as imagens ocupem a largura máxima do container */
+  max-width: 50%; /* Ajustei para que as imagens ocupem a largura máxima do container */
   height: auto;
   transition: transform 0.3s ease; /* Adicionei uma transição suave de escala para as imagens */
 }
@@ -512,4 +511,115 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .skill-carousel .owl-nav {
   display: none; /* Esconde as setas de navegação */
+}
+/* Estilos para a seção de portfólio */
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 150px 50px;
+  background-color: #000000;
+}
+
+.portfolio-item {
+  position: relative;
+  width: 600px;
+  background-color: #333333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(87, 87, 87, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(48, 48, 48, 0.2);
+}
+
+.portfolio-item .img-projeto {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .img-projeto {
+  transform: scale(1.05);
+}
+
+.portfolio-item-info {
+  padding: 20px;
+  background-color: #141414ce;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  transition: bottom 0.3s ease;
+  border-radius: 0 0 10px 10px;
+}
+
+.portfolio-item:hover .portfolio-item-info {
+  bottom: 0;
+}
+
+.portfolio-item-info h3 {
+  font-size: 1.5rem;
+  color: #e9e4e4;
+  margin-bottom: 10px;
+}
+
+.portfolio-item-info .technologies {
+  font-size: 1.2rem;
+  color: #aeaeae; /* Cor original */
+  margin-bottom: 10px;
+  transition: color 0.3s ease; /* Transição suave na mudança de cor */
+}
+.portfolio-item-info:hover .technologies {
+  color: #007bff;
+; /* Cor com transparência ao passar o mouse */
+}
+
+.portfolio-item-info .description {
+  font-size: 1rem;
+  color: #cecece;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.portfolio-item-info .portfolio-item-link {
+  display: inline-block;
+  padding: 9px 30px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-item-info .portfolio-item-link:hover {
+  background-color: #0056b3;
+}
+
+.portfolio-item-arrow {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 50%;
+}
+
+.portfolio-item-arrow i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-item-arrow {
+  background-color: #0056b3;
 }
