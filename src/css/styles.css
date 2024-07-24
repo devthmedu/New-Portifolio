@@ -1,0 +1,436 @@
+/* Importa a fonte Roboto do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* Root Variables */
+:root {
+    --color-green: #0050fdd3; /* cor do 'pulgar' da barra de rolagem */
+    --color-black: #131212;
+    --color-white: #fafafa;
+    --color-border: #4a4a4a; /* Cor da borda */
+    --color-primary: #4a4a4a; /* Cor do texto dos links ao passar o mouse */
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Utiliza a fonte Roboto como principal */
+    background-color: #000; /* Cor de fundo geral */
+    color: var(--color-white); /* Cor do texto geral */
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
+}
+
+/* Estilizando a barra de rolagem */
+/* Estilos para navegadores Webkit (como Chrome/Safari) */
+body::-webkit-scrollbar {
+    width: 5px; /* largura da barra de rolagem */
+    background-color: #000000; /* cor de fundo da barra de rolagem */
+}
+
+body::-webkit-scrollbar-track {
+    background: #000000c5; /* cor do fundo da trilha da barra de rolagem */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #0050fdd3; /* cor do 'pulgar' da barra de rolagem */
+    border-radius: 10px; /* borda arredondada */
+    cursor: pointer;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #4f82f0d3; /* cor do 'pulgar' da barra de rolagem ao passar o mouse */
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+    max-width: 1200px; /* Largura máxima do container */
+}
+
+.header {
+    background-color: #000000;
+    padding: 10px 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.header .logo img {
+    width: 30px; /* Ajuste o tamanho conforme necessário */
+    border-radius: 50%; /* Para deixar a imagem redonda */
+    cursor: pointer;
+    border-radius: 200px;
+    background: #0916ca;
+    box-shadow: inset -11px -11px 81px #3a18fa,inset 11px 11px 81px #1c44e3;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    cursor: pointer;
+}
+
+.nav-bar ul li {
+    margin-right: 20px;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: var(--color-white); /* Cor do texto dos links */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-bar ul li a:hover {
+    color: #4412f8; /* Cor do texto dos links ao passar o mouse */
+}
+
+/* Estilos da seção inicial */
+.section-inicial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Layout em coluna */
+    min-height: 100vh; /* Altura mínima para ocupar toda a altura da tela */
+    padding: 10px;
+    background-color: #000000; /* Cor de fundo da seção */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px; /* Espaçamento inferior */
+}
+
+.user-profile img {
+    width: 200px; /* Tamanho da imagem */
+    height: 200px; /* Altura da imagem */
+    border-radius: 50%; /* Borda arredondada */
+    object-fit: cover; /* Manter proporções */
+    margin-right: 20px; /* Espaçamento à direita */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.title {
+    max-width: 600px; /* Largura máxima do conteúdo */
+    text-align: center; /* Alinhamento central */
+}
+
+.title h1 {
+    font-size: 3em; /* Tamanho do título */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    text-shadow: -3px 0px 13px rgba(116, 113, 113, 0.69); /* Sombra do texto */
+    color: #cbcbcb; /* Cor do título */
+}
+
+.title span {
+    font-size: 1.2em; /* Tamanho do subtítulo */
+    display: block; /* Exibir em bloco */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    color: #797979; /* Cor do subtítulo */
+}
+
+.title p {
+    font-size: 1em; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+    line-height: 1.6; /* Altura da linha */
+}
+
+.animate {
+    display: inline-block;
+    margin: 0 0.5rem;
+    animation: bounce; /* Animação definida */
+    animation-duration: 2s; /* Duração da animação */
+}
+
+/* Animação bounce para o elemento .animate */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Estilos para os ícones das redes sociais */
+.social-icons {
+  display: flex;
+  justify-content: center; /* Centraliza os itens na horizontal */
+  margin-top: 10px;
+  text-decoration: none; 
+}
+
+.box-social {
+  width: 30px; /* Tamanho do quadradinho */
+  height: 30px; /* Tamanho do quadradinho */
+  border-radius: 10px; /* Borda arredondada */
+  background-color: #57565600; /* Cor de fundo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px; /* Espaçamento entre os ícones */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+  text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.box-social a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.box-social i {
+  color: var(--color-white); /* Cor inicial dos ícones */
+  font-size: 1.5rem; /* Tamanho dos ícones */
+  transition: color 0.3s ease; /* Transição suave da cor do ícone */
+}
+
+.box-social:hover {
+  background-color: none; /* Cor de fundo ao passar o mouse */
+}
+
+.box-social:hover i {
+  color: var(--color-white); /* Cor dos ícones ao passar o mouse */
+}
+
+/* Estilos específicos para cada ícone */
+.box-social.instagram:hover i {
+  color: #E1306C; /* Cor do Instagram ao passar o mouse */
+}
+
+.box-social.github:hover i {
+  color: #464646e4; /* Cor do Github ao passar o mouse */
+}
+
+.box-social.linkedin:hover i {
+  color: #0077B5; /* Cor do LinkedIn ao passar o mouse */
+}
+
+.box-social.discord:hover i {
+  color: #5400c9; /* Cor do Discord ao passar o mouse */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about {
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: -8rem; /* Ajuste para mover a seção "Sobre" mais para cima */
+    
+}
+
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Espaço entre as colunas */
+    margin-top: 2rem;
+}
+
+.col {
+    flex: 0 0 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+}
+
+.info-block {
+    background-color: #4e4e4e2d;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem; /* Espaço entre os blocos de informação */
+}
+
+.info-block:hover {
+    transform: translateY(-10px);
+}
+
+.ci-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #0050fdd3; 
+    color: #ffffff;
+    margin: 0 auto;
+}
+
+.ci-icon i {
+    font-size: 1.5rem;
+}
+
+.ci-text h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #939292;
+}
+
+.ci-text p {
+    color: #414141;
+    line-height: 1.6;
+}
+
+/* Ajustes para adicionar espaçamento entre os itens */
+@media (min-width: 768px) {
+    .row {
+        gap: 3rem; /* Aumenta o espaço entre as colunas */
+    }
+
+    .info-block {
+        margin-bottom: 3rem; /* Aumenta o espaço entre os blocos de informação */
+    }
+}
+/* Estilos para o bloco de informação com animação */
+#animate {
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem; /* Espaçamento entre os blocos de informação */
+    position: relative; /* Posição relativa para ajustar a animação internamente */
+}
+
+#animate:hover {
+    transform: translateY(-10px); /* Efeito de levantamento ao passar o mouse */
+}
+
+#animate .ci-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #0050fdd3; /* Cor de fundo do ícone */
+    color: #ffffff; /* Cor do ícone */
+    margin: 0 auto;
+}
+
+#animate .ci-icon i {
+    font-size: 1.5rem;
+}
+
+#animate .ci-text h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #939292; /* Cor do título */
+}
+
+#animate .ci-text p {
+    color: #414141; /* Cor do texto */
+    line-height: 1.6;
+}
+
+/* Animação usando AOS (Animate On Scroll) */
+#animate[data-aos] {
+    opacity: 0; /* Inicia com opacidade zero */
+    transform: translateY(50px); /* Inicia deslocado para baixo */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#animate[data-aos].aos-animate {
+    opacity: 1; /* Ao ser animado, torna-se visível */
+    transform: translateY(0); /* Desloca para cima (posição original) */
+}
+/* Estilo para os blocos de habilidades (skill-box) */
+.skill-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Aumentei o padding para melhor espaçamento interno */
+}
+
+.skill-box img {
+  max-width: 40%; /* Ajustei para que as imagens ocupem a largura máxima do container */
+  height: auto;
+  transition: transform 0.3s ease; /* Adicionei uma transição suave de escala para as imagens */
+}
+
+.skill-box img:hover {
+  transform: scale(1.1); /* Efeito de escala ao passar o mouse sobre as imagens */
+}
+
+/* Estilo para os blocos de habilidades (skill-box) */
+.skill-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Aumentei o padding para melhor espaçamento interno */
+}
+
+.skill-box img {
+  max-width: 20%; /* Ajustei para que as imagens ocupem a largura máxima do container */
+  height: auto;
+  transition: transform 0.3s ease; /* Adicionei uma transição suave de escala para as imagens */
+}
+
+.skill-box img:hover {
+  transform: scale(1.1); /* Efeito de escala ao passar o mouse sobre as imagens */
+}
+
+/* Estilo para o carousel de habilidades (skill-carousel) */
+.skill-carousel {
+  display: flex;
+  justify-content: space-around; /* Espaçamento uniforme entre os itens */
+  align-items: center;
+  margin-top: 40px; /* Aumentei o espaço superior */
+}
+
+.skill-carousel .owl-stage {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaçamento entre os itens do carousel */
+}
+
+.skill-carousel .owl-item {
+  padding: 10px;
+  transition: transform 0.3s ease; /* Adicionei uma transição suave de transformação */
+}
+
+.skill-carousel .owl-item:hover {
+  transform: translateY(-5px); /* Efeito de elevação ao passar o mouse sobre os itens */
+}
+
+.skill-carousel .owl-nav {
+  display: none; /* Esconde as setas de navegação */
+}
+
+.skill-carousel .owl-dots {
+  text-align: center; /* Alinhamento centralizado dos pontos de navegação */
+  margin-top: 30px; /* Espaçamento superior */
+}
+
+.skill-carousel .owl-dot {
+  display: inline-block; /* Exibe os pontos de navegação em linha */
+  width: 10px; /* Largura do ponto de navegação */
+  height: 10px; /* Altura do ponto de navegação */
+  margin: 0 5px; /* Espaçamento entre os pontos de navegação */
+  border-radius: 50%; /* Borda arredondada */
+  background-color: #808080; /* Cor de fundo inicial dos pontos de navegação */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+.skill-carousel .owl-dot.active {
+  background-color: #000000; /* Cor de fundo do ponto de navegação ativo */
+}
+.skill-carousel .owl-nav {
+  display: none; /* Esconde as setas de navegação */
+}
