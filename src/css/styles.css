@@ -172,7 +172,7 @@ body::-webkit-scrollbar-thumb:hover {
 .title h1 {
     font-size: 4rem; /* Tamanho do título */
     margin-bottom: 10px; /* Espaçamento inferior */
-    text-shadow: -2px 2px 2px rgba(12, 75, 184, 0.872); /* Sombra do texto */
+    text-shadow: -2px 2px 2px rgba(36, 36, 36, 0.377); /* Sombra do texto */
     color: #cbcbcb; /* Cor do título */
     display: block; /* Garante que o h1 seja exibido como bloco */
     text-align: center; /* Alinha o texto ao centro */
@@ -512,6 +512,19 @@ body::-webkit-scrollbar-thumb:hover {
 .skill-carousel .owl-nav {
   display: none; /* Esconde as setas de navegação */
 }
+
+
+/* Estilo para os títulos das seções */
+.title-section {
+  width: 100%; /* Garante que o título ocupe toda a largura disponível */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 50px; /* Espaçamento abaixo do título */
+}
+
+.section-title {
+  font-size: 2.5rem; /* Tamanho do título */
+  color: #ffffff; /* Cor do título */
+}
 /* Estilos para a seção de portfólio */
 .portfolio {
   display: flex;
@@ -622,4 +635,263 @@ body::-webkit-scrollbar-thumb:hover {
 
 .portfolio-item:hover .portfolio-item-arrow {
   background-color: #0056b3;
+}
+.portfolio .title-section {
+  width: 100%; /* Garante que o título ocupe toda a largura disponível */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 50px; /* Espaçamento abaixo do título */
+}
+
+.portfolio .section-title {
+  font-size: 2.5rem; /* Tamanho do título */
+  color: #ffffff; /* Cor do título */
+}
+
+
+.services {
+  padding: 100px 0;
+  background-color: #000000;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #ffffff;
+}
+
+.services-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.service-item {
+  width: calc(25% - 50px);
+  max-width: 400px;
+  background-color: #1919195d;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 3px 8px 30px rgba(42, 42, 42, 0.402);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Para alinhar o conteúdo verticalmente */
+  justify-content: space-between; /* Distribui o espaço interno igualmente */
+}
+
+.service-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(54, 54, 54, 0.2);
+}
+#service-icon{
+  font-size: 3rem;
+  color: #005fc4; /* Azul */
+  margin-bottom: 20px;
+} 
+.service-item i {
+  font-size: 1rem;
+  color: #005fc4; /* Azul */
+  margin-bottom: 20px;
+}
+
+.service-item h3 {
+  font-size: 1.8rem;
+  color: #9f9f9f;
+  margin-bottom: 15px;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #848484;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.check-mark {
+  margin-right: 5px;
+  color: #28a745; /* Verde */
+}
+
+.orcamento {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-solicitar {
+  padding: 12px 34px;
+  background-color: #007bff; /* Azul */
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-solicitar:hover {
+  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilos para a seção de contato */
+.contact {
+  padding: 80px 30px;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.contact .section-title {
+  font-size: 3rem;
+  margin-bottom: 90px;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-info {
+  max-width: 600px;
+}
+
+.contact-info p {
+  font-size: 1.2rem;
+  margin-bottom: -70px;
+}
+
+.social-icons-form {
+  display: flex;
+  justify-content: center; /* Centraliza os itens na horizontal */
+  margin-top: -30px;
+  text-decoration: none; 
+  align-items:flex-end
+}
+
+.box-social-form {
+  width: 100px; /* Tamanho do quadradinho */
+  height: 100px; /* Tamanho do quadradinho */
+  border-radius: 30px; /* Borda arredondada */
+  background-color: #890d0d00; /* Cor de fundo */
+  display: flex;
+  align-items: last center;
+  justify-content:center;
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  margin-top: 35px; /* Espaçamento entre os ícones */
+  margin-bottom: -90px; /* Espaçamento entre os ícones */
+}
+
+.box-social-form a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.box-social-form i {
+  color: var(--color-white); /* Cor inicial dos ícones */
+  font-size: 1.9rem; /* Tamanho dos ícones */
+  transition: color 0.3s ease; /* Transição suave da cor do ícone */
+}
+
+.box-social-form:hover {
+  background-color: none; /* Cor de fundo ao passar o mouse */
+}
+
+.box-social-form:hover i {
+  color: var(--color-white); /* Cor dos ícones ao passar o mouse */
+}
+
+/* Estilos específicos para cada ícone */
+.box-social-form .instagram:hover i {
+  color: #E1306C; /* Cor do Instagram ao passar o mouse */
+}
+
+.box-social-form .github:hover i {
+  color: #464646e4; /* Cor do Github ao passar o mouse */
+}
+
+.box-social-form .linkedin:hover i {
+  color: #0077B5; /* Cor do LinkedIn ao passar o mouse */
+}
+
+.box-social-form .discord:hover i {
+  color: #5400c9; /* Cor do Discord ao passar o mouse */
+}
+
+.contact-form {
+  max-width: 600px;
+  width: 100%;
+  padding: 100px;
+  border-radius: 30px;
+}
+
+.contact-form form {
+  display: grid;
+  gap: 30px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #0148c35a;
+  border-radius: 5px;
+  background-color: #2222223e;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999999;
+  font-size: 0.9rem;
+}
+
+.btn-submit {
+  padding: 12px 54px;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para o rodapé */
+.footer {
+  background-color: #000000;
+  color: #747474;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-bottom {
+  font-size: 0.9rem;
 }

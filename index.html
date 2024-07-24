@@ -14,11 +14,14 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet"
         href="./src/css/styles.css"> <!-- Seu arquivo CSS personalizado -->
+        <link rel="stylesheet"
+              href="./src/css/respon.css"> <!-- Seu arquivo CSS personalizado -->
   <!-- Owl Carousel CSS -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  
 </head>
 
 <body>
@@ -34,7 +37,7 @@
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#about">Sobre</a></li>
-          <li><a href="#">Portfólio</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
           <li><a href="#">Contato</a></li>
         </ul>
       </nav>
@@ -49,18 +52,16 @@
       <img src="./src/img/Perfil/perfil.jpg"
            alt="user-profile">
       <div class="title">
-      <h1 class="animate__animated animate__fadeInDown">Thomas Eduardo</h1>
-      <div class="typing-text">Desenvolvedor Frontend</div>
+        <h1 class="animate__animated animate__fadeInDown">Thomas Eduardo</h1>
+        <div class="typing-text">Desenvolvedor Frontend</div>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptas sequi at. Exercitationem
-          quos
-          eaque natus iure labore aliquam. Recusandae ut quae porro explicabo maxime cumque quisquam. Eum,
-          laudantium
-          temporibus.
+          quos eaque natus iure labore aliquam. Recusandae ut quae porro explicabo maxime cumque quisquam. Eum,
+          laudantium temporibus.
         </p>
       </div>
     </div>
-  
+
     <!-- Ícones das redes sociais abaixo do parágrafo -->
     <div class="social-icons"
          data-aos="fade-up">
@@ -89,253 +90,336 @@
 
   <section class="about"
            id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="info-block"
-               data-aos="fade-right">
-            <div class="ci-icon">
-              <i class="fas fa-desktop"></i>
-            </div>
-            <div class="ci-text">
-              <h4>Web Responsivo</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sapiente totam iusto eligendi vel.
-                Nesciunt id voluptatibus voluptates cupiditate doloribus pariatur sit, explicabo commodi magni placeat
-                minus debitis molestiae sunt.</p>
-            </div>
-          </div>
+    <div class="title-section"  data-aos="zoom-in-down">
+      <div class="section-title">Sobre Mim</div>
+    </div>
 
-          <div class="info-block"
-               data-aos="fade-down-right">
-            <div class="ci-icon">
-              <i class="fas fa-user-check"></i>
-            </div>
-            <div class="ci-text">
-              <h4>Experiência do Usuário</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, debitis reiciendis. Quidem repellendus
-                modi possimus consequuntur odit pariatur quaerat, necessitatibus laborum excepturi esse, deleniti dolores
-                aliquam ad aliquid nulla placeat.</p>
-            </div>
+    <div class="row">
+      <div class="col">
+        <div class="info-block"
+             data-aos="fade-right">
+          <div class="ci-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <div class="ci-text">
+            <h4>Web Responsivo</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sapiente totam iusto eligendi vel.
+              Nesciunt id voluptatibus voluptates cupiditate doloribus pariatur sit, explicabo commodi magni placeat
+              minus debitis molestiae sunt.</p>
           </div>
         </div>
 
-        <div class="col">
-          <div class="info-block"
-               data-aos="fade-up-left">
-            <div class="ci-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <div class="ci-text">
-              <h4>Automação</h4>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus inventore temporibus
-                aspernatur blanditiis. Pariatur corrupti ipsum debitis iusto perspiciatis quidem adipisci sunt quisquam,
-                vel culpa delectus architecto nostrum, officia quia?</p>
-            </div>
+        <div class="info-block"
+             data-aos="fade-down-right">
+          <div class="ci-icon">
+            <i class="fas fa-user-check"></i>
           </div>
+          <div class="ci-text">
+            <h4>Experiência do Usuário</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, debitis reiciendis. Quidem repellendus
+              modi possimus consequuntur odit pariatur quaerat, necessitatibus laborum excepturi esse, deleniti dolores
+              aliquam ad aliquid nulla placeat.</p>
+          </div>
+        </div>
+      </div>
 
-          <div class="info-block"
-               data-aos="fade-down-left">
-            <div class="ci-icon">
-              <i class="fas fa-tasks"></i>
-            </div>
-            <div class="ci-text">
-              <h4>Implementações</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolor repellendus, ratione maxime
-                explicabo corporis doloribus, sapiente libero fuga atque sequi. Libero asperiores velit, vitae suscipit
-                similique molestiae laudantium rerum.</p>
-            </div>
+      <div class="col">
+        <div class="info-block"
+             data-aos="fade-up-left">
+          <div class="ci-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <div class="ci-text">
+            <h4>Automação</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus inventore temporibus
+              aspernatur blanditiis. Pariatur corrupti ipsum debitis iusto perspiciatis quidem adipisci sunt quisquam,
+              vel culpa delectus architecto nostrum, officia quia?</p>
+          </div>
+        </div>
+
+        <div class="info-block"
+             data-aos="fade-down-left">
+          <div class="ci-icon">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <div class="ci-text">
+            <h4>Implementações</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolor repellendus, ratione maxime
+              explicabo corporis doloribus, sapiente libero fuga atque sequi. Libero asperiores velit, vitae suscipit
+              similique molestiae laudantium rerum.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="skills"  data-aos="zoom-in-down" >
-      <div class="owl-carousel skill-carousel"
-           id="skill-carousel">
-        <div class="skill-box">
-          <img src="./src/img/skill/angular.svg"
-               alt="Angular">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/bootstrap.svg"
-               alt="Bootstrap">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/git.svg"
-               alt="Git">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/js.svg"
-               alt="JavaScript">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/babel.svg"
-               alt="JavaScript">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/figma.svg"
-               alt="JavaScript">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/vitejs.svg"
-               alt="Vite.js">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/reactbootstrap.svg"
-               alt="React Bootstrap">
-        </div>
-        <div class="skill-box">
-          <img src="./src/img/skill/node.svg"
-               alt="Node.js">
-        </div>
+
+  <section class="skills"
+           data-aos="zoom-in-down">
+    <div class="title-section">
+      <div class="section-title">Skills</div>
+    </div>
+
+    <div class="owl-carousel skill-carousel"
+         id="skill-carousel">
+      <div class="skill-box">
+        <img src="./src/img/skill/angular.svg"
+             alt="Angular">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/bootstrap.svg"
+             alt="Bootstrap">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/git.svg"
+             alt="Git">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/js.svg"
+             alt="JavaScript">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/babel.svg"
+             alt="JavaScript">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/figma.svg"
+             alt="JavaScript">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/vitejs.svg"
+             alt="Vite.js">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/reactbootstrap.svg"
+             alt="React Bootstrap">
+      </div>
+      <div class="skill-box">
+        <img src="./src/img/skill/node.svg"
+             alt="Node.js">
       </div>
     </div>
   </section>
 
-<section class="portfolio" id="portfolio" data-aos="fade-down"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-<div class="portfolio-item"
-     data-aos="zoom-out-up"
-     id="portfolio-item-1">
-    <img src="./src/projetos/Animais Fantasticos.jpg"
-         alt="Projeto 1"
-         class="img-projeto">
-    <div class="portfolio-item-info">
-      <h3>Projeto 1</h3>
-      <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
-      <div class="description">
-        <p>Descrição do projeto 1.</p>
-        <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
-      </div>
-      <a href="#"
-         class="portfolio-item-link">Ver Projeto</a>
+  <section class="portfolio"
+           id="portfolio"
+           data-aos="fade-down"
+           data-aos-easing="linear"
+           data-aos-duration="1500">
+    <div class="title-section">
+      <div class="section-title">Portfólio</div>
     </div>
-    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-  </div>
 
-  <div class="portfolio-item"
-       id="portfolio-item-2"   data-aos="zoom-out-down" >
-    <img src="./src/projetos/Red Pets .jpg"
-         alt="Projeto 2"
-         class="img-projeto">
-    <div class="portfolio-item-info">
-      <h3>Projeto 2</h3>
-      <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
-      <div class="description">
-        <p>Descrição do projeto 2.</p>
-        <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+    <div class="portfolio-item"
+         data-aos="zoom-out-up"
+         id="portfolio-item-1">
+      <img src="./src/projetos/Animais Fantasticos.jpg"
+           alt="Projeto 1"
+           class="img-projeto">
+      <div class="portfolio-item-info">
+        <h3>Animais Fantasticos</h3>
+        <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
+        <div class="description">
+          <p>Descrição do projeto 1.</p>
+          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+        </div>
+        <a href="#"
+           class="portfolio-item-link">Ver Projeto</a>
       </div>
-      <a href="#"
-         class="portfolio-item-link">Ver Projeto</a>
+      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
     </div>
-    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-  </div>
-  <div class="portfolio-item"
-       data-aos="zoom-out-up"
-       id="portfolio-item-1">
-    <img src="./src/projetos/Animais Fantasticos.jpg"
-         alt="Projeto 1"
-         class="img-projeto">
-    <div class="portfolio-item-info">
-      <h3>Projeto 1</h3>
-      <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
-      <div class="description">
-        <p>Descrição do projeto 1.</p>
-        <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+
+    <div class="portfolio-item"
+         data-aos="zoom-out-down"
+         id="portfolio-item-2">
+      <img src="./src/projetos/Red Pets .jpg"
+           alt="Projeto 2"
+           class="img-projeto">
+      <div class="portfolio-item-info">
+        <h3>Red Pets</h3>
+        <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
+        <div class="description">
+          <p>Descrição do projeto 2.</p>
+          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+        </div>
+        <a href="#"
+           class="portfolio-item-link">Ver Projeto</a>
       </div>
-      <a href="#"
-         class="portfolio-item-link">Ver Projeto</a>
+      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div> 
+
+    <div class="portfolio-item"
+         data-aos="zoom-out-up"
+         id="portfolio-item-1">
+      <img src="./src/projetos/The Cofee.jpg"
+           alt="Projeto 3"
+           class="img-projeto">
+      <div class="portfolio-item-info">
+        <h3>The Cofee</h3>
+        <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
+        <div class="description">
+          <p>Descrição do projeto 1.</p>
+          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+        </div>
+        <a href="#"
+           class="portfolio-item-link">Ver Projeto</a>
+      </div>
+      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
     </div>
-    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-  </div>
+    
+    <div class="portfolio-item"
+         data-aos="zoom-out-down"
+         id="portfolio-item-2">
+      <img src="./src/projetos/Luxe Barbershop.jpg"
+           alt="Projeto 4"
+           class="img-projeto">
+      <div class="portfolio-item-info">
+        <h3>Luxe Barbershop</h3>
+        <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
+        <div class="description">
+          <p>Descrição do projeto 2.</p>
+          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+        </div>
+        <a href="#"
+           class="portfolio-item-link">Ver Projeto</a>
+      </div>
+      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
+
+  <section class="services"
+           id="services" data-aos="fade-down-left">
+    <div class="section-title">Serviços</div>
+    <div class="services-wrapper">
+      <div class="service-item" data-aos="fade-right">
+        <i class="fas fa-laptop" id="service-icon"></i>
+        <h3>Desenvolvimento Web</h3>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      </div>
   
-  <div class="portfolio-item"
-       id="portfolio-item-2"
-       data-aos="zoom-out-down">
-    <img src="./src/projetos/Red Pets .jpg"
-         alt="Projeto 2"
-         class="img-projeto">
-    <div class="portfolio-item-info">
-      <h3>Projeto 2</h3>
-      <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
-      <div class="description">
-        <p>Descrição do projeto 2.</p>
-        <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+      <div class="service-item" data-aos="fade-up-left">
+        <i class="fas fa-chart-line" id="service-icon"></i>
+        <h3>Otimização SEO</h3>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
       </div>
-      <a href="#"
-         class="portfolio-item-link">Ver Projeto</a>
-    </div>
-    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-  </div>
-  <div class="portfolio-item"
-       data-aos="zoom-out-up"
-       id="portfolio-item-1">
-    <img src="./src/projetos/Animais Fantasticos.jpg"
-         alt="Projeto 1"
-         class="img-projeto">
-    <div class="portfolio-item-info">
-      <h3>Projeto 1</h3>
-      <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
-      <div class="description">
-        <p>Descrição do projeto 1.</p>
-        <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
-      </div>
-      <a href="#"
-         class="portfolio-item-link">Ver Projeto</a>
-    </div>
-    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-  </div>
   
-  <div class="portfolio-item"
-       id="portfolio-item-2"
-       data-aos="zoom-out-down">
-    <img src="./src/projetos/Red Pets .jpg"
-         alt="Projeto 2"
-         class="img-projeto">
-    <div class="portfolio-item-info">
-      <h3>Projeto 2</h3>
-      <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
-      <div class="description">
-        <p>Descrição do projeto 2.</p>
-        <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
+      <div class="service-item last-item" data-aos="fade-right">
+        <i class="fas fa-cog" id="service-icon"></i>
+        <h3>Manutenção de Sistemas</h3>
+        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
       </div>
-      <a href="#"
-         class="portfolio-item-link">Ver Projeto</a>
+      <div class="orcamento" data-aos="fade-down-left">
+        <a href="#"
+           class="btn-solicitar">Solicite Orçamento</a>
+      </div>
     </div>
-    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-  </div>
-  <!-- Adicione mais divs .portfolio-item conforme necessário -->
+  </section>
+<section class="contact"
+         id="contact" data-aos="zoom-out-down" >
+ 
+    <div class="section-title" data-aos="fade-down-right" >Contato</div>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="social-icons-form" data-aos="zoom-in-left">
+          <a class="box-social-form instagram"
+             href="https://www.instagram.com/thomas.fromtend/"
+             target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="box-social-form  github"
+             href="https://github.com/devthmedu"
+             target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a class="box-social-form linkedin"
+             href="https://www.linkedin.com/in/thmedu/"
+             target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="box-social-form  discord"
+             href="https://discord.gg/seu-servidor-discord"
+             target="_blank">
+            <i class="fab fa-discord"></i>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form" data-aos="zoom-out-down">
+        <form action="#"
+              method="POST">
+          <div class="form-group">
+            <input type="text"
+                   name="name"
+                   id="name"
+                   placeholder="Seu nome"
+                   required>
+          </div>
+          <div class="form-group">
+            <input type="email"
+                   name="email"
+                   id="email"
+                   placeholder="Seu e-mail"
+                   required>
+          </div>
+          <div class="form-group">
+            <textarea name="message"
+                      id="message"
+                      rows="5"
+                      placeholder="Sua mensagem"
+                      required></textarea>
+          </div>
+          <div class="form-group" data-aos="flip-right">
+            <button type="submit"
+                    class="btn-submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="./src/js/script.js"></script>
-<script>
-  $(document).ready(function () {
-    $("#skill-carousel").owlCarousel({
-      loop: true,
-      margin: 20,
-      autoplay: true,
-      autoplayTimeout: 3000,
-      responsive: {
-        0: {
-          items: 2
-        },
-        600: {
-          items: 4
-        },
-        1000: {
-          items: 6
-        }
-      }
-    });
 
-    AOS.init();
-  });
-</script>
+
+<footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2024. Todos os direitos reservados a Thomas Eduardo.</p>
+  </div>
+</footer>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./src/js/script.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#skill-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+          0: {
+            items: 2
+          },
+          600: {
+            items: 4
+          },
+          1000: {
+            items: 6
+          }
+        }
+      });
+
+      AOS.init();
+    });
+  </script>
 </body>
 
 </html>
