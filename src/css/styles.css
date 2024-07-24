@@ -52,10 +52,16 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .header {
-    background-color: #000000;
-    padding: 10px 50px;
-    margin-top: 50px;
+    background: linear-gradient(to right, #13131360, #20202000); /* Gradiente de tons de cinza */
+    padding: 20px 50px; /* Aumentei o padding para melhor espaçamento interno */
+    margin-top: 0px;
     margin-bottom: 20px;
+    box-shadow: 40px 3px 20px rgba(25, 21, 21, 0.114); /* Sombra mais pronunciada */
+    border-bottom: none; /* Remove a borda inferior */
+    /* Estilos adicionais para tornar o texto mais visível */
+    color: #eee; /* Cor do texto */
+    text-align: center; /* Alinhamento central */
+    text-shadow: 1px 1px 2px rgba(145, 145, 145, 0.046); /* Sombra no texto para destacar */
 }
 
 .header .logo img {
@@ -63,8 +69,11 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: 50%; /* Para deixar a imagem redonda */
     cursor: pointer;
     border-radius: 200px;
-    background: #0916ca;
-    box-shadow: inset -11px -11px 81px #3a18fa,inset 11px 11px 81px #1c44e3;
+}
+
+.nav-bar {
+    background-color: #000; /* Cor de fundo da barra de navegação */
+    padding: 10px 20px;
 }
 
 .nav-bar ul {
@@ -72,7 +81,8 @@ body::-webkit-scrollbar-thumb:hover {
     margin: 0;
     padding: 0;
     display: flex;
-    cursor: pointer;
+    justify-content: center; /* Centraliza os itens */
+    align-items: center; /* Alinha os itens verticalmente */
 }
 
 .nav-bar ul li {
@@ -80,14 +90,46 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .nav-bar ul li a {
+    position: relative; /* Para posicionar a linha abaixo do link */
     text-decoration: none;
     color: var(--color-white); /* Cor do texto dos links */
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
+.nav-bar ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px; /* Altura da linha */
+    bottom: -3px; /* Distância da linha em relação ao texto */
+    left: 0;
+    background-color: #4412f8; /* Cor inicial da linha */
+    transition: width 0.3s ease; /* Transição da largura */
+}
+
 .nav-bar ul li a:hover {
     color: #4412f8; /* Cor do texto dos links ao passar o mouse */
+}
+
+.nav-bar ul li a:hover::before {
+    width: 100%; /* Largura da linha ao passar o mouse */
+}
+.nav-bar ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px; /* Altura da linha */
+    bottom: -3px; /* Distância da linha em relação ao texto */
+    left: 50%; /* Começa no centro */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    background-color: #4412f8; /* Cor inicial da linha */
+    transition: width 0.3s ease, left 0.3s ease; /* Transições de largura e posição */
+}
+
+.nav-bar ul li a:hover::before {
+    width: calc(100% - 20px); /* Largura da linha ao passar o mouse (considerando o margin-right) */
+    left: 10px; /* Alinha à esquerda do link */
 }
 
 /* Estilos da seção inicial */
@@ -108,39 +150,70 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .user-profile img {
-    width: 200px; /* Tamanho da imagem */
-    height: 200px; /* Altura da imagem */
-    border-radius: 50%; /* Borda arredondada */
+    width: 300px; /* Tamanho da imagem */
+    height: 300px; /* Altura da imagem */
+    border-radius: 100%; /* Borda arredondada */
     object-fit: cover; /* Manter proporções */
-    margin-right: 20px; /* Espaçamento à direita */
+    margin-right: 50px; /* Espaçamento à direita */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-.title {
+ /* Estilos do título */
+  .title {
     max-width: 600px; /* Largura máxima do conteúdo */
     text-align: center; /* Alinhamento central */
-}
+    margin: 0 auto; /* Centraliza horizontalmente */
+  }
 
+  /* Importa a fonte Poppins do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* Estilos para o título h1 */
 .title h1 {
-    font-size: 3em; /* Tamanho do título */
+  background-image: url(../img/Perfil/TE.png);
+    font-size: 4rem; /* Tamanho do título */
     margin-bottom: 10px; /* Espaçamento inferior */
-    text-shadow: -3px 0px 13px rgba(116, 113, 113, 0.69); /* Sombra do texto */
+    text-shadow: -2px 2px 2px rgba(12, 75, 184, 0.872); /* Sombra do texto */
     color: #cbcbcb; /* Cor do título */
+    display: block; /* Garante que o h1 seja exibido como bloco */
+    text-align: center; /* Alinha o texto ao centro */
+  font-family: "Righteous", sans-serif;
+  font-style: normal;
 }
 
-.title span {
-    font-size: 1.2em; /* Tamanho do subtítulo */
-    display: block; /* Exibir em bloco */
-    margin-bottom: 20px; /* Espaçamento inferior */
-    color: #797979; /* Cor do subtítulo */
-}
+
+
+
+  /* Estilos do texto digitado */
+  .typing-text {
+    font-size: 24px;
+    overflow: hidden; /* Oculta o texto que ultrapassa a largura */
+    border-right: .15em solid rgb(74, 74, 74); /* Efeito de cursor piscando */
+    white-space: nowrap; /* Garante que o texto não quebre linha */
+    margin: 10px auto; /* Margem superior e inferior com centralização horizontal */
+    letter-spacing: .10em; /* Espaçamento entre letras */
+    animation: typing 3.5s steps(50, end), blink-caret .95s step-end infinite;
+  }
+
+  /* Animação de escrever texto */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  /* Animação do cursor piscando */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(0, 73, 232) }
+  }
 
 .title p {
-    font-size: 1em; /* Tamanho do texto */
+    font-size: 1rem; /* Tamanho do texto */
     color: #666; /* Cor do texto */
-    line-height: 1.6; /* Altura da linha */
-}
+    line-height: 1.8; /* Altura da linha */
+    margin-right: 50px; /* Espaçamento à direita */
 
+}
 .animate {
     display: inline-block;
     margin: 0 0.5rem;
@@ -160,26 +233,29 @@ body::-webkit-scrollbar-thumb:hover {
         transform: translateY(-15px);
     }
 }
-
 /* Estilos para os ícones das redes sociais */
 .social-icons {
   display: flex;
   justify-content: center; /* Centraliza os itens na horizontal */
   margin-top: 10px;
   text-decoration: none; 
+  align-items:flex-end
 }
 
 .box-social {
-  width: 30px; /* Tamanho do quadradinho */
-  height: 30px; /* Tamanho do quadradinho */
-  border-radius: 10px; /* Borda arredondada */
-  background-color: #57565600; /* Cor de fundo */
+  width: 100px; /* Tamanho do quadradinho */
+  height: 100px; /* Tamanho do quadradinho */
+  border-radius: 30px; /* Borda arredondada */
+  background-color: #890d0d00; /* Cor de fundo */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px; /* Espaçamento entre os ícones */
+  align-items: last baseline;
+  justify-content:right;
+  margin-right: -100px;
+  margin-left: 90px; /* Espaçamento entre os ícones */
   transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
   text-decoration: none; /* Remove o sublinhado dos links */
+  margin-top: -65px; /* Espaçamento entre os ícones */
+  margin-bottom: 65px; /* Espaçamento entre os ícones */
 }
 
 .box-social a {
@@ -188,7 +264,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .box-social i {
   color: var(--color-white); /* Cor inicial dos ícones */
-  font-size: 1.5rem; /* Tamanho dos ícones */
+  font-size: 1.9rem; /* Tamanho dos ícones */
   transition: color 0.3s ease; /* Transição suave da cor do ícone */
 }
 
@@ -220,9 +296,8 @@ body::-webkit-scrollbar-thumb:hover {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px 20px;
 }
-
 .about {
     padding: 3rem 2rem;
     text-align: center;
@@ -230,8 +305,6 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: -8rem; /* Ajuste para mover a seção "Sobre" mais para cima */
     
 }
-
-
 .row {
     display: flex;
     justify-content: center;
@@ -247,8 +320,8 @@ body::-webkit-scrollbar-thumb:hover {
 .info-block {
     background-color: #4e4e4e2d;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 38px;
+    box-shadow: 9px 4px 8px rgba(91, 91, 91, 0.174);
     transition: transform 0.3s ease;
     margin-bottom: 2rem; /* Espaço entre os blocos de informação */
 }
@@ -269,7 +342,13 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: #0050fdd3; 
     color: #ffffff;
     margin: 0 auto;
+    transition: transform 0.3s ease;
 }
+
+.ci-icon:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% ao passar o mouse */
+}
+
 
 .ci-icon i {
     font-size: 1.5rem;
@@ -287,7 +366,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Ajustes para adicionar espaçamento entre os itens */
-@media (min-width: 768px) {
+/@media (min-width: 768px) {
     .row {
         gap: 3rem; /* Aumenta o espaço entre as colunas */
     }
