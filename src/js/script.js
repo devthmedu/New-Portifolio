@@ -81,3 +81,32 @@ $(document).ready(function () {
     }
   });
 });
+$(document).ready(function () {
+  // Toggle do menu hambúrguer
+  $('.hamburger-menu').on('click', function (e) {
+    e.stopPropagation(); // Impede que o evento de clique propague para evitar fechamento imediato
+
+    $(this).toggleClass('active');
+    $('.nav-bar').toggleClass('active');
+
+    // Fechar o menu ao clicar fora dele
+    if ($(this).hasClass('active')) {
+      $(document).on('click.closeMenu', function (e) {
+        if (!$(e.target).closest('.nav-bar').length) {
+          $('.hamburger-menu').removeClass('active');
+          $('.nav-bar').removeClass('active');
+          $(document).off('click.closeMenu'); // Remove o listener após fechar o menu
+        }
+      });
+    } else {
+      $(document).off('click.closeMenu'); // Remove o listener se o menu estiver fechado
+    }
+  });
+
+  // Fechar o menu ao clicar em um link
+  $('.nav-bar ul li a').click(function () {
+    $('.hamburger-menu').removeClass('active');
+    $('.nav-bar').removeClass('active');
+    $(document).off('click.closeMenu'); // Remove o listener ao fechar manualmente
+  });
+});

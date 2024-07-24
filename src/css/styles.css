@@ -929,15 +929,70 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: #0056b3;
 }
 /* Estilos para o ícone de hambúrguer */
+/* Estilos para o container do menu hambúrguer */
 .hamburger-menu {
-    display: none; /* Ocultar por padrão em telas maiores */
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
 }
 
-.hamburger-menu .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 4px 0;
-    transition: 0.4s;
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.bar:last-child {
+  margin-bottom: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Estilos para o container do menu de navegação */
+.nav-bar-container {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Inicialmente escondido */
+  width: 250px; /* Largura do container do menu */
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1000; /* Ajuste conforme necessário */
+}
+
+.nav-bar.active {
+  left: 0; /* Mostra o menu ao adicionar a classe 'active' */
+}
+
+.nav-bar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-bar ul li {
+  padding: 10px 20px;
+}
+
+.nav-bar ul li a {
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+
+.nav-bar ul li a:hover {
+  color: #f39c12;
 }
