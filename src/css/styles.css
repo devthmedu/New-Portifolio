@@ -880,18 +880,64 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Estilos para o rodapé */
-.footer {
-  background-color: #000000;
-  color: #747474;
-  padding: 20px 0;
-  text-align: center;
+/* Estilos para o formulário */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.form-group {
+    margin-bottom: 20px;
 }
-.footer-bottom {
-  font-size: 0.9rem;
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.form-group textarea {
+    height: 150px;
+}
+
+.form-group button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+/* Estilos para o ícone de hambúrguer */
+.hamburger-menu {
+    display: none; /* Ocultar por padrão em telas maiores */
+    cursor: pointer;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
 }

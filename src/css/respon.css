@@ -1,0 +1,94 @@
+/* Media Queries para Responsividade */
+
+/* Tablets e Dispositivos com Largura de Tela de até 768px */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+    }
+
+    .nav-bar ul li {
+        margin: 10px 0;
+    }
+
+    .section {
+        padding: 15px;
+    }
+}
+
+/* Smartphones e Dispositivos com Largura de Tela de até 576px */
+@media screen and (max-width: 576px) {
+    .header {
+        padding: 10px;
+    }
+
+    .nav-bar ul li {
+        margin: 5px 0;
+    }
+
+    .section {
+        padding: 10px;
+    }
+}
+/* Estilos Responsivos */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+    }
+
+    .nav-bar ul li {
+        margin: 10px 0;
+    }
+
+    .section {
+        padding: 10px;
+    }
+    @media screen and (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .form-group button {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+/* Estilo para o ícone de hambúrguer quando está ativo (aberto) */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+
+}
