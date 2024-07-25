@@ -1,112 +1,286 @@
-$(document).ready(function () {
-  // Função para lidar com o clique na seta de cada item do portfólio
-  $('.portfolio-item-arrow').click(function (event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  // Seletores
+  const hamburgerMenu = document.getElementById('hamburger-menu');
+  const mobileNav = document.getElementById('mobile-nav');
+  const menuLinks = document.querySelectorAll('.mobile-nav a');
+  const body = document.querySelector('body');
 
-    var $currentItem = $(this).closest('.portfolio-item');
+  // Função para alternar o menu móvel
+  const toggleMobileNav = () => {
+    mobileNav.classList.toggle('active');
+    hamburgerMenu.classList.toggle('active');
+    body.classList.toggle('no-scroll'); // Impede o scroll quando o menu está aberto
+  };
 
-    // Fechar outros itens abertos
-    closeOtherItems($currentItem);
+  // Função para fechar o menu móvel
+  const closeMobileNav = () => {
+    mobileNav.classList.remove('active');
+    hamburgerMenu.classList.remove('active');
+    body.classList.remove('no-scroll'); // Permite o scroll quando o menu está fechado
+  };
 
-    // Toggle para abrir ou fechar o item clicado
-    togglePortfolioItem($currentItem);
+  // Adiciona o evento de clique ao menu hamburguer
+  hamburgerMenu.addEventListener('click', toggleMobileNav);
+
+  // Adiciona o evento de clique para fechar o menu ao clicar em um item
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', closeMobileNav);
   });
 
-  // Função para fechar todos os outros itens do portfólio que estão abertos
-  function closeOtherItems(currentItem) {
-    $('.portfolio-item')
-      .not(currentItem)
-      .each(function () {
-        var $info = $(this).find('.portfolio-item-info');
-        if ($info.hasClass('open')) {
-          togglePortfolioItem($(this));
-        }
-      });
-  }
-
-  // Função para abrir ou fechar o item do portfólio
-  function togglePortfolioItem($item) {
-    var $info = $item.find('.portfolio-item-info');
-    var $arrow = $item.find('.portfolio-item-arrow');
-    var isOpen = $info.hasClass('open');
-
-    if (!isOpen) {
-      // Abrir o item do portfólio
-      openPortfolioItem($item, $info, $arrow);
-    } else {
-      // Fechar o item do portfólio
-      closePortfolioItem($item, $info, $arrow);
-    }
-  }
-
-  // Função para abrir o item do portfólio
-  function openPortfolioItem($item, $info, $arrow) {
-    $info.addClass('open');
-    $arrow.addClass('open');
-    $info.css('bottom', '0');
-    $arrow.find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
-  }
-
-  // Função para fechar o item do portfólio
-  function closePortfolioItem($item, $info, $arrow) {
-    $info.removeClass('open');
-    $arrow.removeClass('open');
-    $info.css('bottom', '-100%');
-    $arrow.find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
-  }
-
-  // Fechar todos os itens do portfólio ao clicar fora deles
-  $(document).click(function (event) {
-    if (!$(event.target).closest('.portfolio-item').length) {
-      $('.portfolio-item-info.open').each(function () {
-        closePortfolioItem(
-          $(this).closest('.portfolio-item'),
-          $(this),
-          $(this).siblings('.portfolio-item-arrow'),
-        );
-      });
-    }
-  });
-
-  // Expandir/contrair item do portfólio ao clicar no card inteiro
-  $('.portfolio-item').click(function () {
-    var $item = $(this);
-    var $info = $item.find('.portfolio-item-info');
-    var isOpen = $info.hasClass('open');
-
-    if (!isOpen) {
-      openPortfolioItem($item, $info, $item.find('.portfolio-item-arrow'));
-    } else {
-      closePortfolioItem($item, $info, $item.find('.portfolio-item-arrow'));
+  // Fecha o menu ao clicar fora dele
+  document.addEventListener('click', (e) => {
+    if (!mobileNav.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+      closeMobileNav();
     }
   });
 });
-$(document).ready(function () {
-  // Toggle do menu hambúrguer
-  $('.hamburger-menu').on('click', function (e) {
-    e.stopPropagation(); // Impede que o evento de clique propague para evitar fechamento imediato
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollToTopBtn = document.getElementById('scroll-to-top');
 
-    $(this).toggleClass('active');
-    $('.nav-bar').toggleClass('active');
-
-    // Fechar o menu ao clicar fora dele
-    if ($(this).hasClass('active')) {
-      $(document).on('click.closeMenu', function (e) {
-        if (!$(e.target).closest('.nav-bar').length) {
-          $('.hamburger-menu').removeClass('active');
-          $('.nav-bar').removeClass('active');
-          $(document).off('click.closeMenu'); // Remove o listener após fechar o menu
-        }
-      });
+  // Função para mostrar ou ocultar o botão baseado na rolagem
+  const toggleScrollToTopBtn = () => {
+    if (window.scrollY > 300) {
+      // Mostra o botão após rolar 300px
+      scrollToTopBtn.classList.add('show');
     } else {
-      $(document).off('click.closeMenu'); // Remove o listener se o menu estiver fechado
+      scrollToTopBtn.classList.remove('show');
     }
+  };
+
+  // Adiciona o ouvinte de evento para rolar a página
+  window.addEventListener('scroll', toggleScrollToTopBtn);
+
+  // Adiciona o ouvinte de evento para o clique no botão
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Rolagem suave para o topo
+    });
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const dynamicText = document.getElementById('dynamic-text');
+  const texts = ['Frontend', 'Backend', 'Ux'];
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 150; // Velocidade de digitação (ms)
+  const deletingSpeed = 100; // Velocidade de exclusão (ms)
+  const pauseDuration = 1500; // Duração da pausa após a digitação (ms)
+
+  function type() {
+    if (charIndex < texts[index].length) {
+      dynamicText.textContent += texts[index].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingSpeed);
+    } else {
+      setTimeout(deleteText, pauseDuration);
+    }
+  }
+
+  function deleteText() {
+    if (charIndex > 0) {
+      dynamicText.textContent = texts[index].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(deleteText, deletingSpeed);
+    } else {
+      index = (index + 1) % texts.length;
+      setTimeout(type, typingSpeed);
+    }
+  }
+
+  type(); // Inicia a animação de digitação
+});
+
+particlesJS('particles-js', {
+  particles: {
+    number: {
+      value: 80,
+      density: {
+        enable: true,
+        value_area: 800,
+      },
+    },
+    color: {
+      value: '#ffffff',
+    },
+    shape: {
+      type: 'circle',
+      stroke: {
+        width: 0,
+        color: '#000000',
+      },
+      polygon: {
+        nb_sides: 5,
+      },
+      image: {
+        src: 'img/github.svg',
+        width: 100,
+        height: 100,
+      },
+    },
+    opacity: {
+      value: 0.5,
+      random: false,
+      anim: {
+        enable: false,
+        speed: 1,
+        opacity_min: 0.1,
+        sync: false,
+      },
+    },
+    size: {
+      value: 3,
+      random: true,
+      anim: {
+        enable: false,
+        speed: 40,
+        size_min: 0.1,
+        sync: false,
+      },
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: '#ffffff',
+      opacity: 0.4,
+      width: 1,
+    },
+    move: {
+      enable: true,
+      speed: 6,
+      direction: 'none',
+      random: false,
+      straight: false,
+      out_mode: 'out',
+      bounce: false,
+      attract: {
+        enable: false,
+        rotateX: 600,
+        rotateY: 1200,
+      },
+    },
+  },
+  interactivity: {
+    detect_on: 'canvas',
+    events: {
+      onhover: {
+        enable: true,
+        mode: 'grab',
+      },
+      onclick: {
+        enable: true,
+        mode: 'push',
+      },
+      resize: true,
+    },
+    modes: {
+      grab: {
+        distance: 400,
+        line_linked: {
+          opacity: 1,
+        },
+      },
+      bubble: {
+        distance: 400,
+        size: 40,
+        duration: 2,
+        opacity: 8,
+        speed: 3,
+      },
+      repulse: {
+        distance: 200,
+        duration: 0.4,
+      },
+      push: {
+        particles_nb: 4,
+      },
+      remove: {
+        particles_nb: 2,
+      },
+    },
+  },
+  retina_detect: true,
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Carregamento dinâmico da imagem do usuário
+  fetch('https://api.example.com/user/image')
+    .then((response) => response.json())
+    .then((data) => {
+      const imgUser = document.querySelector('.img-user img');
+      imgUser.src = data.imageUrl;
+      imgUser.alt = data.userName;
+    })
+    .catch((error) => {
+      console.error('Erro ao obter imagem do usuário:', error);
+    });
+
+  // Animação de carregamento inicial com ícone
+  const loadingText = document.getElementById('loading-text');
+  const loading = document.getElementById('loading');
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    if (progress >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        loading.style.display = 'none';
+      }, 500);
+    } else {
+      progress++;
+      loadingText.innerText = `${progress}%`;
+    }
+  }, 10);
+
+  // Abrir links das redes sociais em novas abas
+  const socialLinks = document.querySelectorAll('.box-social');
+
+  socialLinks.forEach((link) => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      const url = this.href;
+      window.open(url, '_blank');
+    });
   });
 
-  // Fechar o menu ao clicar em um link
-  $('.nav-bar ul li a').click(function () {
-    $('.hamburger-menu').removeClass('active');
-    $('.nav-bar').removeClass('active');
-    $(document).off('click.closeMenu'); // Remove o listener ao fechar manualmente
+  // Manipulação do formulário de contato
+  const contactForm = document.getElementById('contactForm');
+
+  contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    // Validar se todos os campos estão preenchidos
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    if (!name || !email || !message) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    // Enviar dados do formulário
+    fetch('https://formspree.io/f/xblrdolo', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Mensagem enviada com sucesso:', data);
+        alert('Mensagem enviada com sucesso!');
+        contactForm.reset(); // Limpar o formulário após o envio
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar mensagem:', error);
+        alert(
+          'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.',
+        );
+      });
   });
 });

@@ -5,7 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-        
+  <meta name="description"
+        content="Entre em contato com Thomas Eduardo para serviços de desenvolvimento web. Preencha o formulário ou encontre nas redes sociais.">
+  <meta name="keywords"
+        content="contato, Thomas Eduardo, desenvolvimento web, formulário de contato, redes sociais">
+  <meta property="og:title"
+        content="Thomas Eduardo">
+  <meta property="og:description"
+        content="Desenvolvedor Frontend com experiência em HTML, CSS, JavaScript, e mais.">
+  <meta property="og:image"
+        content="./src/img/Perfil/perfil.jpg">
+  <meta property="og:url"
+        content="https://seusite.com">
   <title>Thomas Eduardo</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"
         rel="stylesheet">
@@ -14,430 +25,617 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet"
-        href="./src/css/styles.css"> <!-- Seu arquivo CSS personalizado -->
-        <link rel="stylesheet"
-              href="./src/css/respon.css"> <!-- Seu arquivo CSS personalizado -->
-  <!-- Owl Carousel CSS -->
+        href="./src/css/styles.css">
+  <link rel="stylesheet"
+        href="./src/css/respon.css">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-  
+  <link rel="icon"
+        href="./src/img/favicon.ico"
+        type="image/x-icon">
+          <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          <link rel="stylesheet"
+                href="./assets/css/styles.css">
+          <link rel="shortcut icon"
+                href="./assets/img/icons/favicon.svg"
+                type="image/x-icon">
+          
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
-<body>
 <header class="header">
-  <div class="container"
-       data-aos="fade-right">
+
+  <div id="loading">
+    <div id="loading-bar">
+      <img src="./assets/img/perfil/block.svg"
+           alt="">
+      <div id="loading-text">Carregando...</div>
+    </div>
+  </div>
+  
+  
+  <div id="particles-js"></div>
+  <div class="container">
+    <!-- Logo -->
     <div class="logo"
          id="logo">
-      <img src="./src/img/Perfil/logo.svg"
-           alt="user-profile">
-    </div>
-    <div class="hamburger-menu">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-    <div class="nav-bar-container">
-      <nav class="nav-bar">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
-      </nav>
+      <a href="#home"
+         aria-label="Ir para a página inicial">
+        <img src="./src/img/Perfil/perfil.jpg"
+             alt="Logo de Thomas Eduardo">
+      </a>
     </div>
 
-    <nav class="nav-bar">
+    <!-- Navegação Desktop -->
+    <nav class="desktop-nav"
+         aria-label="Navegação principal">
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">Sobre</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- Menu Hamburger -->
+    <div class="hamburger-menu"
+         id="hamburger-menu"
+         aria-label="Menu móvel">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <!-- Navegação Móvel -->
+    <nav class="mobile-nav"
+         id="mobile-nav"
+         aria-label="Navegação móvel">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#services">Serviços</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
         <li><a href="#contact">Contato</a></li>
       </ul>
     </nav>
   </div>
 </header>
+<button id="scroll-to-top"
+        aria-label="Voltar ao topo">
+  ↑
+</button>
 
-
-  <section class="section-inicial">
-    <div class="user-profile"
-         data-aos="fade-right"
-         data-aos-duration="1000"
-         data-aos-delay="300">
-      <img src="./src/img/Perfil/perfil.jpg"
-           alt="user-profile">
-      <div class="title">
-        <h1 class="animate__animated animate__fadeInDown">Thomas Eduardo</h1>
-        <div class="typing-text">Desenvolvedor Frontend</div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam voluptas sequi at. Exercitationem
-          quos eaque natus iure labore aliquam. Recusandae ut quae porro explicabo maxime cumque quisquam. Eum,
-          laudantium temporibus.
-        </p>
-      </div>
+<section class="section-inicial">
+  <div class="user-profile"
+       data-aos="fade-right"
+       data-aos-duration="1000"
+       data-aos-delay="300">
+    <img src="./src/img/Perfil/perfil.jpg"
+         alt="user-profile">
+    <div class="title">
+      <h1>Thomas Eduardo</h1>
+      <div class="typing-text">Desenvolvedor Frontend</div>
+      <p class="summary">
+        Desenvolvedor Frontend Junior com experiência em HTML, CSS e JavaScript (incluindo React e Node.js). Iniciei minha carreira com foco em Computação em Nuvem na AWS e, nos últimos 8 meses, desenvolvi habilidades em Python e PHP. Atualmente, foco na criação de interfaces intuitivas e acessíveis, sempre buscando inovações para otimizar a experiência do usuário.
+      </p>
     </div>
+  </div>
 
-    <!-- Ícones das redes sociais abaixo do parágrafo -->
-    <div class="social-icons"
-         data-aos="fade-up">
-      <a class="box-social instagram"
-         href="https://www.instagram.com/thomas.fromtend/"
-         target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a class="box-social github"
-         href="https://github.com/devthmedu"
-         target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-      <a class="box-social linkedin"
-         href="https://www.linkedin.com/in/thmedu/"
-         target="_blank">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-      <a class="box-social discord"
-         href="https://discord.gg/seu-servidor-discord"
-         target="_blank">
-        <i class="fab fa-discord"></i>
-      </a>
-    </div>
-  </section>
-
-  <section class="about"
-           id="about">
-    <div class="title-section"  data-aos="zoom-in-down">
-      <div class="section-title">Sobre Mim</div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <div class="info-block"
-             data-aos="fade-right">
-          <div class="ci-icon">
-            <i class="fas fa-desktop"></i>
-          </div>
-          <div class="ci-text">
-            <h4>Web Responsivo</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sapiente totam iusto eligendi vel.
-              Nesciunt id voluptatibus voluptates cupiditate doloribus pariatur sit, explicabo commodi magni placeat
-              minus debitis molestiae sunt.</p>
-          </div>
-        </div>
-
-        <div class="info-block"
-             data-aos="fade-down-right">
-          <div class="ci-icon">
-            <i class="fas fa-user-check"></i>
-          </div>
-          <div class="ci-text">
-            <h4>Experiência do Usuário</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, debitis reiciendis. Quidem repellendus
-              modi possimus consequuntur odit pariatur quaerat, necessitatibus laborum excepturi esse, deleniti dolores
-              aliquam ad aliquid nulla placeat.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col">
-        <div class="info-block"
-             data-aos="fade-up-left">
-          <div class="ci-icon">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <div class="ci-text">
-            <h4>Automação</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus inventore temporibus
-              aspernatur blanditiis. Pariatur corrupti ipsum debitis iusto perspiciatis quidem adipisci sunt quisquam,
-              vel culpa delectus architecto nostrum, officia quia?</p>
-          </div>
-        </div>
-
-        <div class="info-block"
-             data-aos="fade-down-left">
-          <div class="ci-icon">
-            <i class="fas fa-tasks"></i>
-          </div>
-          <div class="ci-text">
-            <h4>Implementações</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia dolor repellendus, ratione maxime
-              explicabo corporis doloribus, sapiente libero fuga atque sequi. Libero asperiores velit, vitae suscipit
-              similique molestiae laudantium rerum.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="skills"
-           data-aos="zoom-in-down">
-    <div class="title-section">
-      <div class="section-title">Skills</div>
-    </div>
-
-    <div class="owl-carousel skill-carousel"
-         id="skill-carousel">
-      <div class="skill-box">
-        <img src="./src/img/skill/angular.svg"
-             alt="Angular">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/bootstrap.svg"
-             alt="Bootstrap">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/git.svg"
-             alt="Git">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/js.svg"
-             alt="JavaScript">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/babel.svg"
-             alt="JavaScript">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/figma.svg"
-             alt="JavaScript">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/vitejs.svg"
-             alt="Vite.js">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/reactbootstrap.svg"
-             alt="React Bootstrap">
-      </div>
-      <div class="skill-box">
-        <img src="./src/img/skill/node.svg"
-             alt="Node.js">
-      </div>
-    </div>
-  </section>
-
-  <section class="portfolio"
-           id="portfolio"
-           data-aos="fade-down"
-           data-aos-easing="linear"
-           data-aos-duration="1500">
-    <div class="title-section">
-      <div class="section-title">Portfólio</div>
-    </div>
-
-    <div class="portfolio-item"
-         data-aos="zoom-out-up"
-         id="portfolio-item-1">
-      <img src="./src/projetos/Animais Fantasticos.jpg"
-           alt="Projeto 1"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>Animais Fantasticos</h3>
-        <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
-        <div class="description">
-          <p>Descrição do projeto 1.</p>
-          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
-        </div>
-        <a href="#"
-           class="portfolio-item-link">Ver Projeto</a>
-      </div>
-      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-    </div>
-
-    <div class="portfolio-item"
-         data-aos="zoom-out-down"
-         id="portfolio-item-2">
-      <img src="./src/projetos/Red Pets .jpg"
-           alt="Projeto 2"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>Red Pets</h3>
-        <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
-        <div class="description">
-          <p>Descrição do projeto 2.</p>
-          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
-        </div>
-        <a href="#"
-           class="portfolio-item-link">Ver Projeto</a>
-      </div>
-      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-    </div> 
-
-    <div class="portfolio-item"
-         data-aos="zoom-out-up"
-         id="portfolio-item-1">
-      <img src="./src/projetos/The Cofee.jpg"
-           alt="Projeto 3"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>The Cofee</h3>
-        <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
-        <div class="description">
-          <p>Descrição do projeto 1.</p>
-          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
-        </div>
-        <a href="#"
-           class="portfolio-item-link">Ver Projeto</a>
-      </div>
-      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-    </div>
-    
-    <div class="portfolio-item"
-         data-aos="zoom-out-down"
-         id="portfolio-item-2">
-      <img src="./src/projetos/Luxe Barbershop.jpg"
-           alt="Projeto 4"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>Luxe Barbershop</h3>
-        <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
-        <div class="description">
-          <p>Descrição do projeto 2.</p>
-          <p>Detalhes: detalhe 1, detalhe 2, detalhe 3</p>
-        </div>
-        <a href="#"
-           class="portfolio-item-link">Ver Projeto</a>
-      </div>
-      <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
-    </div>
-  </section>
-
-  <section class="services"
-           id="services" data-aos="fade-down-left">
-    <div class="section-title">Serviços</div>
-    <div class="services-wrapper">
-      <div class="service-item" data-aos="fade-right">
-        <i class="fas fa-laptop" id="service-icon"></i>
-        <h3>Desenvolvimento Web</h3>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-      </div>
-  
-      <div class="service-item" data-aos="fade-up-left">
-        <i class="fas fa-chart-line" id="service-icon"></i>
-        <h3>Otimização SEO</h3>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-      </div>
-  
-      <div class="service-item last-item" data-aos="fade-right">
-        <i class="fas fa-cog" id="service-icon"></i>
-        <h3>Manutenção de Sistemas</h3>
-        <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
-      </div>
-      <div class="orcamento" data-aos="fade-down-left">
-        <a href="#"
-           class="btn-solicitar">Solicite Orçamento</a>
-      </div>
-    </div>
-  </section>
-<section class="contact"
-         id="contact" data-aos="zoom-out-down" >
- 
-    <div class="section-title" data-aos="fade-down-right" >Contato</div>
-    <div class="contact-content">
-      <div class="contact-info">
-        <div class="social-icons-form" data-aos="zoom-in-left">
-          <a class="box-social-form instagram"
-             href="https://www.instagram.com/thomas.fromtend/"
-             target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a class="box-social-form  github"
-             href="https://github.com/devthmedu"
-             target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <a class="box-social-form linkedin"
-             href="https://www.linkedin.com/in/thmedu/"
-             target="_blank">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a class="box-social-form  discord"
-             href="https://discord.gg/seu-servidor-discord"
-             target="_blank">
-            <i class="fab fa-discord"></i>
-          </a>
-        </div>
-      </div>
-      <div class="contact-form" data-aos="zoom-out-down">
-        <form action="#"
-              method="POST">
-          <div class="form-group">
-            <input type="text"
-                   name="name"
-                   id="name"
-                   placeholder="Seu nome"
-                   required>
-          </div>
-          <div class="form-group">
-            <input type="email"
-                   name="email"
-                   id="email"
-                   placeholder="Seu e-mail"
-                   required>
-          </div>
-          <div class="form-group">
-            <textarea name="message"
-                      id="message"
-                      rows="5"
-                      placeholder="Sua mensagem"
-                      required></textarea>
-          </div>
-          <div class="form-group" data-aos="flip-right">
-            <button type="submit"
-                    class="btn-submit">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </div>
+  <!-- Ícones das redes sociais -->
+  <div class="social-icons">
+    <a class="social-icon instagram"
+       href="https://www.instagram.com/thomas.fromtend/"
+       target="_blank"
+       aria-label="Instagram de Thomas Eduardo">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a class="social-icon github"
+       href="https://github.com/devthmedu"
+       target="_blank"
+       aria-label="GitHub de Thomas Eduardo">
+      <i class="fab fa-github"></i>
+    </a>
+    <a class="social-icon linkedin"
+       href="https://www.linkedin.com/in/thmedu/"
+       target="_blank"
+       aria-label="LinkedIn de Thomas Eduardo">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a class="social-icon discord"
+       href="https://discord.gg/seu-servidor-discord"
+       target="_blank"
+       aria-label="Discord de Thomas Eduardo">
+      <i class="fab fa-discord"></i>
+    </a>
+  </div>
 </section>
 
 
 
-<footer class="footer">
-    <div class="footer-bottom">
-      <p>&copy; 2024. Todos os direitos reservados a Thomas Eduardo.</p>
+
+
+<section class="about"
+         id="about">
+  <div class="title-section">
+    <h2 class="section-title">Sobre Mim</h2>
   </div>
-</footer>
+
+  <div class="row">
+    <div class="col">
+      <div class="info-block"
+           data-aos="fade-up">
+        <div class="ci-icon">
+          <i class="fas fa-desktop"></i>
+        </div>
+        <div class="ci-text">
+          <h4>Desenvolvimento Frontend</h4>
+          <p>Especializado em criar interfaces web dinâmicas e responsivas com HTML, CSS e JavaScript, transformando ideias em experiências interativas e funcionais.</p>
+        </div>
+      </div>
+
+      <div class="info-block"
+           data-aos="fade-up">
+        <div class="ci-icon">
+          <i class="fas fa-user-check"></i>
+        </div>
+        <div class="ci-text">
+          <h4>Experiência do Usuário</h4>
+          <p>Proporciono uma experiência do usuário fluida e intuitiva, com interfaces visualmente agradáveis e acessíveis para todos os usuários.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="info-block"
+           data-aos="fade-up">
+        <div class="ci-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <div class="ci-text">
+          <h4>Automatização e Eficiência</h4>
+          <p>Desenvolvo soluções com automação e eficiência, utilizando Python e ferramentas como Selenium para otimizar processos e melhorar a produtividade.</p>
+        </div>
+      </div>
+
+      <div class="info-block"
+           data-aos="fade-up">
+        <div class="ci-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
+        <div class="ci-text">
+          <h4>Inovação e Implementação</h4>
+          <p>Busco implementar ideias inovadoras, explorando novas tecnologias e criando soluções criativas que ofereçam valor real aos usuários finais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="./src/js/script.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#skill-carousel").owlCarousel({
-        loop: true,
-        margin: 20,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        responsive: {
-          0: {
-            items: 2
-          },
-          600: {
-            items: 4
-          },
-          1000: {
-            items: 6
-          }
+
+<section class="skills"
+         data-aos="zoom-in-down">
+  <div class="title-section">
+    <div class="section-title">Skills</div>
+  </div>
+
+  <div class="owl-carousel skill-carousel"
+       id="skill-carousel">
+    <div class="skill-box">
+      <img src="./src/img/skill/angular.svg"
+           alt="Angular">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/bootstrap.svg"
+           alt="Bootstrap">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/git.svg"
+           alt="Git">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/js.svg"
+           alt="JavaScript">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/babel.svg"
+           alt="Babel">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/figma.svg"
+           alt="Figma">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/vitejs.svg"
+           alt="Vite.js">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/reactbootstrap.svg"
+           alt="React Bootstrap">
+    </div>
+    <div class="skill-box">
+      <img src="./src/img/skill/node.svg"
+           alt="Node.js">
+    </div>
+  </div>
+</section>
+
+<section class="certificates-education"
+         id="certificates">
+  <div class="title-section"
+       data-aos="zoom-in-down">
+    <div class="section-title">Certificados</div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://ada.tech/certificado?code=dc7b1471-5127-820b-390c-41144fc46cdf"
+           target="_blank"
+           rel="noopener noreferrer">API Rest</a></h4>
+      <p>Certificado em API Rest pela ADA Tech.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="100">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://ada.tech/certificado?code=ae13798b-2afc-a64a-a72f-239fa498ea11"
+           target="_blank"
+           rel="noopener noreferrer">Figma para Devs</a></h4>
+      <p>Certificado em Figma para desenvolvedores pela ADA Tech.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="200">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://ada.tech/certificado?code=c72a7d09-dbea-846f-3181-392317851a61"
+           target="_blank"
+           rel="noopener noreferrer">Git e Versionamento</a></h4>
+      <p>Certificado em Git e Versionamento pela ADA Tech.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="300">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://www.credly.com/badges/c30c9bd7-0fb6-4dd2-94b8-df24db6a4cc1/linked_in_profile"
+           target="_blank"
+           rel="noopener noreferrer">Credly</a></h4>
+      <p>Certificado da Credly disponível em LinkedIn.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="400">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://aulas.cubos.academy/certificado/da792443-d836-4717-b561-86b9f7f52d7d/cursos/c82116c7-c040-43d8-af32-76227fda57a8"
+           target="_blank"
+           rel="noopener noreferrer">TypeScript</a></h4>
+      <p>Certificado em TypeScript pela Cubos Academy.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="500">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://aulas.cubos.academy/certificado/e5e4b580-8280-4994-852e-dc0d603d963e/cursos/bc25d9d5-a358-445a-a2e8-8ae67dbc3257"
+           target="_blank"
+           rel="noopener noreferrer">Desenvolvimento de Software</a></h4>
+      <p>Certificado em Desenvolvimento de Software pela Cubos Academy.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="600">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://aulas.cubos.academy/certificado/ebe7f993-91ff-4842-a32b-37295621fafe/cursos/5711291b-0050-41c8-8621-d9a481a80a24"
+           target="_blank"
+           rel="noopener noreferrer">Integração - Sist. de Votação em Reality Show</a></h4>
+      <p>Certificado em Integração de Sistemas de Votação em Reality Show pela Cubos Academy.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="700">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://www.dio.me/certificate/K0IL2RXN/share"
+           target="_blank"
+           rel="noopener noreferrer">Certificação DIO 1</a></h4>
+      <p>Certificação DIO 1.</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="800">
+    <div class="icon"><i class="fas fa-certificate"></i></div>
+    <div class="info">
+      <h4><a href="https://www.dio.me/certificate/Eg5gsOcG/share"
+           target="_blank"
+           rel="noopener noreferrer">Certificação DIO 2</a></h4>
+      <p>Certificação DIO 2.</p>
+    </div>
+  </div>
+</section>
+
+<section class="education"
+         id="education">
+  <div class="title-section"
+       data-aos="zoom-in-down">
+    <div class="section-title">Educação</div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up">
+    <div class="icon"><img src="./src/img/icons/education.png"
+           alt="Educação" /></div>
+    <div class="info">
+      <h4>Graduado em Ciência da Computação</h4>
+      <p>Universidade XYZ, 2015 - 2019</p>
+    </div>
+  </div>
+
+  <div class="item"
+       data-aos="fade-up"
+       data-aos-delay="100">
+    <div class="icon"><img src="./src/img/icons/education.png"
+           alt="Educação" /></div>
+    <div class="info">
+      <h4>Curso de Análise e Desenvolvimento de Sistemas</h4>
+      <p>Instituto ABC, 2020 - 2021</p>
+    </div>
+  </div>
+
+  <!-- Adicione mais itens de educação conforme necessário -->
+</section>
+<section class="portfolio"
+         id="portfolio"
+         data-aos="fade-down"
+         data-aos-easing="linear"
+         data-aos-duration="1500">
+  <div class="title-section">
+    <div class="section-title">Portfólio</div>
+  </div>
+
+  <div class="portfolio-item"
+       data-aos="zoom-out-up"
+       id="portfolio-item-1">
+    <img src="./src/projetos/Animais Fantasticos.jpg"
+         alt="Projeto Animais Fantásticos"
+         class="img-projeto">
+    <div class="portfolio-item-info">
+      <h3>Animais Fantásticos</h3>
+      <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
+      <div class="description">
+        <p>O projeto Animais Fantásticos foi desenvolvido como parte do curso de JavaScript da Origamid. Ele é um site interativo que permite explorar informações detalhadas sobre diferentes criaturas fantásticas.</p>
+        <p>Funcionalidades: Interface interativa, detalhes de criaturas, design responsivo.</p>
+      </div>
+      <a href="#"
+         class="portfolio-item-link"
+         target="_blank"
+         rel="noopener noreferrer">Ver Projeto</a>
+    </div>
+    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
+  </div>
+
+  <div class="portfolio-item"
+       data-aos="zoom-out-down"
+       id="portfolio-item-2">
+    <img src="./src/projetos/Red Pets .jpg"
+         alt="Projeto Rede Pets"
+         class="img-projeto">
+    <div class="portfolio-item-info">
+      <h3>Rede Pets</h3>
+      <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
+      <div class="description">
+        <p>O projeto Rede Pets visa criar uma plataforma interativa para amantes de animais de estimação, oferecendo uma experiência envolvente e funcional aos usuários.</p>
+        <p>Funcionalidades: Perfil de usuário, interação social, informações sobre pets.</p>
+      </div>
+      <a href="#"
+         class="portfolio-item-link"
+         target="_blank"
+         rel="noopener noreferrer">Ver Projeto</a>
+    </div>
+    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
+  </div>
+
+  <div class="portfolio-item"
+       data-aos="zoom-out-up"
+       id="portfolio-item-3">
+    <img src="./src/projetos/The Cofee.jpg"
+         alt="Projeto The Coffee"
+         class="img-projeto">
+    <div class="portfolio-item-info">
+      <h3>The Coffee</h3>
+      <p class="technologies"><i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i></p>
+      <div class="description">
+        <p>O projeto The Coffee foi desenvolvido para demonstrar habilidades avançadas em desenvolvimento web, focando em uma aplicação de cafeteria com menu, endereço, sobre e carrinho de compras.</p>
+        <p>Funcionalidades: Cardápio dinâmico, sistema de pedido online, informações da loja.</p>
+      </div>
+      <a href="#"
+         class="portfolio-item-link"
+         target="_blank"
+         rel="noopener noreferrer">Ver Projeto</a>
+    </div>
+    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
+  </div>
+
+  <div class="portfolio-item"
+       data-aos="zoom-out-down"
+       id="portfolio-item-4">
+    <img src="./src/projetos/Luxe Barbershop.jpg"
+         alt="Projeto Luxe Barbershop"
+         class="img-projeto">
+    <div class="portfolio-item-info">
+      <h3>Luxe Barbershop</h3>
+      <p class="technologies"><i class="fab fa-python"></i> <i class="fab fa-bootstrap"></i></p>
+      <div class="description">
+        <p>O projeto Luxe Barbershop tem como objetivo melhorar o atendimento ao cliente de uma barbearia, apresentando serviços oferecidos e permitindo agendamentos através de API e WhatsApp.</p>
+        <p>Funcionalidades: Agendamento online, listagem de serviços, integração com redes sociais.</p>
+      </div>
+      <a href="#"
+         class="portfolio-item-link"
+         target="_blank"
+         rel="noopener noreferrer">Ver Projeto</a>
+    </div>
+    <div class="portfolio-item-arrow"><i class="fas fa-chevron-down"></i></div>
+  </div>
+</section>
+<section class="services"
+         id="services"
+         <div
+         class="title-section"
+         data-aos="zoom-in-down">
+  <div class="section-title">Serviços</div>
+
+  <div class="services-wrapper">
+    <div class="service-item"
+         data-aos="fade-right">
+      <i class="fas fa-laptop"
+         id="service-icon"></i>
+      <h3>Desenvolvimento Web</h3>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+    </div>
+
+    <div class="service-item"
+         data-aos="fade-up-left">
+      <i class="fas fa-chart-line"
+         id="service-icon"></i>
+      <h3>Otimização SEO</h3>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+    </div>
+
+    <div class="service-item last-item"
+         data-aos="fade-right">
+      <i class="fas fa-cog"
+         id="service-icon"></i>
+      <h3>Manutenção de Sistemas</h3>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+      <p><i class="fas fa-check-circle check-mark"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, placeat.</p>
+    </div>
+    <div class="orcamento"
+         data-aos="fade-down-left">
+      <a href="#"
+         class="btn-solicitar">Solicite Orçamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Contato -->
+<section class="contact"
+         id="contact">
+  <div class="title-section"
+       data-aos="zoom-in-down">
+    <div class="section-title">Contato</div>
+  </div>
+
+  <div class="contact-content">
+    <div class="contact-info"
+         data-aos="fade-up">
+      <p>Olá! Estou sempre disponível para projetos, colaborações ou apenas um bate-papo.</p>
+      <p>Email: thomas.nascimento@example.com</p>
+      <p>Telefone: (19) 9 9904-2072</p>
+      <p>Endereço: Av. Lins de Vasconcelos, Cambuci - São Paulo</p>
+    </div>
+
+    <div class="contact-form"
+         data-aos="fade-up">
+      <form id="contact-form"
+            action="#">
+        <div class="form-group">
+          <input type="text"
+                 name="name"
+                 id="name"
+                 placeholder="Seu Nome"
+                 required>
+        </div>
+        <div class="form-group">
+          <input type="email"
+                 name="email"
+                 id="email"
+                 placeholder="Seu Email"
+                 required>
+        </div>
+        <div class="form-group">
+          <textarea name="message"
+                    id="message"
+                    cols="30"
+                    rows="10"
+                    placeholder="Sua Mensagem"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit"
+                  class="btn-submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Seção de Rodapé -->
+  <footer class="footer"
+          id="footer">
+    <p>&copy; 2024 Thomas Eduardo. Todos os direitos reservados.</p>
+  </footer>
+</section>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="./src/js/script.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#skill-carousel").owlCarousel({
+      loop: true,
+      margin: 20,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      responsive: {
+        0: {
+          items: 2
+        },
+        600: {
+          items: 4
+        },
+        1000: {
+          items: 6
         }
-      });
-
-      AOS.init();
+      }
     });
-  </script>
+
+    AOS.init();
+  });
+</script>
 </body>
 
 </html>
