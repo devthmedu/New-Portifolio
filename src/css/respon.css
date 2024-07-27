@@ -1,0 +1,320 @@
+/* Responsividade para dispositivos móveis pequenos (até 480px) */
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem; /* Reduz o padding no cabeçalho */
+    }
+
+    .logo img {
+        width: 40px; /* Reduz o tamanho da logo */
+    }
+
+    .desktop-nav {
+        display: none; /* Oculta a navegação desktop */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Exibe o menu hamburguer */
+    }
+
+    .mobile-nav {
+        font-size: 1rem; /* Ajusta o tamanho da fonte da navegação móvel */
+    }
+
+    .user-profile {
+        flex-direction: column; /* Alinha a imagem e o texto em coluna */
+        padding: 1rem; /* Adiciona padding */
+    }
+
+    .user-profile img {
+        width: 200px; /* Ajusta o tamanho da imagem de perfil */
+        height: 200px; /* Ajusta a altura da imagem de perfil */
+    }
+
+    .profile-text h1 {
+        font-size: 1.8rem; /* Ajusta o tamanho do título */
+    }
+
+    .job-title {
+        font-size: 1.4rem; /* Ajusta o tamanho do título do trabalho */
+    }
+
+    .summary {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte do resumo */
+    }
+
+    .typing-text {
+        font-size: 1.4rem; /* Ajusta o tamanho da fonte da animação de digitação */
+    }
+
+    .section-inicial {
+        padding: 4rem 2rem; /* Ajusta o padding da seção inicial */
+    }
+}
+
+/* Responsividade para dispositivos móveis grandes e tablets (até 768px) */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem; /* Reduz o padding no cabeçalho */
+    }
+
+    .logo img {
+        width: 50px; /* Ajusta o tamanho da logo */
+    }
+
+    .desktop-nav {
+        display: none; /* Oculta a navegação desktop */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Exibe o menu hamburguer */
+    }
+
+    .mobile-nav {
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte da navegação móvel */
+    }
+
+    .user-profile {
+        flex-direction: column; /* Alinha a imagem e o texto em coluna */
+        padding: 2rem; /* Adiciona padding */
+    }
+
+    .user-profile img {
+        width: 300px; /* Ajusta o tamanho da imagem de perfil */
+        height: 300px; /* Ajusta a altura da imagem de perfil */
+    }
+
+    .profile-text h1 {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
+
+    .job-title {
+        font-size: 1.5rem; /* Ajusta o tamanho do título do trabalho */
+    }
+
+    .summary {
+        font-size: 1.1rem; /* Ajusta o tamanho da fonte do resumo */
+    }
+
+    .typing-text {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte da animação de digitação */
+    }
+
+    .section-inicial {
+        padding: 5rem 2rem; /* Ajusta o padding da seção inicial */
+    }
+}
+
+/* Responsividade para telas de desktop pequenas (até 992px) */
+@media (max-width: 992px) {
+    .header {
+        padding: 1.5rem; /* Ajusta o padding no cabeçalho */
+    }
+
+    .logo img {
+        width: 55px; /* Ajusta o tamanho da logo */
+    }
+
+    .desktop-nav {
+        display: none; /* Oculta a navegação desktop */
+    }
+
+    .hamburger-menu {
+        display: flex; /* Exibe o menu hamburguer */
+    }
+
+    .mobile-nav {
+        font-size: 1.3rem; /* Ajusta o tamanho da fonte da navegação móvel */
+    }
+
+    .user-profile {
+        flex-direction: column; /* Alinha a imagem e o texto em coluna */
+        padding: 3rem; /* Adiciona padding */
+    }
+
+    .user-profile img {
+        width: 400px; /* Ajusta o tamanho da imagem de perfil */
+        height: 400px; /* Ajusta a altura da imagem de perfil */
+    }
+
+    .profile-text h1 {
+        font-size: 2.2rem; /* Ajusta o tamanho do título */
+    }
+
+    .job-title {
+        font-size: 1.6rem; /* Ajusta o tamanho do título do trabalho */
+    }
+
+    .summary {
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte do resumo */
+    }
+
+    .typing-text {
+        font-size: 1.6rem; /* Ajusta o tamanho da fonte da animação de digitação */
+    }
+
+    .section-inicial {
+        padding: 6rem 3rem; /* Ajusta o padding da seção inicial */
+    }
+}
+/* Responsividade geral */
+@media (max-width: 1200px) {
+    .about {
+        padding: 10rem 15rem; /* Reduz o padding para telas menores */
+    }
+}
+
+@media (max-width: 992px) {
+    .about {
+        padding: 8rem 10rem; /* Reduz o padding ainda mais */
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 6rem 5rem; /* Reduz o padding para dispositivos móveis */
+    }
+    
+    .row {
+        flex-direction: column; /* Empilha colunas verticalmente */
+        gap: 2rem; /* Ajusta o espaçamento entre as colunas */
+    }
+
+    .col {
+        flex: 1 1 100%; /* Colunas ocupam 100% da largura */
+        max-width: 100%;
+    }
+
+    .info-block {
+        max-width: 100%;
+        padding: 3rem; /* Reduz o padding interno */
+        margin-bottom: 2rem; /* Ajusta o espaçamento inferior */
+    }
+
+    .ci-icon {
+        font-size: 3rem; /* Reduz o tamanho dos ícones */
+        width: 150px; /* Ajusta a largura dos ícones */
+        height: 90px; /* Ajusta a altura dos ícones */
+    }
+
+    .ci-text h4 {
+        font-size: 1.5rem; /* Reduz o tamanho do texto */
+        margin-bottom: 0.5rem; /* Ajusta a margem inferior */
+    }
+
+    .ci-text p {
+        font-size: 0.9rem; /* Reduz o tamanho do texto */
+        line-height: 1.6; /* Ajusta o espaçamento entre linhas */
+    }
+}
+
+@media (max-width: 576px) {
+    .about {
+        padding: 4rem 2rem; /* Reduz o padding para telas muito pequenas */
+    }
+
+    .ci-icon {
+        font-size: 2rem; /* Reduz o tamanho dos ícones para telas pequenas */
+        width: 100px; /* Ajusta a largura dos ícones */
+        height: 60px; /* Ajusta a altura dos ícones */
+    }
+
+    .ci-text h4 {
+        font-size: 1.25rem; /* Reduz o tamanho do texto */
+        margin-bottom: 0.25rem; /* Ajusta a margem inferior */
+    }
+
+    .ci-text p {
+        font-size: 0.85rem; /* Reduz o tamanho do texto */
+        line-height: 1.5; /* Ajusta o espaçamento entre linhas */
+    }
+}
+
+/* Responsividade específica para carrosséis */
+@media (max-width: 708px) {
+    .skill-carousel {
+        flex-direction: column; /* Empilha itens do carrossel verticalmente */
+    }
+
+    .skill-carousel .owl-item {
+        margin-bottom: 20px; /* Ajusta o espaçamento entre itens */
+    }
+}
+
+@media (max-width: 408px) {
+    .section-title {
+        font-size: 1.6rem; /* Reduz o tamanho do título */
+    }
+
+    .skill-box {
+        padding: 10px; /* Reduz o padding interno */
+    }
+
+    .skill-box img {
+        max-width: 50%; /* Reduz a largura da imagem */
+    }
+}
+/* Responsividade do título da seção */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* Responsividade para a seção de portfólio */
+@media (max-width: 768px) {
+  .portfolio-item {
+    max-width: 300px; /* Ajustado para telas menores */
+  }
+
+  .portfolio-item .img-projeto {
+    height: 200px; /* Ajustado para telas menores */
+  }
+
+  .portfolio .title-section .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-item {
+    max-width: 100%; /* Ajustado para ocupação total em dispositivos pequenos */
+  }
+
+  .portfolio-item .img-projeto {
+    height: 150px; /* Ajustado para telas menores */
+  }
+}
+
+/* Responsividade para a seção de serviços */
+@media (max-width: 768px) {
+  .services-wrapper {
+    gap: 30px; /* Ajustado para melhor visualização em telas menores */
+  }
+
+  .service-item {
+    max-width: 100%; /* Ajustado para ocupação total em dispositivos pequenos */
+  }
+}
+
+/* Responsividade para o botão de orçamento */
+@media (max-width: 768px) {
+  .btn-solicitar {
+    padding: 12px 50px; /* Ajustado para melhor visualização em telas pequenas */
+  }
+}
+
+/* Responsividade para a seção de contato */
+@media (max-width: 768px) {
+  .contact-info p {
+    font-size: 1.5rem; /* Ajustado para melhor legibilidade em telas menores */
+  }
+}

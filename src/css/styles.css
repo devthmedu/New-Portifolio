@@ -17,7 +17,6 @@ body {
     padding: 0;
     overflow-x: hidden;
     position: relative; /* Para permitir a posição de elementos pseudo */
-    background-image: url("https://www.transparenttextures.com/patterns/use-your-illusion.png")
      linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); 
      background-color: #000;
 }
@@ -57,6 +56,89 @@ body::-webkit-scrollbar-thumb:hover {
 html {
   scroll-behavior: smooth; /* Ativa a rolagem suave em todos os navegadores que suportam */
 }
+/* Estilos para a tela de carregamento */
+/* Loading Screen */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.991); /* Cor de fundo com opacidade ajustada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que está acima de todos os outros elementos */
+    opacity: 0; /* Começa invisível */
+    animation: fadeInUp 0.6s ease-out forwards; /* Animação de fade-in e slide up */
+    transition: opacity 0.3s ease-out; /* Transição suave para visibilidade */
+}
+
+/* Animação de fade-in e slide-up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Se você usar um ícone de carregamento, adicione uma animação */
+#loading img {
+    width: 100px;
+    height: 100px;
+}
+
+/* Animação de rotação */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#loading-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--color-white);
+    position: fixed; /* Faz com que o elemento fique fixo na tela */
+    top: 50%; /* Posiciona o elemento verticalmente no centro da tela */
+    left: 50%; /* Posiciona o elemento horizontalmente no centro da tela */
+    transform: translate(-50%, -50%); /* Ajusta o elemento para que esteja exatamente no centro */
+    z-index: 1000; /* Garante que o carregamento esteja acima de outros conteúdos */
+}
+
+/* Estilos para as imagens no carregamento */
+#loading-bar img {
+    width: 50px;
+    height: 50px;
+    fill: white; /* Cor do ícone (não afeta a cor de imagens SVG; use `color` se necessário) */
+}
+
+/* Estilos para o texto de carregamento */
+#loading-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;  /* 100% da largura da viewport */
+  height: 100vh; /* 100% da altura da viewport */
+  z-index: -999; /* Coloca atrás de todo o conteúdo */
+  overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
+}
+
 
 .section-inicial,
 .user-profile,
@@ -258,21 +340,20 @@ html {
   position: fixed; /* Fica fixo na tela */
   bottom: 20px; /* Distância do fundo */
   right: 20px; /* Distância da direita */
-  width: 50px; /* Largura do botão */
-  height: 50px; /* Altura do botão */
-  background-color: #4a90e2; /* Cor de fundo */
+  width: 60px; /* Largura do botão */
+  height: 60px; /* Altura do botão */
+  background-color: #003572; /* Cor de fundo */
   color: #fff; /* Cor do texto */
   border: none; /* Remove a borda padrão */
   border-radius: 50%; /* Borda arredondada */
   display: flex; /* Flexbox para centralizar o ícone */
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem; /* Tamanho do texto */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
   cursor: pointer; /* Cursor de mão para indicar clicabilidade */
   transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
   opacity: 0; /* Começa invisível */
   transform: scale(0.8); /* Começa um pouco menor */
+  z-index: 999;
 }
 
 #scroll-to-top.show {
@@ -369,14 +450,13 @@ html {
 
 /* Estilo da imagem de perfil */
 .user-profile img {
-    width: 300px;
-    height: 300px;
-    border-radius: 100%; /* Forma circular */
+    width: 500px;
+    height: 500px;
+    border-radius: 50%; /* Forma circular */
     object-fit: cover; /* Ajusta a imagem para cobrir o container sem distorção */
-    box-shadow: 10px 8px 24px rgba(31, 31, 31, 0.333); /* Sombra suave para efeito de profundidade */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, border-color 0.3s ease; /* Transições suaves */
-    filter: brightness(1) contrast(1); /* Ajuste de brilho e contraste */
-    border: 8px solid transparent; /* Borda transparente para transição de cor */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, border-color 0.3s ease; 
+    filter: brightness(1) contrast(1); 
+    border: 1px solid transparent; 
     position: relative; /* Para o efeito de sobreposição */
 }
 
@@ -385,7 +465,7 @@ html {
     transform: scale(1.05); /* Efeito de zoom sutil */
     box-shadow: 0 12px 30px rgba(59, 59, 59, 0.25); /* Sombra mais intensa */
     filter: brightness(1.15) contrast(1.2); /* Aumenta o brilho e o contraste */
-    border-color: rgba(27, 27, 27, 0.5); /* Borda interna branca sutil ao passar o mouse */
+    border-color: rgba(136, 136, 136, 0.5); /* Borda interna branca sutil ao passar o mouse */
 }
 
 /* Título principal */
@@ -527,10 +607,9 @@ html {
 }
 
 .info-block {
-    background-color: #000000ad; /* Fundo com leve opacidade */
+    background-color: #24242470; /* Fundo com leve opacidade */
     padding: 5rem; /* Aumenta o padding para mais conforto */
-    border-radius: 25px; /* Aumenta o raio das bordas para arredondamento mais acentuado */
-    box-shadow: -4px 15px 15px -10px rgba(144, 144, 144, 0.32); /* Sombra mais pronunciada */
+    border-radius: 20px; /* Aumenta o raio das bordas para arredondamento mais acentuado */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center; /* Centraliza o texto */
     max-width: 700px; /* Aumenta a largura máxima */
@@ -539,38 +618,38 @@ html {
 
 .info-block:hover {
     transform: translateY(-12px); /* Efeito de elevação mais pronunciado */
-    box-shadow: -4px 15px 15px -10px rgba(20, 94, 255, 0.763); /* Sombra mais pronunciada ao passar o mouse */
+
 }
 
 .ci-icon {
     font-size: 4rem; /* Aumenta o tamanho dos ícones para mais visibilidade */
-    width: 100px; /* Ajusta o tamanho dos ícones */
-    height: 100px;
-    border-radius: 50%;
+    width: 220px; /* Ajusta o tamanho dos ícones */
+    height: 120px;
+    border-radius: 20%;
     color: #fff; /* Cor do ícone branca */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 3rem; /* Margem inferior ajustada para espaçamento */
+    margin: 0 auto 2rem; /* Margem inferior ajustada para espaçamento */
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .ci-icon:hover {
     transform: scale(1.2); /* Efeito de aumento mais acentuado */
-    background-color: #004494; /* Cor de fundo mais escura ao passar o mouse */
+    background-color: #00459400; /* Cor de fundo mais escura ao passar o mouse */
 }
 
 .ci-text h4 {
-    font-size: 1.6rem; /* Aumenta o tamanho do texto para destaque */
+    font-size: 2rem; /* Aumenta o tamanho do texto para destaque */
     margin-bottom: 1rem; /* Aumenta a margem inferior */
-    color: #e0e0e0; /* Cor do título mais clara para contraste */
+   color: #006aff; /* Cor do título mais clara para contraste */
     font-weight: 700; /* Fonte em negrito mais acentuado */
 }
 
 .ci-text p {
-    color: #e0e0e0; /* Cor do texto ajustada para boa legibilidade */
-    line-height: 1.8; /* Linha de altura ajustada para conforto de leitura */
-    font-size: 1.2rem; /* Tamanho da fonte aumentado */
+    color: #dbdbdb; /* Cor do texto ajustada para boa legibilidade */
+    line-height: 1.9; /* Linha de altura ajustada para conforto de leitura */
+    font-size: 1rem; /* Tamanho da fonte aumentado */
     margin-bottom: 0; /* Remove a margem inferior */
 }
 
@@ -663,9 +742,9 @@ html {
     display: flex;
     align-items: center;
     margin-bottom: 8px; /* Reduzi o espaçamento entre itens */
-    background-color: #00000000; /* Cor de fundo escura para contraste */
+     background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
     border-radius: 20px; /* Bordas levemente arredondadas */
-    border: 1px solid #c5c5c529; /* Define largura, estilo e cor da borda */
+    border: 1px solid #f1f1f148; /* Define largura, estilo e cor da borda */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
     padding: 15px; /* Padding reduzido */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -711,8 +790,8 @@ html {
 
 /* Estilos específicos para a seção de Educação */
 .education {
-    background-color: var(--color-black); /* Cor de fundo consistente com o projeto */
     padding: 50px 20px;
+    background-color: #000;
 }
 
 .education .title-section {
@@ -732,7 +811,7 @@ html {
     display: flex;
     align-items: center;
     margin-bottom: 15px; /* Reduzi o espaçamento entre itens */
-    background-color: #00000000; /* Cor de fundo escura para contraste */
+     background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
     border-radius: 20px; /* Bordas levemente arredondadas */
     border: 1px solid #c5c5c529; /* Define largura, estilo e cor da borda */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
@@ -742,7 +821,6 @@ html {
 
 .education .item:hover {
     transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
-    box-shadow: -2px  10px 10px -8px rgba(20, 94, 255, 0.763); /* Sombra mais pronunciada ao passar o mouse */
 }
 
 .education .item .icon {
@@ -829,11 +907,11 @@ html {
   height: 12px; /* Altura do ponto de navegação ajustada */
   margin: 0 8px; /* Espaçamento entre os pontos de navegação */
   border-radius: 50%; /* Borda arredondada */
-  background-color: #b0b0b0; /* Cor de fundo inicial dos pontos de navegação */
+  background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
   transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
 }
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 708px) {
   .skill-carousel {
     flex-direction: column; /* Empilha os itens em coluna em dispositivos menores */
   }
@@ -843,7 +921,7 @@ html {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 408px) {
   .section-title {
     font-size: 1.8rem; /* Reduz o tamanho do título para dispositivos menores */
   }
@@ -918,7 +996,6 @@ html {
   gap: 20px;
   justify-content: center;
   padding: 80px 20px; /* Padding ajustado para melhorar a responsividade */
-background-image: url("https://www.transparenttextures.com/patterns/snow.png");
   margin-bottom: 130px; /* Reduzi o espaçamento inferior */
 }
 
@@ -1051,7 +1128,6 @@ background-image: url("https://www.transparenttextures.com/patterns/snow.png");
 /* Estilos para a seção de serviços */
 .services {
   padding: 80px 20px; /* Ajuste do padding para uma melhor responsividade */
-  background-color: #000000;
   text-align: center;
   top: 180px;
 }
@@ -1067,7 +1143,7 @@ background-image: url("https://www.transparenttextures.com/patterns/snow.png");
 .service-item {
   width: 100%;
   max-width: 350px; /* Largura ajustada para melhor alinhamento */
-  background-color: rgba(110, 110, 110, 0.21); /* Melhor contraste com o fundo */
+  background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
   padding: 30px;
   border-radius: 20px; /* Borda arredondada mais sutil */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1083,11 +1159,12 @@ background-image: url("https://www.transparenttextures.com/patterns/snow.png");
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra ajustada ao passar o mouse */
 }
 
-.service-item i {
-  font-size: 3rem;
+.fa-solid  {
+  font-size: 1rem;
   color: #005fc4; /* Azul */
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
+
 
 .service-item h3 {
   font-size: 1.5rem; /* Tamanho do título reduzido para uma melhor escala */
