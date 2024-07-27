@@ -123,25 +123,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 10);
 
   // Abrir links das redes sociais em novas abas
-  const socialLinks = document.querySelectorAll('.box-social');
-
   socialLinks.forEach((link) => {
     link.addEventListener('click', function (event) {
       event.preventDefault();
-      const url = this.href;
-      window.open(url, '_blank');
+      window.open(this.href, '_blank');
     });
   });
 
   // Manipulação do formulário de contato
-  const contactForm = document.getElementById('contactForm');
-
-  contactForm.addEventListener('submit', function (event) {
+  contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
-    const formData = new FormData(this);
-
-    // Validar se todos os campos estão preenchidos
+    const formData = new FormData(contactForm);
     const name = formData.get('name');
     const email = formData.get('email');
     const message = formData.get('message');
@@ -151,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Enviar dados do formulário
     fetch('https://formspree.io/f/xblrdolo', {
       method: 'POST',
       body: formData,

@@ -1,41 +1,49 @@
 /* Importa a fonte Roboto do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
+
+
 /* Root Variables */
 :root {
-    --color-black: #000000;
+    --color-black: #000;
     --color-white: #c5c5c5;
-     --color-title: #c5c5c5;
-    --color-blue: #0077ff; /* Azul vibrante */
-    --color-dark-blue: #0050a0; /* Azul escuro */
+    --color-title: #c5c5c5;
+    --color-blue: #002af7;
+    --color-dark-blue: #001b6b;
+    --color-loading-bg: rgba(0, 0, 0, 0.991);
+    --color-loading-text: #fff;
+    --color-scroll-thumb: #002af7;
+    --color-scroll-thumb-hover: #001b6b;
+    --background-gradient: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
 }
 
+/* Configuração inicial para o particles.js */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% da largura da viewport */
+    height: 100vh; /* 100% da altura da viewport */
+    z-index: -999; /* Coloca atrás de todo o conteúdo */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
+}
+
+/* Corpo da Página com Gradiente e Textura */
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    color: var(--color-white);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    position: relative; /* Para permitir a posição de elementos pseudo */
-     linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); 
-     background-color: #000;
+    position: relative;
+    background-blend-mode: overlay;
+    background-size: cover; /* Ajusta o tamanho da textura */
+    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
+    transition: background 0.3s ease;
+    background-color: #000;
 }
 
 
-/* Efeito de pinceladas no fundo */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6; /* Ajusta a visibilidade da textura */
-    pointer-events: none;
-    z-index: -999;
-    mix-blend-mode: overlay; 
-  
-}
 
 /* Scrollbar */
 body::-webkit-scrollbar {
@@ -44,37 +52,175 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: var(--color-green);
+    background-color: var(--color-scroll-thumb);
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background-color: #4f82f0d3;
+    background-color: var(--color-scroll-thumb-hover);
 }
-html {
-  scroll-behavior: smooth; /* Ativa a rolagem suave em todos os navegadores que suportam */
+
+/* Navegação Geral */
+.header {
+    background-color: var(--color-black);
+    color: #eee;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-/* Estilos para a tela de carregamento */
-/* Loading Screen */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Navegação Desktop */
+.desktop-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.desktop-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.desktop-nav li {
+    margin: 0;
+}
+
+.desktop-nav a {
+    color: #eee;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: var(--color-blue);
+    border-bottom: 2px solid var(--color-blue);
+}
+
+/* Menu Hamburger */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.hamburger-menu .bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--color-blue);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Navegação Móvel */
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--color-black);
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav.active {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-nav li {
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav li:hover {
+    border-radius: 10px;
+}
+
+.mobile-nav a {
+    display: block;
+    color: #eee;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    color: var(--color-blue);
+    background-color: rgba(37, 37, 37, 0.1);
+}
+
+/* Tela de Carregamento */
 #loading {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.991); /* Cor de fundo com opacidade ajustada */
+    background-color: var(--color-loading-bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Garante que está acima de todos os outros elementos */
-    opacity: 0; /* Começa invisível */
-    animation: fadeInUp 0.6s ease-out forwards; /* Animação de fade-in e slide up */
-    transition: opacity 0.3s ease-out; /* Transição suave para visibilidade */
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: opacity 0.3s ease-out;
+    margin-bottom: auto;
 }
 
-/* Animação de fade-in e slide-up */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -86,321 +232,132 @@ html {
     }
 }
 
-/* Se você usar um ícone de carregamento, adicione uma animação */
 #loading img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
 }
 
-/* Animação de rotação */
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+#loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa a altura total da viewport */
+    background-color: var(--color-loading-bg); /* Cor de fundo do carregamento */
 }
 
-#loading-bar {
+#loading-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-loading-text);
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin: 0; /* Remove margens para melhor centralização */
+}
+
+
+/* Botão de Voltar ao Topo */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-blue);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    color: var(--color-white);
-    position: fixed; /* Faz com que o elemento fique fixo na tela */
-    top: 50%; /* Posiciona o elemento verticalmente no centro da tela */
-    left: 50%; /* Posiciona o elemento horizontalmente no centro da tela */
-    transform: translate(-50%, -50%); /* Ajusta o elemento para que esteja exatamente no centro */
-    z-index: 1000; /* Garante que o carregamento esteja acima de outros conteúdos */
-}
-
-/* Estilos para as imagens no carregamento */
-#loading-bar img {
-    width: 50px;
-    height: 50px;
-    fill: white; /* Cor do ícone (não afeta a cor de imagens SVG; use `color` se necessário) */
-}
-
-/* Estilos para o texto de carregamento */
-#loading-text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-white);
-}
-
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;  /* 100% da largura da viewport */
-  height: 100vh; /* 100% da altura da viewport */
-  z-index: -999; /* Coloca atrás de todo o conteúdo */
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
-}
-
-
-.section-inicial,
-.user-profile,
-.profile-text,
-.social-icons
-.portfolio
-.skill
-.about
-.contact
-.services {
-    border-top: none;
-    border-bottom: none;
-    color: #fff;
-}
-/* Estilos Gerais do Cabeçalho */
-.header {
-  background-color: #000; /* Cor de fundo do cabeçalho */
-  color: #eee; /* Cor do texto */
-  padding: 1rem 2rem; /* Padding consistente */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  box-shadow: 30px 4px 28px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
-}
-
-/* Container do Cabeçalho */
-.container {
-  max-width: 1200px; /* Largura máxima */
-  margin: 0 auto; /* Centraliza o conteúdo */
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Logo */
-.logo img {
-  width: 60px; /* Ajuste o tamanho da logo */
-  height: auto;
-  border-radius: 50%; /* Borda arredondada para um visual moderno */
-}
-
-/* Navegação Desktop */
-.desktop-nav {
-  display: flex;
-  gap: 1.5rem; /* Espaçamento entre itens */
-}
-
-.desktop-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1rem;
-}
-
-.desktop-nav li {
-  margin: 0;
-}
-
-.desktop-nav a {
-  color: #eee;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.desktop-nav a:hover {
-  color: #4a90e2; /* Cor do link ao passar o mouse */
-  border-bottom: 2px solid #4a90e2; /* Linha abaixo do link ao passar o mouse */
-}
-
-/* Menu Hamburger */
-.hamburger-menu {
-  display: none; /* Oculto por padrão, visível em telas menores */
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-}
-
-.hamburger-menu .bar {
-  width: 30px;
-  height: 3px;
-  background-color: #3c3cc1;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Navegação Móvel */
-.mobile-nav {
-  display: none; /* Oculto por padrão, visível em telas menores */
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: #000;
-  width: 100%;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 999; /* Garante que o menu fique sobre outros conteúdos */
-  transform: translateY(-20px);
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.mobile-nav.active {
-  display: block; /* Exibe a navegação móvel quando ativada */
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Navegação Móvel */
-.mobile-nav {
-    display: flex;
-    justify-content: center; /* Centraliza a lista horizontalmente */
-    align-items: center; /* Centraliza a lista verticalmente, se necessário */
-    height: 100vh; /* Altura total da tela para centralizar verticalmente */
-    background-color: #000000; /* Cor de fundo opcional para a área de navegação */
-}
-
-.mobile-nav ul {
-    list-style: none; /* Remove o estilo de lista padrão */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza a lista dentro do container */
-    gap: 1rem; /* Espaçamento entre itens da lista */
-}
-
-.mobile-nav li {
-    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
-}
-
-.mobile-nav li:hover {
-    border-radius: 10px; /* Arredondamento das bordas para um visual moderno */
-}
-
-.mobile-nav a {
-    display: block; /* Faz com que o link ocupe toda a área do item */
-    color: #eee; /* Cor do texto */
-    text-decoration: none; /* Remove o sublinhado */
-    font-size: 1.5rem; /* Tamanho da fonte ajustado */
-    font-weight: 500; /* Peso da fonte */
-    padding: 0.75rem 1.5rem; /* Padding para melhorar a área clicável */
-    border-radius: 8px; /* Borda arredondada para os itens */
-    transition: color 0.3s ease, background-color 0.3s ease; /* Transição suave para cor e fundo */
-}
-
-.mobile-nav a:hover {
-    color: #4a90e2; /* Cor do texto ao passar o mouse */
-    background-color: rgba(37, 37, 37, 0.1); /* Fundo sutil ao passar o mouse */
-}
-
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none; /* Oculta a navegação desktop em telas menores */
-  }
-
-  .hamburger-menu {
-    display: flex; /* Exibe o menu hamburger */
-  }
-}
-/* Responsividade para telas pequenas */
-@media (max-width: 768px) {
-    .desktop-nav {
-        display: none; /* Oculta o menu desktop em telas pequenas */
-    }
-
-    .hamburger-menu {
-        display: block; /* Exibe o menu hamburguer em telas pequenas */
-    }
-}
-
-@media (max-width: 480px) {
-    .mobile-nav a {
-        font-size: 1rem; /* Reduz o tamanho da fonte para telas menores */
-    }
-
-    .mobile-nav ul {
-        gap: 0.5rem;
-    }
-}
-
-.no-scroll {
-    overflow: hidden;
-}
-
-/* Estilo geral para o botão de voltar ao topo */
-#scroll-to-top {
-  position: fixed; /* Fica fixo na tela */
-  bottom: 20px; /* Distância do fundo */
-  right: 20px; /* Distância da direita */
-  width: 60px; /* Largura do botão */
-  height: 60px; /* Altura do botão */
-  background-color: #003572; /* Cor de fundo */
-  color: #fff; /* Cor do texto */
-  border: none; /* Remove a borda padrão */
-  border-radius: 50%; /* Borda arredondada */
-  display: flex; /* Flexbox para centralizar o ícone */
-  align-items: center;
-  justify-content: center;
-  cursor: pointer; /* Cursor de mão para indicar clicabilidade */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
-  opacity: 0; /* Começa invisível */
-  transform: scale(0.8); /* Começa um pouco menor */
-  z-index: 999;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    z-index: 999;
 }
 
 #scroll-to-top.show {
-  opacity: 1; /* Fica visível */
-  transform: scale(1); /* Volta ao tamanho original */
+    opacity: 1;
+    transform: scale(1);
 }
 
 #scroll-to-top:hover {
-  background-color: #026de8; /* Escurece ao passar o mouse */
+    background-color: var(--color-dark-blue);
 }
-/* Animação de digitação */
+
+/* Desativa o rolar da página */
+.no-scroll {
+    overflow: hidden;
+}
+/* Estilo geral para o botão de voltar ao topo */
+#scroll-to-top {
+    position: fixed; /* Fica fixo na tela */
+    bottom: 20px; /* Distância do fundo */
+    right: 20px; /* Distância da direita */
+    width: 60px; /* Largura do botão */
+    height: 60px; /* Altura do botão */
+    background-color: #002af7; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    border-radius: 50%; /* Borda arredondada */
+    display: flex; /* Flexbox para centralizar o ícone */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Cursor de mão para indicar clicabilidade */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
+    opacity: 0; /* Começa invisível */
+    transform: scale(0.8); /* Começa um pouco menor */
+    z-index: 999; /* Fica sobre outros elementos */
+}
+
+/* Exibe o botão quando a classe show é adicionada */
+#scroll-to-top.show {
+    opacity: 1; /* Fica visível */
+    transform: scale(1); /* Volta ao tamanho original */
+}
+
+/* Estilo do botão ao passar o mouse */
+#scroll-to-top:hover {
+    background-color: #001c99; /* Escurece o fundo ao passar o mouse */
+}
+
 /* Estilos do texto digitado */
-  .typing-text {
-    font-size: 30px;
+.typing-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; /* Tamanho ajustado para melhor legibilidade */
     overflow: hidden; /* Oculta o texto que ultrapassa a largura */
-    border-right: .18em solid rgb(18, 13, 123); /* Efeito de cursor piscando */
+    border-right: 0.2em solid #002af7; /* Efeito de cursor piscando, ligeiramente mais largo */
     white-space: nowrap; /* Garante que o texto não quebre linha */
-    margin: 15px auto; 
-    color: #4a90e2;
-    letter-spacing: .15em; /* Espaçamento entre letras */
-    animation: typing 3.5s steps(20, end), blink-caret .35s step-end infinite;
-  }
+    margin: 20px auto; /* Centraliza com espaçamento superior e inferior */
+    color: #002af7; /* Cor do texto */
+    letter-spacing: 0.1em; /* Espaçamento mais visível entre letras */
+    animation: typing 4s steps(30, end), blink-caret 0.6s step-end infinite; /* Ajuste na duração e no número de passos da animação */
+}
 
-  /* Animação de escrever texto */
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
+/* Animação de escrever texto */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
 
-  /* Animação do cursor piscando */
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: rgb(0, 73, 232) }
-  }
+/* Animação do cursor piscando */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #002af7; } /* Cor do cursor piscando no meio da animação */
+}
 
-
+/* Animação bounce para o elemento .animate */
 .animate {
     display: inline-block;
-    margin: 0 0.5rem;
-    animation: bounce; /* Animação definida */
-    animation-duration: 2s; /* Duração da animação */
-    color: #4a90e2;
+    margin: 0 0.2rem; /* Margem lateral um pouco mais ampla */
+    animation: bounce 2s infinite; /* Duração e repetição da animação */
+    color: #002af7; /* Cor do texto animado */
+    font-weight: bold; /* Adiciona negrito para maior destaque */
 }
 
 /* Animação bounce para o elemento .animate */
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0%, 100% {
         transform: translateY(0);
     }
     40% {
@@ -410,6 +367,7 @@ html {
         transform: translateY(-10px);
     }
 }
+
 
 /* Estilo para a seção inicial */
 .section-inicial {
@@ -427,16 +385,15 @@ html {
 }
 
 .section-title {
+font-family: "Poppins", sans-serif;
   font-size: 2.5rem;
   font-weight: 700; /* Negrito para maior impacto */
   color: #ffffff; /* Cor de texto escura para bom contraste */
-  border-bottom: 3px solid #0056b3; /* Linha inferior azul */
+  border-bottom: 3px solid #002af7; /* Linha inferior azul */
   display: inline-block;
   padding-bottom: 10px;
   margin: 150px;
 }
-
-
 /* Contêiner para o perfil e texto */
 .user-profile {
     display: flex;
@@ -470,18 +427,20 @@ html {
 
 /* Título principal */
 .title h1 {
+    font-family: "Poppins", sans-serif;
     font-size: 5rem; /* Tamanho maior para destacar o título */
     margin-bottom: 0.75rem; /* Espaçamento aumentado para melhor separação */
     color: #ffffff; /* Cor branca para destacar no fundo escuro */
-    font-family: "Righteous", sans-serif; /* Fonte estilizada */
+    font-family: "Poppins", sans-serif; /* Fonte estilizada */
     text-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Sombra mais forte para maior contraste */
     letter-spacing: -0.5px; /* Ajuste fino do espaçamento entre letras */
 }
 /* Efeito de digitação */
 .typing-text {
+    font-family: "Roboto", sans-serif;
     font-size: 1.6rem; /* Tamanho do texto ajustado */
     overflow: hidden;
-    border-right: .15em solid #4a90e2;;
+    border-right: .15em solid #002af7;;
     white-space: nowrap;
     margin: 10px 0;
     letter-spacing: .1em;
@@ -540,7 +499,7 @@ html {
 }
 
 .social-icon.github:hover {
-    color: #333;
+    color: #525252;
 }
 
 .social-icon.linkedin:hover {
@@ -581,89 +540,85 @@ html {
     }
 }
 
-//* Sobre */
+/* Estilo para a seção sobre */
 .about {
-    padding: 15rem 25rem; /* Aumenta o padding para mais espaçamento */
+    padding: 5rem 2rem; /* Ajuste o padding para mais espaçamento */
     text-align: center;
-    margin: 0 auto;
-    max-width: 1200px; /* Largura máxima para centralização */
     color: #fff;
+    max-width: 1200px; /* Largura máxima para centralização */
+    margin: 0 auto;
 }
 
+/* Título da seção */
 .title-section {
-    margin-bottom: 6rem; /* Aumenta a margem inferior para mais espaçamento */
+    margin-bottom: 4rem; /* Aumenta a margem inferior para espaçamento */
 }
 
+/* Container para colunas */
 .row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem; /* Espaçamento maior entre colunas */
+    gap: 2rem; /* Espaçamento maior entre colunas */
 }
 
+/* Colunas */
 .col {
-    flex: 1 1 calc(50% - 3rem); /* Ajusta a largura da coluna para espaçamento maior */
-    max-width: calc(50% - 3rem); /* Ajusta a largura máxima */
+    flex: 1 1 calc(50% - 2rem); /* Ajusta a largura da coluna com espaço */
+    max-width: calc(50% - 2rem); /* Ajusta a largura máxima */
 }
 
+/* Bloco de informação */
 .info-block {
-    background-color: #24242470; /* Fundo com leve opacidade */
-    padding: 5rem; /* Aumenta o padding para mais conforto */
-    border-radius: 20px; /* Aumenta o raio das bordas para arredondamento mais acentuado */
+    background-color: #1e1e1e; /* Fundo escuro sólido para contraste */
+    padding: 3rem; /* Aumenta o padding para mais conforto */
+    border-radius: 12px; /* Aumenta o raio das bordas para arredondamento mais acentuado */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center; /* Centraliza o texto */
-    max-width: 700px; /* Aumenta a largura máxima */
-    margin: 0 auto 4rem; /* Ajusta o espaçamento e centralização */
+    max-width: 600px; /* Ajusta a largura máxima */
+    margin: 0 auto 3rem; /* Ajusta o espaçamento e centralização */
 }
 
+/* Efeito ao passar o mouse sobre o bloco de informação */
 .info-block:hover {
-    transform: translateY(-12px); /* Efeito de elevação mais pronunciado */
-
+    transform: translateY(-8px); /* Efeito de elevação mais sutil */
 }
 
+/* Ícones de informação */
 .ci-icon {
-    font-size: 4rem; /* Aumenta o tamanho dos ícones para mais visibilidade */
-    width: 220px; /* Ajusta o tamanho dos ícones */
-    height: 120px;
-    border-radius: 20%;
+    font-size: 3rem; /* Tamanho ajustado para visibilidade */
+    width: 100px; /* Ajusta o tamanho dos ícones */
+    height: 100px;
+    border-radius: 50%;
     color: #fff; /* Cor do ícone branca */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 2rem; /* Margem inferior ajustada para espaçamento */
+    margin: 0 auto 1.5rem; /* Margem inferior ajustada para espaçamento */
     transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: #444; /* Cor de fundo padrão dos ícones */
 }
 
+/* Efeito ao passar o mouse sobre os ícones */
 .ci-icon:hover {
     transform: scale(1.2); /* Efeito de aumento mais acentuado */
-    background-color: #00459400; /* Cor de fundo mais escura ao passar o mouse */
+    background-color: #003c6c; /* Cor de fundo mais escura ao passar o mouse */
 }
 
+/* Texto dos ícones */
 .ci-text h4 {
-    font-size: 2rem; /* Aumenta o tamanho do texto para destaque */
-    margin-bottom: 1rem; /* Aumenta a margem inferior */
-   color: #006aff; /* Cor do título mais clara para contraste */
-    font-weight: 700; /* Fonte em negrito mais acentuado */
+    font-size: 1.5rem; /* Tamanho do texto ajustado para destaque */
+    margin-bottom: 0.5rem; /* Ajusta a margem inferior */
+    color: #00aaff; /* Cor do título mais clara para contraste */
+    font-weight: 700; /* Fonte em negrito */
 }
 
 .ci-text p {
-    color: #dbdbdb; /* Cor do texto ajustada para boa legibilidade */
-    line-height: 1.9; /* Linha de altura ajustada para conforto de leitura */
-    font-size: 1rem; /* Tamanho da fonte aumentado */
+    color: #e0e0e0; /* Cor do texto ajustada para boa legibilidade */
+    line-height: 1.6; /* Linha de altura ajustada para conforto de leitura */
+    font-size: 1rem; /* Tamanho da fonte ajustado */
     margin-bottom: 0; /* Remove a margem inferior */
 }
-
-@media (max-width: 768px) {
-    .col {
-        flex: 1 1 100%; /* Colunas em 100% de largura para telas menores */
-        max-width: 100%; /* Máxima largura para dispositivos móveis */
-    }
-
-    .info-block {
-        max-width: 100%; /* Ajuste da largura máxima para telas pequenas */
-    }
-}
-
 
 /* Estilos para o bloco de informação com animação */
 #animate {
@@ -676,29 +631,21 @@ html {
 }
 
 #animate:hover {
-    transform: translateY(-10px); /* Efeito de levantamento ao passar o mouse */
+    transform: translateY(-8px); /* Efeito de levantamento ao passar o mouse */
 }
 
 #animate .ci-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 70px;
-    height: 70px;
+    font-size: 2.5rem; /* Tamanho ajustado para o ícone dentro do bloco animado */
+    width: 80px; /* Ajusta o tamanho dos ícones */
+    height: 80px;
     border-radius: 50%;
-    background-color: #0050fdd3; /* Cor de fundo do ícone */
+    background-color: #002af7; /* Cor de fundo do ícone */
     color: #ffffff; /* Cor do ícone */
-    margin: 0 auto;
-}
-
-#animate .ci-icon i {
-    font-size: 1.5rem;
+    margin: 0 auto 1rem;
 }
 
 #animate .ci-text h4 {
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Tamanho ajustado do título */
     margin-bottom: 0.5rem;
     color: #c5c5c5; /* Cor do título */
 }
@@ -711,7 +658,7 @@ html {
 /* Animação usando AOS (Animate On Scroll) */
 #animate[data-aos] {
     opacity: 0; /* Inicia com opacidade zero */
-    transform: translateY(50px); /* Inicia deslocado para baixo */
+    transform: translateY(20px); /* Inicia deslocado para baixo */
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -719,222 +666,259 @@ html {
     opacity: 1; /* Ao ser animado, torna-se visível */
     transform: translateY(0); /* Desloca para cima (posição original) */
 }
-.certificates-education {
-    padding: 30px 20px; /* Reduzi o padding para uma aparência mais compacta */
-    background-color: var(--color-black); /* Cor de fundo consistente com o projeto */
-    margin-bottom: 130px; /* Reduzi o espaçamento inferior */
-     margin-top: -16;
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .col {
+        flex: 1 1 100%; /* Colunas em 100% de largura para telas menores */
+        max-width: 100%; /* Máxima largura para dispositivos móveis */
+    }
+
+    .info-block {
+        max-width: 100%; /* Ajuste da largura máxima para telas pequenas */
+    }
+
+    .ci-icon {
+        font-size: 2rem; /* Tamanho reduzido dos ícones em telas pequenas */
+        width: 60px;
+        height: 60px;
+    }
+
+    .ci-text h4 {
+        font-size: 1.25rem; /* Tamanho reduzido do título em telas pequenas */
+    }
+
+    .ci-text p {
+        font-size: 0.9rem; /* Tamanho reduzido do texto em telas pequenas */
+    }
 }
+
+/* Estilos específicos para a seção de Certificados */
+.certificates-education {
+    padding: 60px 20px;
+}
+
 .certificates-education .title-section {
     text-align: center;
-    margin-bottom: 130px; /* Reduzi o espaçamento inferior */
+    margin-bottom: 60px;
 }
 
 .certificates-education .section-title {
-    font-size: 3rem; /* Tamanho reduzido do título */
-    color: var(--color-white); /* Cor do título consistente com o esquema de cores */
-    font-weight: bold; /* Título em negrito */
-    text-transform: uppercase; /* Título em maiúsculas */
-    letter-spacing: 0.5px; /* Espaçamento entre letras ajustado */
+    font-family: "Poppins", sans-serif;
+    font-size: 2.8rem; /* Tamanho do título aumentado para destaque */
+    color: #ffffff; /* Cor do título branca */
+    font-weight: bold; /* Negrito para o título */
+    text-transform: uppercase; /* Maiúsculas */
+    letter-spacing: 1.5px; /* Espaçamento entre letras */
 }
 
-.certificates-education .item {
+/* Lista de certificados */
+.certificates-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Estilo dos itens da lista de certificados */
+.certificates-list .item {
     display: flex;
     align-items: center;
-    margin-bottom: 8px; /* Reduzi o espaçamento entre itens */
-     background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
-    border-radius: 20px; /* Bordas levemente arredondadas */
-    border: 1px solid #f1f1f148; /* Define largura, estilo e cor da borda */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
-    padding: 15px; /* Padding reduzido */
+    background-color: #2e2e2e; /* Fundo dos itens */
+    border-radius: 15px; /* Bordas arredondadas suaves */
+    border: 1px solid #444; /* Borda sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+    padding: 20px;
+    margin-bottom: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.certificates-education .item:hover {
-    transform: translateY(-8px); /* Efeito de elevação ajustado */
-     box-shadow: -2px  10px 10px -8px rgba(20, 94, 255, 0.445); 
+.certificates-list .item:hover {
+    transform: translateY(-8px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
 }
 
-.certificates-education .item .icon {
-    font-size: 32px; /* Tamanho do ícone ajustado */
-    color: var(--color-green); /* Cor dos ícones consistente com o projeto */
-    margin-right: 10px; /* Menor espaçamento entre ícone e texto */
+/* Estilo dos ícones */
+.certificates-list .item .icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.certificates-education .item .info {
+.certificates-list .item .icon img {
+    width: 100%; /* Ajusta a imagem para ocupar toda a área do ícone */
+    height: auto;
+    border-radius: 50%; /* Bordas arredondadas para as imagens */
+}
+
+/* Estilo das informações */
+.certificates-list .item .info {
     flex: 1;
 }
-.certificates-education .item .info h4 {
-    margin: 0 0 8px; /* Menor espaçamento inferior */
-    color: var(--color-green); /* Cor do título da informação */
-    font-size: 1.125rem; /* Tamanho do título ajustado */
-}
 
-.certificates-education .item .info p {
-    margin: 0 0 8px; /* Menor espaçamento inferior */
-    color: var(--color-white); /* Cor do texto */
-    font-size: 0.9rem; /* Tamanho do texto ajustado */
-}
-
-.certificates-education .item .info a {
-    color: #4a90e2;
-    text-decoration: none;
+.certificates-list .item .info h4 {
+    font-size: 1.5rem; /* Tamanho do título aumentado */
+    color: #00bfff; /* Cor azul clara para o título */
     font-weight: bold;
-    transition: text-decoration 0.3s; /* Transição suave para o sublinhado */
+    margin-bottom: 5px;
 }
 
-.certificates-education .item .info a:hover {
-    text-decoration:wavy; /* Sublinhado ao passar o mouse */
+.certificates-list .item .info h4 a {
+    color: #00bfff; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+    transition: color 0.3s ease; /* Transição suave */
 }
 
+.certificates-list .item .info h4 a:hover {
+    color: #1e90ff; /* Cor do link ao passar o mouse */
+}
+
+.certificates-list .item .info p {
+    margin: 0;
+    color: #e0e0e0; /* Cor do texto mais clara para contraste */
+    font-size: 1rem; /* Tamanho do texto ajustado */
+}
 
 /* Estilos específicos para a seção de Educação */
 .education {
-    padding: 50px 20px;
-    background-color: #000;
+    padding: 60px 20px; /* Aumenta o padding para um espaçamento mais agradável */
 }
 
+/* Título da seção de Educação */
 .education .title-section {
     text-align: center;
-    margin-bottom: 130px; /* Reduzi o espaçamento inferior */
+    margin-bottom: 60px; /* Ajustado para um espaçamento mais equilibrado */
 }
 
 .education .section-title {
-    font-size: 2.5rem; /* Tamanho do título aumentado para maior destaque */
-    color: var(--color-white); /* Cor do título consistente com o esquema de cores */
-    font-weight: bold; /* Título em negrito */
+    font-family: "Poppins", sans-serif;
+    font-size: 2.8rem; /* Tamanho do título aumentado para maior destaque */
+    color: #ffffff; /* Cor do título branca */
+    font-weight: 700; /* Título em negrito mais forte */
     text-transform: uppercase; /* Título em maiúsculas */
-    letter-spacing: 1px; /* Espaçamento entre letras */
+    letter-spacing: 1.5px; /* Espaçamento entre letras aumentado */
 }
 
+/* Estilo dos itens da seção de Educação */
 .education .item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px; /* Reduzi o espaçamento entre itens */
-     background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
-    border-radius: 20px; /* Bordas levemente arredondadas */
-    border: 1px solid #c5c5c529; /* Define largura, estilo e cor da borda */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
-    padding: 15px; /* Padding reduzido */
+    background-color: #1a1a1a; /* Cor de fundo dos itens */
+    border-radius: 15px; /* Bordas arredondadas mais suaves */
+    border: 1px solid #333; /* Borda mais sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+    padding: 20px; /* Padding aumentado para mais espaçamento interno */
+    margin-bottom: 20px; /* Espaçamento entre itens ajustado */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-size: cover; /* Ajusta o tamanho do fundo */
+    background-position: center; /* Centraliza o fundo */
 }
 
 .education .item:hover {
-    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    transform: translateY(-8px); /* Efeito de elevação mais acentuado */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
 }
 
+/* Estilo do ícone dentro do item */
 .education .item .icon {
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
-    color: var(--color-green); /* Cor dos ícones consistente com o projeto */
+    width: 80px; /* Tamanho dos ícones aumentado */
+    height: 80px;
+    margin-right: 20px; /* Espaçamento à direita do ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.education .item .icon img {
+    width: 100%; /* Ajusta a imagem para ocupar toda a área do ícone */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 50%; /* Borda arredondada para as imagens dos ícones */
+}
+
+/* Estilo das informações dentro do item */
 .education .item .info {
     flex: 1;
 }
 
 .education .item .info h4 {
-   color: #4a90e2;
-    text-decoration: none;
-    font-weight: bold;
-    transition: text-decoration 0.3s; /* Transição suave para o sublinhado */
+    font-size: 1.5rem; /* Tamanho do título aumentado para maior legibilidade */
+    color: #007bff; /* Cor azul para o título */
+    font-weight: 600; /* Peso da fonte ajustado */
+    margin-bottom: 5px; /* Espaçamento abaixo do título */
+    transition: color 0.3s ease; /* Transição suave para a cor */
+}
+
+.education .item .info h4:hover {
+    color: #0056b3; /* Cor azul mais escura ao passar o mouse */
 }
 
 .education .item .info p {
-    margin: 0 0 10px;
-    color: var(--color-white); /* Cor do texto */
-    font-size: 1rem; /* Tamanho do texto */
+    margin: 0;
+    color: #e0e0e0; /* Cor do texto mais clara para contraste */
+    font-size: 1.1rem; /* Tamanho do texto ajustado para melhor legibilidade */
 }
 
-/* Estilo para os blocos de habilidades (skill-box) */
+
+/* Estilos para a seção de habilidades */
+.skills {
+    padding: 60px 20px;
+}
+
+.skills .title-section {  
+    text-align: center;
+    margin-bottom: 40px; /* Espaçamento abaixo do título */
+}
+
+.skills .section-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.8rem; /* Tamanho do título para destaque */
+    color: #ffffff; /* Cor branca para o título */
+    font-weight: bold; /* Negrito para o título */
+    text-transform: uppercase; /* Maiúsculas */
+    letter-spacing: 1.5px; /* Espaçamento entre letras */
+}
+
+/* Estilos do carrossel de habilidades */
+.skill-carousel {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os itens do carrossel */
+    overflow: auto;
+    padding: 10px;
+    scroll-snap-type: x mandatory; /* Estilo de rolagem para o carrossel */
+}
+
 .skill-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px; /* Aumentei o padding para melhor espaçamento interno */
-  border-radius: 10px; /* Borda arredondada para um visual mais moderno */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+    flex: 0 0 auto;
+    width: 120px; /* Largura dos itens do carrossel */
+    height: 120px; /* Altura dos itens do carrossel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2e2e2e; /* Fundo escuro para contraste com a imagem */
+    border-radius: 12px; /* Bordas arredondadas para os itens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    scroll-snap-align: center; /* Alinhamento centralizado ao rolar */
+}
+
+.skill-box:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
 }
 
 .skill-box img {
-  max-width: 70%; /* Ajustei para que as imagens ocupem a largura máxima do container */
-  height: auto;
-  transition: transform 0.3s ease; /* Transição suave de escala para as imagens */
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain; /* Ajusta a imagem dentro do contêiner */
 }
 
-.skill-box img:hover {
-  transform: scale(1.1); /* Efeito de escala ao passar o mouse sobre as imagens */
+/* Adiciona uma rolagem suave no carrossel */
+.owl-carousel .owl-item {
+    scroll-snap-align: center;
 }
-
-/* Estilo para o carousel de habilidades (skill-carousel) */
-.skill-carousel {
-  display: flex;
-  flex-direction: row; /* Alinhamento horizontal dos itens no carousel */
-  flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se necessário */
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: -8px; /* Menor espaçamento inferior */
-  margin-top: 158px; /* Menor espaçamento inferior */ /* Aumentei o espaçamento entre os itens */
-}
-
-.skill-carousel .owl-item {
-  padding: 15px; /* Aumentei o padding interno */
-  border-radius: 10px; /* Borda arredondada para itens do carousel */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
-}
-
-.skill-carousel .owl-item:hover {
-  transform: translateY(-8px); /* Efeito de elevação mais sutil ao passar o mouse */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada ao passar o mouse */
-}
-
-.skill-carousel .owl-nav {
-  display: none; /* Esconde as setas de navegação */
-}
-
-.skill-carousel .owl-dots {
-  display: flex;
-  justify-content: center; /* Alinha os pontos de navegação ao centro */
-  margin-top: 30px; /* Espaçamento superior */
-}
-
-.skill-carousel .owl-dot {
-  width: 12px; /* Largura do ponto de navegação ajustada */
-  height: 12px; /* Altura do ponto de navegação ajustada */
-  margin: 0 8px; /* Espaçamento entre os pontos de navegação */
-  border-radius: 50%; /* Borda arredondada */
-  background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
-  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
-}
-/* Responsividade */
-@media (max-width: 708px) {
-  .skill-carousel {
-    flex-direction: column; /* Empilha os itens em coluna em dispositivos menores */
-  }
-
-  .skill-carousel .owl-item {
-    margin-bottom: 20px; /* Espaçamento inferior entre os itens */
-  }
-}
-
-@media (max-width: 408px) {
-  .section-title {
-    font-size: 1.8rem; /* Reduz o tamanho do título para dispositivos menores */
-  }
-
-  .skill-box {
-    padding: 15px; /* Reduz o padding interno para dispositivos menores */
-  }
-
-  .skill-box img {
-    max-width: 80%; /* Reduz a largura da imagem para dispositivos menores */
-  }
-}
-
 
 /* Estilo para a seção do título */
 .title-section {
@@ -945,6 +929,8 @@ html {
 
 /* Estilo para o título da seção */
 .section-title {
+
+    font-family: "Poppins", sans-serif;
   font-size: 2.8rem; /* Tamanho do título */
   color: #ffffff; /* Cor do título */
   font-weight: bold; /* Deixa o título em negrito */
@@ -962,7 +948,7 @@ html {
   display: block; /* Define o display como bloco para poder manipular a largura */
   width: 0; /* Inicialmente oculta a linha */
   height: 3px; /* Altura da linha */
-  background-color: #3e47ea; /* Cor da linha */
+  background-color: #002af7; /* Cor da linha */
   position: absolute; /* Posiciona a linha */
   bottom: 0; /* Alinha a linha ao fundo do título */
   left: 0; /* Alinha a linha ao lado esquerdo do título */
@@ -1079,7 +1065,7 @@ html {
 }
 
 .portfolio-item-info .portfolio-item-link:hover {
-  background-color: #0056b3;
+  background-color: #002af7;
   transform: scale(1.05); /* Efeito de zoom no link */
 }
 
@@ -1091,22 +1077,20 @@ html {
   cursor: pointer;
   text-align: center;
   padding: 10px;
-  width: 60px; /* Ajuste do tamanho do botão */
-  height: 60px;
+  width: 30px; /* Ajuste do tamanho do botão */
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0307ff;
+  border-radius: 10px;
+  background-color: #002af7;
+  color: #fff;
 }
-
-.portfolio-item-arrow i {
-  font-size: 1.2rem;
-  
-}
-
+/* Efeito de hover no botão */
 .portfolio-item-arrow:hover {
   transform: scale(1.1); /* Efeito de zoom no botão */
 }
+
 
 /* Títulos das seções dentro da seção de portfólio */
 .portfolio .title-section {
@@ -1116,6 +1100,7 @@ html {
 }
 
 .portfolio .section-title {
+    font-family: "Poppins", sans-serif;
   font-size: 2.2rem; /* Tamanho do título ajustado para maior equilíbrio */
   color: #ffffff;
   font-weight: 600;
@@ -1125,146 +1110,222 @@ html {
   padding-bottom: 10px;
 }
 
-/* Estilos para a seção de serviços */
+/* Seção de Serviços */
 .services {
-  padding: 80px 20px; /* Ajuste do padding para uma melhor responsividade */
+  padding: 80px 20px;
+  color: #f1f1f1;
   text-align: center;
-  top: 180px;
-}
-
-.services-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 109px;
-    margin-top: 150px;
-}
-
-.service-item {
-  width: 100%;
-  max-width: 350px; /* Largura ajustada para melhor alinhamento */
-  background-color: rgba(26, 26, 26, 0.548); /* Melhor contraste com o fundo */
-  padding: 30px;
-  border-radius: 20px; /* Borda arredondada mais sutil */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.service-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra ajustada ao passar o mouse */
-}
-
-.fa-solid  {
-  font-size: 1rem;
-  color: #005fc4; /* Azul */
-  margin-bottom: 10px;
-}
-
-
-.service-item h3 {
-  font-size: 1.5rem; /* Tamanho do título reduzido para uma melhor escala */
-  color: #e0e0e0; /* Cor mais clara para melhor contraste */
-  margin-bottom: 25px;
-  font-weight: 600; /* Negrito para maior destaque */
-}
-
-.service-item p {
-  font-size: 1rem;
-  color: #d3d3d3; /* Cor mais clara para uma leitura mais fácil */
-  line-height: 1.6;
-  margin-bottom: 20px; /* Espaçamento aumentado para melhor legibilidade */
-}
-
-.orcamento {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.btn-solicitar {
-  padding: 12px 100px;
-  background-color: #007bff; /* Azul */
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 20px;
-  font-weight: 600; /* Negrito para maior destaque */
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-solicitar:hover {
-  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
-  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
-}
-
-/* Seção de Contato */
-.contact {
-  padding: 60px 20px;
-  text-align: center; /* Alinhamento centralizado */
 }
 
 .title-section {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: "Poppins", sans-serif;
+  font-size: 2.75rem;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.services-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-item {
+  background: rgba(40, 40, 40, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  width: 100%;
+  max-width: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   text-align: center;
+  position: relative;
+  animation: fadeInUp 1s ease-out;
+}
+
+.service-item:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  background: rgba(60, 60, 60, 0.9);
+}
+
+.service-item img {
+  max-width: 90px;
+  margin-bottom: 20px;
+}
+
+.service-item h3 {
+  font-size: 1.75rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+}
+
+.service-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-item li {
+  font-size: 1.1rem;
+  color: #d3d3d3;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-item i {
+  color: #002af7; /* Azul-turquesa para destacar ícones */
+}
+
+.orcamento {
+  margin-top: 40px;
+}
+
+.btn-solicitar {
+  background: linear-gradient(90deg, #002af7, #002af7);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-solicitar:hover {
+  background: linear-gradient(90deg, #002af7, #797979);
+  transform: scale(1.05);
+}
+
+/* Animação de fade-in e subida */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .services-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .service-item {
+    max-width: 100%;
+  }
 }
 
 
 /* Estilos para a seção de contato */
+.contact {
+  padding: 60px 20px;
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+    font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
 .contact-content {
   display: flex;
-  flex-direction: column;
-  gap: 40px; /* Espaçamento maior entre os blocos de informação */
-  align-items: center; /* Centraliza os itens */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .contact-info {
-  padding: 30px;
-  border-radius: 12px; /* Bordas mais arredondadas para um visual mais suave */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada para maior profundidade */
-  text-align: center;
-  color: #e0e0e0; /* Texto claro para contraste com o fundo escuro */
-  justify-items: first baseline;
+  flex: 1 1 300px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contact-info p {
-  font-size: 1.9rem;
-  color: #e0e0e0; /* Cor do texto mais clara para boa legibilidade */
-  margin: 20px 0; /* Espaçamento vertical */
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
+.info-item i {
+  font-size: 2rem;
+  color: #007bff;
+  margin-right: 15px;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.info-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.info-item a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para o formulário de contato */
 .contact-form {
-  padding: 30px;
-  border-radius: 20px; /* Bordas mais arredondadas para suavidade */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra ajustada para maior profundidade */
-  max-width: 700px; /* Largura máxima do formulário */
-  width: 100%;
-  text-align: center;
+  flex: 1 1 600px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-  margin-bottom: 20px; /* Espaçamento entre os campos do formulário */
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #007bff;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 20px;
-  border: 1px solid #002af7; /* Borda leve para os campos */
-  border-radius: 20px; /* Bordas mais arredondadas */
-  box-sizing: border-box;
-  font-size: 1rem; /* Tamanho de fonte consistente */
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Inclui o padding e border no width total */
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #0056b3; /* Cor da borda ao focar */
+  border-color: #007bff;
   outline: none;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.2); /* Adiciona um brilho sutil ao focar */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .form-group textarea {
@@ -1272,29 +1333,29 @@ html {
 }
 
 .btn-submit {
-  background-color: #0056b3; /* Cor de fundo do botão */
-  color: #ffffff; /* Cor do texto do botão */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
   border: none;
-  padding: 12px 35px; /* Espaçamento interno do botão */
-  border-radius: 20px; /* Bordas mais arredondadas */
+  border-radius: 4px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 1.1rem; /* Tamanho de fonte ajustado */
-  transition: background-color 0.3s, transform 0.3s; /* Adiciona transição de transformação */
+  transition: background-color 0.3s ease;
 }
 
 .btn-submit:hover {
-  background-color: #005dba; /* Cor de fundo ao passar o mouse */
-  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+  background-color: #0056b3;
 }
 
 /* Estilos para o rodapé */
 .footer {
-  color: #adadade0; /* Cor do texto mais clara */
-  padding: 2rem;
   text-align: center;
+  padding: 20px;
+  color: #fff;
 }
 
 .footer p {
-  font-size: 0.875rem; /* Tamanho da fonte ajustado para o rodapé */
   margin: 0;
+  font-size: 0.9rem;
 }
