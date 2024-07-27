@@ -428,7 +428,7 @@ font-family: "Poppins", sans-serif;
 /* Título principal */
 .title h1 {
     font-family: "Poppins", sans-serif;
-    font-size: 5rem; /* Tamanho maior para destacar o título */
+    font-size: 4rem; /* Tamanho maior para destacar o título */
     margin-bottom: 0.75rem; /* Espaçamento aumentado para melhor separação */
     color: #ffffff; /* Cor branca para destacar no fundo escuro */
     font-family: "Poppins", sans-serif; /* Fonte estilizada */
