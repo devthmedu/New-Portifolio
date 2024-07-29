@@ -1,4 +1,4 @@
-* Responsividade para Dispositivos Maiores que 1200px */
+/* Responsividade para Dispositivos Maiores que 1200px */
 @media (min-width: 1200px) {
     .container {
         width: 70%;
@@ -291,219 +291,223 @@
         font-size: 1.25rem;
     }
 }
-/* Estilos Responsivos */
 
-/* Estilo para a seção Sobre Mim */
+/* Estilos Responsivos para Seções Específicas */
+
+/* Seção Sobre Mim */
 @media (max-width: 768px) {
     .about {
-        padding: 4rem 2rem; /* Ajusta o padding para telas menores */
+        padding: 4rem 2rem;
     }
 
     .section-title {
-        font-size: 2.5rem; /* Reduz o tamanho da fonte do título */
+        font-size: 2.5rem;
     }
 
     .row {
-        flex-direction: column; /* Alinha as colunas em uma única coluna */
-        gap: 1.5rem; /* Reduz o espaçamento entre as colunas */
+        flex-direction: column;
+        gap: 1.5rem;
     }
 
     .col {
-        max-width: 100%; /* Permite que as colunas ocupem toda a largura */
+        max-width: 100%;
     }
 
     .info-block {
-        padding: 2rem; /* Reduz o padding interno do bloco de informação */
+        padding: 2rem;
     }
 
     .ci-icon img {
-        width: 150px; /* Ajusta o tamanho da imagem para telas menores */
+        width: 150px;
         height: 150px;
     }
 
     .ci-text h4 {
-        font-size: 1.4rem; /* Reduz o tamanho da fonte do título */
+        font-size: 1.4rem;
     }
 
     .ci-text p {
-        font-size: 1rem; /* Reduz o tamanho da fonte do texto */
+        font-size: 1rem;
     }
 }
 
-/* Estilos específicos para a seção de Certificados */
+/* Seção Certificados */
 @media (max-width: 768px) {
     .certificates-education {
-        padding: 40px 15px; /* Ajusta o padding para telas menores */
+        padding: 40px 15px;
     }
 
     .certificates-education .section-title {
-        font-size: 2rem; /* Reduz o tamanho da fonte do título */
+        font-size: 2rem;
     }
 
     .certificates-list {
-        flex-direction: column; /* Alinha os itens em uma coluna */
-        gap: 1rem; /* Reduz o espaçamento entre os itens */
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .certificates-list .item {
-        flex-direction: column; /* Alinha os itens do certificado verticalmente */
-        padding: 15px; /* Reduz o padding interno do item */
+        flex-direction: column;
+        padding: 15px;
     }
 
     .certificates-list .item .icon {
-        width: 60px; /* Ajusta o tamanho do ícone */
+        width: 60px;
         height: 60px;
     }
 
     .certificates-list .item .info h4 {
-        font-size: 1.3rem; /* Reduz o tamanho da fonte do título */
+        font-size: 1.3rem;
     }
 
     .certificates-list .item .info p {
-        font-size: 0.9rem; /* Reduz o tamanho da fonte do texto */
+        font-size: 0.9rem;
     }
 }
 
-/* Estilos específicos para a seção de Educação */
+/* Seção Educação */
 @media (max-width: 768px) {
     .education {
-        padding: 40px 15px; /* Ajusta o padding para telas menores */
+        padding: 40px 15px;
     }
 
     .education .section-title {
-        font-size: 2rem; /* Reduz o tamanho da fonte do título */
+        font-size: 2rem;
     }
 
     .education .item {
-        flex-direction: column; /* Alinha os itens de educação verticalmente */
-        padding: 15px; /* Reduz o padding interno do item */
+        flex-direction: column;
+        padding: 15px;
     }
 
     .education .item .icon {
-        width: 60px; /* Ajusta o tamanho do ícone */
+        width: 60px;
         height: 60px;
     }
 
     .education .item .info h4 {
-        font-size: 1.3rem; /* Reduz o tamanho da fonte do título */
+        font-size: 1.3rem;
     }
 
     .education .item .info p {
-        font-size: 0.9rem; /* Reduz o tamanho da fonte do texto */
+        font-size: 0.9rem;
     }
 }
 
-/* Estilos específicos para a seção de habilidades */
+/* Seção Habilidades */
 @media (max-width: 768px) {
     .skills {
-        padding: 4rem 1.5rem; /* Ajusta o padding para telas menores */
+        padding: 4rem 1.5rem;
     }
-}
-/* Media Query para Tablets e Telas Pequenas */
-@media (max-width: 768px) {
-    /* Ajustes para a seção de habilidades */
+
     .skill-carousel-wrapper {
-        padding: 0 10px; /* Adiciona algum espaço lateral */
+        padding: 0 10px;
     }
 
     .skill-box {
-        padding: 0.5rem; /* Reduz o padding para habilidades em telas menores */
+        padding: 0.5rem;
     }
 
     .skill-box img {
-        width: 60px; /* Reduz o tamanho da imagem das habilidades */
+        width: 60px;
         height: 60px;
     }
+}
 
-    /* Ajustes para a seção de portfólio */
+/* Seção Portfólio */
+@media (max-width: 768px) {
     .portfolio-items {
-        gap: 20px; /* Reduz o espaço entre os itens */
+        gap: 20px;
     }
 
     .portfolio-item {
-        max-width: 100%; /* Ajusta o item do portfólio para a largura total disponível */
+        max-width: 100%;
     }
 
     .img-projeto {
-        height: 300px; /* Reduz a altura da imagem do projeto */
+        height: 300px;
     }
+}
 
-    /* Ajustes para a seção de serviços */
+/* Seção Serviços */
+@media (max-width: 768px) {
     .services-wrapper {
-        flex-direction: column; /* Alinha os itens de serviço em coluna */
+        flex-direction: column;
         gap: 20px;
     }
 
     .service-item {
-        max-width: 100%; /* Ajusta o item de serviço para a largura total disponível */
+        max-width: 100%;
     }
+}
 
-    /* Ajustes para a seção de contato */
+/* Seção Contato */
+@media (max-width: 768px) {
     .contact-content {
-        flex-direction: column; /* Alinha os conteúdos de contato em coluna */
+        flex-direction: column;
         gap: 20px;
     }
 
     .contact-info,
     .contact-form {
-        flex: 1 1 100%; /* Ajusta a largura dos blocos de contato */
-        padding: 15px; /* Reduz o padding */
+        flex: 1 1 100%;
+        padding: 15px;
     }
 
     .form-group input,
     .form-group textarea,
     .form-group input[type="file"] {
-        padding: 10px; /* Reduz o padding dos campos de entrada */
+        padding: 10px;
     }
 }
 
 /* Media Query para Telas Menores que 480px (Smartphones) */
 @media (max-width: 480px) {
     .section-title {
-        font-size: 2rem; /* Reduz o tamanho da fonte do título */
+        font-size: 2rem;
     }
 
     .skill-carousel-wrapper {
-        padding: 0 5px; /* Adiciona algum espaço lateral */
+        padding: 0 5px;
     }
 
     .skill-box {
-        padding: 0.25rem; /* Reduz o padding para habilidades em telas menores */
+        padding: 0.25rem;
     }
 
     .skill-box img {
-        width: 50px; /* Reduz o tamanho da imagem das habilidades */
+        width: 50px;
         height: 50px;
     }
 
     .portfolio-item {
-        max-width: 100%; /* Ajusta o item do portfólio para a largura total disponível */
+        max-width: 100%;
     }
 
     .img-projeto {
-        height: 200px; /* Reduz a altura da imagem do projeto */
+        height: 200px;
     }
 
     .service-item {
-        padding: 20px; /* Reduz o padding dos itens de serviço */
+        padding: 20px;
     }
 
     .service-item h3 {
-        font-size: 1.5rem; /* Reduz o tamanho da fonte do título do serviço */
+        font-size: 1.5rem;
     }
 
     .service-item li {
-        font-size: 1rem; /* Ajusta o tamanho da fonte da lista */
+        font-size: 1rem;
     }
 
     .contact-info,
     .contact-form {
-        flex: 1 1 100%; /* Ajusta a largura dos blocos de contato */
+        flex: 1 1 100%;
     }
 
     .form-group input,
     .form-group textarea,
     .form-group input[type="file"] {
-        padding: 8px; /* Reduz o padding dos campos de entrada */
+        padding: 8px;
     }
 }

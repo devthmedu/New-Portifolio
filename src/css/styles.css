@@ -173,7 +173,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: var(--color-black);
+   background-color: #1e1e1e; /* Fundo escuro para contraste */
     width: 100%;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -201,7 +201,9 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 1;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 250px;
+    margin-top: -25px;
+
 }
 
 .mobile-nav ul {
@@ -1125,20 +1127,18 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(20px); /* Deslocamento inicial */
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
-
 /* Animação para a descrição quando a habilidade está ativa */
 .skill-box.active .skill-description {
     opacity: 1;
     transform: translateY(0); /* Move a descrição para sua posição original */
 }
 
-
 /* Estilos para a seção de portfólio */
 .portfolio {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 20px; /* Padding superior e inferior generoso */
+    padding: 80px 20px; /* Padding superior e inferior generoso */
     color: #fff;
     background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
@@ -1162,8 +1162,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Contêiner dos itens do portfólio */
 .portfolio-items {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout com duas colunas por padrão */
     gap: 30px; /* Espaçamento entre os itens ajustado */
     justify-content: center;
     width: 100%;
@@ -1174,9 +1174,7 @@ body::-webkit-scrollbar-thumb:hover {
 .portfolio-item {
     position: relative;
     width: 100%;
-    max-width: 500px; /* Largura máxima dos itens */
     height: 400px; /* Altura ajustada para garantir que a imagem preencha o contêiner */
-    background-color: #333; /* Fundo das caixas de portfólio */
     border-radius: 15px; /* Bordas arredondadas mais suaves */
     border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
     overflow: hidden;
@@ -1197,9 +1195,9 @@ body::-webkit-scrollbar-thumb:hover {
     border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
 }
 
-
+/* Efeito de hover no item do portfólio */
 .portfolio-item:hover {
-    transform: scale(3.03); /* Leve aumento do tamanho no hover */
+    transform: scale(1.03); /* Leve aumento do tamanho no hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
     border-color: #0056b3; /* Cor da borda do item no hover */
 }
@@ -1212,6 +1210,19 @@ body::-webkit-scrollbar-thumb:hover {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Indicador de carregamento para imagens */
+.img-projeto::before {
+    content: 'Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 1.2rem;
+    z-index: 1;
+}
+
+/* Efeito de hover na imagem do projeto */
 .portfolio-item:hover .img-projeto {
     transform: scale(1.1); /* Aumenta a escala da imagem no hover */
     filter: brightness(0.8); /* Escurece a imagem para melhor contraste */
@@ -1225,7 +1236,7 @@ body::-webkit-scrollbar-thumb:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 80%; /* Altura ajustada para 40% do contêiner */
+    height: 80%; /* Altura ajustada para 20% do contêiner */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1290,49 +1301,124 @@ ul li {
     color: #dcdcdc;
 }
 
-/* Link do item do portfólio */
-.portfolio-item-link {
-    display: inline-block;
-    padding: 10px 14px; /* Padding aumentado para mais espaçamento interno */
-    background-color: #4336a0; /* Cor de fundo do link */
+/* Estilo do botão */
+.portfolio-item-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px; /* Padding ajustado para o botão */
+    background-color: #4336a0; /* Cor de fundo do botão */
     color: #fff;
     text-decoration: none;
-    border-radius: 20px; /* Bordas arredondadas mais suaves */
-    font-size: 1.1rem; /* Tamanho da fonte do link ajustado */
-
+    border-radius: 12px; /* Bordas arredondadas do botão */
+    font-size: 0.9rem; /* Tamanho da fonte do botão */
+    font-weight: 600; /* Peso da fonte mais forte */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra do botão */
 }
 
-.portfolio-item-link:hover {
+.portfolio-item-button:hover {
     background-color: #0056b3; /* Cor mais escura para o hover */
+    transform: scale(1.05); /* Leve aumento de tamanho no hover */
+}
+
+.portfolio-item-button i {
+    margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+    font-size: 1rem; /* Tamanho do ícone ajustado */
 }
 
 /* Setas para o item do portfólio */
 .portfolio-item-arrow {
     position: absolute;
     bottom: 15px;
-    right: 10px;
+    right: 15px; /* Ajustado para alinhar melhor */
     cursor: pointer;
     text-align: center;
     padding: 15px; /* Aumentado para melhor visibilidade */
     width: 30px; /* Aumentado para maior visibilidade */
     height: 30px;
-    border-radius: 20%;
+    border-radius: 50%; /* Arredondamento total */
     background-color: #4336a0; /* Cor de fundo das setas */
     color: #fff;
     font-size: 1rem; /* Tamanho do ícone aumentado */
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para a cor de fundo e rotação */
 }
 
-/* Efeito de hover para as setas */
 .portfolio-item-arrow:hover {
     background-color: #0056b3; /* Cor mais escura para o hover */
 }
 
-/* Adicionalmente, se você deseja um efeito de brilho no ícone */
+/* Efeito de brilho no ícone das setas durante o hover */
 .portfolio-item-arrow:hover i {
     color: #e0e0e0; /* Cor mais clara para o ícone durante o hover */
+}
+
+/* Adiciona a rotação quando a seta está ativa */
+.portfolio-item-arrow.active {
+    transform: rotate(180deg);
+}
+
+/* Animações de entrada para os itens do portfólio */
+.portfolio-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.portfolio-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Resposividade para Dispositivos Maiores que 1200px */
+@media (min-width: 1200px) {
+    .container {
+        width: 70%;
+        padding: 2rem;
+    }
+
+    .header {
+        padding: 2rem 3rem;
+    }
+
+    .logo img {
+        width: 60px;
+    }
+
+    .desktop-nav {
+        display: flex;
+    }
+
+    .desktop-nav ul {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/* Resposividade para Dispositivos Menores que 768px */
+@media (max-width: 768px) {
+    .portfolio-item {
+        max-width: 100%;
+        height: auto; /* Ajuste altura para proporcionalidade */
+    }
+
+    .portfolio-item-info {
+        height: 50%; /* Ajuste altura para visibilidade em telas menores */
+    }
+
+    .img-projeto::before {
+        content: ''; /* Remover indicador de carregamento em telas menores */
+    }
 }
 
 /* Seção de Serviços */
