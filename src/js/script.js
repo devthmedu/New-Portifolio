@@ -322,3 +322,41 @@ document.addEventListener('DOMContentLoaded', function() {
         duration: 1200,
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const commentBar = document.getElementById('comment-bar');
+    const commentText = document.getElementById('comment-text');
+    const sectionToObserve = document.getElementById('certificado');
+    
+    // Função para mostrar a barra de comentário
+    function showComment(text) {
+        commentText.textContent = text;
+        commentBar.style.display = 'flex';
+        setTimeout(() => {
+            commentBar.style.opacity = '1';
+        }, 0);
+    }
+    
+    // Função para ocultar a barra de comentário
+    function hideComment() {
+        commentBar.style.opacity = '0';
+        setTimeout(() => {
+            commentBar.style.display = 'none';
+        }, 300);
+    }
+
+    // Configuração do Intersection Observer
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                showComment('Certificado');
+            } else {
+                hideComment();
+            }
+        });
+    }, {
+        threshold: 0.5 // Ajuste conforme necessário
+    });
+
+    // Observa a seção específica
+    observer.observe(sectionToObserve);
+});

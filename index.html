@@ -63,6 +63,8 @@
       <!-- Fundo de Partículas -->
       <div id="particles-js"></div>
       <!-- Resto do conteúdo -->
+
+      
     </header>
       <!-- Container do Cabeçalho -->
       <div class="container">
@@ -71,7 +73,7 @@
              id="logo">
           <a href="#home"
              aria-label="Ir para a página inicial">
-            <img src="./src/img/Perfil/logo.svg"
+            <img src="./src/img/Perfil/perfil.jpg"
                  alt="Logo de Thomas Eduardo">
           </a>
         </div>
@@ -123,19 +125,18 @@
 
 <section class="section-inicial"
          data-aos="fade-up"
-         data-aos-duration="1200">
+         data-aos-duration="1200"
+         aria-labelledby="section-inicial-heading">
   <div class="user-profile"
        data-aos="fade-right"
        data-aos-duration="1000"
        data-aos-delay="300">
-    <img src="./src/img/Perfil/perfil.jpg"
-         alt="user-profile">
     <div class="title">
-      <h1>Thomas Eduardo</h1>
+      <h1 id="section-inicial-heading">Thomas Eduardo</h1>
       <div class="typing-text"
            id="typing-text"></div>
       <p class="summary">
-        Desenvolvedor Frontend com experiência em HTML, CSS e JavaScript (incluindo React e Node.js). Atualmente, foco na criação de interfaces intuitivas e acessíveis, sempre buscando inovações para otimizar a experiência do usuário.
+        Desenvolvedor Frontend com experiência em HTML, CSS e JavaScript, incluindo frameworks como React e Node.js. Atualmente, foco na criação de interfaces intuitivas e acessíveis, sempre buscando inovações para otimizar a experiência do usuário.
       </p>
     </div>
   </div>
@@ -144,33 +145,39 @@
   <div class="social-icons"
        data-aos="fade-up"
        data-aos-duration="1200"
-       data-aos-delay="600">
+       data-aos-delay="600"
+       aria-label="Redes sociais de Thomas Eduardo">
     <a class="social-icon instagram"
        href="https://www.instagram.com/thomas.fromtend/"
        target="_blank"
+       rel="noopener noreferrer"
        aria-label="Instagram de Thomas Eduardo">
       <i class="fab fa-instagram"></i>
     </a>
     <a class="social-icon github"
        href="https://github.com/devthmedu"
        target="_blank"
+       rel="noopener noreferrer"
        aria-label="GitHub de Thomas Eduardo">
       <i class="fab fa-github"></i>
     </a>
     <a class="social-icon linkedin"
        href="https://www.linkedin.com/in/thmedu/"
        target="_blank"
+       rel="noopener noreferrer"
        aria-label="LinkedIn de Thomas Eduardo">
       <i class="fab fa-linkedin-in"></i>
     </a>
     <a class="social-icon discord"
        href="https://discord.gg/seu-servidor-discord"
        target="_blank"
+       rel="noopener noreferrer"
        aria-label="Discord de Thomas Eduardo">
       <i class="fab fa-discord"></i>
     </a>
   </div>
 </section>
+
 
 
 
@@ -181,24 +188,26 @@
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col col-1">
       <div class="info-block"
            data-aos="fade-up">
         <div class="ci-icon">
-          <img src="./src/img/Icons/Monitor-cuate.svg"
-               alt="user-profile">
+          <img src="./src/img/Icons/front.svg"
+               alt="Ícone de Desenvolvimento Frontend">
         </div>
         <div class="ci-text">
           <h4>Desenvolvimento Frontend</h4>
           <p>Especializado em criar interfaces web dinâmicas e responsivas com HTML, CSS e JavaScript, transformando ideias em experiências interativas e funcionais.</p>
         </div>
       </div>
+    </div>
 
+    <div class="col col-2">
       <div class="info-block"
            data-aos="fade-up">
         <div class="ci-icon">
-            <img src="./src/img/Icons/Online world-cuate.svg"
-                 alt="user-profile">
+          <img src="./src/img/Icons/userexp.svg"
+               alt="Ícone de Experiência do Usuário">
         </div>
         <div class="ci-text">
           <h4>Experiência do Usuário</h4>
@@ -207,23 +216,26 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col col-3">
       <div class="info-block"
            data-aos="fade-up">
         <div class="ci-icon">
-        <img src="./src/img/Icons/Sync-cuate.svg"
-             alt="user-profile">
+          <img src="./src/img/Icons/Automatização.svg"
+               alt="Ícone de Automatização e Eficiência">
         </div>
         <div class="ci-text">
           <h4>Automatização e Eficiência</h4>
           <p>Desenvolvo soluções com automação e eficiência, utilizando Python e ferramentas como Selenium para otimizar processos e melhorar a produtividade.</p>
         </div>
       </div>
+    </div>
 
+    <div class="col col-4">
       <div class="info-block"
            data-aos="fade-up">
         <div class="ci-icon">
-          <img src="./src/img/Icons/Data points-cuate.svg">
+          <img src="./src/img/Icons/Innovation.svg"
+               alt="Ícone de Inovação e Implementação">
         </div>
         <div class="ci-text">
           <h4>Inovação e Implementação</h4>
@@ -233,6 +245,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="skills"
          data-aos="fade-up">
@@ -512,11 +525,7 @@
         <div class="description">
           <p>O projeto Animais Fantásticos foi desenvolvido como parte do curso de JavaScript da Origamid. Ele é um site interativo que permite explorar informações detalhadas sobre diferentes criaturas fantásticas.</p>
           <p class="feature-list"><strong>Funcionalidades:</strong></p>
-          <ul>
-            <li>Interface interativa</li>
-            <li>Detalhes de criaturas</li>
-            <li>Design responsivo</li>
-          </ul>
+         
         </div>
         <a href="https://thmedu.github.io/Animais-Fantasticos/"
            class="portfolio-item-link"
@@ -546,11 +555,6 @@
         <div class="description">
           <p>O projeto Rede Pets visa criar uma plataforma interativa para amantes de animais de estimação, oferecendo uma experiência envolvente e funcional aos usuários.</p>
           <p class="feature-list"><strong>Funcionalidades:</strong></p>
-          <ul>
-            <li>Perfil de usuário</li>
-            <li>Interação social</li>
-            <li>Informações sobre pets</li>
-          </ul>
         </div>
         <a href="https://rede-pets.vercel.app/"
            class="portfolio-item-link"
@@ -581,11 +585,6 @@
         <div class="description">
           <p>O projeto The Coffee foi desenvolvido para demonstrar habilidades avançadas em desenvolvimento web, focando em uma aplicação de cafeteria com menu, endereço, sobre e carrinho de compras.</p>
           <p class="feature-list"><strong>Funcionalidades:</strong></p>
-          <ul>
-            <li>Cardápio dinâmico</li>
-            <li>Sistema de pedido online</li>
-            <li>Informações da loja</li>
-          </ul>
         </div>
         <a href="https://thmedu.github.io/The-Coffee/"
            class="portfolio-item-link"
@@ -615,11 +614,6 @@
         <div class="description">
           <p>O projeto Luxe Barbershop tem como objetivo melhorar o atendimento ao cliente de uma barbearia, apresentando serviços oferecidos e permitindo agendamentos através de API e WhatsApp.</p>
           <p class="feature-list"><strong>Funcionalidades:</strong></p>
-          <ul>
-            <li>Agendamento online</li>
-            <li>Listagem de serviços</li>
-            <li>Integração com redes sociais</li>
-          </ul>
         </div>
         <a href="https://barbearia-luxe.vercel.app/"
            class="portfolio-item-link"
@@ -635,6 +629,7 @@
   </div>
 </section>
 
+
 <!-- Seção de Serviços -->
 <section class="services"
          id="services"
@@ -649,7 +644,7 @@
     <article class="service-item"
              data-aos="fade-up"
              data-aos-delay="100">
-      <img src="./src/img/Icons/Online world-cuate.svg"
+             <img src="./src/img/Icons/Desenvolvimento Web.svg"
            alt="Ícone de Desenvolvimento Web" />
       <h3>Desenvolvimento Web</h3>
       <ul>
@@ -663,7 +658,7 @@
     <article class="service-item"
              data-aos="fade-up"
              data-aos-delay="300">
-      <img src="./src/img/Icons/SEO-bro.svg"
+             <img src="./src/img/Icons/SEO.svg"
            alt="Ícone de Otimização SEO" />
       <h3>Otimização SEO</h3>
       <ul>
@@ -677,7 +672,7 @@
     <article class="service-item last-item"
              data-aos="fade-up"
              data-aos-delay="500">
-      <img src="./src/img/Icons/Setup Wizard-cuate.svg"
+             <img src="./src/img/Icons/Manutenção.svg"
            alt="Ícone de Manutenção de Sistemas" />
       <h3>Manutenção de Sistemas</h3>
       <ul>

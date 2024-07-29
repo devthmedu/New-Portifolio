@@ -3,19 +3,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
 
-
 /* Root Variables */
 :root {
     --color-black: #000;
-    --color-white: #c5c5c5;
+    --color-white: #ffffff;
     --color-title: #c5c5c5;
-    --color-blue: #002af7;
+    --color-blue: #4336a0;
     --color-dark-blue: #001b6b;
     --color-loading-bg: rgba(0, 0, 0, 0.991);
     --color-loading-text: #fff;
-    --color-scroll-thumb: #002af7;
+    --color-scroll-thumb: #4336a0;
     --color-scroll-thumb-hover: #001b6b;
-    --background-gradient: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+    --background-gradient: linear-gradient(13deg, rgba(0, 0, 0, 0.8), rgba(0, 98, 255, 0.6));
 }
 
 /* Configuração inicial para o particles.js */
@@ -39,16 +38,13 @@ body {
     background-blend-mode: overlay;
     background-size: cover; /* Ajusta o tamanho da textura */
     background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
-    transition: background 0.3s ease;
-    background-color: #000;
+    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
-
-
 
 /* Scrollbar */
 body::-webkit-scrollbar {
     width: 8px;
-    background-color: var(--color-black);
+   background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
 body::-webkit-scrollbar-thumb {
@@ -64,7 +60,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Navegação Geral */
 .header {
-    background-color: var(--color-black);
     color: #eee;
     padding: 2rem 3rem;
     display: flex;
@@ -72,25 +67,37 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: space-between;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
+    border: 2px solid transparent; /* Adicionado para borda lateral */
 }
 
+/* Borda lateral colorida para o header */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+/* Container */
 .container {
     max-width: 1300px;
     margin: 0 auto;
     width: 60%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content:space-between;
     border-radius: 20px;
-    background-color: #2929299a;
 }
 
 /* Logo */
 .logo img {
-    width: 60px;
+    width: 50px;
     height: auto;
-    border-radius: 8%;
+    border-radius: 50%;
     justify-content: space-between;
 }
 
@@ -140,6 +147,18 @@ body::-webkit-scrollbar-thumb:hover {
     gap: 6px;
 }
 
+/* Borda lateral colorida para o menu hamburger */
+.hamburger-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
 .hamburger-menu .bar {
     width: 30px;
     height: 4px;
@@ -162,6 +181,18 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(-20px);
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Borda lateral colorida para a navegação móvel */
+.mobile-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .mobile-nav.active {
@@ -258,7 +289,6 @@ body::-webkit-scrollbar-thumb:hover {
     margin: 0; /* Remove margens para melhor centralização */
 }
 
-
 /* Botão de Voltar ao Topo */
 #scroll-to-top {
     position: fixed;
@@ -280,49 +310,15 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 999;
 }
 
+/* Exibe o botão quando a classe show é adicionada */
 #scroll-to-top.show {
     opacity: 1;
     transform: scale(1);
 }
 
-#scroll-to-top:hover {
-    background-color: var(--color-dark-blue);
-}
-
-/* Desativa o rolar da página */
-.no-scroll {
-    overflow: hidden;
-}
-/* Estilo geral para o botão de voltar ao topo */
-#scroll-to-top {
-    position: fixed; /* Fica fixo na tela */
-    bottom: 20px; /* Distância do fundo */
-    right: 20px; /* Distância da direita */
-    width: 60px; /* Largura do botão */
-    height: 60px; /* Altura do botão */
-    background-color: #002af7; /* Cor de fundo */
-    color: #fff; /* Cor do texto */
-    border: none; /* Remove a borda padrão */
-    border-radius: 50%; /* Borda arredondada */
-    display: flex; /* Flexbox para centralizar o ícone */
-    align-items: center;
-    justify-content: center;
-    cursor: pointer; /* Cursor de mão para indicar clicabilidade */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
-    opacity: 0; /* Começa invisível */
-    transform: scale(0.8); /* Começa um pouco menor */
-    z-index: 999; /* Fica sobre outros elementos */
-}
-
-/* Exibe o botão quando a classe show é adicionada */
-#scroll-to-top.show {
-    opacity: 1; /* Fica visível */
-    transform: scale(1); /* Volta ao tamanho original */
-}
-
 /* Estilo do botão ao passar o mouse */
 #scroll-to-top:hover {
-    background-color: #001c99; /* Escurece o fundo ao passar o mouse */
+    background-color: var(--color-dark-blue);
 }
 
 /* Animação bounce para o elemento .animate */
@@ -330,7 +326,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: inline-block;
     margin: 0 0.2rem; /* Margem lateral um pouco mais ampla */
     animation: bounce 2s infinite; /* Duração e repetição da animação */
-    color: #002af7; /* Cor do texto animado */
+    color: #4336a0; /* Cor do texto animado */
     font-weight: bold; /* Adiciona negrito para maior destaque */
 }
 
@@ -347,9 +343,6 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
-
-
-
 /* Estilo para a seção inicial */
 .section-inicial {
     display: flex;
@@ -358,7 +351,6 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
     min-height: 100vh;
     padding: 7rem 3rem;
-    background-color: #000;
     color: #eee;
     text-align: center;
     position: relative;
@@ -377,15 +369,39 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 0 1rem;
 }
 
+/* Borda lateral colorida para a seção de perfil */
+.user-profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
 .user-profile img {
     width: 300px;
     height: 300px;
-    border-radius: 20px;
+    border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, border-color 0.3s ease;
     filter: brightness(1) contrast(1);
-    border: 2px solid #002af7;
+    border: 1px solid #444;
     position: relative;
+}
+
+/* Borda lateral colorida para a imagem de perfil */
+.user-profile img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .user-profile img:hover {
@@ -408,14 +424,26 @@ body::-webkit-scrollbar-thumb:hover {
     letter-spacing: -0.5px;
 }
 
+/* Borda lateral colorida para o título */
+.title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
 .typing-text {
     font-family: "Roboto", sans-serif;
     font-size: 2rem;
     font-weight: bold;
-    color: #002af7;
+    color: #4336a0;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 0.20em solid #002af7;
+    border-right: 0.20em solid #4336a0;
     animation: typing 5.5s steps(50, end), blink-caret 0.95s step-end infinite;
 }
 
@@ -426,7 +454,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: #002af7; }
+    50% { border-color: #4336a0; }
 }
 
 .summary {
@@ -441,6 +469,18 @@ body::-webkit-scrollbar-thumb:hover {
     box-sizing: border-box;
 }
 
+/* Borda lateral colorida para a seção summary */
+.summary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
 .social-icons {
     display: flex;
     justify-content: center;
@@ -452,8 +492,8 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     color: #eee;
     font-size: 2rem;
     transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
@@ -461,6 +501,18 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: 20px;
     background-color: rgba(41, 41, 41, 0.6);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adicionado para profundidade */
+}
+
+/* Borda lateral colorida para os ícones sociais */
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .social-icon:hover {
@@ -477,111 +529,138 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .social-icon.linkedin:hover {
-    color: #0077B5;
+    color: #4336a0;
 }
 
 .social-icon.discord:hover {
     color: #819bf8;
 }
 
-
-
 /* Estilo para a seção Sobre Mim */
 .about {
-    padding: 6rem 3rem; /* Espaçamento generoso para a seção */
-    text-align: center;
+    padding: 4rem 6rem; /* Ajuste do espaçamento para um layout mais compacto */
+    color: #ffffff; /* Cor do texto padrão */
+    background-color: #1e1e1e; /* Cor de fundo para contraste */
 }
 
+/* Estilo do título da seção */
 .title-section {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem; /* Menos espaçamento abaixo do título */
+    text-align: center; /* Centraliza o título */
 }
 
 .section-title {
     font-family: "Poppins", sans-serif;
-    font-size: 3rem; /* Tamanho grande para destaque */
+    font-size: 3.5rem; /* Tamanho do título ajustado */
     font-weight: 700;
-    color: #333; /* Cor de texto escura para contraste */
-    border-bottom: 4px solid #002af7; /* Cor de destaque com borda inferior */
-    display: inline-block;
-    padding-bottom: 15px;
-    margin: 0 auto;
-}
-
-/* Layout de coluna */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center; /* Alinha as colunas ao centro */
-}
-
-.col {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px; /* Aumentado para mais espaço */
-}
-
-/* Estilo dos blocos de informações */
-.info-block {
-    background-color: #2c2c2c; /* Fundo escuro, mas não tão transparente */
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 3rem;
-    margin: 1rem 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    color: #ffffff; /* Cor do título */
     position: relative;
+    display: inline-block;
+    padding-bottom: 15px; /* Espaçamento inferior */
 }
 
-.info-block:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
-    background-color: #e0e0e0; /* Cor clara para o hover, contrastante com o fundo escuro */
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 50%; /* Largura da linha de destaque */
+    height: 4px; /* Altura da linha de destaque */
+    background: #4336a0; /* Cor de destaque */
+    transform: translateX(-50%);
+    border-radius: 5px; /* Arredondamento da linha */
 }
 
-.ci-icon img {
-    width: 200px; /* Tamanho base para telas maiores */
-    height: 200px;
-    margin-bottom: 1.5rem;
-    border-radius: 50%;
-    background-color: transparent; /* Fundo transparente */
-    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+/* Layout de Grid */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Largura mínima das colunas */
+    gap: 2rem; /* Espaçamento entre os containers */
 }
 
-.ci-icon img:hover {
-    transform: scale(1.1);
-    opacity: 0.8;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra sutil ao hover */
+/* Estilo das colunas */
+.col {
+    border: 1px solid #444; /* Cor da borda */
+    border-radius: 10px; /* Arredondamento das bordas */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra leve */
+    padding: 2rem; /* Espaçamento interno */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+    position: relative;
+    overflow: hidden;
+    color: #ffffff; /* Cor do texto */
 }
 
+/* Estilo individual das colunas para diferenciação */
+.col {
+    border-left: 4px solid #4336a0; /* Borda lateral esquerda azul */
+}
+
+
+.col:hover {
+    transform: translateY(-8px); /* Efeito de elevação ajustado */
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+/* Sobreposição de gradiente no hover */
+.col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transição suave para a sobreposição */
+}
+
+.col:hover::before {
+    opacity: 1; /* Sobreposição visível no hover */
+}
+
+/* Estilo do ícone */
+.ci-icon {
+    text-align: center; /* Centraliza o ícone */
+    margin-bottom: 1rem; /* Espaçamento abaixo do ícone */
+}
+
+.ci-icon i {
+    font-size: 4rem; /* Tamanho dos ícones ajustado */
+    color: #ffffff; /* Cor dos ícones */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transição suave */
+}
+
+.ci-icon i:hover {
+    transform: scale(1.2); /* Aumento no hover */
+    color: #4336a0; /* Cor de destaque no hover */
+}
+
+/* Texto dos blocos de informações */
 .ci-text h4 {
     font-family: "Poppins", sans-serif;
-    font-size: 1.6rem; /* Tamanho do texto ajustado para destaque */
-    color: #002af7; /* Cor de texto suave */
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem; /* Tamanho do título ajustado */
+    color: #ffffff; /* Cor do título */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
     transition: color 0.3s ease; /* Transição suave para a cor do texto */
 }
 
 .ci-text h4:hover {
-    color: #0000ed; /* Cor de destaque no hover */
-}
-
-/* Estilo para a cor fixa após o hover */
-.ci-text h4.fixed-color {
-    color: #3b3b9b; /* Cor fixa após o hover */
+    color: #4336a0; /* Cor de destaque no hover */
 }
 
 .ci-text p {
     font-family: "Roboto", sans-serif;
-    font-size: 1.2rem; /* Aumentado para melhor legibilidade */
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 1rem;
+    font-size: 1rem; /* Tamanho do texto ajustado */
+    color: #dfdfdf; /* Cor do texto */
+    line-height: 1.5; /* Altura da linha */
+    margin-bottom: 1rem; /* Espaçamento abaixo do parágrafo */
 }
 
+/* Detalhes adicionais */
 .info-detail {
     font-family: "Roboto", sans-serif;
-    font-size: 1rem;
-    color: #002af7; /* Destaque azul */
+    font-size: 0.9rem; /* Tamanho do texto reduzido */
+    color: #4336a0; /* Destaque azul */
     font-weight: 500;
     display: block;
     margin-top: 0.5rem;
@@ -590,16 +669,62 @@ body::-webkit-scrollbar-thumb:hover {
 /* Efeito de animação */
 [data-aos="fade-up"] {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(20px); /* Deslocamento inicial */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Transição suave */
 }
 
 [data-aos="fade-up"].aos-animate {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Retorno à posição original */
 }
 
 /* Estilos Responsivos */
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 1024px) {
+    .about {
+        padding: 4rem 3rem; /* Ajuste do espaçamento para telas menores */
+    }
+
+    .section-title {
+        font-size: 2.5rem; /* Ajusta o tamanho do título */
+    }
+
+    .ci-icon i {
+        font-size: 3rem; /* Ajusta o tamanho dos ícones */
+    }
+
+    .ci-text h4 {
+        font-size: 1.3rem; /* Ajusta o tamanho do texto */
+    }
+
+    .ci-text p {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto */
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 3rem 1.5rem; /* Reduz o espaçamento para dispositivos móveis */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
+
+    .ci-icon i {
+        font-size: 2.5rem; /* Ajusta o tamanho dos ícones */
+    }
+
+    .ci-text h4 {
+        font-size: 1.2rem; /* Ajusta o tamanho do texto */
+    }
+
+    .ci-text p {
+        font-size: 0.8rem; /* Ajusta o tamanho do texto */
+    }
+}
+
 
 
 /* Estilos para o bloco de informação com animação */
@@ -621,7 +746,7 @@ body::-webkit-scrollbar-thumb:hover {
     width: 80px; /* Ajusta o tamanho dos ícones */
     height: 80px;
     border-radius: 50%;
-    background-color: #002af7; /* Cor de fundo do ícone */
+    background-color: #4336a0; /* Cor de fundo do ícone */
     color: #ffffff; /* Cor do ícone */
     margin: 0 auto 1rem;
 }
@@ -650,32 +775,34 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 
-/* Estilos específicos para a seção de Certificados */
+/* Estilos para a seção de Certificados e Educação */
 .certificates-education {
-    padding: 60px 20px;
+    padding: 4rem 3rem; /* Ajuste do espaçamento para um layout mais compacto */
+    color: #f4f4f4; /* Cor do texto padrão clara */
 }
 
 .certificates-education .title-section {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 4rem; /* Menos espaçamento abaixo do título */
 }
 
 .certificates-education .section-title {
-    font-size: 2.8rem; /* Tamanho do título aumentado para destaque */
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem; /* Tamanho do título ajustado */
     color: #ffffff; /* Cor do título branca */
     font-weight: 700; /* Título em negrito */
     text-transform: uppercase; /* Maiúsculas */
-    letter-spacing: 1.5px; /* Espaçamento entre letras */
-    border-bottom: 2px solid #00bfff; /* Linha embaixo do título para destaque */
+    letter-spacing: 1px; /* Espaçamento entre letras ajustado */
+    border-bottom: 3px solid #00bfff; /* Linha mais espessa para destaque */
     display: inline-block; /* Para a linha embaixo */
-    padding-bottom: 10px; /* Espaço entre o texto e a linha */
+    padding-bottom: 8px; /* Espaço entre o texto e a linha */
 }
 
 /* Lista de certificados */
 .certificates-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo com grid */
+    gap: 1.5rem; /* Espaçamento menor entre os itens */
     justify-content: center;
 }
 
@@ -683,34 +810,42 @@ body::-webkit-scrollbar-thumb:hover {
 .certificates-list .item {
     display: flex;
     align-items: center;
-    background-color: #2e2e2e; /* Fundo dos itens */
-    border-radius: 15px; /* Bordas arredondadas suaves */
-    border: 1px solid #444; /* Borda sutil */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; /* Bordas arredondadas */
+    border-left: 4px solid transparent; /* Borda lateral inicial transparente para o efeito de cor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.557); /* Sombra mais pronunciada */
+    padding: 1.5rem; /* Padding ajustado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transição suave */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas */
+}
+.certificates-list .item {
+    border-left-color: #4336a0; /* Azul escuro */
 }
 
+
 .certificates-list .item:hover {
-    transform: translateY(-8px); /* Efeito de elevação ao passar o mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+    transform: translateY(-6px); /* Efeito de elevação ajustado */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
 }
 
 /* Estilo dos ícones */
 .certificates-list .item .icon {
-    width: 80px;
-    height: 80px;
-    margin-right: 20px;
+    width: 100px; /* Tamanho ajustado dos ícones */
+    height: 100px;
+    margin-right: 1.5rem; /* Ajuste no espaçamento à direita do ícone */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .certificates-list .item .icon img {
-    width: 100%; /* Ajusta a imagem para ocupar toda a área do ícone */
+    width: 80%; /* Ajusta a imagem para ocupar parte do ícone */
     height: auto;
     border-radius: 50%; /* Bordas arredondadas para as imagens */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+.certificates-list .item .icon img:hover {
+    transform: scale(1.1); /* Aumento no hover */
 }
 
 /* Estilo das informações */
@@ -719,31 +854,94 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .certificates-list .item .info h4 {
-    font-size: 1.5rem; /* Tamanho do título aumentado */
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem; /* Tamanho do título ajustado */
     color: #00bfff; /* Cor azul clara para o título */
     font-weight: 700; /* Título em negrito */
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem; /* Espaço abaixo do título */
+    transition: color 0.3s ease; /* Transição suave para a cor */
 }
 
 .certificates-list .item .info h4 a {
     color: inherit; /* Mantém a cor do link igual ao do título */
     text-decoration: none; /* Remove sublinhado */
-    transition: color 0.3s ease; /* Transição suave */
 }
 
 .certificates-list .item .info h4 a:hover {
-    color: #1e90ff; /* Cor do link ao passar o mouse */
+    color: #4336a0; /* Cor do link ao passar o mouse */
 }
 
 .certificates-list .item .info p {
     margin: 0;
     color: #e0e0e0; /* Cor do texto mais clara para contraste */
-    font-size: 1rem; /* Tamanho do texto ajustado */
+    font-size: 0.9rem; /* Tamanho do texto ajustado */
+    line-height: 1.5; /* Ajuste na altura da linha */
 }
+/* Ajuste para dispositivos móveis */
+@media (max-width: 1024px) {
+    .certificates-education {
+        padding: 4rem 2rem; /* Ajuste do espaçamento para telas menores */
+    }
+
+    .certificates-education .section-title {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
+
+    .certificates-list .item {
+        padding: 1rem; /* Reduz o padding interno dos itens */
+    }
+
+    .certificates-list .item .icon {
+        width: 80px; /* Ajusta o tamanho dos ícones */
+        height: 80px;
+    }
+
+    .certificates-list .item .info h4 {
+        font-size: 1.2rem; /* Ajusta o tamanho do título */
+    }
+
+    .certificates-list .item .info p {
+        font-size: 0.8rem; /* Ajusta o tamanho do texto */
+    }
+}
+
+@media (max-width: 768px) {
+    .certificates-education {
+        padding: 3rem 1rem; /* Reduz o espaçamento para dispositivos móveis */
+    }
+
+    .certificates-education .section-title {
+        font-size: 1.8rem; /* Ajusta o tamanho do título */
+    }
+
+    .certificates-list .item {
+        flex-direction: column; /* Empilha o ícone e as informações verticalmente */
+        padding: 1rem; /* Reduz o padding interno dos itens */
+    }
+
+    .certificates-list .item .icon {
+        margin-bottom: 1rem; /* Ajusta o espaçamento abaixo do ícone */
+    }
+
+    .certificates-list .item .icon img {
+        width: 70px; /* Ajusta o tamanho dos ícones */
+        height: 70px;
+    }
+
+    .certificates-list .item .info h4 {
+        font-size: 1rem; /* Ajusta o tamanho do título */
+    }
+
+    .certificates-list .item .info p {
+        font-size: 0.7rem; /* Ajusta o tamanho do texto */
+    }
+}
+
 
 /* Estilos específicos para a seção de Educação */
 .education {
     padding: 60px 20px;
+    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
 /* Título da seção de Educação */
@@ -758,7 +956,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: 700; /* Título em negrito mais forte */
     text-transform: uppercase; /* Título em maiúsculas */
     letter-spacing: 1.5px; /* Espaçamento entre letras aumentado */
-    border-bottom: 2px solid #007bff; /* Linha embaixo do título para destaque */
+    border-bottom: 2px solid #4336a0; /* Linha embaixo do título para destaque */
     display: inline-block; /* Para a linha embaixo */
     padding-bottom: 10px; /* Espaço entre o texto e a linha */
 }
@@ -767,20 +965,37 @@ body::-webkit-scrollbar-thumb:hover {
 .education .item {
     display: flex;
     align-items: center;
-    background-color: #2e2e2e; /* Cor de fundo dos itens */
     border-radius: 15px; /* Bordas arredondadas mais suaves */
-    border: 1px solid #333; /* Borda mais sutil */
+    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
     padding: 20px; /* Padding aumentado para mais espaçamento interno */
     margin-bottom: 20px; /* Espaçamento entre itens ajustado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     background-size: cover; /* Ajusta o tamanho do fundo */
     background-position: center; /* Centraliza o fundo */
+    position: relative;
+}
+/* Borda lateral colorida com base no índice do item */
+.education .item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px; /* Largura da borda lateral colorida */
+    background-color: transparent; /* Cor padrão como transparente */
+    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
+}
+
+.education .item::before {
+    background-color: #002aff; /* Azul escuro */
 }
 
 .education .item:hover {
     transform: translateY(-8px); /* Efeito de elevação mais acentuado */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
+    border-color: #4336a0; /* Cor da borda do item no hover */
 }
 
 /* Estilo do ícone dentro do item */
@@ -806,7 +1021,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .education .item .info h4 {
     font-size: 1.5rem; /* Tamanho do título aumentado para maior legibilidade */
-    color: #007bff; /* Cor azul para o título */
+    color: #4336a0; /* Cor azul para o título */
     font-weight: 600; /* Peso da fonte ajustado */
     margin-bottom: 5px; /* Espaçamento abaixo do título */
     transition: color 0.3s ease; /* Transição suave para a cor */
@@ -822,24 +1037,25 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 1.1rem; /* Tamanho do texto ajustado para melhor legibilidade */
 }
 
-
 /* Estilo para a seção de habilidades */
 .skills {
     padding: 5rem 2rem;
     text-align: center;
     position: relative;
+    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
-.title-section {
+/* Título da seção de habilidades */
+.skills .title-section {
     margin-bottom: 3rem;
 }
 
-.section-title {
+.skills .section-title {
     font-family: "Poppins", sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: #ffffff;
-    border-bottom: 3px solid #002af7;
+    border-bottom: 3px solid #4336a0;
     display: inline-block;
     padding-bottom: 10px;
     margin: 0 auto;
@@ -859,7 +1075,32 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    opacity: 0.5; /* Inicialmente, as descrições estão ocultas */
+    opacity: 1; /* Inicialmente, as descrições estão ocultas */
+    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
+}
+
+/* Borda lateral colorida com base no índice do item */
+.owl-carousel .skill-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px; /* Largura da borda lateral colorida */
+    background-color: transparent; /* Cor padrão como transparente */
+    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
+}
+
+.owl-carousel .skill-box::before {
+    background-color: #4336a0; /* Azul escuro */
+}
+
+
+.owl-carousel .skill-box:hover {
+    transform: scale(1.05); /* Leve aumento do tamanho no hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
+    opacity: 1; /* Torna a descrição visível no hover */
 }
 
 /* Imagem de habilidade */
@@ -891,90 +1132,121 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(0); /* Move a descrição para sua posição original */
 }
 
+
 /* Estilos para a seção de portfólio */
 .portfolio {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 60px 20px; /* Padding superior e inferior generoso */
     color: #fff;
+    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
 /* Título da seção */
 .title-section {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     text-align: center;
 }
 
 .section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem;
+    font-size: 3rem; /* Tamanho do título aumentado para destaque */
     font-weight: 700;
     color: #ffffff;
-    border-bottom: 2px solid #007bff;
+    border-bottom: 3px solid #4336a0;
     padding-bottom: 10px;
     margin: 0;
+    text-transform: uppercase; /* Maiúsculas para o título */
 }
 
 /* Contêiner dos itens do portfólio */
 .portfolio-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 50px; /* Aumenta o espaço entre os itens */
+    gap: 30px; /* Espaçamento entre os itens ajustado */
     justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Largura máxima para centralizar o conteúdo */
 }
 
 /* Estilo dos itens do portfólio */
 .portfolio-item {
     position: relative;
     width: 100%;
-    max-width: 500px; /* Aumenta o tamanho máximo para mais largura */
-    background-color: #333;
-    border-radius: 20px;
+    max-width: 500px; /* Largura máxima dos itens */
+    height: 400px; /* Altura ajustada para garantir que a imagem preencha o contêiner */
+    background-color: #333; /* Fundo das caixas de portfólio */
+    border-radius: 15px; /* Bordas arredondadas mais suaves */
+    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
+
+/* Borda lateral colorida com base no índice do item */
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px; /* Largura da borda lateral colorida */
+    background-color: #4336a0; /* Azul escuro */
+    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
+}
+
 
 .portfolio-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(3.03); /* Leve aumento do tamanho no hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+    border-color: #0056b3; /* Cor da borda do item no hover */
 }
 
+/* Imagem do projeto */
 .img-projeto {
     width: 100%;
-    height: 500px; /* Ajusta a altura da imagem para melhor visualização */
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    height: 100%; /* Ocupa toda a altura do contêiner */
+    object-fit: cover; /* Cobre o contêiner sem distorcer */
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .portfolio-item:hover .img-projeto {
     transform: scale(1.1); /* Aumenta a escala da imagem no hover */
+    filter: brightness(0.8); /* Escurece a imagem para melhor contraste */
 }
 
 /* Informações do item do portfólio */
 .portfolio-item-info {
-    padding: 15px;
+    padding: 20px;
     background-color: rgba(0, 0, 0, 0.8); /* Fundo ligeiramente transparente para contraste */
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    height: 80%; /* Altura ajustada para 40% do contêiner */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     transform: translateY(100%);
     transition: transform 0.3s ease;
-    border-radius: 0 0 15px 15px;
+    border-top: 2px solid #4336a0; /* Borda superior do contêiner de informações */
+    border-radius: 0 0 15px 15px; /* Bordas arredondadas na parte inferior */
 }
 
 .portfolio-item:hover .portfolio-item-info {
-    transform: translateY(0);
+    transform: translateY(0); /* Move a descrição para sua posição original */
 }
 
 .portfolio-item-info h3 {
-    font-size: 1.4rem; /* Aumenta o tamanho da fonte do título */
+    font-size: 1.6rem; /* Tamanho da fonte do título aumentado */
     margin: 0 0 10px;
     color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto para maior contraste */
 }
 
+/* Lista de tecnologias */
 .technologies {
     display: flex;
     flex-wrap: wrap;
@@ -983,7 +1255,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .tech-item {
-    font-size: 1rem; /* Aumenta o tamanho da fonte dos itens de tecnologia */
+    font-size: 1.1rem; /* Tamanho da fonte dos itens de tecnologia aumentado */
     display: flex;
     align-items: center;
     gap: 5px;
@@ -991,19 +1263,21 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .tech-item i {
-    color: #007bff;
+    color: #4336a0; /* Cor do ícone de tecnologia */
 }
 
+/* Descrição do projeto */
 .description {
-    font-size: 1rem; /* Aumenta o tamanho da fonte da descrição */
+    font-size: 1.1rem; /* Tamanho da fonte da descrição ajustado */
     line-height: 1.6;
     margin: 10px 0;
     color: #dcdcdc;
 }
 
+/* Lista de características */
 .feature-list {
     font-weight: bold;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 ul {
@@ -1012,53 +1286,48 @@ ul {
 }
 
 ul li {
-    font-size: 1rem; /* Aumenta o tamanho da fonte da lista */
+    font-size: 1.1rem; /* Tamanho da fonte da lista ajustado */
     color: #dcdcdc;
 }
 
 /* Link do item do portfólio */
 .portfolio-item-link {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 10px 14px; /* Padding aumentado para mais espaçamento interno */
+    background-color: #4336a0; /* Cor de fundo do link */
     color: #fff;
     text-decoration: none;
-    border-radius: 20px;
-    font-size: 1rem; /* Aumenta o tamanho da fonte do link */
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 20px; /* Bordas arredondadas mais suaves */
+    font-size: 1.1rem; /* Tamanho da fonte do link ajustado */
+
 }
 
 .portfolio-item-link:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background-color: #0056b3; /* Cor mais escura para o hover */
 }
 
 /* Setas para o item do portfólio */
-/* Estilo das setas para o item do portfólio */
 .portfolio-item-arrow {
     position: absolute;
     bottom: 15px;
-    right: 15px;
+    right: 10px;
     cursor: pointer;
     text-align: center;
-    padding: 12px; /* Aumenta o padding para melhor visibilidade */
-    width: 50px; /* Aumenta o tamanho do botão para maior visibilidade */
-    height: 50px;
-    border-radius: 50%;
-    background-color: #007bff;
+    padding: 15px; /* Aumentado para melhor visibilidade */
+    width: 30px; /* Aumentado para maior visibilidade */
+    height: 30px;
+    border-radius: 20%;
+    background-color: #4336a0; /* Cor de fundo das setas */
     color: #fff;
-    font-size: 1.8rem; /* Aumenta o tamanho do ícone para maior destaque */
+    font-size: 1rem; /* Tamanho do ícone aumentado */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Efeito de hover para as setas */
 .portfolio-item-arrow:hover {
     background-color: #0056b3; /* Cor mais escura para o hover */
-    transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
 }
 
 /* Adicionalmente, se você deseja um efeito de brilho no ícone */
@@ -1068,288 +1337,342 @@ ul li {
 
 /* Seção de Serviços */
 .services {
-  padding: 80px 20px;
-  color: #f1f1f1;
-  text-align: center;
+    padding: 80px 20px;
+    color: #f1f1f1;
+    text-align: center;
+    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
-.title-section {
-  margin-bottom: 60px;
+/* Título da seção de serviços */
+.services .title-section {
+    margin-bottom: 60px;
 }
 
-.section-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.75rem;
-  color: #ffffff;
-  font-weight: 700;
-  position: relative;
+.services .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.75rem;
+    color: #ffffff;
+    font-weight: 700;
+    position: relative;
 }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  width: 80px;
-  height: 4px;
-  background-color: #007bff;
-  transform: translateX(-50%);
+.services .section-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 80px;
+    height: 4px;
+    background-color: #4336a0;
+    transform: translateX(-50%);
 }
 
 /* Wrapper dos serviços */
 .services-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 /* Item de serviço */
 .service-item {
-  background: rgba(40, 40, 40, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  padding: 30px;
-  width: 100%;
-  max-width: 350px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  text-align: center;
-  position: relative;
-  animation: fadeInUp 1s ease-out;
+    border-radius: 15px;
+    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-align: center;
+    position: relative;
+    animation: fadeInUp 1s ease-out;
+    overflow: hidden;
+}
+
+/* Borda lateral colorida com base no índice do item */
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px; /* Largura da borda lateral colorida */
+    background-color: transparent; /* Cor padrão como transparente */
+    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
+}
+
+.service-item::before {
+    background-color: #4336a0; /* Azul escuro */
 }
 
 .service-item:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-  background: rgba(60, 60, 60, 0.9);
+    transform: translateY(-12px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    background: rgba(60, 60, 60, 0.9);
 }
 
+/* Imagem do serviço */
 .service-item img {
-  max-width: 90px;
-  margin-bottom: 20px;
+    max-width: 90px;
+    margin-bottom: 20px;
 }
 
+/* Título do serviço */
 .service-item h3 {
-  font-size: 1.75rem;
-  color: #ffffff;
-  margin-bottom: 15px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+    font-size: 1.75rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
 }
 
+/* Lista de serviços */
 .service-item ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .service-item li {
-  font-size: 1.1rem;
-  color: #d3d3d3;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    font-size: 1.1rem;
+    color: #d3d3d3;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .service-item i {
-  color: #00aaff; /* Azul claro para destacar ícones */
+    color: #00aaff; /* Azul claro para destacar ícones */
 }
 
 /* Botão de solicitar orçamento */
 .orcamento {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .btn-solicitar {
-  background: linear-gradient(90deg, #007bff, #002af7);
-  color: #ffffff;
-  text-decoration: none;
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  transition: background 0.3s ease, transform 0.3s ease;
+    background: linear-gradient(90deg, #4336a0, #4336a0);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .btn-solicitar:hover {
-  background: linear-gradient(90deg, #002af7, #007bff);
-  transform: scale(1.05);
+    background: linear-gradient(90deg, #4336a0, #4336a0);
+    transform: scale(1.05);
 }
 
 /* Animação de fade-in e subida */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 
 /* Estilos para a seção de contato */
 .contact {
-  padding: 80px 20px;
-  color: #f1f1f1; /* Texto claro para contraste */
+    padding: 80px 20px;
+    color: #f1f1f1; /* Texto claro para contraste */
+    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
-.title-section {
-  text-align: center;
-  margin-bottom: 60px;
+/* Título da seção de contato */
+.contact .title-section {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
-.section-title {
-  font-family: "Poppins", sans-serif;
-  font-size: 2.5rem;
-  color: #ffffff;
-  font-weight: 600;
-  border-bottom: 3px solid #1e90ff; /* Azul vibrante para destaque */
-  display: inline-block;
-  padding-bottom: 10px;
-  position: relative;
+.contact .section-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: 600;
+    border-bottom: 3px solid #4336a0; /* Azul vibrante para destaque */
+    display: inline-block;
+    padding-bottom: 10px;
+    position: relative;
 }
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  width: 50px;
-  height: 3px;
-  background-color: #1e90ff; /* Azul vibrante para o destaque */
-  transform: translateX(-50%);
+.contact .section-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 50px;
+    height: 3px;
+    background-color: #4336a0; /* Azul vibrante para o destaque */
+    transform: translateX(-50%);
 }
 
 /* Contato Conteúdo */
 .contact-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Informações de Contato */
 .contact-info {
-  flex: 1 1 300px;
-  padding: 20px;
-  border-radius: 10px;
-  background: #2c2c2c; /* Fundo escuro com tonalidade cinza */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    flex: 1 1 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
+    overflow: hidden;
 }
 
+/* Borda lateral colorida com base no índice do item */
+.contact-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 8px; /* Largura da borda lateral colorida */
+    background-color: transparent; /* Cor padrão como transparente */
+    border-top-left-radius: 10px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 10px; /* Arredonda o canto inferior esquerdo */
+}
+
+.contact-info:nth-child(1)::before {
+    background-color: #4336a0; /* Azul escuro */
+}
+
+.contact-info:nth-child(2)::before {
+    background-color: #ffd900; /* Laranja */
+}
+
+.contact-info:nth-child(3)::before {
+    background-color: #002aff; /* Verde */
+}
+
+/* Informações de contato dentro dos itens */
 .info-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .info-item i {
-  font-size: 2rem;
-  color: #1e90ff; /* Azul vibrante para ícones */
-  margin-right: 15px;
+    font-size: 2rem;
+    color: #4336a0; /* Azul vibrante para ícones */
+    margin-right: 15px;
 }
 
 .info-item p {
-  margin: 0;
-  font-size: 1rem;
-  color: #f1f1f1;
+    margin: 0;
+    font-size: 1rem;
+    color: #f1f1f1;
 }
 
 .info-item a {
-  color: #1e90ff;
-  text-decoration: none;
-  font-weight: 600;
+    color: #4336a0;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .info-item a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .resume-link {
-  color: #1e90ff;
-  text-decoration: none;
-  font-weight: 600;
+    color: #4336a0;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .resume-link:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Estilos para o formulário de contato */
 .contact-form {
-  flex: 1 1 600px;
-  padding: 20px;
-  border-radius: 10px;
-  background: #2c2c2c; /* Fundo escuro para o formulário */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    flex: 1 1 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #1a1a1a; /* Fundo escuro para o formulário */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .form-group {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #1e90ff; /* Azul vibrante para rótulos */
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #4336a0; /* Azul vibrante para rótulos */
 }
 
 .form-group input,
 .form-group textarea,
 .form-group input[type="file"] {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #1e90ff;
-  border-radius: 6px;
-  font-size: 1rem;
-  color: #ffffff;
-  background: #1a1a1a; /* Fundo escuro para campos de entrada */
-  box-sizing: border-box; /* Inclui o padding e border no width total */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4336a0;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #1a1a1a; /* Fundo escuro para campos de entrada */
+    box-sizing: border-box; /* Inclui o padding e border no width total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group input[type="file"]:focus {
-  border-color: #1c75bc; /* Azul escuro para foco */
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(28, 123, 188, 0.25);
+    border-color: #1c75bc; /* Azul escuro para foco */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(28, 123, 188, 0.25);
 }
 
 .form-group textarea {
-  resize: vertical; /* Permite redimensionar verticalmente */
+    resize: vertical; /* Permite redimensionar verticalmente */
 }
 
 .btn-submit {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #1e90ff;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4336a0;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-submit:hover {
-  background-color: #1c75bc; /* Azul escuro para hover */
-  transform: scale(1.05);
+    background-color: #1c75bc; /* Azul escuro para hover */
+    transform: scale(1.05);
 }
 
 /* Estilos para o rodapé */
 .footer {
-  text-align: center;
-  padding: 20px;
-  color: #f1f1f1;
+    text-align: center;
+    padding: 20px;
+    color: #f1f1f1;
 }
 
 .footer p {
-  margin: 0;
-  font-size: 0.9rem;
+    margin: 0;
+    font-size: 0.9rem;
 }
