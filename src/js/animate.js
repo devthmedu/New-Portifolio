@@ -11,7 +11,7 @@ particlesJS('particles-js', {
       value: '#ffffff',
     },
     shape: {
-      type: 'circle', // Ou outros tipos como 'edge', 'triangle', 'polygon'
+      type: 'circle', // Outros tipos: 'edge', 'triangle', 'polygon'
       stroke: {
         width: 0,
         color: '#000000',
@@ -108,26 +108,3 @@ particlesJS('particles-js', {
   },
   retina_detect: true,
 });
-
-$(document).ready(function () {
-  $('#skill-carousel').owlCarousel({
-    loop: true,
-    margin: 20,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    responsive: {
-      0: {
-        items: 2,
-      },
-      600: {
-        items: 4,
-      },
-      1000: {
-        items: 6,
-      },
-    },
-  });
-
-  AOS.init();
-});
-  

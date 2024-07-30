@@ -19,6 +19,12 @@
           content="https://seusite.com">
     <title>Thomas Eduardo</title>
 
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/owl.carousel/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/owl.carousel/2.3.4/assets/owl.theme.default.min.css">
+
     <!-- Links de Estilo -->
     <link rel="stylesheet"
           href="https://unpkg.com/aos@2.3.1/dist/aos.css">
@@ -26,10 +32,6 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="stylesheet"
           href="./src/css/styles.css">
     <link rel="stylesheet"
@@ -53,8 +55,10 @@
             defer></script>
     <script src="./src/js/scripts.js"
             defer></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"
+            defer></script>
   </head>
+
 
   <body>
 
@@ -282,72 +286,63 @@
     </section>
 
 
-    <section class="skills"
-             data-aos="fade-up">
-      <div class="title-section">
-        <div class="section-title">Skills</div>
-      </div>
+<section class="skills"
+         data-aos="fade-up">
+  <div class="title-section">
+    <div class="section-title">Skills</div>
+  </div>
 
-      <div class="skill-carousel-wrapper">
-        <div class="owl-carousel skill-carousel"
-             id="skill-carousel">
-          <div class="skill-box"
-               aria-label="Angular">
-            <img src="./src/img/skill/angular.svg"
-                 alt="Angular logo" />
-            <div class="skill-description">Angular</div>
-          </div>
-          <div class="skill-box"
-               aria-label="Bootstrap">
-            <img src="./src/img/skill/bootstrap.svg"
-                 alt="Bootstrap logo" />
-            <div class="skill-description">Bootstrap</div>
-          </div>
-          <div class="skill-box"
-               aria-label="Git">
-            <img src="./src/img/skill/git.svg"
-                 alt="Git logo" />
-            <div class="skill-description">Git</div>
-          </div>
-          <div class="skill-box"
-               aria-label="JavaScript">
-            <img src="./src/img/skill/js.svg"
-                 alt="JavaScript logo" />
-            <div class="skill-description">JavaScript</div>
-          </div>
-          <div class="skill-box"
-               aria-label="Babel">
-            <img src="./src/img/skill/babel.svg"
-                 alt="Babel logo" />
-            <div class="skill-description">Babel</div>
-          </div>
-          <div class="skill-box"
-               aria-label="Figma">
-            <img src="./src/img/skill/figma.svg"
-                 alt="Figma logo" />
-            <div class="skill-description">Figma</div>
-          </div>
-          <div class="skill-box"
-               aria-label="Vite.js">
-            <img src="./src/img/skill/vitejs.svg"
-                 alt="Vite.js logo" />
-            <div class="skill-description">Vite.js</div>
-          </div>
-          <div class="skill-box"
-               aria-label="React Bootstrap">
-            <img src="./src/img/skill/reactbootstrap.svg"
-                 alt="React Bootstrap logo" />
-            <div class="skill-description">React Bootstrap</div>
-          </div>
-          <div class="skill-box"
-               aria-label="Node.js">
-            <img src="./src/img/skill/node.svg"
-                 alt="Node.js logo" />
-            <div class="skill-description">Node.js</div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="skill-grid-wrapper">
+    <div class="skill-box"
+         aria-label="Bootstrap">
+      <img src="./src/img/skill/bootstrap.svg"
+           alt="Bootstrap logo">
+      <div class="skill-description">Bootstrap</div>
+    </div>
+    <div class="skill-box"
+         aria-label="Git">
+      <img src="./src/img/skill/git.svg"
+           alt="Git logo">
+      <div class="skill-description">Git</div>
+    </div>
+    <div class="skill-box"
+         aria-label="JavaScript">
+      <img src="./src/img/skill/js.svg"
+           alt="JavaScript logo">
+      <div class="skill-description">JavaScript</div>
+    </div>
+    <div class="skill-box"
+         aria-label="Babel">
+      <img src="./src/img/skill/babel.svg"
+           alt="Babel logo">
+      <div class="skill-description">Babel</div>
+    </div>
+    <div class="skill-box"
+         aria-label="Figma">
+      <img src="./src/img/skill/figma.svg"
+           alt="Figma logo">
+      <div class="skill-description">Figma</div>
+    </div>
+    <div class="skill-box"
+         aria-label="Vite.js">
+      <img src="./src/img/skill/vitejs.svg"
+           alt="Vite.js logo">
+      <div class="skill-description">Vite.js</div>
+    </div>
+    <div class="skill-box"
+         aria-label="React Bootstrap">
+      <img src="./src/img/skill/reactbootstrap.svg"
+           alt="React Bootstrap logo">
+      <div class="skill-description">React Bootstrap</div>
+    </div>
+    <div class="skill-box"
+         aria-label="Node.js">
+      <img src="./src/img/skill/node.svg"
+           alt="Node.js logo">
+      <div class="skill-description">Node.js</div>
+    </div>
+  </div>
+</section>
 
 
     <!-- Seção de Certificados -->
@@ -777,38 +772,44 @@
       </footer>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./src/js/script.js"></script>
-    <script src="./src/js/animate.js"></script>
-    <script src="./src/js/portifolio.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
-    
-    <script>
-      $(document).ready(function () {
-        $('#skill-carousel').owlCarousel({
-          loop: true,
-          margin: 20,
-          autoplay: true,
-          autoplayTimeout: 3000,
-          responsive: {
-            0: {
-              items: 2,
-            },
-            600: {
-              items: 4,
-            },
-            1000: {
-              items: 6,
-            },
+   script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
+  
+  <!-- Seus scripts personalizados -->
+  <script src="./src/js/script.js"></script>
+  <script src="./src/js/animate.js"></script>
+  <script src="./src/js/portifolio.js"></script>
+  
+  <script>
+    $(document).ready(function () {
+      // Inicializa Owl Carousel
+      $("#skill-carousel").owlCarousel({
+        items: 3, // Número de itens visíveis
+        loop: true, // Loop infinito
+        margin: 10, // Espaçamento entre itens
+        nav: true, // Adiciona botões de navegação
+        autoplay: true, // Ativa a reprodução automática
+        responsive: {
+          0: {
+            items: 1
           },
-        });
-
-        AOS.init();
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
+        }
       });
 
-    </script>
+      // Inicializa AOS
+      AOS.init({
+        duration: 1000, // Duração da animação
+        once: true // Executa a animação apenas uma vez
+      });
+    });
+  </script>
   </body>
-
-</html>
+  
+  </html>

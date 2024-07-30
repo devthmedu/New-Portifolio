@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
 
 /* Root Variables */
@@ -43,7 +42,7 @@ body {
 /* Scrollbar */
 body::-webkit-scrollbar {
     width: 8px;
-   background-color: #1e1e1e; /* Fundo escuro para contraste */
+    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
 body::-webkit-scrollbar-thumb {
@@ -77,6 +76,7 @@ body::-webkit-scrollbar-thumb:hover {
     bottom: 0;
     left: 0;
     width: 10px;
+    background-color: var(--color-blue); /* Borda lateral com cor definida */
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
 }
@@ -85,10 +85,11 @@ body::-webkit-scrollbar-thumb:hover {
 .container {
     max-width: 1300px;
     margin: 0 auto;
-    width: 60%;
+    width: 100%; /* Corrigido para 100% */
+    padding: 0 1rem; /* Adicionado padding para melhor responsividade */
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     border-radius: 20px;
 }
 
@@ -97,251 +98,6 @@ body::-webkit-scrollbar-thumb:hover {
     width: 50px;
     height: auto;
     border-radius: 50%;
-    justify-content: space-between;
-}
-
-/* Navegação Desktop */
-.desktop-nav {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.desktop-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 2rem;
-}
-
-.desktop-nav li {
-    margin: 0;
-}
-
-.desktop-nav a {
-    color: #eee;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.5rem 0;
-    border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.desktop-nav a:hover {
-    color: var(--color-blue);
-    border-bottom: 2px solid var(--color-blue);
-}
-
-/* Menu Hamburger */
-.hamburger-menu {
-    display: none;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-}
-
-/* Borda lateral colorida para o menu hamburger */
-.hamburger-menu::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 8px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-.hamburger-menu .bar {
-    width: 30px;
-    height: 4px;
-    background-color: var(--color-blue);
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Navegação Móvel */
-.mobile-nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-   background-color: #1e1e1e; /* Fundo escuro para contraste */
-    width: 100%;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Borda lateral colorida para a navegação móvel */
-.mobile-nav::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 8px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-.mobile-nav.active {
-    display: flex;
-    transform: translateY(0);
-    opacity: 1;
-    flex-direction: column;
-    align-items: center;
-    height: 250px;
-    margin-top: -25px;
-
-}
-
-.mobile-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-.mobile-nav li {
-    transition: background-color 0.3s ease;
-}
-
-.mobile-nav li:hover {
-    border-radius: 10px;
-}
-
-.mobile-nav a {
-    display: block;
-    color: #eee;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.mobile-nav a:hover {
-    color: var(--color-blue);
-    background-color: rgba(37, 37, 37, 0.1);
-}
-
-/* Tela de Carregamento */
-#loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-loading-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
-    transition: opacity 0.3s ease-out;
-    margin-bottom: auto;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#loading img {
-    width: 200px;
-    height: 200px;
-}
-
-#loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ocupa a altura total da viewport */
-    background-color: var(--color-loading-bg); /* Cor de fundo do carregamento */
-}
-
-#loading-text {
-    font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-loading-text);
-    text-align: center; /* Centraliza o texto horizontalmente */
-    margin: 0; /* Remove margens para melhor centralização */
-}
-
-/* Botão de Voltar ao Topo */
-#scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-blue);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 0;
-    transform: scale(0.8);
-    z-index: 999;
-}
-
-/* Exibe o botão quando a classe show é adicionada */
-#scroll-to-top.show {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Estilo do botão ao passar o mouse */
-#scroll-to-top:hover {
-    background-color: var(--color-dark-blue);
-}
-
-/* Animação bounce para o elemento .animate */
-.animate {
-    display: inline-block;
-    margin: 0 0.2rem; /* Margem lateral um pouco mais ampla */
-    animation: bounce 2s infinite; /* Duração e repetição da animação */
-    color: #4336a0; /* Cor do texto animado */
-    font-weight: bold; /* Adiciona negrito para maior destaque */
-}
-
-/* Animação bounce para o elemento .animate */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
 }
 /* Estilo básico da seção principal */
 .container-primary {
@@ -406,8 +162,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Estilo para a imagem */
 .coffee {
-    width: 30px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
+    max-width: 20%; /* Garante que a imagem não ultrapasse a largura do container */
+    height: 50PX; /* Mantém a proporção da imagem */
 }
 
 /* Estilo para o título do h1 */
@@ -416,7 +172,6 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 10rem; /* Ajustado para tamanhos de tela médias */
 }
 
-/* Estilo do botão de rolagem */
 /* Estilo do botão de rolagem */
 .scroll-button {
     background: transparent; /* Remove fundo padrão do botão */
@@ -429,7 +184,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .scroll-button img {
-    width: 80px; /* Ajuste o tamanho do ícone conforme necessário */
+    width: 50px; /* Ajuste o tamanho do ícone conforme necessário */
     height: auto;
     color: #4336a0;
 }
@@ -460,11 +215,32 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
-
 /* Responsividade para dispositivos móveis */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .container-primary {
         height: auto; /* Permite que a altura se ajuste ao conteúdo */
+        padding: 0 15px; /* Menos espaçamento lateral */
+    }
+
+    .container-content h1 {
+        font-size: 3.5rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+
+    #span {
+        font-size: 5rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+
+    .container-primary p {
+        font-size: 1.6rem; /* Reduz o tamanho da fonte em telas menores */
+    }
+
+    .scroll-button {
+        bottom: 15px; /* Ajusta a posição do botão em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .container-primary {
         padding: 0 10px; /* Menos espaçamento lateral */
     }
 
@@ -478,10 +254,6 @@ body::-webkit-scrollbar-thumb:hover {
 
     .container-primary p {
         font-size: 1.5rem; /* Reduz o tamanho da fonte em telas menores */
-    }
-
-    .ml15 {
-        font-size: 4rem; /* Reduz o tamanho da fonte em telas menores */
     }
 
     .scroll-button {
@@ -506,15 +278,17 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 1.2rem; /* Reduz ainda mais o tamanho da fonte */
     }
 
-    .ml15 {
-        font-size: 3rem; /* Reduz ainda mais o tamanho da fonte */
+    .scroll-button {
+        width: 50px; /* Ajusta o tamanho do botão */
+        height: 50px; /* Ajusta o tamanho do botão */
+        bottom: 5px; /* Ajusta a posição do botão em telas muito pequenas */
+        
     }
 
-    .scroll-button {
-        bottom: 5px; /* Ajusta a posição do botão em telas muito pequenas */
+    .scroll-button img {
+        width: 20px; /* Ajuste o tamanho do ícone conforme necessário */
     }
 }
-
 
 
 /* Estilo para a seção inicial */
@@ -551,36 +325,32 @@ body::-webkit-scrollbar-thumb:hover {
         text-align: left;
     }
 
-    .user-profile .profile-text {
+    .profile-text {
         text-align: left; /* Garante que o texto fique alinhado à esquerda */
+        max-width: 60%; /* Define a largura máxima do texto em relação à imagem */
+    }
+
+    .profile-image {
+        margin-bottom: 0; /* Remove o espaçamento inferior em telas grandes */
     }
 }
 
 /* Estilo da imagem do perfil */
-.user-profile img {
-    width: 400px;
-    height: 400px;
+.profile-image {
+    width: 100%;
+    max-width: 400px; /* Define a largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
     border-radius: 50%;
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, border-color 0.3s ease;
     filter: brightness(1) contrast(1);
     border: 1px solid #444;
     position: relative;
+    margin-bottom: 1.5rem; /* Espaçamento inferior em telas pequenas */
 }
 
-/* Borda lateral colorida para a imagem de perfil */
-.user-profile img::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 8px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-}
-
-.user-profile img:hover {
+/* Efeito ao passar o mouse */
+.profile-image:hover {
     transform: scale(1.1);
     box-shadow: 0 12px 30px rgba(59, 59, 59, 0.25);
     filter: brightness(1.15) contrast(1.2);
@@ -676,6 +446,21 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Estilos Responsivos */
+@media (max-width: 1024px) {
+    .profile-text h1 {
+        font-size: 2.8rem;
+    }
+
+    .profile-text .intro-text,
+    .profile-text .summary {
+        font-size: 1.1rem;
+    }
+
+    .profile-image {
+        max-width: 350px; /* Ajusta o tamanho da imagem em telas médias */
+    }
+}
+
 @media (max-width: 768px) {
     .profile-text h1 {
         font-size: 2.5rem;
@@ -685,8 +470,34 @@ body::-webkit-scrollbar-thumb:hover {
     .profile-text .summary {
         font-size: 1rem;
     }
+
+    .user-profile {
+        flex-direction: column; /* Empilha os itens verticalmente em telas pequenas */
+        align-items: center;
+        gap: 1.5rem; /* Reduz o espaçamento entre os itens */
+    }
+
+    .profile-image {
+        max-width: 300px; /* Ajusta o tamanho da imagem em telas menores */
+        margin-bottom: 1rem; /* Reduz o espaçamento inferior */
+    }
 }
 
+@media (max-width: 480px) {
+    .profile-text h1 {
+        font-size: 2rem;
+    }
+
+    .profile-text .intro-text,
+    .profile-text .summary {
+        font-size: 0.9rem;
+    }
+
+    .profile-image {
+        max-width: 250px; /* Ajusta o tamanho da imagem em telas muito pequenas */
+        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
+    }
+}
 
 /* Estilo dos ícones sociais */
 .social-icons {
@@ -734,23 +545,22 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 
-
 /* Estilo para a seção Sobre Mim */
 .about {
-    padding: 4rem 6rem; /* Ajuste do espaçamento para um layout mais compacto */
+    padding: 4rem 6rem; /* Espaçamento padrão */
     color: #ffffff; /* Cor do texto padrão */
     background-color: #1e1e1e; /* Cor de fundo para contraste */
 }
 
 /* Estilo do título da seção */
 .title-section {
-    margin-bottom: 3rem; /* Menos espaçamento abaixo do título */
+    margin-bottom: 3rem; /* Espaçamento abaixo do título */
     text-align: center; /* Centraliza o título */
 }
 
 .section-title {
     font-family: "Poppins", sans-serif;
-    font-size: 3.5rem; /* Tamanho do título ajustado */
+    font-size: 3.5rem; /* Tamanho do título */
     font-weight: 700;
     color: #ffffff; /* Cor do título */
     position: relative;
@@ -773,7 +583,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Layout de Grid */
 .row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Largura mínima das colunas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
     gap: 2rem; /* Espaçamento entre os containers */
 }
 
@@ -794,9 +604,8 @@ body::-webkit-scrollbar-thumb:hover {
     border-left: 4px solid #4336a0; /* Borda lateral esquerda azul */
 }
 
-
 .col:hover {
-    transform: translateY(-8px); /* Efeito de elevação ajustado */
+    transform: translateY(-8px); /* Efeito de elevação no hover */
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
 }
 
@@ -823,7 +632,6 @@ body::-webkit-scrollbar-thumb:hover {
     margin-bottom: 1rem; /* Espaçamento abaixo do ícone */
 }
 
-
 .ci-icon img {
     font-size: 3rem; /* Tamanho dos ícones ajustado */
     color: #ffffff; /* Cor dos ícones */
@@ -836,7 +644,6 @@ body::-webkit-scrollbar-thumb:hover {
     transform: scale(1.2); /* Aumento no hover */
     color: #4336a0; /* Cor de destaque no hover */
 }
-
 
 /* Texto dos blocos de informações */
 .ci-text h4 {
@@ -886,15 +693,16 @@ body::-webkit-scrollbar-thumb:hover {
 /* Ajuste para dispositivos móveis */
 @media (max-width: 1024px) {
     .about {
-        padding: 4rem 3rem; /* Ajuste do espaçamento para telas menores */
+        padding: 4rem 3rem; /* Ajusta o espaçamento para telas menores */
     }
 
     .section-title {
         font-size: 2.5rem; /* Ajusta o tamanho do título */
     }
 
-    .ci-icon i {
-        font-size: 3rem; /* Ajusta o tamanho dos ícones */
+    .ci-icon img {
+        font-size: 2.5rem; /* Ajusta o tamanho dos ícones */
+        max-width: 120px; /* Ajusta a largura máxima dos ícones */
     }
 
     .ci-text h4 {
@@ -915,8 +723,9 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 2rem; /* Ajusta o tamanho do título */
     }
 
-    .ci-icon i {
-        font-size: 2.5rem; /* Ajusta o tamanho dos ícones */
+    .ci-icon img {
+        font-size: 2rem; /* Ajusta o tamanho dos ícones */
+        max-width: 100px; /* Ajusta a largura máxima dos ícones */
     }
 
     .ci-text h4 {
@@ -928,53 +737,27 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
+@media (max-width: 480px) {
+    .about {
+        padding: 2rem 1rem; /* Reduz ainda mais o espaçamento */
+    }
 
+    .section-title {
+        font-size: 1.8rem; /* Ajusta o tamanho do título */
+    }
 
-/* Estilos para o bloco de informação com animação */
-#animate {
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    margin-bottom: 2rem; /* Espaçamento entre os blocos de informação */
-    position: relative; /* Posição relativa para ajustar a animação internamente */
-}
+    .ci-icon img {
+        font-size: 1.8rem; /* Ajusta o tamanho dos ícones */
+        max-width: 80px; /* Ajusta a largura máxima dos ícones */
+    }
 
-#animate:hover {
-    transform: translateY(-8px); /* Efeito de levantamento ao passar o mouse */
-}
+    .ci-text h4 {
+        font-size: 1rem; /* Ajusta o tamanho do texto */
+    }
 
-#animate .ci-icon {
-    font-size: 2.5rem; /* Tamanho ajustado para o ícone dentro do bloco animado */
-    width: 80px; /* Ajusta o tamanho dos ícones */
-    height: 80px;
-    border-radius: 50%;
-    background-color: #4336a0; /* Cor de fundo do ícone */
-    color: #ffffff; /* Cor do ícone */
-    margin: 0 auto 1rem;
-}
-
-#animate .ci-text h4 {
-    font-size: 1.25rem; /* Tamanho ajustado do título */
-    margin-bottom: 0.5rem;
-    color: #c5c5c5; /* Cor do título */
-}
-
-#animate .ci-text p {
-    color: #c5c5c5; /* Cor do texto */
-    line-height: 1.6;
-}
-
-/* Animação usando AOS (Animate On Scroll) */
-#animate[data-aos] {
-    opacity: 0; /* Inicia com opacidade zero */
-    transform: translateY(20px); /* Inicia deslocado para baixo */
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-#animate[data-aos].aos-animate {
-    opacity: 1; /* Ao ser animado, torna-se visível */
-    transform: translateY(0); /* Desloca para cima (posição original) */
+    .ci-text p {
+        font-size: 0.7rem; /* Ajusta o tamanho do texto */
+    }
 }
 
 
@@ -982,11 +765,13 @@ body::-webkit-scrollbar-thumb:hover {
 .certificates-education {
     padding: 4rem 3rem; /* Ajuste do espaçamento para um layout mais compacto */
     color: #f4f4f4; /* Cor do texto padrão clara */
+    background-color: #1e1e1e; /* Cor de fundo escura para contraste */
 }
 
+/* Estilo do título da seção */
 .certificates-education .title-section {
     text-align: center;
-    margin-bottom: 4rem; /* Menos espaçamento abaixo do título */
+    margin-bottom: 4rem; /* Espaçamento abaixo do título */
 }
 
 .certificates-education .section-title {
@@ -996,7 +781,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: 700; /* Título em negrito */
     text-transform: uppercase; /* Maiúsculas */
     letter-spacing: 1px; /* Espaçamento entre letras ajustado */
-    border-bottom: 3px solid #00bfff; /* Linha mais espessa para destaque */
+    border-bottom: 3px solid #4336a0; /* Linha mais espessa para destaque */
     display: inline-block; /* Para a linha embaixo */
     padding-bottom: 8px; /* Espaço entre o texto e a linha */
 }
@@ -1004,44 +789,47 @@ body::-webkit-scrollbar-thumb:hover {
 /* Lista de certificados */
 .certificates-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo com grid */
-    gap: 1.5rem; /* Espaçamento menor entre os itens */
-    justify-content: center;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+    gap: 1.5rem; /* Espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens no grid */
 }
 
 /* Estilo dos itens da lista de certificados */
 .certificates-list .item {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-radius: 10px; /* Bordas arredondadas */
-    border-left: 4px solid transparent; /* Borda lateral inicial transparente para o efeito de cor */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.557); /* Sombra mais pronunciada */
-    padding: 1.5rem; /* Padding ajustado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transição suave */
+    border-left: 4px solid #4336a0; /* Cor inicial da borda lateral */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+    padding: 1rem; /* Padding ajustado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
     overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas */
-}
-.certificates-list .item {
-    border-left-color: #4336a0; /* Azul escuro */
+    background-color: #2d2d2d; /* Cor de fundo dos itens */
+    text-align: center; /* Centraliza o texto */
 }
 
-
+/* Efeito de elevação ao passar o mouse */
 .certificates-list .item:hover {
-    transform: translateY(-6px); /* Efeito de elevação ajustado */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
+    transform: translateY(-8px); /* Efeito de elevação ajustado */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
 }
 
 /* Estilo dos ícones */
 .certificates-list .item .icon {
-    width: 100px; /* Tamanho ajustado dos ícones */
-    height: 100px;
-    margin-right: 1.5rem; /* Ajuste no espaçamento à direita do ícone */
+    width: 80px; /* Tamanho ajustado dos ícones */
+    height: 80px;
+    margin-bottom: 1rem; /* Espaçamento abaixo do ícone */
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #4336a0; /* Cor de fundo do ícone */
+    border-radius: 50%; /* Bordas arredondadas para os ícones */
 }
 
 .certificates-list .item .icon img {
-    width: 80%; /* Ajusta a imagem para ocupar parte do ícone */
+    width: 70%; /* Ajusta a imagem para ocupar parte do ícone */
     height: auto;
     border-radius: 50%; /* Bordas arredondadas para as imagens */
     transition: transform 0.3s ease; /* Transição suave */
@@ -1053,13 +841,13 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Estilo das informações */
 .certificates-list .item .info {
-    flex: 1;
+    flex: 1; /* Ocupa o espaço restante */
 }
 
 .certificates-list .item .info h4 {
     font-family: "Poppins", sans-serif;
-    font-size: 1.4rem; /* Tamanho do título ajustado */
-    color: #00bfff; /* Cor azul clara para o título */
+    font-size: 1.2rem; /* Tamanho do título ajustado */
+    color: #4336a0; /* Cor azul clara para o título */
     font-weight: 700; /* Título em negrito */
     margin-bottom: 0.5rem; /* Espaço abaixo do título */
     transition: color 0.3s ease; /* Transição suave para a cor */
@@ -1080,7 +868,8 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 0.9rem; /* Tamanho do texto ajustado */
     line-height: 1.5; /* Ajuste na altura da linha */
 }
-/* Ajuste para dispositivos móveis */
+
+/* Ajuste para dispositivos maiores */
 @media (max-width: 1024px) {
     .certificates-education {
         padding: 4rem 2rem; /* Ajuste do espaçamento para telas menores */
@@ -1090,17 +879,21 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 2rem; /* Ajusta o tamanho do título */
     }
 
+    .certificates-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas menores */
+    }
+
     .certificates-list .item {
         padding: 1rem; /* Reduz o padding interno dos itens */
     }
 
     .certificates-list .item .icon {
-        width: 80px; /* Ajusta o tamanho dos ícones */
-        height: 80px;
+        width: 60px; /* Ajusta o tamanho dos ícones */
+        height: 60px;
     }
 
     .certificates-list .item .info h4 {
-        font-size: 1.2rem; /* Ajusta o tamanho do título */
+        font-size: 1rem; /* Ajusta o tamanho do título */
     }
 
     .certificates-list .item .info p {
@@ -1108,6 +901,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
+/* Ajuste para dispositivos menores */
 @media (max-width: 768px) {
     .certificates-education {
         padding: 3rem 1rem; /* Reduz o espaçamento para dispositivos móveis */
@@ -1115,6 +909,10 @@ body::-webkit-scrollbar-thumb:hover {
 
     .certificates-education .section-title {
         font-size: 1.8rem; /* Ajusta o tamanho do título */
+    }
+
+    .certificates-list {
+        grid-template-columns: 1fr; /* 1 coluna para telas pequenas */
     }
 
     .certificates-list .item {
@@ -1127,12 +925,12 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .certificates-list .item .icon img {
-        width: 70px; /* Ajusta o tamanho dos ícones */
-        height: 70px;
+        width: 50px; /* Ajusta o tamanho dos ícones */
+        height: 50px;
     }
 
     .certificates-list .item .info h4 {
-        font-size: 1rem; /* Ajusta o tamanho do título */
+        font-size: 0.9rem; /* Ajusta o tamanho do título */
     }
 
     .certificates-list .item .info p {
@@ -1140,107 +938,240 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
+/* Ajuste para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .certificates-education {
+        padding: 2rem 0.5rem; /* Reduz ainda mais o padding */
+    }
 
-/* Estilos específicos para a seção de Educação */
+    .certificates-education .section-title {
+        font-size: 1.6rem; /* Ajusta o tamanho do título */
+    }
+
+    .certificates-list .item {
+        padding: 0.8rem; /* Ajusta o padding interno dos itens */
+    }
+
+    .certificates-list .item .icon {
+        width: 50px; /* Ajusta o tamanho dos ícones */
+        height: 50px;
+    }
+
+    .certificates-list .item .icon img {
+        width: 50%; /* Ajusta o tamanho da imagem dentro do ícone */
+    }
+
+    .certificates-list .item .info h4 {
+        font-size: 0.8rem; /* Ajusta o tamanho do título */
+    }
+
+    .certificates-list .item .info p {
+        font-size: 0.6rem; /* Ajusta o tamanho do texto */
+    }
+}
+/* Estilos para a seção de Educação */
 .education {
-    padding: 60px 20px;
+    padding: 40px 15px; /* Reduzido o padding geral */
     background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
 /* Título da seção de Educação */
 .education .title-section {
     text-align: center;
-    margin-bottom: 60px; /* Ajustado para um espaçamento mais equilibrado */
+    margin-bottom: 40px; /* Espaçamento abaixo do título reduzido */
 }
 
 .education .section-title {
-    font-size: 2.8rem; /* Tamanho do título aumentado para maior destaque */
+    font-size: 2.4rem; /* Tamanho do título reduzido */
     color: #ffffff; /* Cor do título branca */
-    font-weight: 700; /* Título em negrito mais forte */
+    font-weight: 700; /* Título em negrito */
     text-transform: uppercase; /* Título em maiúsculas */
-    letter-spacing: 1.5px; /* Espaçamento entre letras aumentado */
+    letter-spacing: 1.5px; /* Espaçamento entre letras */
     border-bottom: 2px solid #4336a0; /* Linha embaixo do título para destaque */
     display: inline-block; /* Para a linha embaixo */
-    padding-bottom: 10px; /* Espaço entre o texto e a linha */
+    padding-bottom: 8px; /* Espaço entre o texto e a linha reduzido */
+}
+
+/* Layout dos itens da seção de Educação */
+.education .education-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 15px; /* Espaçamento entre os itens reduzido */
 }
 
 /* Estilo dos itens da seção de Educação */
-.education .item {
+.education .education-wrapper .item {
     display: flex;
     align-items: center;
-    border-radius: 15px; /* Bordas arredondadas mais suaves */
-    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
-    padding: 20px; /* Padding aumentado para mais espaçamento interno */
-    margin-bottom: 20px; /* Espaçamento entre itens ajustado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    background-size: cover; /* Ajusta o tamanho do fundo */
-    background-position: center; /* Centraliza o fundo */
-    position: relative;
+    justify-content: center;
+    flex-direction: column; /* Alinha o conteúdo verticalmente */
+    border-radius: 8px; /* Bordas arredondadas mais sutis */
+    border: 2px solid transparent; /* Borda inicial transparente */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra mais leve */
+    padding: 15px; /* Padding reduzido */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transições suaves */
+    background-color: #2d2d2d; /* Cor de fundo dos itens */
+    position: relative; /* Necessário para a borda lateral colorida */
 }
+
 /* Borda lateral colorida com base no índice do item */
-.education .item::before {
+.education .education-wrapper .item::before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    width: 8px; /* Largura da borda lateral colorida */
-    background-color: transparent; /* Cor padrão como transparente */
-    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
-    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
-}
-
-.education .item::before {
+    width: 6px; /* Largura da borda lateral colorida reduzida */
     background-color: #002aff; /* Azul escuro */
+    border-top-left-radius: 8px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 8px; /* Arredonda o canto inferior esquerdo */
 }
 
-.education .item:hover {
-    transform: translateY(-8px); /* Efeito de elevação mais acentuado */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
-    border-color: #4336a0; /* Cor da borda do item no hover */
+/* Efeito de hover nos itens */
+.education .education-wrapper .item:hover {
+    transform: translateY(-6px); /* Efeito de elevação mais suave */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
+    border-color: #4336a0; /* Cor da borda ao passar o mouse */
 }
 
 /* Estilo do ícone dentro do item */
-.education .item .icon {
-    width: 80px; /* Tamanho dos ícones aumentado */
-    height: 80px;
-    margin-right: 20px; /* Espaçamento à direita do ícone */
+.education .education-wrapper .item .icon {
+    width: 60px; /* Tamanho dos ícones reduzido */
+    height: 60px;
+    margin-bottom: 10px; /* Espaçamento abaixo do ícone reduzido */
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #4336a0; /* Cor de fundo do ícone */
+    border-radius: 50%; /* Bordas arredondadas */
 }
 
-.education .item .icon img {
-    width: 100%; /* Ajusta a imagem para ocupar toda a área do ícone */
+/* Imagem dentro do ícone */
+.education .education-wrapper .item .icon img {
+    width: 50%; /* Ajusta o tamanho da imagem */
     height: auto; /* Mantém a proporção da imagem */
-    border-radius: 50%; /* Borda arredondada para as imagens dos ícones */
 }
 
 /* Estilo das informações dentro do item */
-.education .item .info {
-    flex: 1;
+.education .education-wrapper .item .info {
+    text-align: center; /* Centraliza o texto */
 }
 
-.education .item .info h4 {
-    font-size: 1.5rem; /* Tamanho do título aumentado para maior legibilidade */
-    color: #4336a0; /* Cor azul para o título */
+.education .education-wrapper .item .info h4 {
+    font-size: 1.3rem; /* Tamanho do título reduzido */
+    color: #4336a0; /* Cor azul do título */
     font-weight: 600; /* Peso da fonte ajustado */
-    margin-bottom: 5px; /* Espaçamento abaixo do título */
+    margin-bottom: 4px; /* Espaçamento abaixo do título reduzido */
     transition: color 0.3s ease; /* Transição suave para a cor */
 }
 
-.education .item .info h4:hover {
-    color: #0056b3; /* Cor azul mais escura ao passar o mouse */
+.education .education-wrapper .item .info h4:hover {
+    color: #4336a0; /* Cor do título ao passar o mouse */
 }
 
-.education .item .info p {
+.education .education-wrapper .item .info p {
     margin: 0;
-    color: #e0e0e0; /* Cor do texto mais clara para contraste */
-    font-size: 1.1rem; /* Tamanho do texto ajustado para melhor legibilidade */
+    color: #e0e0e0; /* Cor do texto clara */
+    font-size: 1rem; /* Tamanho do texto reduzido */
 }
 
-/* Estilo para a seção de habilidades */
+/* Ajustes para dispositivos maiores */
+@media (max-width: 1024px) {
+    .education {
+        padding: 30px 10px; /* Reduzido o padding geral */
+    }
+
+    .education .section-title {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
+
+    .education .education-wrapper {
+        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
+    }
+
+    .education .education-wrapper .item {
+        padding: 12px; /* Ajusta o padding interno */
+    }
+
+    .education .education-wrapper .item .icon {
+        width: 50px; /* Ajusta o tamanho dos ícones */
+        height: 50px;
+    }
+
+    .education .education-wrapper .item .info h4 {
+        font-size: 1.2rem; /* Ajusta o tamanho do título */
+    }
+
+    .education .education-wrapper .item .info p {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto */
+    }
+}
+
+/* Ajustes para dispositivos menores */
+@media (max-width: 768px) {
+    .education {
+        padding: 20px 5px; /* Reduzido o padding */
+    }
+
+    .education .section-title {
+        font-size: 1.6rem; /* Ajusta o tamanho do título */
+    }
+
+    .education .education-wrapper {
+        grid-template-columns: 1fr; /* 1 coluna para telas pequenas */
+    }
+
+    .education .education-wrapper .item {
+        padding: 8px; /* Reduzido o padding interno */
+        margin-bottom: 8px; /* Reduz o espaçamento entre itens */
+    }
+
+    .education .education-wrapper .item .icon {
+        width: 50px; /* Ajusta o tamanho dos ícones */
+        height: 50px;
+        margin-bottom: 8px; /* Ajusta o espaçamento abaixo do ícone */
+    }
+
+    .education .education-wrapper .item .info h4 {
+        font-size: 1rem; /* Ajusta o tamanho do título */
+    }
+
+    .education .education-wrapper .item .info p {
+        font-size: 0.8rem; /* Ajusta o tamanho do texto */
+    }
+}
+
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .education {
+        padding: 15px 5px; /* Reduzido ainda mais o padding */
+    }
+
+    .education .section-title {
+        font-size: 1.4rem; /* Ajusta o tamanho do título */
+    }
+
+    .education .education-wrapper .item {
+        padding: 6px; /* Reduzido o padding interno */
+        margin-bottom: 6px; /* Reduz o espaçamento entre itens */
+    }
+
+    .education .education-wrapper .item .icon {
+        width: 40px; /* Ajusta o tamanho dos ícones */
+        height: 40px;
+        margin-bottom: 6px; /* Ajusta o espaçamento abaixo do ícone */
+    }
+
+    .education .education-wrapper .item .info h4 {
+        font-size: 0.9rem; /* Ajusta o tamanho do título */
+    }
+
+    .education .education-wrapper .item .info p {
+        font-size: 0.7rem; /* Ajusta o tamanho do texto */
+    }
+}
+
+/* Estilos para a seção de habilidades */
 .skills {
     padding: 5rem 2rem;
     text-align: center;
@@ -1262,57 +1193,63 @@ body::-webkit-scrollbar-thumb:hover {
     display: inline-block;
     padding-bottom: 10px;
     margin: 0 auto;
+    text-transform: uppercase; /* Maiúsculas para mais impacto */
+    letter-spacing: 1px; /* Espaçamento entre letras */
 }
 
-/* Estilo para o carrossel de habilidades */
-.skill-carousel-wrapper {
-    position: relative;
-    width: 100%;
+/* Estilo para o contêiner de habilidades */
+.skill-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 20px;
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto;
 }
 
-.owl-carousel .skill-box {
+/* Estilo dos itens de habilidades */
+.skill-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
-    opacity: 1; /* Inicialmente, as descrições estão ocultas */
+    opacity: 1; /* Inicialmente, as descrições estão visíveis */
     border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
+    background-color: #2d2d2d; /* Cor de fundo do card */
+    border-radius: 10px; /* Bordas arredondadas dos cards */
 }
 
 /* Borda lateral colorida com base no índice do item */
-.owl-carousel .skill-box::before {
+.skill-box::before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     width: 8px; /* Largura da borda lateral colorida */
-    background-color: transparent; /* Cor padrão como transparente */
-    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
-    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
-}
-
-.owl-carousel .skill-box::before {
     background-color: #4336a0; /* Azul escuro */
+    border-top-left-radius: 10px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 10px; /* Arredonda o canto inferior esquerdo */
+    transition: background-color 0.3s ease; /* Transição suave para a cor da borda */
 }
 
-
-.owl-carousel .skill-box:hover {
+/* Estilo ao passar o mouse sobre o item */
+.skill-box:hover {
     transform: scale(1.05); /* Leve aumento do tamanho no hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
-    opacity: 1; /* Torna a descrição visível no hover */
+    border-color: #4336a0; /* Adiciona borda colorida no hover */
 }
 
 /* Imagem de habilidade */
 .skill-box img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Aumenta o tamanho da imagem e ajusta o brilho ao passar o mouse */
 .skill-box:hover img {
     transform: scale(1.1);
     filter: brightness(1.2);
@@ -1328,10 +1265,97 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(20px); /* Deslocamento inicial */
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 /* Animação para a descrição quando a habilidade está ativa */
 .skill-box.active .skill-description {
     opacity: 1;
     transform: translateY(0); /* Move a descrição para sua posição original */
+}
+
+/* Responsividade para Dispositivos Menores que 1024px */
+@media (max-width: 1024px) {
+    .skills {
+        padding: 4rem 1.5rem; /* Reduz o padding para telas menores */
+    }
+
+    .skills .section-title {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
+
+    .skill-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+    }
+
+    .skill-box {
+        width: 120px; /* Ajusta a largura do card */
+        height: 120px; /* Ajusta a altura do card */
+    }
+
+    .skill-box img {
+        width: 50px; /* Ajusta o tamanho da imagem */
+        height: 50px;
+    }
+
+    .skill-description {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
+    }
+}
+
+@media (max-width: 768px) {
+    .skills {
+        padding: 3rem 1rem; /* Reduz o padding para dispositivos móveis */
+    }
+
+    .skills .section-title {
+        font-size: 1.6rem; /* Ajusta o tamanho do título */
+    }
+
+    .skill-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em dispositivos móveis */
+    }
+
+    .skill-box {
+        width: 100px; /* Ajusta a largura do card */
+        height: 100px; /* Ajusta a altura do card */
+    }
+
+    .skill-box img {
+        width: 40px; /* Ajusta o tamanho da imagem */
+        height: 40px;
+    }
+
+    .skill-description {
+        font-size: 0.8rem; /* Ajusta o tamanho da fonte */
+    }
+}
+
+@media (max-width: 480px) {
+    .skills {
+        padding: 2rem 0.5rem; /* Reduz ainda mais o padding */
+    }
+
+    .skills .section-title {
+        font-size: 1.4rem; /* Ajusta o tamanho do título */
+    }
+
+    .skill-grid-wrapper {
+        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+    }
+
+    .skill-box {
+        width: 80px; /* Ajusta a largura do card */
+        height: 80px; /* Ajusta a altura do card */
+        margin-right: 0; /* Remove o espaçamento entre os cards */
+    }
+
+    .skill-box img {
+        width: 30px; /* Ajusta o tamanho da imagem */
+        height: 30px;
+    }
+
+    .skill-description {
+        font-size: 0.7rem; /* Ajusta o tamanho da fonte */
+    }
 }
 
 /* Estilos para a seção de portfólio */
@@ -1339,9 +1363,9 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px 20px; /* Padding superior e inferior generoso */
+    padding: 80px 20px;
     color: #fff;
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
+    background-color: #1e1e1e;
 }
 
 /* Título da seção */
@@ -1352,35 +1376,36 @@ body::-webkit-scrollbar-thumb:hover {
 
 .section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 3rem; /* Tamanho do título aumentado para destaque */
+    font-size: 3rem;
     font-weight: 700;
     color: #ffffff;
     border-bottom: 3px solid #4336a0;
     padding-bottom: 10px;
     margin: 0;
-    text-transform: uppercase; /* Maiúsculas para o título */
+    text-transform: uppercase;
 }
 
 /* Contêiner dos itens do portfólio */
 .portfolio-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout com duas colunas por padrão */
-    gap: 30px; /* Espaçamento entre os itens ajustado */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     justify-content: center;
     width: 100%;
-    max-width: 1200px; /* Largura máxima para centralizar o conteúdo */
+    max-width: 1200px;
 }
 
 /* Estilo dos itens do portfólio */
 .portfolio-item {
     position: relative;
     width: 100%;
-    height: 400px; /* Altura ajustada para garantir que a imagem preencha o contêiner */
-    border-radius: 15px; /* Bordas arredondadas mais suaves */
-    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
+    max-width: 400px; /* Largura máxima para itens do portfólio */
+    border-radius: 15px;
+    border: 2px solid #4336a0; /* Cor da borda padrão */
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra padrão */
+    display: flex;
+    flex-direction: column; /* Garante que o item do portfólio use flexbox */
 }
 
 /* Borda lateral colorida com base no índice do item */
@@ -1390,25 +1415,17 @@ body::-webkit-scrollbar-thumb:hover {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 8px; /* Largura da borda lateral colorida */
+    width: 8px;
     background-color: #4336a0; /* Azul escuro */
-    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
-    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
-}
-
-/* Efeito de hover no item do portfólio */
-.portfolio-item:hover {
-    transform: scale(1.03); /* Leve aumento do tamanho no hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra mais forte */
-    border-color: #0056b3; /* Cor da borda do item no hover */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 /* Imagem do projeto */
 .img-projeto {
     width: 100%;
-    height: 100%; /* Ocupa toda a altura do contêiner */
-    object-fit: cover; /* Cobre o contêiner sem distorcer */
-    transition: transform 0.3s ease, filter 0.3s ease;
+    height: 200px; /* Altura fixada para a imagem */
+    object-fit: cover; /* Garante que a imagem cubra o contêiner sem distorção */
 }
 
 /* Indicador de carregamento para imagens */
@@ -1423,42 +1440,28 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 1;
 }
 
-/* Efeito de hover na imagem do projeto */
-.portfolio-item:hover .img-projeto {
-    transform: scale(1.1); /* Aumenta a escala da imagem no hover */
-    filter: brightness(0.8); /* Escurece a imagem para melhor contraste */
-}
-
 /* Informações do item do portfólio */
 .portfolio-item-info {
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo ligeiramente transparente para contraste */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80%; /* Altura ajustada para 20% do contêiner */
+    background-color: rgba(0, 0, 0, 0.8);
+    position: relative; /* Ajustado para evitar problemas de sobreposição */
+    flex-grow: 1; /* Garante que a área de informações cresça conforme necessário */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    border-top: 2px solid #4336a0; /* Borda superior do contêiner de informações */
-    border-radius: 0 0 15px 15px; /* Bordas arredondadas na parte inferior */
+    border-top: 2px solid #4336a0;
+    border-radius: 0 0 15px 15px;
+    opacity: 1; /* Mantém a visibilidade da descrição o tempo todo */
 }
 
-.portfolio-item:hover .portfolio-item-info {
-    transform: translateY(0); /* Move a descrição para sua posição original */
-}
-
+/* Estilo dos títulos e texto */
 .portfolio-item-info h3 {
-    font-size: 1.6rem; /* Tamanho da fonte do título aumentado */
+    font-size: 1.6rem;
     margin: 0 0 10px;
     color: #ffffff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto para maior contraste */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Lista de tecnologias */
 .technologies {
     display: flex;
     flex-wrap: wrap;
@@ -1467,7 +1470,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .tech-item {
-    font-size: 1.1rem; /* Tamanho da fonte dos itens de tecnologia aumentado */
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -1475,18 +1478,16 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .tech-item i {
-    color: #4336a0; /* Cor do ícone de tecnologia */
+    color: #4336a0;
 }
 
-/* Descrição do projeto */
 .description {
-    font-size: 1.1rem; /* Tamanho da fonte da descrição ajustado */
+    font-size: 1.1rem;
     line-height: 1.6;
     margin: 10px 0;
     color: #dcdcdc;
 }
 
-/* Lista de características */
 .feature-list {
     font-weight: bold;
     margin: 5px 0;
@@ -1498,7 +1499,7 @@ ul {
 }
 
 ul li {
-    font-size: 1.1rem; /* Tamanho da fonte da lista ajustado */
+    font-size: 1.1rem;
     color: #dcdcdc;
 }
 
@@ -1507,54 +1508,44 @@ ul li {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 16px; /* Padding ajustado para o botão */
-    background-color: #4336a0; /* Cor de fundo do botão */
+    padding: 8px 16px;
+    background-color: #4336a0;
     color: #fff;
     text-decoration: none;
-    border-radius: 12px; /* Bordas arredondadas do botão */
-    font-size: 0.9rem; /* Tamanho da fonte do botão */
-    font-weight: 600; /* Peso da fonte mais forte */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra do botão */
-}
-
-.portfolio-item-button:hover {
-    background-color: #0056b3; /* Cor mais escura para o hover */
-    transform: scale(1.05); /* Leve aumento de tamanho no hover */
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease; /* Transição suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-item-button i {
-    margin-right: 8px; /* Espaçamento entre o ícone e o texto */
-    font-size: 1rem; /* Tamanho do ícone ajustado */
+    margin-right: 8px;
+    font-size: 1rem;
 }
 
 /* Setas para o item do portfólio */
 .portfolio-item-arrow {
     position: absolute;
     bottom: 15px;
-    right: 15px; /* Ajustado para alinhar melhor */
+    right: 15px;
     cursor: pointer;
     text-align: center;
-    padding: 15px; /* Aumentado para melhor visibilidade */
-    width: 30px; /* Aumentado para maior visibilidade */
+    padding: 15px;
+    width: 30px;
     height: 30px;
-    border-radius: 50%; /* Arredondamento total */
-    background-color: #4336a0; /* Cor de fundo das setas */
+    border-radius: 50%;
+    background-color: #4336a0;
     color: #fff;
-    font-size: 1rem; /* Tamanho do ícone aumentado */
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para a cor de fundo e rotação */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
 }
 
-.portfolio-item-arrow:hover {
-    background-color: #0056b3; /* Cor mais escura para o hover */
-}
-
-/* Efeito de brilho no ícone das setas durante o hover */
-.portfolio-item-arrow:hover i {
-    color: #e0e0e0; /* Cor mais clara para o ícone durante o hover */
+.portfolio-item-arrow i {
+    color: #e0e0e0; /* Cor do ícone das setas */
 }
 
 /* Adiciona a rotação quando a seta está ativa */
@@ -1574,60 +1565,40 @@ ul li {
     transform: translateY(0);
 }
 
-/* Resposividade para Dispositivos Maiores que 1200px */
-@media (min-width: 1200px) {
-    .container {
-        width: 70%;
-        padding: 2rem;
-    }
-
-    .header {
-        padding: 2rem 3rem;
-    }
-
-    .logo img {
-        width: 60px;
-    }
-
-    .desktop-nav {
-        display: flex;
-    }
-
-    .desktop-nav ul {
-        display: flex;
-    }
-
-    .hamburger-menu {
-        display: none;
-    }
-
-    .mobile-nav {
-        display: none;
-    }
-}
-
 /* Resposividade para Dispositivos Menores que 768px */
 @media (max-width: 768px) {
     .portfolio-item {
-        max-width: 100%;
-        height: auto; /* Ajuste altura para proporcionalidade */
+        height: auto; /* Ajuste a altura para proporcionalidade */
+        max-width: 100%; /* Garante que o item do portfólio não ultrapasse o contêiner pai */
+    }
+
+    .img-projeto {
+        height: 200px; /* Mantém a altura da imagem proporcional */
     }
 
     .portfolio-item-info {
-        height: 50%; /* Ajuste altura para visibilidade em telas menores */
+        height: auto; /* Ajuste a altura da descrição */
     }
 
     .img-projeto::before {
-        content: ''; /* Remover indicador de carregamento em telas menores */
+        content: ''; /* Remove o indicador de carregamento em telas menores */
     }
 }
+
+/* Responsividade para Dispositivos Maiores que 1200px */
+@media (min-width: 1200px) {
+    .img-projeto {
+        height: 300px; /* Ajusta a altura da imagem para telas grandes */
+    }
+}
+
 
 /* Seção de Serviços */
 .services {
     padding: 80px 20px;
     color: #f1f1f1;
     text-align: center;
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
+    background-color: #1e1e1e;
 }
 
 /* Título da seção de serviços */
@@ -1665,7 +1636,7 @@ ul li {
 /* Item de serviço */
 .service-item {
     border-radius: 15px;
-    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
+    border: 2px solid transparent;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     padding: 30px;
     width: 100%;
@@ -1684,20 +1655,10 @@ ul li {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 8px; /* Largura da borda lateral colorida */
-    background-color: transparent; /* Cor padrão como transparente */
-    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
-    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
-}
-
-.service-item::before {
+    width: 8px;
     background-color: #4336a0; /* Azul escuro */
-}
-
-.service-item:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-    background: rgba(60, 60, 60, 0.9);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 /* Imagem do serviço */
@@ -1768,6 +1729,46 @@ ul li {
     }
 }
 
+/* Responsividade para Dispositivos Menores que 768px */
+@media (max-width: 768px) {
+    .services {
+        padding: 60px 10px; /* Reduzir padding em dispositivos menores */
+    }
+
+    .services .section-title {
+        font-size: 2rem; /* Reduzir o tamanho do título */
+    }
+
+    .service-item {
+        padding: 20px;
+        max-width: 100%; /* Permite que os itens ocupem toda a largura disponível */
+    }
+
+    .service-item img {
+        max-width: 60px; /* Reduzir o tamanho da imagem */
+    }
+
+    .service-item h3 {
+        font-size: 1.5rem; /* Reduzir o tamanho do título do serviço */
+    }
+
+    .service-item li {
+        font-size: 1rem; /* Reduzir o tamanho da fonte da lista */
+    }
+
+    .btn-solicitar {
+        padding: 12px 30px; /* Ajustar o padding do botão */
+        font-size: 1rem; /* Reduzir o tamanho da fonte do botão */
+    }
+}
+
+/* Responsividade para Dispositivos Maiores que 1200px */
+@media (min-width: 1200px) {
+    .service-item {
+        max-width: 400px; /* Largura máxima dos itens em telas grandes */
+    }
+}
+
 
 /* Estilos para a seção de contato */
 .contact {
@@ -1821,7 +1822,7 @@ ul li {
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     position: relative;
-    border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
+    border: 2px solid transparent;
     overflow: hidden;
 }
 
@@ -1832,10 +1833,10 @@ ul li {
     top: 0;
     bottom: 0;
     left: 0;
-    width: 8px; /* Largura da borda lateral colorida */
+    width: 8px;
     background-color: transparent; /* Cor padrão como transparente */
-    border-top-left-radius: 10px; /* Arredonda o canto superior esquerdo */
-    border-bottom-left-radius: 10px; /* Arredonda o canto inferior esquerdo */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .contact-info:nth-child(1)::before {
@@ -1843,11 +1844,11 @@ ul li {
 }
 
 .contact-info:nth-child(2)::before {
-    background-color: #ffd900; /* Laranja */
+    background-color: #ffd900; /* Amarelo */
 }
 
 .contact-info:nth-child(3)::before {
-    background-color: #002aff; /* Verde */
+    background-color: #00aaff; /* Azul claro */
 }
 
 /* Informações de contato dentro dos itens */
@@ -1963,3 +1964,66 @@ ul li {
     margin: 0;
     font-size: 0.9rem;
 }
+
+/* Responsividade para Dispositivos Menores que 768px */
+@media (max-width: 768px) {
+    .contact {
+        padding: 60px 10px; /* Reduzir padding em dispositivos menores */
+    }
+
+    .contact .section-title {
+        font-size: 2rem; /* Reduzir o tamanho do título */
+    }
+
+    .contact-content {
+        flex-direction: column;
+        gap: 30px; /* Maior espaçamento entre os itens em dispositivos menores */
+    }
+
+    .contact-info {
+        max-width: 100%; /* Permitir que os itens ocupem toda a largura disponível */
+    }
+
+    .contact-form {
+        max-width: 100%; /* Permitir que o formulário ocupe toda a largura disponível */
+    }
+
+    .info-item i {
+        font-size: 1.5rem; /* Reduzir o tamanho do ícone */
+    }
+
+    .info-item p {
+        font-size: 0.9rem; /* Reduzir o tamanho da fonte */
+    }
+
+    .form-group label {
+        font-size: 0.9rem; /* Reduzir o tamanho da fonte do rótulo */
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group input[type="file"] {
+        font-size: 0.9rem; /* Reduzir o tamanho da fonte dos campos de entrada */
+    }
+
+    .btn-submit {
+        padding: 10px 20px; /* Reduzir o padding do botão */
+        font-size: 1rem; /* Reduzir o tamanho da fonte do botão */
+    }
+}
+
+/* Responsividade para Dispositivos Maiores que 1200px */
+@media (min-width: 1200px) {
+    .contact-content {
+        max-width: 1200px; /* Manter a largura máxima para grandes telas */
+    }
+
+    .contact-info {
+        max-width: 350px; /* Largura máxima dos itens em telas grandes */
+    }
+
+    .contact-form {
+        max-width: 600px; /* Largura máxima do formulário em telas grandes */
+    }
+}
+
