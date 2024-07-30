@@ -360,3 +360,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Observa a seção específica
     observer.observe(sectionToObserve);
 });
+document.addEventListener('DOMContentLoaded', function () {
+  // Seleciona os elementos
+  const containerPrimary = document.querySelector('.container-primary');
+  const containerContent = document.querySelector('.container-content');
+  const sectionInicial = document.querySelector('.section-inicial');
+
+  // Adiciona uma classe para iniciar a animação após um pequeno atraso
+  setTimeout(function () {
+    containerContent.style.transform = 'translateY(0)';
+    containerContent.style.opacity = '1';
+
+    // Adiciona a classe para empurrar a próxima seção
+    containerPrimary.classList.add('pushed');
+    sectionInicial.style.transform = 'translateY(0)';
+  }, 100); // Atraso de 100ms para garantir que o layout inicial seja renderizado
+});
+
+anime
+  .timeline({ loop: true })
+  .add({
+    targets: '.ml15 .word',
+    scale: [14, 1],
+    opacity: [0, 1],
+    easing: 'easeOutCirc',
+    duration: 800,
+    delay: (el, i) => 800 * i,
+  })
+  .add({
+    targets: '.ml15',
+    opacity: 0,
+    duration: 1000,
+    easing: 'easeOutExpo',
+    delay: 1000,
+  });
