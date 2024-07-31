@@ -1,3 +1,24 @@
+/* Cabeçalho */
+header {
+    background-color: #1e1e1e; /* Cor de fundo do cabeçalho */
+    padding: 1rem 2rem; /* Espaçamento do cabeçalho */
+    border-bottom: 1px solid #333; /* Linha inferior do cabeçalho */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo img {
+    max-width: 150px; /* Limita a largura do logo */
+    height: auto;
+}
+
 /* Navegação Desktop */
 .desktop-nav {
     display: flex;
@@ -23,12 +44,12 @@
     font-weight: 500;
     padding: 0.5rem 0;
     border-bottom: 2px solid transparent;
-    transition: color 0.3s ease, border-color 0.3s ease;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
 }
 
 .desktop-nav a:hover {
     color: var(--color-blue);
-    border-bottom: 2px solid var(--color-blue);
+    border-bottom-color: var(--color-blue);
 }
 
 /* Menu Hamburger */
@@ -42,7 +63,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    position: relative; /* Necessário para a borda lateral colorida */
+    position: relative;
 }
 
 .hamburger-menu::before {
@@ -52,7 +73,7 @@
     bottom: 0;
     left: 0;
     width: 8px;
-    background-color: var(--color-blue); /* Cor da borda lateral */
+    background-color: var(--color-blue);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
@@ -71,7 +92,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
+    background-color: #1e1e1e;
     width: 100%;
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -79,9 +100,8 @@
     transform: translateY(-20px);
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    /* Borda lateral colorida para a navegação móvel */
     border-left: 8px solid var(--color-blue);
-    border-radius: 0 0 20px 20px; /* Bordas arredondadas inferiores */
+    border-radius: 0 0 20px 20px;
 }
 
 .mobile-nav.active {
@@ -90,8 +110,6 @@
     opacity: 1;
     flex-direction: column;
     align-items: center;
-    height: auto; /* Ajusta a altura para o conteúdo */
-    margin-top: -25px;
 }
 
 .mobile-nav ul {
@@ -158,7 +176,7 @@
     height: 100%;
     background-color: var(--color-loading-bg);
     display: flex;
-    flex-direction: column; /* Alinha o texto abaixo da imagem */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 9999;
@@ -178,25 +196,40 @@
     }
 }
 
+#loading-bar {
+    text-align: center;
+}
+
 #loading img {
-    width: 150px; /* Ajuste da largura da imagem para telas menores */
+    width: 150px; /* Ajuste da largura da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin-bottom: 1rem; /* Espaço entre a imagem e o texto */
 }
 
 #loading-text {
     font-family: "Poppins", sans-serif;
-    font-size: 1rem; /* Ajuste do tamanho da fonte para melhor visualização em telas menores */
+    font-size: 1rem; /* Tamanho da fonte */
     font-weight: bold;
     color: var(--color-loading-text);
-    text-align: center; /* Centraliza o texto horizontalmente */
-    margin: 0; /* Remove margens para melhor centralização */
+    text-align: center;
+    margin: 0;
+}
+
+/* Fundo de Partículas */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -999;
+    overflow: hidden;
 }
 
 /* Botão de Voltar ao Topo */
 #scroll-to-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 50px;
     right: 20px;
     width: 50px; /* Reduz o tamanho para telas menores */
     height: 50px; /* Reduz o tamanho para telas menores */
@@ -233,7 +266,6 @@
     font-weight: bold; /* Adiciona negrito para maior destaque */
 }
 
-/* Animação bounce para o elemento .animate */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -244,77 +276,6 @@
     60% {
         transform: translateY(-10px);
     }
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    #loading img {
-        width: 120px; /* Ajusta o tamanho da imagem para telas menores */
-    }
-
-    #loading-text {
-        font-size: 0.9rem; /* Ajusta o tamanho da fonte para telas menores */
-    }
-
-    #scroll-to-top {
-        width: 45px; /* Ajusta o tamanho do botão para telas menores */
-        height: 45px; /* Ajusta o tamanho do botão para telas menores */
-    }
-}
-
-/* Estilos para o bloco de informação com animação */
-#animate {
-    padding: 2rem;
-    border-radius: 12px; /* Arredondamento mais suave */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais proeminente */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
-    margin-bottom: 2rem; /* Espaçamento entre os blocos de informação */
-    position: relative; /* Posição relativa para ajustar a animação internamente */
-    background-color: #2d2d2d; /* Cor de fundo sutil para destacar o bloco */
-}
-
-/* Efeito de levantamento ao passar o mouse */
-#animate:hover {
-    transform: translateY(-10px); /* Efeito de levantamento mais acentuado */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
-}
-
-/* Estilo do ícone */
-#animate .ci-icon {
-    font-size: 3rem; /* Tamanho ajustado para o ícone */
-    width: 100px; /* Ajusta o tamanho dos ícones */
-    height: 100px;
-    border-radius: 50%;
-    background-color: #4336a0; /* Cor de fundo do ícone */
-    color: #ffffff; /* Cor do ícone */
-    display: flex; /* Centraliza o ícone */
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-}
-
-/* Estilo do texto dentro do bloco */
-#animate .ci-text h4 {
-    font-size: 1.5rem; /* Tamanho ajustado do título */
-    margin-bottom: 0.5rem;
-    color: #e0e0e0; /* Cor do título */
-}
-
-#animate .ci-text p {
-    color: #e0e0e0; /* Cor do texto */
-    line-height: 1.8; /* Altura da linha para melhor legibilidade */
-}
-
-/* Animação usando AOS (Animate On Scroll) */
-#animate[data-aos] {
-    opacity: 0; /* Inicia com opacidade zero */
-    transform: translateY(20px); /* Inicia deslocado para baixo */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
-}
-
-#animate[data-aos].aos-animate {
-    opacity: 1; /* Ao ser animado, torna-se visível */
-    transform: translateY(0); /* Desloca para cima (posição original) */
 }
 
 /* Estilos Responsivos */
@@ -376,4 +337,15 @@
     #animate .ci-text p {
         font-size: 0.8rem; /* Ajusta o tamanho do texto */
     }
+}
+
+/* Configuração inicial para o particles.js */
+#particles-js {
+    position: fixed; /* Fixa o elemento em relação à viewport */
+    top: 0; /* Posiciona no topo da viewport */
+    left: 0; /* Posiciona no lado esquerdo da viewport */
+    width: 100vw; /* Largura igual à largura da viewport */
+    height: 100vh; /* Altura igual à altura da viewport */
+    z-index: -999; /* Coloca o elemento atrás de outros elementos com z-index maior */
+    overflow: hidden; /* Garante que o conteúdo das partículas não ultrapasse os limites do elemento */
 }

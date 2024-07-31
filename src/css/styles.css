@@ -4,7 +4,7 @@
 /* Root Variables */
 :root {
     --color-black: #000;
-    --color-white: #ffffff;
+    --color-white: #d3d3d3;
     --color-title: #c5c5c5;
     --color-blue: #4336a0;
     --color-dark-blue: #001b6b;
@@ -13,17 +13,6 @@
     --color-scroll-thumb: #4336a0;
     --color-scroll-thumb-hover: #001b6b;
     --background-gradient: linear-gradient(13deg, rgba(0, 0, 0, 0.8), rgba(0, 98, 255, 0.6));
-}
-
-/* Configuração inicial para o particles.js */
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw; /* 100% da largura da viewport */
-    height: 100vh; /* 100% da altura da viewport */
-    z-index: -999; /* Coloca atrás de todo o conteúdo */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
 }
 
 /* Corpo da Página com Gradiente e Textura */
@@ -66,14 +55,15 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid transparent; /* Adicionado para borda lateral */
+    z-index: 10; /* Garante que o cabeçalho esteja sobre outros elementos */
 }
 
 /* Borda lateral colorida para o header */
 .header::before {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: -30px; /* Ajusta a posição superior da borda lateral */
+    bottom: -30px; /* Ajusta a posição inferior da borda lateral */
     left: 0;
     width: 10px;
     background-color: var(--color-blue); /* Borda lateral com cor definida */
@@ -81,9 +71,43 @@ body::-webkit-scrollbar-thumb:hover {
     border-bottom-left-radius: 40px;
 }
 
+/* Ajustes de Responsividade */
+@media (max-width: 1024px) {
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+    .header::before {
+        top: -20px;
+        bottom: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 1.5rem;
+    }
+
+    .header::before {
+        top: -10px;
+        bottom: -10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.5rem 1rem;
+    }
+
+    .header::before {
+        top: -5px;
+        bottom: -5px;
+    }
+}
+
 /* Container */
 .container {
-    max-width: 1300px;
+    max-width: 1100px;
     margin: 0 auto;
     width: 100%; /* Corrigido para 100% */
     padding: 0 1rem; /* Adicionado padding para melhor responsividade */
@@ -99,6 +123,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: auto;
     border-radius: 50%;
 }
+
 /* Estilo básico da seção principal */
 .container-primary {
     position: relative;
@@ -109,7 +134,7 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     align-items: center;
     background-color: #1e1e1e;
-    color: #ffffff;
+    color: #d3d3d3;
     transition: transform 1s ease-out;
     padding: 0 20px; /* Adiciona algum espaçamento lateral */
     box-sizing: border-box; /* Garante que o padding não afete a altura total */
@@ -132,7 +157,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Estilo para o texto principal */
 .container-content h1 {
     font-size: 4rem; /* Ajustado para tamanhos de tela médias */
-    color: #ffffff;
+    color: #d3d3d3;
     margin: 0;
     line-height: 1.2; /* Melhora a legibilidade */
 }
@@ -162,8 +187,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Estilo para a imagem */
 .coffee {
-    max-width: 20%; /* Garante que a imagem não ultrapasse a largura do container */
-    height: 50PX; /* Mantém a proporção da imagem */
+    max-width: 30px; /* Garante que a imagem não ultrapasse a largura do container */
+    height: auto; /* Mantém a proporção da imagem */
 }
 
 /* Estilo para o título do h1 */
@@ -186,7 +211,6 @@ body::-webkit-scrollbar-thumb:hover {
 .scroll-button img {
     width: 50px; /* Ajuste o tamanho do ícone conforme necessário */
     height: auto;
-    color: #4336a0;
 }
 
 /* Animação de pulsação */
@@ -217,6 +241,10 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Responsividade para dispositivos móveis */
 @media (max-width: 1024px) {
+    .header {
+        padding: 1.5rem 2rem; /* Ajusta o padding do header */
+    }
+
     .container-primary {
         height: auto; /* Permite que a altura se ajuste ao conteúdo */
         padding: 0 15px; /* Menos espaçamento lateral */
@@ -236,10 +264,19 @@ body::-webkit-scrollbar-thumb:hover {
 
     .scroll-button {
         bottom: 15px; /* Ajusta a posição do botão em telas menores */
+        animation: pulse 1s infinite, blink 0.8s infinite; /* Ajusta a velocidade das animações */
+    }
+
+    .scroll-button img {
+        width: 40px; /* Ajusta o tamanho do ícone */
     }
 }
 
 @media (max-width: 768px) {
+    .header {
+        padding: 1rem 1.5rem; /* Ajusta o padding do header */
+    }
+
     .container-primary {
         padding: 0 10px; /* Menos espaçamento lateral */
     }
@@ -257,11 +294,20 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .scroll-button {
-        bottom: 10px; /* Ajusta a posição do botão em telas menores */
+        bottom: 5px; /* Ajusta a posição do botão em telas menores */
+        animation: pulse 0.8s infinite, blink 0.6s infinite; /* Ajusta a velocidade das animações */
+    }
+
+    .scroll-button img {
+        width: 35px; /* Ajusta o tamanho do ícone */
     }
 }
 
 @media (max-width: 480px) {
+    .header {
+        padding: 0.5rem 1rem; /* Ajusta o padding do header */
+    }
+
     .container-primary {
         padding: 0 5px; /* Menos espaçamento lateral em telas pequenas */
     }
@@ -279,17 +325,16 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .scroll-button {
-        width: 50px; /* Ajusta o tamanho do botão */
-        height: 50px; /* Ajusta o tamanho do botão */
+        width: 40px; /* Ajusta o tamanho do botão */
+        height: 40px; /* Ajusta o tamanho do botão */
         bottom: 5px; /* Ajusta a posição do botão em telas muito pequenas */
-        
+        animation: pulse 0.6s infinite, blink 0.4s infinite; /* Ajusta a velocidade das animações */
     }
 
     .scroll-button img {
-        width: 20px; /* Ajuste o tamanho do ícone conforme necessário */
+        width: 25px; /* Ajusta o tamanho do ícone */
     }
 }
-
 
 /* Estilo para a seção inicial */
 .section-inicial {
@@ -405,7 +450,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-family: 'Roboto', sans-serif;
     font-size: 3rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #d3d3d3;
     margin-bottom: 1rem;
     line-height: 1.2;
     position: relative;
@@ -548,7 +593,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Estilo para a seção Sobre Mim */
 .about {
     padding: 4rem 6rem; /* Espaçamento padrão */
-    color: #ffffff; /* Cor do texto padrão */
+    color: #d3d3d3; /* Cor do texto padrão */
     background-color: #1e1e1e; /* Cor de fundo para contraste */
 }
 
@@ -562,7 +607,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-family: "Poppins", sans-serif;
     font-size: 3.5rem; /* Tamanho do título */
     font-weight: 700;
-    color: #ffffff; /* Cor do título */
+    color: #d3d3d3; /* Cor do título */
     position: relative;
     display: inline-block;
     padding-bottom: 15px; /* Espaçamento inferior */
@@ -596,7 +641,7 @@ body::-webkit-scrollbar-thumb:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
     position: relative;
     overflow: hidden;
-    color: #ffffff; /* Cor do texto */
+    color: #d3d3d3; /* Cor do texto */
 }
 
 /* Estilo individual das colunas para diferenciação */
@@ -634,7 +679,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .ci-icon img {
     font-size: 3rem; /* Tamanho dos ícones ajustado */
-    color: #ffffff; /* Cor dos ícones */
+    color: #d3d3d3; /* Cor dos ícones */
     transition: transform 0.3s ease, color 0.3s ease; /* Transição suave */
     max-width: 150px;
     margin-bottom: 20px;
@@ -649,7 +694,7 @@ body::-webkit-scrollbar-thumb:hover {
 .ci-text h4 {
     font-family: "Poppins", sans-serif;
     font-size: 1.5rem; /* Tamanho do título ajustado */
-    color: #ffffff; /* Cor do título */
+    color: #d3d3d3; /* Cor do título */
     margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
     transition: color 0.3s ease; /* Transição suave para a cor do texto */
 }
@@ -777,7 +822,7 @@ body::-webkit-scrollbar-thumb:hover {
 .certificates-education .section-title {
     font-family: "Poppins", sans-serif;
     font-size: 2.5rem; /* Tamanho do título ajustado */
-    color: #ffffff; /* Cor do título branca */
+    color: #d3d3d3; /* Cor do título branca */
     font-weight: 700; /* Título em negrito */
     text-transform: uppercase; /* Maiúsculas */
     letter-spacing: 1px; /* Espaçamento entre letras ajustado */
@@ -806,7 +851,7 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 1rem; /* Padding ajustado */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
     overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas */
-    background-color: #2d2d2d; /* Cor de fundo dos itens */
+    background-color: #1e1e1e; /* Cor de fundo dos itens */
     text-align: center; /* Centraliza o texto */
 }
 
@@ -983,7 +1028,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .education .section-title {
     font-size: 2.4rem; /* Tamanho do título reduzido */
-    color: #ffffff; /* Cor do título branca */
+    color: #d3d3d3; /* Cor do título branca */
     font-weight: 700; /* Título em negrito */
     text-transform: uppercase; /* Título em maiúsculas */
     letter-spacing: 1.5px; /* Espaçamento entre letras */
@@ -1010,7 +1055,7 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra mais leve */
     padding: 15px; /* Padding reduzido */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transições suaves */
-    background-color: #2d2d2d; /* Cor de fundo dos itens */
+    background-color: #1e1e1e; /* Cor de fundo dos itens */
     position: relative; /* Necessário para a borda lateral colorida */
 }
 
@@ -1022,7 +1067,7 @@ body::-webkit-scrollbar-thumb:hover {
     bottom: 0;
     left: 0;
     width: 6px; /* Largura da borda lateral colorida reduzida */
-    background-color: #002aff; /* Azul escuro */
+    background-color: #4336a0; /* Azul escuro */
     border-top-left-radius: 8px; /* Arredonda o canto superior esquerdo */
     border-bottom-left-radius: 8px; /* Arredonda o canto inferior esquerdo */
 }
@@ -1177,6 +1222,7 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: center;
     position: relative;
     background-color: #1e1e1e; /* Fundo escuro para contraste */
+    min-height: 100vh; /* Garante que a seção ocupe pelo menos a altura total da tela */
 }
 
 /* Título da seção de habilidades */
@@ -1188,7 +1234,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-family: "Poppins", sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #d3d3d3;
     border-bottom: 3px solid #4336a0;
     display: inline-block;
     padding-bottom: 10px;
@@ -1217,8 +1263,8 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     opacity: 1; /* Inicialmente, as descrições estão visíveis */
     border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
-    background-color: #2d2d2d; /* Cor de fundo do card */
-    border-radius: 10px; /* Bordas arredondadas dos cards */
+    background-color: #1e1e1e; /* Cor de fundo do card */
+    border-radius: 20px; /* Bordas arredondadas dos cards */
 }
 
 /* Borda lateral colorida com base no índice do item */
@@ -1259,7 +1305,7 @@ body::-webkit-scrollbar-thumb:hover {
 .skill-description {
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
-    color: #ffffff;
+    color: #d3d3d3;
     margin-top: 0.5rem;
     opacity: 0; /* Descrição oculta por padrão */
     transform: translateY(20px); /* Deslocamento inicial */
@@ -1287,8 +1333,8 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .skill-box {
-        width: 120px; /* Ajusta a largura do card */
-        height: 120px; /* Ajusta a altura do card */
+        width: 100%; /* Garante que os cards ocupem toda a largura disponível */
+        height: auto; /* Ajusta a altura automaticamente */
     }
 
     .skill-box img {
@@ -1315,8 +1361,8 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .skill-box {
-        width: 100px; /* Ajusta a largura do card */
-        height: 100px; /* Ajusta a altura do card */
+        width: 100%; /* Garante que os cards ocupem toda a largura disponível */
+        height: auto; /* Ajusta a altura automaticamente */
     }
 
     .skill-box img {
@@ -1343,8 +1389,8 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .skill-box {
-        width: 80px; /* Ajusta a largura do card */
-        height: 80px; /* Ajusta a altura do card */
+        width: 100%; /* Garante que os cards ocupem toda a largura disponível */
+        height: auto; /* Ajusta a altura automaticamente */
         margin-right: 0; /* Remove o espaçamento entre os cards */
     }
 
@@ -1357,6 +1403,7 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 0.7rem; /* Ajusta o tamanho da fonte */
     }
 }
+
 
 /* Estilos para a seção de portfólio */
 .portfolio {
@@ -1378,7 +1425,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #d3d3d3;
     border-bottom: 3px solid #4336a0;
     padding-bottom: 10px;
     margin: 0;
@@ -1400,7 +1447,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     width: 100%;
     max-width: 400px; /* Largura máxima para itens do portfólio */
-    border-radius: 15px;
+    border-radius: 20px;
     border: 2px solid #4336a0; /* Cor da borda padrão */
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra padrão */
@@ -1435,7 +1482,7 @@ body::-webkit-scrollbar-thumb:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ffffff;
+    color: #d3d3d3;
     font-size: 1.2rem;
     z-index: 1;
 }
@@ -1443,8 +1490,8 @@ body::-webkit-scrollbar-thumb:hover {
 /* Informações do item do portfólio */
 .portfolio-item-info {
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: relative; /* Ajustado para evitar problemas de sobreposição */
+     background-color: #1e1e1e;
+     position: relative; /* Ajustado para evitar problemas de sobreposição */
     flex-grow: 1; /* Garante que a área de informações cresça conforme necessário */
     display: flex;
     flex-direction: column;
@@ -1458,7 +1505,7 @@ body::-webkit-scrollbar-thumb:hover {
 .portfolio-item-info h3 {
     font-size: 1.6rem;
     margin: 0 0 10px;
-    color: #ffffff;
+    color: #d3d3d3;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -1474,7 +1521,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: #ffffff;
+    color: #d3d3d3;
 }
 
 .tech-item i {
@@ -1512,7 +1559,7 @@ ul li {
     background-color: #4336a0;
     color: #fff;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     transition: background-color 0.3s ease; /* Transição suave */
@@ -1609,7 +1656,7 @@ ul li {
 .services .section-title {
     font-family: 'Poppins', sans-serif;
     font-size: 2.75rem;
-    color: #ffffff;
+    color: #d3d3d3;
     font-weight: 700;
     position: relative;
 }
@@ -1670,7 +1717,7 @@ ul li {
 /* Título do serviço */
 .service-item h3 {
     font-size: 1.75rem;
-    color: #ffffff;
+    color: #d3d3d3;
     margin-bottom: 15px;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
@@ -1693,7 +1740,7 @@ ul li {
 }
 
 .service-item i {
-    color: #00aaff; /* Azul claro para destacar ícones */
+    color: #4336a0; /* Azul claro para destacar ícones */
 }
 
 /* Botão de solicitar orçamento */
@@ -1703,7 +1750,7 @@ ul li {
 
 .btn-solicitar {
     background: linear-gradient(90deg, #4336a0, #4336a0);
-    color: #ffffff;
+    color: #d3d3d3;
     text-decoration: none;
     padding: 14px 40px;
     border-radius: 8px;
@@ -1786,7 +1833,7 @@ ul li {
 .contact .section-title {
     font-family: "Poppins", sans-serif;
     font-size: 2.5rem;
-    color: #ffffff;
+    color: #d3d3d3;
     font-weight: 600;
     border-bottom: 3px solid #4336a0; /* Azul vibrante para destaque */
     display: inline-block;
@@ -1848,7 +1895,7 @@ ul li {
 }
 
 .contact-info:nth-child(3)::before {
-    background-color: #00aaff; /* Azul claro */
+    background-color: #4336a0; /* Azul claro */
 }
 
 /* Informações de contato dentro dos itens */
@@ -1918,7 +1965,7 @@ ul li {
     border: 1px solid #4336a0;
     border-radius: 6px;
     font-size: 1rem;
-    color: #ffffff;
+    color: #d3d3d3;
     background: #1a1a1a; /* Fundo escuro para campos de entrada */
     box-sizing: border-box; /* Inclui o padding e border no width total */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1940,7 +1987,7 @@ ul li {
     display: inline-block;
     padding: 12px 24px;
     background-color: #4336a0;
-    color: #ffffff;
+    color: #d3d3d3;
     border: none;
     border-radius: 6px;
     font-size: 1.1rem;
