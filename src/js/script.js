@@ -11,15 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form');
   const socialLinks = document.querySelectorAll('.social-links a');
   const textElement = document.getElementById('typing-text');
-  const commentBar = document.getElementById('comment-bar');
-  const commentText = document.getElementById('comment-text');
-  const sectionToObserve = document.getElementById('certificado');
-  const skillBoxes = document.querySelectorAll('.skill-box');
-  const arrows = document.querySelectorAll('.portfolio-item-arrow');
-  const serviceItems = document.querySelectorAll('.service-item');
-  const containerPrimary = document.querySelector('.container-primary');
-  const containerContent = document.querySelector('.container-content');
-  const sectionInicial = document.querySelector('.section-inicial');
 
   // Função para alternar o menu móvel
   const toggleMobileNav = () => {
@@ -198,23 +189,160 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Função para mostrar ou ocultar a barra de comentário
-  const showComment = (text) => {
+  // Inicia todas as funcionalidades
+  handleLoadingAnimation();
+  loadUserImage();
+  animateDynamicText();
+  handleSocialLinks();
+  handleContactForm();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const skillBoxes = document.querySelectorAll('.skill-box');
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    const windowHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    const elementTop = rect.top;
+    const elementBottom = rect.bottom;
+    return (
+      elementTop < windowHeight / 1.5 && // Ajustado para uma área maior
+      elementBottom > windowHeight / 3 // Ajustado para uma área maior
+    );
+  }
+
+  function checkSkills() {
+    skillBoxes.forEach((box) => {
+      if (isInViewport(box)) {
+        box.classList.add('active');
+      } else {
+        box.classList.remove('active');
+      }
+    });
+  }
+
+  // Verifica a visibilidade inicialmente
+  checkSkills();
+
+  // Adiciona um ouvinte de evento para verificar a visibilidade ao rolar
+  window.addEventListener('scroll', checkSkills);
+
+  // Adiciona um ouvinte de evento para verificar a visibilidade ao redimensionar
+  window.addEventListener('resize', checkSkills);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Inicializa AOS (Animate On Scroll) para animações de rolagem
+  AOS.init({
+    duration: 600, // Duração da animação em milissegundos
+    easing: 'ease-out-quint', // Efeito de aceleração
+  });
+});
+
+// Inicialize o AOS
+AOS.init({
+  duration: 1000, // duração das animações em milissegundos
+  easing: 'ease-in-out', // tipo de easing para as animações
+  once: true, // se a animação deve ocorrer apenas uma vez
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const arrows = document.querySelectorAll('.portfolio-item-arrow');
+  arrows.forEach((arrow) => {
+    arrow.addEventListener('click', function () {
+      const parent = this.closest('.portfolio-item');
+      const info = parent.querySelector('.portfolio-item-info');
+      const isVisible = info.style.display === 'block';
+      info.style.display = isVisible ? 'none' : 'block';
+      this.querySelector('i').classList.toggle('fa-chevron-down');
+      this.querySelector('i').classList.toggle('fa-chevron-up');
+    });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Adiciona animações aos itens de serviço quando eles entram na tela
+  const serviceItems = document.querySelectorAll('.service-item');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.remove('animate');
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  serviceItems.forEach((item) => observer.observe(item));
+});
+document.addEventListener('DOMContentLoaded', function () {
+  // Adiciona o listener para o evento de envio do formulário
+  document
+    .getElementById('contact-form')
+    .addEventListener('submit', function (event) {
+      event.preventDefault(); // Previne o comportamento padrão de envio do formulário
+
+      // Simula o envio bem-sucedido do formulário com um atraso
+      setTimeout(function () {
+        // Exibe as informações de contato após o envio
+        document.getElementById('contact-info').style.display = 'block';
+
+        // Atualiza os links de contato
+        document.getElementById('email-link').href =
+          'mailto:developer.thomas@outlook.com';
+        document.getElementById('email-link').textContent =
+          'developer.thomas@outlook.com';
+
+        document.getElementById('phone-link').href = 'tel:+5519999042072';
+        document.getElementById('phone-link').textContent = '+55 19 99999-9999';
+
+        document.getElementById('whatsapp-link').href =
+          'https://wa.me/5519999042072';
+
+        // Opcional: Limpa o formulário após o envio
+        document.getElementById('contact-form').reset();
+
+        // Opcional: Exibe uma mensagem de confirmação
+        alert('Obrigado pelo seu contato! Em breve, retornarei.');
+      }, 1000); // Simula um atraso de 1 segundo para o envio do formulário
+    });
+});
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Inicializa AOS (Animate On Scroll)
+  AOS.init({
+    duration: 1200,
+  });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const commentBar = document.getElementById('comment-bar');
+  const commentText = document.getElementById('comment-text');
+  const sectionToObserve = document.getElementById('certificado');
+
+  // Função para mostrar a barra de comentário
+  function showComment(text) {
     commentText.textContent = text;
     commentBar.style.display = 'flex';
     setTimeout(() => {
       commentBar.style.opacity = '1';
     }, 0);
-  };
+  }
 
-  const hideComment = () => {
+  // Função para ocultar a barra de comentário
+  function hideComment() {
     commentBar.style.opacity = '0';
     setTimeout(() => {
       commentBar.style.display = 'none';
     }, 300);
-  };
+  }
 
-  // Configuração do Intersection Observer para a barra de comentário
+  // Configuração do Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -232,74 +360,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Observa a seção específica
   observer.observe(sectionToObserve);
+});
+document.addEventListener('DOMContentLoaded', function () {
+  // Seleciona os elementos
+  const containerPrimary = document.querySelector('.container-primary');
+  const containerContent = document.querySelector('.container-content');
+  const sectionInicial = document.querySelector('.section-inicial');
 
-  // Função para verificar a visibilidade dos elementos de habilidades
-  const isInViewport = (element) => {
-    const rect = element.getBoundingClientRect();
-    const windowHeight =
-      window.innerHeight || document.documentElement.clientHeight;
-    const elementTop = rect.top;
-    const elementBottom = rect.bottom;
-    return (
-      elementTop < windowHeight / 1.5 && // Ajustado para uma área maior
-      elementBottom > windowHeight / 3 // Ajustado para uma área maior
-    );
-  };
-
-  const checkSkills = () => {
-    skillBoxes.forEach((box) => {
-      if (isInViewport(box)) {
-        box.classList.add('active');
-      } else {
-        box.classList.remove('active');
-      }
-    });
-  };
-
-  // Verifica a visibilidade inicialmente
-  checkSkills();
-
-  // Adiciona ouvintes de eventos para verificar a visibilidade ao rolar e redimensionar
-  window.addEventListener('scroll', checkSkills);
-  window.addEventListener('resize', checkSkills);
-
-  // Inicializa AOS (Animate On Scroll)
-  AOS.init({
-    duration: 1200,
-    easing: 'ease-in-out',
-    once: true,
-  });
-
-  // Manipulação dos itens do portfólio
-  arrows.forEach((arrow) => {
-    arrow.addEventListener('click', function () {
-      const parent = this.closest('.portfolio-item');
-      const info = parent.querySelector('.portfolio-item-info');
-      const isVisible = info.style.display === 'block';
-      info.style.display = isVisible ? 'none' : 'block';
-      this.querySelector('i').classList.toggle('fa-chevron-down');
-      this.querySelector('i').classList.toggle('fa-chevron-up');
-    });
-  });
-
-  // Adiciona animações aos itens de serviço quando eles entram na tela
-  const serviceObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        } else {
-          entry.target.classList.remove('animate');
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
-
-  serviceItems.forEach((item) => serviceObserver.observe(item));
-
-  // Animação do conteúdo inicial
-  setTimeout(() => {
+  // Adiciona uma classe para iniciar a animação após um pequeno atraso
+  setTimeout(function () {
     containerContent.style.transform = 'translateY(0)';
     containerContent.style.opacity = '1';
 
@@ -307,23 +376,20 @@ document.addEventListener('DOMContentLoaded', () => {
     containerPrimary.classList.add('pushed');
     sectionInicial.style.transform = 'translateY(0)';
   }, 100); // Atraso de 100ms para garantir que o layout inicial seja renderizado
-
-  // Animação com Anime.js
-  anime
-    .timeline({ loop: true })
-    .add({
-      targets: '.ml15 .word',
-      scale: [14, 1],
-      opacity: [0, 1],
-      easing: 'easeOutCirc',
-      duration: 800,
-      delay: (el, i) => 800 * i,
-    })
-    .add({
-      targets: '.ml15',
-      opacity: 0,
-      duration: 1000,
-      easing: 'easeOutExpo',
-      delay: 1000,
-    });
 });
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml15 .word',
+    scale: [14,1],
+    opacity: [0,1],
+    easing: "easeOutCirc",
+    duration: 800,
+    delay: (el, i) => 800 * i
+  }).add({
+    targets: '.ml15',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });

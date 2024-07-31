@@ -104,7 +104,17 @@ body::-webkit-scrollbar-thumb:hover {
         bottom: -5px;
     }
 }
+.ml15 {
+  font-weight: 800;
+  font-size: 3.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+}
 
+.ml15 .word {
+  display: inline-block;
+  line-height: 1em;
+}
 /* Container */
 .container {
     max-width: 1100px;
