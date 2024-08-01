@@ -108,3 +108,10 @@ particlesJS('particles-js', {
   },
   retina_detect: true,
 });
+document.addEventListener('DOMContentLoaded', function () {
+  AOS.init({
+    duration: 1000, // duração da animação
+    easing: 'ease-in-out',
+    once: true, // animação executada apenas uma vez
+  });
+});

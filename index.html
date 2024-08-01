@@ -39,8 +39,12 @@
     <link rel="icon"
           href="./src/img/Perfil/favicon.png"
           type="image/svg+xml">
+          <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+                rel="stylesheet">
+
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"
             defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
@@ -146,15 +150,18 @@
            class="coffee"
            alt="coffee">
     </div>
+    <div>
+      <button class="scroll-button">
+        <a href="#section-inicial"
+           aria-label="Scroll down">
+          <img src="./src/img/Icons/system-uicons--chevron-down-double.svg"
+               alt="Scroll down">
+        </a>
+      </button>
+    </div>
   </div>
 
-  <button class="scroll-button">
-    <a href="#section-inicial"
-       aria-label="Scroll down">
-      <img src="./src/img/Icons/system-uicons--chevron-down-double.svg"
-           alt="Scroll down">
-    </a>
-  </button>
+ 
 </section>
 
 <!-- Seção Inicial -->
@@ -224,6 +231,7 @@
            id="about">
     <div class="title-section">
       <h2 class="section-title">Sobre Mim</h2>
+        <p class="section-subtitle">Competências e Tecnologias Profissionais</p>
     </div>
   
     <div class="row">
@@ -287,70 +295,116 @@
 
 
 <!-- Seção de Habilidades -->
+<!-- Seção de Habilidades -->
 <section class="skills"
-         data-aos="fade-up">
+         data-aos="fade-up"
+         aria-labelledby="skills-heading">
   <div class="title-section">
-    <div class="section-title">Skills</div>
+    <h2 id="skills-heading"
+        class="section-title">Minhas Competências</h2>
+    <p class="section-subtitle">Tecnologias e Ferramentas Profissionais</p>
   </div>
 
   <div class="skill-grid-wrapper">
     <div class="skill-box"
          aria-label="Bootstrap">
       <img src="./src/img/skill/bootstrap.svg"
-           alt="Bootstrap logo">
+           alt="Bootstrap logo"
+           class="skill-icon">
       <div class="skill-description">Bootstrap</div>
     </div>
     <div class="skill-box"
          aria-label="Git">
       <img src="./src/img/skill/git.svg"
-           alt="Git logo">
+           alt="Git logo"
+           class="skill-icon">
       <div class="skill-description">Git</div>
     </div>
     <div class="skill-box"
          aria-label="JavaScript">
       <img src="./src/img/skill/js.svg"
-           alt="JavaScript logo">
+           alt="JavaScript logo"
+           class="skill-icon">
       <div class="skill-description">JavaScript</div>
     </div>
     <div class="skill-box"
          aria-label="Babel">
       <img src="./src/img/skill/babel.svg"
-           alt="Babel logo">
+           alt="Babel logo"
+           class="skill-icon">
       <div class="skill-description">Babel</div>
     </div>
     <div class="skill-box"
          aria-label="Figma">
       <img src="./src/img/skill/figma.svg"
-           alt="Figma logo">
+           alt="Figma logo"
+           class="skill-icon">
       <div class="skill-description">Figma</div>
     </div>
     <div class="skill-box"
          aria-label="Vite.js">
       <img src="./src/img/skill/vitejs.svg"
-           alt="Vite.js logo">
+           alt="Vite.js logo"
+           class="skill-icon">
       <div class="skill-description">Vite.js</div>
     </div>
     <div class="skill-box"
          aria-label="React Bootstrap">
       <img src="./src/img/skill/reactbootstrap.svg"
-           alt="React Bootstrap logo">
+           alt="React Bootstrap logo"
+           class="skill-icon">
       <div class="skill-description">React Bootstrap</div>
     </div>
     <div class="skill-box"
          aria-label="Node.js">
       <img src="./src/img/skill/node.svg"
-           alt="Node.js logo">
+           alt="Node.js logo"
+           class="skill-icon">
       <div class="skill-description">Node.js</div>
     </div>
   </div>
 </section>
 
+
+<section class="aesthetics"
+         id="aesthetics"
+         data-aos="fade-up"
+         aria-labelledby="aesthetics-heading">
+  <div class="title-section">
+    <h2 id="aesthetics-heading"
+        class="section-title">Estatísticas Chave</h2>
+    <p class="section-subtitle">Indicadores e Realizações Profissionais</p>
+  </div>
+
+  <div class="quick-aesthetics">
+    <div class="box-aesthetics">
+      <p class="number-aesthetics">15+</p>
+      <p class="description-aesthetics">Projetos</p>
+    </div>
+
+    <div class="box-aesthetics">
+      <p class="number-aesthetics">365 Dias</p>
+      <p class="description-aesthetics">Em experiência</p>
+    </div>
+
+    <div class="box-aesthetics">
+      <p class="number-aesthetics">1500+</p>
+      <p class="description-aesthetics">Horas de estudos</p>
+    </div>
+  </div>
+</section>
+
+
+
 <!-- Seção de Certificados -->
 <section class="certificates-education"
-         id="certificates">
-  <div class="title-section"
-       data-aos="zoom-in-down">
-    <h2 class="section-title">Certificados</h2>
+         id="certificates"
+         data-aos="zoom-in-down"
+         aria-labelledby="certificates-heading">
+  <div class="title-section">
+    <h2 id="certificates-heading"
+        class="section-title">Certificados e Qualificações</h2>
+    <p class="section-subtitle">Reconhecimentos e Certificações Profissionais</p>
   </div>
 
   <div class="certificates-list">
@@ -447,10 +501,11 @@
 
 <!-- Seção de Educação -->
 <section class="education"
-         id="education">
-  <div class="title-section"
-       data-aos="zoom-in-down">
+         id="education"
+         data-aos="zoom-in-down">
+  <div class="title-section">
     <h2 class="section-title">Educação</h2>
+    <p class="section-subtitle">Formação Acadêmica e Certificações Profissionais</p>
   </div>
 
   <div class="education-wrapper">
@@ -483,11 +538,12 @@
 
 <!-- Seção de Portfólio -->
 <section class="portfolio"
-         id="portfolio">
-  <div class="title-section"
-       data-aos="fade-down"
-       data-aos-duration="1000">
+         id="portfolio"
+         data-aos="fade-down"
+         data-aos-duration="1000">
+  <div class="title-section">
     <h2 class="section-title">Portfólio</h2>
+    <p class="section-subtitle">Projetos e Trabalhos Recentes</p>
   </div>
 
   <div class="portfolio-items">
@@ -610,14 +666,15 @@
 
 
   <!-- Seção de Serviços -->
-  <section class="services"
-           id="services"
-           aria-labelledby="services-title">
-    <div class="title-section"
-         data-aos="zoom-in-down">
-      <h2 id="services-title"
-          class="section-title">Serviços</h2>
-    </div>
+<section class="services"
+         id="services"
+         aria-labelledby="services-title">
+  <div class="title-section"
+       data-aos="zoom-in-down">
+    <h2 id="services-title"
+        class="section-title">Serviços</h2>
+    <p class="section-subtitle">O que eu posso oferecer para você</p>
+  </div>
   
     <div class="services-wrapper">
       <!-- Serviço 1 -->
@@ -676,13 +733,13 @@
   </section>
   
   <!-- Seção de Contato -->
-  <section class="contact"
-           id="contact">
-    <div class="title-section"
-         data-aos="zoom-in-down">
-      <h2 class="section-title">Entre em Contato</h2>
-    </div>
-  
+<section class="contact"
+         id="contact">
+  <div class="title-section"
+       data-aos="zoom-in-down">
+    <h2 class="section-title">Entre em Contato</h2>
+    <p class="section-subtitle">Estou aqui para responder suas perguntas e dúvidas</p>
+  </div>
     <div class="contact-content">
       <div id="contact-info"
            class="contact-info"
