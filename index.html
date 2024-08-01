@@ -35,12 +35,16 @@
     <link rel="stylesheet"
           href="./src/css/styles.css">
     <link rel="stylesheet"
-          href="./src/css/respon.css">
+          href="./src/css/responsivo.css">
+    <link rel="stylesheet"
+          href="./src/css/mobile.css">
+    <link rel="stylesheet"
+          href="./src/css/id.css">
     <link rel="icon"
           href="./src/img/Perfil/favicon.png"
           type="image/svg+xml">
-          <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-                rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+          rel="stylesheet">
 
 
     <!-- Scripts -->
@@ -61,800 +65,771 @@
             defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   </head>
-<body>
-  
-<!-- Tela de Carregamento -->
-<div id="loading">
-  <div id="loading-bar">
-    <img src="./src/img/Icons/block.svg"
-         alt="Ícone de carregamento">
-    <div id="loading-text">Carregando...</div>
-  </div>
-</div>
 
-<!-- Fundo de Partículas -->
-<div id="particles-js"></div>
+  <body>
 
-<!-- Resto do conteúdo -->
-
-<!-- Container do Cabeçalho -->
-<header>
-  <div class="container">
-    <!-- Logo -->
-    <div class="logo"
-         id="logo">
-      <a href="#home"
-         aria-label="Ir para a página inicial">
-        <img src="./src/img/Perfil/logo.svg"
-             alt="Logo de Thomas Eduardo">
-      </a>
+    <!-- Tela de Carregamento -->
+    <div id="loading">
+      <div id="loading-bar">
+        <img src="./src/img/Icons/block.svg"
+             alt="Ícone de carregamento">
+        <div id="loading-text">Carregando...</div>
+      </div>
     </div>
 
-    <!-- Navegação Desktop -->
-    <nav class="desktop-nav"
-         aria-label="Navegação principal">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#services">Serviços</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
+    <!-- Fundo de Partículas -->
+    <div id="particles-js"></div>
 
-    <!-- Menu Hamburger -->
-    <button class="hamburger-menu"
-            id="hamburger-menu"
-            aria-label="Menu móvel">
-      <i class="fas fa-bars"></i>
+    <!-- Container do Cabeçalho -->
+  <header>
+    <div class="container-header">
+      <!-- Logo -->
+      <div class="logo"
+           id="container-header">
+        <a href="#home"
+           aria-label="Ir para a página inicial">
+          <img src="./src/img/Perfil/logo.svg"
+               alt="Logo de Thomas Eduardo">
+        </a>
+      </div>
+  
+      <!-- Navegação Desktop -->
+      <nav class="desktop-nav"
+           aria-label="Navegação principal"
+           id="container-header-nav">
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+  
+      <!-- Menu Hamburger -->
+      <button class="hamburger-menu"
+              id="hamburger-menu"
+              aria-label="Menu móvel">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Navegação Móvel -->
+      <nav class="mobile-nav"
+           id="mobile-nav"
+           aria-label="Navegação móvel">
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <!-- Botão para voltar ao topo -->
+    <button id="scroll-to-top"
+            aria-label="Voltar ao topo">
+      <lord-icon src="https://cdn.lordicon.com/dwoxxgps.json"
+                 trigger="loop"
+                 colors="primary:#fff"
+                 style="width: 50px; height: 50px;"></lord-icon>
     </button>
 
-    <!-- Navegação Móvel -->
-    <nav class="mobile-nav"
-         id="mobile-nav"
-         aria-label="Navegação móvel">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#services">Serviços</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- Botão para voltar ao topo -->
-<button id="scroll-to-top"
-        aria-label="Voltar ao topo">
-  <lord-icon src="https://cdn.lordicon.com/dwoxxgps.json"
-             trigger="loop"
-             colors="primary:#fff"
-             style="width: 50px; height: 50px;"></lord-icon>
-</button>
-
-<!-- Seção Principal -->
-<section class="container-primary"
-         id="container-primary">
-  <div class="container-content">
-    <h1 class="ml15"
-        id="title">
-      <span class="word"
-            id="h1">Frontend</span>
-      <span class="word"
-            id="span">Developer</span>
-    </h1>
-    <div class="content-wrapper">
-      <p class="hello">Olá, Bem-vindo ao meu site!</p>
-      <img src="./src/img/Icons/coffee.svg"
-           class="coffee"
-           alt="coffee">
-    </div>
-    <div>
-      <button class="scroll-button">
-        <a href="#section-inicial"
-           aria-label="Scroll down">
-          <img src="./src/img/Icons/system-uicons--chevron-down-double.svg"
-               alt="Scroll down">
-        </a>
-      </button>
-    </div>
-  </div>
-
- 
-</section>
-
-<!-- Seção Inicial -->
-<section class="section-inicial"
-         id="section-inicial"
-         data-aos="fade-up"
-         data-aos-duration="1200"
-         aria-labelledby="section-inicial-heading">
-  <div class="user-profile"
-       data-aos="fade-right"
-       data-aos-duration="1000"
-       data-aos-delay="300">
-    <img src="./src/img/Perfil/perfil.jpg"
-         alt="Foto de perfil de Thomas Eduardo"
-         class="profile-image"
-         loading="lazy">
-    <div class="profile-text">
-      <h1 id="section-inicial-heading">Olá, sou Thomas Eduardo</h1>
-      <p class="intro-text">Sou um desenvolvedor web focado em <span>Frontend</span> e <span>UX/UI Design</span>. Venho de uma trajetória de carreira de um ano na área de tecnologia e hoje possuo habilidades avançadas em criação de interfaces intuitivas e eficientes.</p>
-      <p class="summary">
-        Minha experiência inclui o uso de HTML, CSS, JavaScript, e frameworks como React e Node.js. Estou sempre buscando inovações para otimizar a experiência do usuário e criar soluções que combinam estética e funcionalidade.
-      </p>
-      <div class="social-icons"
-           data-aos="fade-up"
-           data-aos-duration="1200"
-           data-aos-delay="600"
-           aria-label="Redes sociais de Thomas Eduardo">
-        <a class="social-icon instagram"
-           href="https://www.instagram.com/thomas.fromtend/"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Instagram de Thomas Eduardo">
-          <i class="fab fa-instagram"
-             aria-hidden="true"></i>
-        </a>
-        <a class="social-icon github"
-           href="https://github.com/devthmedu"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="GitHub de Thomas Eduardo">
-          <i class="fab fa-github"
-             aria-hidden="true"></i>
-        </a>
-        <a class="social-icon linkedin"
-           href="https://www.linkedin.com/in/thmedu/"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="LinkedIn de Thomas Eduardo">
-          <i class="fab fa-linkedin-in"
-             aria-hidden="true"></i>
-        </a>
-        <a class="social-icon discord"
-           href="https://discord.gg/seu-servidor-discord"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="Discord de Thomas Eduardo">
-          <i class="fab fa-discord"
-             aria-hidden="true"></i>
-        </a>
+    <!-- Seção Principal -->
+    <section class="container-primary"
+             id="container-primary">
+      <div class="container-content">
+        <h1 class="ml15"
+            id="title">
+          <span class="word"
+                id="h1">Frontend</span>
+          <span class="word"
+                id="span">Developer</span>
+        </h1>
+        <div class="content-wrapper">
+          <p class="hello">Olá, Bem-vindo ao meu site!</p>
+          <img src="./src/img/Icons/coffee.svg"
+               class="coffee"
+               alt="coffee">
+        </div>
+        <div>
+          <button class="scroll-button">
+            <a href="#section-inicial"
+               aria-label="Scroll down">
+              <img src="./src/img/Icons/system-uicons--chevron-down-double.svg"
+                   alt="Scroll down">
+            </a>
+          </button>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
 
-  <section class="about"
-           id="about">
-    <div class="title-section">
-      <h2 class="section-title">Sobre Mim</h2>
+    </section>
+
+    <!-- Seção Inicial -->
+    <section class="section-inicial"
+             id="section-inicial"
+             data-aos="fade-up"
+             data-aos-duration="1200"
+             aria-labelledby="section-inicial-heading">
+      <div class="user-profile"
+           data-aos="fade-right"
+           data-aos-duration="1000"
+           data-aos-delay="300">
+        <img src="./src/img/Perfil/perfil.jpg"
+             alt="Foto de perfil de Thomas Eduardo"
+             class="profile-image"
+             loading="lazy">
+        <div class="profile-text">
+          <h1 id="section-inicial-heading">Olá, sou Thomas Eduardo</h1>
+          <p class="intro-text">Sou um desenvolvedor web focado em <span>Frontend</span> e <span>UX/UI Design</span>. Venho de uma trajetória de carreira de um ano na área de tecnologia e hoje possuo habilidades avançadas em criação de interfaces intuitivas e eficientes.</p>
+          <p class="summary">
+            Minha experiência inclui o uso de HTML, CSS, JavaScript, e frameworks como React e Node.js. Estou sempre buscando inovações para otimizar a experiência do usuário e criar soluções que combinam estética e funcionalidade.
+          </p>
+          <div class="social-icons"
+               data-aos="fade-up"
+               data-aos-duration="1200"
+               data-aos-delay="600"
+               aria-label="Redes sociais de Thomas Eduardo">
+            <a class="social-icon instagram"
+               href="https://www.instagram.com/thomas.fromtend/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Instagram de Thomas Eduardo">
+              <i class="fab fa-instagram"
+                 aria-hidden="true"></i>
+            </a>
+            <a class="social-icon github"
+               href="https://github.com/devthmedu"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="GitHub de Thomas Eduardo">
+              <i class="fab fa-github"
+                 aria-hidden="true"></i>
+            </a>
+            <a class="social-icon linkedin"
+               href="https://www.linkedin.com/in/thmedu/"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="LinkedIn de Thomas Eduardo">
+              <i class="fab fa-linkedin-in"
+                 aria-hidden="true"></i>
+            </a>
+            <a class="social-icon discord"
+               href="https://discord.gg/seu-servidor-discord"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Discord de Thomas Eduardo">
+              <i class="fab fa-discord"
+                 aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="about"
+             id="about">
+      <div class="title-section">
+        <h2 class="section-title">Sobre Mim</h2>
         <p class="section-subtitle">Competências e Tecnologias Profissionais</p>
-    </div>
-  
-    <div class="row">
-      <div class="col col-1">
-        <div class="info-block"
-             data-aos="fade-up">
-          <div class="ci-icon">
-            <img src="./src/img/Icons/front.svg"
-                 alt="Ícone de Desenvolvimento Frontend">
+      </div>
+
+      <div class="row">
+        <div class="col col-1">
+          <div class="info-block"
+               data-aos="fade-up">
+            <div class="ci-icon">
+              <img src="./src/img/Icons/front.svg"
+                   alt="Ícone de Desenvolvimento Frontend">
+            </div>
+            <div class="ci-text">
+              <h4>Desenvolvimento Frontend</h4>
+              <p>Especializado em criar interfaces web dinâmicas e responsivas com HTML, CSS e JavaScript, transformando ideias em experiências interativas e funcionais.</p>
+            </div>
           </div>
-          <div class="ci-text">
-            <h4>Desenvolvimento Frontend</h4>
-            <p>Especializado em criar interfaces web dinâmicas e responsivas com HTML, CSS e JavaScript, transformando ideias em experiências interativas e funcionais.</p>
+        </div>
+
+        <div class="col col-2">
+          <div class="info-block"
+               data-aos="fade-up">
+            <div class="ci-icon">
+              <img src="./src/img/Icons/userexp.svg"
+                   alt="Ícone de Experiência do Usuário">
+            </div>
+            <div class="ci-text">
+              <h4>Experiência do Usuário</h4>
+              <p>Proporciono uma experiência do usuário fluida e intuitiva, com interfaces visualmente agradáveis e acessíveis para todos os usuários.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-3">
+          <div class="info-block"
+               data-aos="fade-up">
+            <div class="ci-icon">
+              <img src="./src/img/Icons/Automatização.svg"
+                   alt="Ícone de Automatização e Eficiência">
+            </div>
+            <div class="ci-text">
+              <h4>Automatização e Eficiência</h4>
+              <p>Desenvolvo soluções com automação e eficiência, utilizando Python e ferramentas como Selenium para otimizar processos e melhorar a produtividade.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-4">
+          <div class="info-block"
+               data-aos="fade-up">
+            <div class="ci-icon">
+              <img src="./src/img/Icons/Innovation.svg"
+                   alt="Ícone de Inovação e Implementação">
+            </div>
+            <div class="ci-text">
+              <h4>Inovação e Implementação</h4>
+              <p>Busco implementar ideias inovadoras, explorando novas tecnologias e criando soluções criativas que ofereçam valor real aos usuários finais.</p>
+            </div>
           </div>
         </div>
       </div>
-  
-      <div class="col col-2">
-        <div class="info-block"
-             data-aos="fade-up">
-          <div class="ci-icon">
-            <img src="./src/img/Icons/userexp.svg"
-                 alt="Ícone de Experiência do Usuário">
-          </div>
-          <div class="ci-text">
-            <h4>Experiência do Usuário</h4>
-            <p>Proporciono uma experiência do usuário fluida e intuitiva, com interfaces visualmente agradáveis e acessíveis para todos os usuários.</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col col-3">
-        <div class="info-block"
-             data-aos="fade-up">
-          <div class="ci-icon">
-            <img src="./src/img/Icons/Automatização.svg"
-                 alt="Ícone de Automatização e Eficiência">
-          </div>
-          <div class="ci-text">
-            <h4>Automatização e Eficiência</h4>
-            <p>Desenvolvo soluções com automação e eficiência, utilizando Python e ferramentas como Selenium para otimizar processos e melhorar a produtividade.</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="col col-4">
-        <div class="info-block"
-             data-aos="fade-up">
-          <div class="ci-icon">
-            <img src="./src/img/Icons/Innovation.svg"
-                 alt="Ícone de Inovação e Implementação">
-          </div>
-          <div class="ci-text">
-            <h4>Inovação e Implementação</h4>
-            <p>Busco implementar ideias inovadoras, explorando novas tecnologias e criando soluções criativas que ofereçam valor real aos usuários finais.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
 
-<!-- Seção de Habilidades -->
-<!-- Seção de Habilidades -->
-<section class="skills"
-         data-aos="fade-up"
-         aria-labelledby="skills-heading">
-  <div class="title-section">
-    <h2 id="skills-heading"
-        class="section-title">Minhas Competências</h2>
-    <p class="section-subtitle">Tecnologias e Ferramentas Profissionais</p>
-  </div>
-
-  <div class="skill-grid-wrapper">
-    <div class="skill-box"
-         aria-label="Bootstrap">
-      <img src="./src/img/skill/bootstrap.svg"
-           alt="Bootstrap logo"
-           class="skill-icon">
-      <div class="skill-description">Bootstrap</div>
-    </div>
-    <div class="skill-box"
-         aria-label="Git">
-      <img src="./src/img/skill/git.svg"
-           alt="Git logo"
-           class="skill-icon">
-      <div class="skill-description">Git</div>
-    </div>
-    <div class="skill-box"
-         aria-label="JavaScript">
-      <img src="./src/img/skill/js.svg"
-           alt="JavaScript logo"
-           class="skill-icon">
-      <div class="skill-description">JavaScript</div>
-    </div>
-    <div class="skill-box"
-         aria-label="Babel">
-      <img src="./src/img/skill/babel.svg"
-           alt="Babel logo"
-           class="skill-icon">
-      <div class="skill-description">Babel</div>
-    </div>
-    <div class="skill-box"
-         aria-label="Figma">
-      <img src="./src/img/skill/figma.svg"
-           alt="Figma logo"
-           class="skill-icon">
-      <div class="skill-description">Figma</div>
-    </div>
-    <div class="skill-box"
-         aria-label="Vite.js">
-      <img src="./src/img/skill/vitejs.svg"
-           alt="Vite.js logo"
-           class="skill-icon">
-      <div class="skill-description">Vite.js</div>
-    </div>
-    <div class="skill-box"
-         aria-label="React Bootstrap">
-      <img src="./src/img/skill/reactbootstrap.svg"
-           alt="React Bootstrap logo"
-           class="skill-icon">
-      <div class="skill-description">React Bootstrap</div>
-    </div>
-    <div class="skill-box"
-         aria-label="Node.js">
-      <img src="./src/img/skill/node.svg"
-           alt="Node.js logo"
-           class="skill-icon">
-      <div class="skill-description">Node.js</div>
-    </div>
-  </div>
-</section>
-
-
-<section class="aesthetics"
-         id="aesthetics"
-         data-aos="fade-up"
-         aria-labelledby="aesthetics-heading">
-  <div class="title-section">
-    <h2 id="aesthetics-heading"
-        class="section-title">Estatísticas Chave</h2>
-    <p class="section-subtitle">Indicadores e Realizações Profissionais</p>
-  </div>
-
-  <div class="quick-aesthetics">
-    <div class="box-aesthetics">
-      <p class="number-aesthetics">15+</p>
-      <p class="description-aesthetics">Projetos</p>
-    </div>
-
-    <div class="box-aesthetics">
-      <p class="number-aesthetics">365 Dias</p>
-      <p class="description-aesthetics">Em experiência</p>
-    </div>
-
-    <div class="box-aesthetics">
-      <p class="number-aesthetics">1500+</p>
-      <p class="description-aesthetics">Horas de estudos</p>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Seção de Certificados -->
-<section class="certificates-education"
-         id="certificates"
-         data-aos="zoom-in-down"
-         aria-labelledby="certificates-heading">
-  <div class="title-section">
-    <h2 id="certificates-heading"
-        class="section-title">Certificados e Qualificações</h2>
-    <p class="section-subtitle">Reconhecimentos e Certificações Profissionais</p>
-  </div>
-
-  <div class="certificates-list">
-    <article class="item"
-             data-aos="fade-up">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/ada.png"
-             alt="Certificado em API Rest pela ADA Tech">
-      </div>
-      <div class="info">
-        <h4><a href="https://ada.tech/certificado?code=dc7b1471-5127-820b-390c-41144fc46cdf"
-             target="_blank"
-             rel="noopener noreferrer">API Rest</a></h4>
-        <p>Certificado em <span class="institution">ADA Tech</span>.</p>
-      </div>
-    </article>
-
-    <article class="item"
+    <!-- Seção de Habilidades -->
+    <!-- Seção de Habilidades -->
+    <section class="skills"
              data-aos="fade-up"
-             data-aos-delay="100">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/ada.png"
-             alt="Certificado em Figma para Desenvolvedores pela ADA Tech">
+             aria-labelledby="skills-heading">
+      <div class="title-section">
+        <h2 id="skills-heading"
+            class="section-title">Minhas Competências</h2>
+        <p class="section-subtitle">Tecnologias e Ferramentas Profissionais</p>
       </div>
-      <div class="info">
-        <h4><a href="https://ada.tech/certificado?code=ae13798b-2afc-a64a-a72f-239fa498ea11"
-             target="_blank"
-             rel="noopener noreferrer">Figma para Devs</a></h4>
-        <p>Certificado em <span class="institution">ADA Tech</span>.</p>
-      </div>
-    </article>
 
-    <article class="item"
+      <div class="skill-grid-wrapper">
+        <div class="skill-box"
+             aria-label="Bootstrap">
+          <img src="./src/img/skill/bootstrap.svg"
+               alt="Bootstrap logo"
+               class="skill-icon">
+          <div class="skill-description">Bootstrap</div>
+        </div>
+        <div class="skill-box"
+             aria-label="Git">
+          <img src="./src/img/skill/git.svg"
+               alt="Git logo"
+               class="skill-icon">
+          <div class="skill-description">Git</div>
+        </div>
+        <div class="skill-box"
+             aria-label="JavaScript">
+          <img src="./src/img/skill/js.svg"
+               alt="JavaScript logo"
+               class="skill-icon">
+          <div class="skill-description">JavaScript</div>
+        </div>
+        <div class="skill-box"
+             aria-label="Babel">
+          <img src="./src/img/skill/babel.svg"
+               alt="Babel logo"
+               class="skill-icon">
+          <div class="skill-description">Babel</div>
+        </div>
+        <div class="skill-box"
+             aria-label="Figma">
+          <img src="./src/img/skill/figma.svg"
+               alt="Figma logo"
+               class="skill-icon">
+          <div class="skill-description">Figma</div>
+        </div>
+        <div class="skill-box"
+             aria-label="Vite.js">
+          <img src="./src/img/skill/vitejs.svg"
+               alt="Vite.js logo"
+               class="skill-icon">
+          <div class="skill-description">Vite.js</div>
+        </div>
+        <div class="skill-box"
+             aria-label="React Bootstrap">
+          <img src="./src/img/skill/reactbootstrap.svg"
+               alt="React Bootstrap logo"
+               class="skill-icon">
+          <div class="skill-description">React Bootstrap</div>
+        </div>
+        <div class="skill-box"
+             aria-label="Node.js">
+          <img src="./src/img/skill/node.svg"
+               alt="Node.js logo"
+               class="skill-icon">
+          <div class="skill-description">Node.js</div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="aesthetics"
+             id="aesthetics"
              data-aos="fade-up"
-             data-aos-delay="200">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/ada.png"
-             alt="Certificado em Git e Versionamento pela ADA Tech">
+             aria-labelledby="aesthetics-heading">
+      <div class="title-section">
+        <h2 id="aesthetics-heading"
+            class="section-title">Estatísticas Chave</h2>
+        <p class="section-subtitle">Indicadores e Realizações Profissionais</p>
       </div>
-      <div class="info">
-        <h4><a href="https://ada.tech/certificado?code=c72a7d09-dbea-846f-3181-392317851a61"
-             target="_blank"
-             rel="noopener noreferrer">Git e Versionamento</a></h4>
-        <p>Certificado em <span class="institution">ADA Tech</span>.</p>
-      </div>
-    </article>
 
-    <article class="item"
-             data-aos="fade-up"
-             data-aos-delay="300">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/basesocial.png"
-             alt="Certificado basesocial">
-      </div>
-      <div class="info">
-        <h4><a href="https://www.credly.com/badges/c30c9bd7-0fb6-4dd2-94b8-df24db6a4cc1/linked_in_profile"
-             target="_blank"
-             rel="noopener noreferrer">Cloud Computing</a></h4>
-        <p>Certificado disponível em LinkedIn.</p>
-      </div>
-    </article>
+      <div class="quick-aesthetics">
+        <div class="box-aesthetics">
+          <p class="number-aesthetics">15+</p>
+          <p class="description-aesthetics">Projetos</p>
+        </div>
 
-    <article class="item"
-             data-aos="fade-up"
-             data-aos-delay="400">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/cubos.png"
-             alt="Certificado em TypeScript pela Cubos Academy">
-      </div>
-      <div class="info">
-        <h4><a href="https://aulas.cubos.academy/certificado/da792443-d836-4717-b561-86b9f7f52d7d/cursos/c82116c7-c040-43d8-af32-76227fda57a8"
-             target="_blank"
-             rel="noopener noreferrer">TypeScript</a></h4>
-        <p>Certificado em <span class="institution">Cubos Academy</span>.</p>
-      </div>
-    </article>
+        <div class="box-aesthetics">
+          <p class="number-aesthetics">365 Dias</p>
+          <p class="description-aesthetics">Em experiência</p>
+        </div>
 
-    <article class="item"
-             data-aos="fade-up"
-             data-aos-delay="500">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/cubos.png"
-             alt="Certificado em Desenvolvimento de Software pela Cubos Academy">
+        <div class="box-aesthetics">
+          <p class="number-aesthetics">1500+</p>
+          <p class="description-aesthetics">Horas de estudos</p>
+        </div>
       </div>
-      <div class="info">
-        <h4><a href="https://aulas.cubos.academy/certificado/e5e4b580-8280-4994-852e-dc0d603d963e/cursos/bc25d9d5-a358-445a-a2e8-8ae67dbc3257"
-             target="_blank"
-             rel="noopener noreferrer">Desenvolvimento de Software</a></h4>
-        <p>Certificado em <span class="institution">Cubos Academy</span>.</p>
+    </section>
+
+
+    <!-- Seção de Certificados -->
+    <section class="certificates-education"
+             id="certificates"
+             data-aos="zoom-in-down"
+             aria-labelledby="certificates-heading">
+      <div class="title-section">
+        <h2 id="certificates-heading"
+            class="section-title">Certificados e Qualificações</h2>
+        <p class="section-subtitle">Reconhecimentos e Certificações Profissionais</p>
       </div>
-    </article>
-  </div>
-</section>
 
-<!-- Seção de Educação -->
-<section class="education"
-         id="education"
-         data-aos="zoom-in-down">
-  <div class="title-section">
-    <h2 class="section-title">Educação</h2>
-    <p class="section-subtitle">Formação Acadêmica e Certificações Profissionais</p>
-  </div>
+      <div class="certificates-list">
+        <article class="item"
+                 data-aos="fade-up">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/ada.png"
+                 alt="Certificado em API Rest pela ADA Tech">
+          </div>
+          <div class="info">
+            <h4><a href="https://ada.tech/certificado?code=dc7b1471-5127-820b-390c-41144fc46cdf"
+                 target="_blank"
+                 rel="noopener noreferrer">API Rest</a></h4>
+            <p>Certificado em <span class="institution">ADA Tech</span>.</p>
+          </div>
+        </article>
 
-  <div class="education-wrapper">
-    <article class="item"
+        <article class="item"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/ada.png"
+                 alt="Certificado em Figma para Desenvolvedores pela ADA Tech">
+          </div>
+          <div class="info">
+            <h4><a href="https://ada.tech/certificado?code=ae13798b-2afc-a64a-a72f-239fa498ea11"
+                 target="_blank"
+                 rel="noopener noreferrer">Figma para Devs</a></h4>
+            <p>Certificado em <span class="institution">ADA Tech</span>.</p>
+          </div>
+        </article>
+
+        <article class="item"
+                 data-aos="fade-up"
+                 data-aos-delay="200">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/ada.png"
+                 alt="Certificado em Git e Versionamento pela ADA Tech">
+          </div>
+          <div class="info">
+            <h4><a href="https://ada.tech/certificado?code=c72a7d09-dbea-846f-3181-392317851a61"
+                 target="_blank"
+                 rel="noopener noreferrer">Git e Versionamento</a></h4>
+            <p>Certificado em <span class="institution">ADA Tech</span>.</p>
+          </div>
+        </article>
+
+        <article class="item"
+                 data-aos="fade-up"
+                 data-aos-delay="300">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/basesocial.png"
+                 alt="Certificado basesocial">
+          </div>
+          <div class="info">
+            <h4><a href="https://www.credly.com/badges/c30c9bd7-0fb6-4dd2-94b8-df24db6a4cc1/linked_in_profile"
+                 target="_blank"
+                 rel="noopener noreferrer">Cloud Computing</a></h4>
+            <p>Certificado disponível em LinkedIn.</p>
+          </div>
+        </article>
+
+        <article class="item"
+                 data-aos="fade-up"
+                 data-aos-delay="400">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/cubos.png"
+                 alt="Certificado em TypeScript pela Cubos Academy">
+          </div>
+          <div class="info">
+            <h4><a href="https://aulas.cubos.academy/certificado/da792443-d836-4717-b561-86b9f7f52d7d/cursos/c82116c7-c040-43d8-af32-76227fda57a8"
+                 target="_blank"
+                 rel="noopener noreferrer">TypeScript</a></h4>
+            <p>Certificado em <span class="institution">Cubos Academy</span>.</p>
+          </div>
+        </article>
+
+        <article class="item"
+                 data-aos="fade-up"
+                 data-aos-delay="500">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/cubos.png"
+                 alt="Certificado em Desenvolvimento de Software pela Cubos Academy">
+          </div>
+          <div class="info">
+            <h4><a href="https://aulas.cubos.academy/certificado/e5e4b580-8280-4994-852e-dc0d603d963e/cursos/bc25d9d5-a358-445a-a2e8-8ae67dbc3257"
+                 target="_blank"
+                 rel="noopener noreferrer">Desenvolvimento de Software</a></h4>
+            <p>Certificado em <span class="institution">Cubos Academy</span>.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Seção de Educação -->
+    <section class="education"
+             id="education"
+             data-aos="zoom-in-down">
+      <div class="title-section">
+        <h2 class="section-title">Educação</h2>
+        <p class="section-subtitle">Formação Acadêmica e Certificações Profissionais</p>
+      </div>
+
+      <div class="education-wrapper">
+        <article class="item"
+                 data-aos="fade-up">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/anahnaguera.jpg"
+                 alt="Certificado de Desenvolvimento em Operações DevOps da Universidade Anhanguera">
+          </div>
+          <div class="info">
+            <h4>Desenvolvimento em Operações DevOps</h4>
+            <p><span class="institution">Universidade Anhanguera</span>, 2023 - 2026</p>
+          </div>
+        </article>
+
+        <article class="item"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/basesocial.png"
+                 alt="Certificado de Curso Técnico em Cloud Computing da Base Social AWS Re Start">
+          </div>
+          <div class="info">
+            <h4>Curso Técnico em Cloud Computing</h4>
+            <p><span class="institution">Base Social AWS Re Start</span>, 2023 - 2024</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Seção de Portfólio -->
+    <section class="portfolio"
+             id="portfolio"
+             data-aos="fade-down"
+             data-aos-duration="1000">
+      <div class="title-section">
+        <h2 class="section-title">Portfólio</h2>
+        <p class="section-subtitle">Projetos e Trabalhos Recentes</p>
+      </div>
+
+      <div class="portfolio-items">
+        <!-- Item 1 -->
+        <div class="portfolio-item"
+             data-aos="zoom-in"
+             data-aos-duration="1500">
+          <img src="./src/projetos/Animais Fantasticos.jpg"
+               alt="Projeto Animais Fantásticos"
+               class="img-projeto">
+          <div class="portfolio-item-info">
+            <h3>Animais Fantásticos</h3>
+            <p class="technologies">
+              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+            </p>
+            <div class="description">
+              <p>O projeto Animais Fantásticos foi desenvolvido como parte do curso de JavaScript da Origamid. Ele é um site interativo que permite explorar informações detalhadas sobre diferentes criaturas fantásticas.</p>
+
+              <!-- Adicione as funcionalidades aqui -->
+            </div>
+            <a href="https://thmedu.github.io/Animais-Fantasticos/"
+               class="portfolio-item-button"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fas fa-external-link-alt"></i> Ver Projeto
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="portfolio-item"
+             data-aos="zoom-in"
+             data-aos-duration="1500">
+          <img src="./src/projetos/Red Pets .jpg"
+               alt="Projeto Rede Pets"
+               class="img-projeto">
+          <div class="portfolio-item-info">
+            <h3>Rede Pets</h3>
+            <p class="technologies">
+              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+              <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+              <span class="tech-item"><i class="fab fa-react"></i> React</span>
+            </p>
+            <div class="description">
+              <p>O projeto Rede Pets visa criar uma plataforma interativa para amantes de animais de estimação, oferecendo uma experiência envolvente e funcional aos usuários.</p>
+
+              <!-- Adicione as funcionalidades aqui -->
+            </div>
+            <a href="https://rede-pets.vercel.app/"
+               class="portfolio-item-button"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fas fa-external-link-alt"></i> Ver Projeto
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="portfolio-item"
+             data-aos="zoom-in"
+             data-aos-duration="1500">
+          <img src="./src/projetos/The Cofee.jpg"
+               alt="Projeto The Coffee"
+               class="img-projeto">
+          <div class="portfolio-item-info">
+            <h3>The Coffee</h3>
+            <p class="technologies">
+              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+            </p>
+            <div class="description">
+              <p>O projeto The Coffee foi desenvolvido para demonstrar habilidades avançadas em desenvolvimento web, focando em uma aplicação de cafeteria com menu, endereço, sobre e carrinho de compras.</p>
+
+              <!-- Adicione as funcionalidades aqui -->
+            </div>
+            <a href="https://thmedu.github.io/The-Coffee/"
+               class="portfolio-item-button"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fas fa-external-link-alt"></i> Ver Projeto
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="portfolio-item"
+             data-aos="zoom-in"
+             data-aos-duration="1500">
+          <img src="./src/projetos/Luxe Barbershop.jpg"
+               alt="Projeto Luxe Barbershop"
+               class="img-projeto">
+          <div class="portfolio-item-info">
+            <h3>Luxe Barbershop</h3>
+            <p class="technologies">
+              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+            </p>
+            <div class="description">
+              <p>O projeto Luxe Barbershop tem como objetivo melhorar o atendimento ao cliente de uma barbearia, apresentando serviços oferecidos e permitindo agendamentos através de API e WhatsApp.</p>
+
+              <!-- Adicione as funcionalidades aqui -->
+            </div>
+            <a href="https://barbearia-luxe.vercel.app/"
+               class="portfolio-item-button"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fas fa-external-link-alt"></i> Ver Projeto
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Seção de Serviços -->
+    <section class="services"
+             id="services"
+             aria-labelledby="services-title">
+      <div class="title-section"
+           data-aos="zoom-in-down">
+        <h2 id="services-title"
+            class="section-title">Serviços</h2>
+        <p class="section-subtitle">O que eu posso oferecer para você</p>
+      </div>
+
+      <div class="services-wrapper">
+        <!-- Serviço 1 -->
+        <article class="service-item"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+          <img src="./src/img/Icons/Desenvolvimento Web.svg"
+               alt="Ícone de Desenvolvimento Web" />
+          <h3>Desenvolvimento Web</h3>
+          <ul>
+            <li><i class="fa-solid fa-check-double"></i> Criação de sites personalizados com design responsivo.</li>
+            <li><i class="fa-solid fa-check-double"></i> Implementação de CMS para fácil atualização de conteúdo.</li>
+            <li><i class="fa-solid fa-check-double"></i> Desenvolvimento de e-commerce e integrações.</li>
+            <li><i class="fa-solid fa-check-double"></i> Otimização para dispositivos móveis e navegadores.</li>
+          </ul>
+        </article>
+
+        <!-- Serviço 2 -->
+        <article class="service-item"
+                 data-aos="fade-up"
+                 data-aos-delay="300">
+          <img src="./src/img/Icons/SEO.svg"
+               alt="Ícone de Otimização SEO" />
+          <h3>Otimização SEO</h3>
+          <ul>
+            <li><i class="fa-solid fa-check-double"></i> Análise e otimização de palavras-chave.</li>
+            <li><i class="fa-solid fa-check-double"></i> Estratégias de link building para aumentar a autoridade.</li>
+            <li><i class="fa-solid fa-check-double"></i> Melhoria da estrutura do site.</li>
+            <li><i class="fa-solid fa-check-double"></i> Práticas recomendadas de SEO on-page e off-page.</li>
+          </ul>
+        </article>
+
+        <!-- Serviço 3 -->
+        <article class="service-item last-item"
+                 data-aos="fade-up"
+                 data-aos-delay="500">
+          <img src="./src/img/Icons/Manutenção.svg"
+               alt="Ícone de Manutenção de Sistemas" />
+          <h3>Manutenção de Sistemas</h3>
+          <ul>
+            <li><i class="fa-solid fa-check-double"></i> Monitoramento contínuo e manutenção proativa.</li>
+            <li><i class="fa-solid fa-check-double"></i> Atualizações e aplicação de patches de segurança.</li>
+            <li><i class="fa-solid fa-check-double"></i> Suporte técnico e ajustes necessários.</li>
+            <li><i class="fa-solid fa-check-double"></i> Análise de desempenho e otimização.</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Botão de solicitar orçamento -->
+      <div class="orcamento"
+           data-aos="fade-down-left"
+           data-aos-delay="700">
+        <a href="#"
+           class="btn-solicitar">Solicite Orçamento</a>
+      </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section class="contact"
+             id="contact">
+      <div class="title-section"
+           data-aos="zoom-in-down">
+        <h2 class="section-title">Entre em Contato</h2>
+        <p class="section-subtitle">Estou aqui para responder suas perguntas e dúvidas</p>
+      </div>
+      <div class="contact-content">
+        <div id="contact-info"
+             class="contact-info"
+             style="display: none;"
              data-aos="fade-up">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/anahnaguera.jpg"
-             alt="Certificado de Desenvolvimento em Operações DevOps da Universidade Anhanguera">
-      </div>
-      <div class="info">
-        <h4>Desenvolvimento em Operações DevOps</h4>
-        <p><span class="institution">Universidade Anhanguera</span>, 2023 - 2026</p>
-      </div>
-    </article>
-
-    <article class="item"
-             data-aos="fade-up"
-             data-aos-delay="100">
-      <div class="icon">
-        <img src="./src/img/certificados e educacao/basesocial.png"
-             alt="Certificado de Curso Técnico em Cloud Computing da Base Social AWS Re Start">
-      </div>
-      <div class="info">
-        <h4>Curso Técnico em Cloud Computing</h4>
-        <p><span class="institution">Base Social AWS Re Start</span>, 2023 - 2024</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- Seção de Portfólio -->
-<section class="portfolio"
-         id="portfolio"
-         data-aos="fade-down"
-         data-aos-duration="1000">
-  <div class="title-section">
-    <h2 class="section-title">Portfólio</h2>
-    <p class="section-subtitle">Projetos e Trabalhos Recentes</p>
-  </div>
-
-  <div class="portfolio-items">
-    <!-- Item 1 -->
-    <div class="portfolio-item"
-         data-aos="zoom-in"
-         data-aos-duration="1500">
-      <img src="./src/projetos/Animais Fantasticos.jpg"
-           alt="Projeto Animais Fantásticos"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>Animais Fantásticos</h3>
-        <p class="technologies">
-          <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-          <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-          <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-        </p>
-        <div class="description">
-          <p>O projeto Animais Fantásticos foi desenvolvido como parte do curso de JavaScript da Origamid. Ele é um site interativo que permite explorar informações detalhadas sobre diferentes criaturas fantásticas.</p>
-
-          <!-- Adicione as funcionalidades aqui -->
-        </div>
-        <a href="https://thmedu.github.io/Animais-Fantasticos/"
-           class="portfolio-item-button"
-           target="_blank"
-           rel="noopener noreferrer">
-          <i class="fas fa-external-link-alt"></i> Ver Projeto
-        </a>
-      </div>
-    </div>
-
-    <!-- Item 2 -->
-    <div class="portfolio-item"
-         data-aos="zoom-in"
-         data-aos-duration="1500">
-      <img src="./src/projetos/Red Pets .jpg"
-           alt="Projeto Rede Pets"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>Rede Pets</h3>
-        <p class="technologies">
-          <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-          <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-          <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-          <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
-          <span class="tech-item"><i class="fab fa-react"></i> React</span>
-        </p>
-        <div class="description">
-          <p>O projeto Rede Pets visa criar uma plataforma interativa para amantes de animais de estimação, oferecendo uma experiência envolvente e funcional aos usuários.</p>
-
-          <!-- Adicione as funcionalidades aqui -->
-        </div>
-        <a href="https://rede-pets.vercel.app/"
-           class="portfolio-item-button"
-           target="_blank"
-           rel="noopener noreferrer">
-          <i class="fas fa-external-link-alt"></i> Ver Projeto
-        </a>
-      </div>
-    </div>
-
-    <!-- Item 3 -->
-    <div class="portfolio-item"
-         data-aos="zoom-in"
-         data-aos-duration="1500">
-      <img src="./src/projetos/The Cofee.jpg"
-           alt="Projeto The Coffee"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>The Coffee</h3>
-        <p class="technologies">
-          <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-          <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-          <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-        </p>
-        <div class="description">
-          <p>O projeto The Coffee foi desenvolvido para demonstrar habilidades avançadas em desenvolvimento web, focando em uma aplicação de cafeteria com menu, endereço, sobre e carrinho de compras.</p>
-
-          <!-- Adicione as funcionalidades aqui -->
-        </div>
-        <a href="https://thmedu.github.io/The-Coffee/"
-           class="portfolio-item-button"
-           target="_blank"
-           rel="noopener noreferrer">
-          <i class="fas fa-external-link-alt"></i> Ver Projeto
-        </a>
-      </div>
-    </div>
-
-    <!-- Item 4 -->
-    <div class="portfolio-item"
-         data-aos="zoom-in"
-         data-aos-duration="1500">
-      <img src="./src/projetos/Luxe Barbershop.jpg"
-           alt="Projeto Luxe Barbershop"
-           class="img-projeto">
-      <div class="portfolio-item-info">
-        <h3>Luxe Barbershop</h3>
-        <p class="technologies">
-          <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-          <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-          <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-        </p>
-        <div class="description">
-          <p>O projeto Luxe Barbershop tem como objetivo melhorar o atendimento ao cliente de uma barbearia, apresentando serviços oferecidos e permitindo agendamentos através de API e WhatsApp.</p>
-
-          <!-- Adicione as funcionalidades aqui -->
-        </div>
-        <a href="https://barbearia-luxe.vercel.app/"
-           class="portfolio-item-button"
-           target="_blank"
-           rel="noopener noreferrer">
-          <i class="fas fa-external-link-alt"></i> Ver Projeto
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-  <!-- Seção de Serviços -->
-<section class="services"
-         id="services"
-         aria-labelledby="services-title">
-  <div class="title-section"
-       data-aos="zoom-in-down">
-    <h2 id="services-title"
-        class="section-title">Serviços</h2>
-    <p class="section-subtitle">O que eu posso oferecer para você</p>
-  </div>
-  
-    <div class="services-wrapper">
-      <!-- Serviço 1 -->
-      <article class="service-item"
-               data-aos="fade-up"
-               data-aos-delay="100">
-        <img src="./src/img/Icons/Desenvolvimento Web.svg"
-             alt="Ícone de Desenvolvimento Web" />
-        <h3>Desenvolvimento Web</h3>
-        <ul>
-          <li><i class="fa-solid fa-check-double"></i> Criação de sites personalizados com design responsivo.</li>
-          <li><i class="fa-solid fa-check-double"></i> Implementação de CMS para fácil atualização de conteúdo.</li>
-          <li><i class="fa-solid fa-check-double"></i> Desenvolvimento de e-commerce e integrações.</li>
-          <li><i class="fa-solid fa-check-double"></i> Otimização para dispositivos móveis e navegadores.</li>
-        </ul>
-      </article>
-  
-      <!-- Serviço 2 -->
-      <article class="service-item"
-               data-aos="fade-up"
-               data-aos-delay="300">
-        <img src="./src/img/Icons/SEO.svg"
-             alt="Ícone de Otimização SEO" />
-        <h3>Otimização SEO</h3>
-        <ul>
-          <li><i class="fa-solid fa-check-double"></i> Análise e otimização de palavras-chave.</li>
-          <li><i class="fa-solid fa-check-double"></i> Estratégias de link building para aumentar a autoridade.</li>
-          <li><i class="fa-solid fa-check-double"></i> Melhoria da estrutura do site.</li>
-          <li><i class="fa-solid fa-check-double"></i> Práticas recomendadas de SEO on-page e off-page.</li>
-        </ul>
-      </article>
-  
-      <!-- Serviço 3 -->
-      <article class="service-item last-item"
-               data-aos="fade-up"
-               data-aos-delay="500">
-        <img src="./src/img/Icons/Manutenção.svg"
-             alt="Ícone de Manutenção de Sistemas" />
-        <h3>Manutenção de Sistemas</h3>
-        <ul>
-          <li><i class="fa-solid fa-check-double"></i> Monitoramento contínuo e manutenção proativa.</li>
-          <li><i class="fa-solid fa-check-double"></i> Atualizações e aplicação de patches de segurança.</li>
-          <li><i class="fa-solid fa-check-double"></i> Suporte técnico e ajustes necessários.</li>
-          <li><i class="fa-solid fa-check-double"></i> Análise de desempenho e otimização.</li>
-        </ul>
-      </article>
-    </div>
-  
-    <!-- Botão de solicitar orçamento -->
-    <div class="orcamento"
-         data-aos="fade-down-left"
-         data-aos-delay="700">
-      <a href="#"
-         class="btn-solicitar">Solicite Orçamento</a>
-    </div>
-  </section>
-  
-  <!-- Seção de Contato -->
-<section class="contact"
-         id="contact">
-  <div class="title-section"
-       data-aos="zoom-in-down">
-    <h2 class="section-title">Entre em Contato</h2>
-    <p class="section-subtitle">Estou aqui para responder suas perguntas e dúvidas</p>
-  </div>
-    <div class="contact-content">
-      <div id="contact-info"
-           class="contact-info"
-           style="display: none;"
-           data-aos="fade-up">
-        <div class="info-item">
-          <i class="fa-solid fa-comments"></i>
-          <p>Estou sempre disponível para discutir novos projetos, colaborações ou apenas para um bate-papo.</p>
-        </div>
-        <div class="info-item">
-          <i class="fa-solid fa-envelope"></i>
-          <p>Email: <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
-        </div>
-        <div class="info-item">
-          <i class="fa-solid fa-phone"></i>
-          <p>Telefone: <a href="tel:+1234567890">+123 456 7890</a></p>
-        </div>
-        <div class="info-item">
-          <i class="fa-brands fa-whatsapp"></i>
-          <p>WhatsApp: <a href="https://wa.me/1234567890"
-               class="whatsapp-link">Inicie uma conversa</a></p>
-        </div>
-        <div class="info-item">
-          <i class="fa-solid fa-file"></i>
-          <p>Currículo: <a href="curriculo-thomas.pdf"
-               download
-               class="resume-link">Baixe meu currículo</a></p>
-        </div>
-      </div>
-  
-      <div class="contact-form"
-           data-aos="fade-up">
-        <form id="contact-form"
-              action="https://formspree.io/f/xblrdolo"
-              method="POST">
-          <div class="form-group">
-            <label for="name">Seu Nome:</label>
-            <input type="text"
-                   name="name"
-                   id="name"
-                   placeholder="Seu Nome"
-                   required>
+          <div class="info-item">
+            <i class="fa-solid fa-comments"></i>
+            <p>Estou sempre disponível para discutir novos projetos, colaborações ou apenas para um bate-papo.</p>
           </div>
-          <div class="form-group">
-            <label for="email">Seu Email:</label>
-            <input type="email"
-                   name="email"
-                   id="email"
-                   placeholder="Seu Email"
-                   required>
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <p>Email: <a href="mailto:dev.thomas@outlook.com.br">dev.thomas@outlook.com.br</a></p>
           </div>
-          <div class="form-group">
-            <label for="message">Sua Mensagem:</label>
-            <textarea name="message"
-                      id="message"
-                      cols="30"
-                      rows="10"
-                      placeholder="Sua Mensagem"
-                      required></textarea>
+          <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <p>Telefone: <a href="tel:+55 (19) 9904-2072">(19) 9904-2072</a></p>
           </div>
-          <div class="form-group">
-            <button type="submit"
-                    class="btn-submit">Enviar</button>
+          <div class="info-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <p>WhatsApp: <a href="https://wa.me/5519999042072"
+                 class="whatsapp-link">Inicie uma conversa</a></p>
           </div>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Seção de Rodapé -->
-  <footer class="footer"
-          id="footer">
-    <p>&copy; 2024 Thomas Eduardo. Todos os direitos reservados.</p>
-  </footer>
-  
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-  
-  <!-- Seus scripts personalizados -->
-  <script src="./src/js/script.js"></script>
-  <script src="./src/js/animate.js"></script>
-  <script src="./src/js/portifolio.js"></script>
-  
-  <script>
-    $(document).ready(function () {
-      // Inicializa Owl Carousel
-      $("#skill-carousel").owlCarousel({
-        items: 3, // Número de itens visíveis
-        loop: true, // Loop infinito
-        margin: 10, // Espaçamento entre itens
-        nav: true, // Adiciona botões de navegação
-        autoplay: true, // Ativa a reprodução automática
-        responsive: {
-          0: {
-            items: 1
-          },
-          600: {
-            items: 2
-          },
-          1000: {
-            items: 3
-          }
-        }
-      });
+          <div class="info-item">
+            <i class="fa-solid fa-file"></i>
+            <p>Currículo: <a href="curriculo-thomas.pdf"
+                 download
+                 class="resume-link">Baixe meu currículo</a></p>
+          </div>
+        </div>
 
-      // Inicializa AOS
-      AOS.init({
-        duration: 1000, // Duração da animação
-        once: true // Executa a animação apenas uma vez
-      });
-    });
-  </script>
+        <div class="contact-form"
+             data-aos="fade-up">
+          <form id="contact-form"
+                action="https://formspree.io/f/xblrdolo"
+                method="POST">
+            <div class="form-group">
+              <label for="name">Seu Nome:</label>
+              <input type="text"
+                     name="name"
+                     id="name"
+                     placeholder="Digite seu nome"
+                     required>
+            </div>
+            <div class="form-group">
+              <label for="email">Seu Email:</label>
+              <input type="email"
+                     name="email"
+                     id="email"
+                     placeholder="Adicione seu email"
+                     required>
+            </div>
+            <div class="form-group">
+              <label for="message">Sua Mensagem:</label>
+              <textarea name="message"
+                        id="message"
+                        cols="30"
+                        rows="10"
+                        placeholder="Digite sua mensagem "
+                        required></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit"
+                      class="btn-submit">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Rodapé -->
+    <footer class="footer"
+            id="footer">
+      <p>&copy; 2024 Thomas Eduardo. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.9/dist/countUp.min.js"></script>
+
+
+    <!-- Seus scripts personalizados -->
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/animate.js"></script>
+    <script src="./src/js/portifolio.js"></script>
+
   </body>
-  
-  </html>
+
+</html>
