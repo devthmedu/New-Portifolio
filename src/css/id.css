@@ -1,0 +1,122 @@
+#span {
+    display: block;
+    font-size: 6rem; /* Tamanho da fonte */
+    color: #4336a0; /* Cor do texto */
+}
+
+/* Estilo para o título principal */
+#h1 {
+    color: var(--color-white);
+    font-size: 10vw; /* Usa viewport width para dimensionar o texto em relação à largura da tela */
+    line-height: 1.2;
+    text-align: center; /* Garante que o texto esteja centralizado */
+    margin: 0;
+}
+/* Tela de Carregamento */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-loading-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: opacity 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#loading-bar {
+    text-align: center;
+}
+
+#loading img {
+    width: 150px; /* Ajuste da largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 1rem; /* Espaço entre a imagem e o texto */
+}
+
+#loading-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold;
+    color: var(--color-loading-text);
+    text-align: center;
+    margin: 0;
+}
+
+/* Fundo de Partículas */
+/* Estilos gerais para garantir que o elemento de partículas cubra toda a viewport */
+#particles-js {
+    position: fixed; /* Fixa o elemento em relação à viewport */
+    top: 0; /* Posiciona no topo da viewport */
+    left: 0; /* Posiciona no lado esquerdo da viewport */
+    width: 100vw; /* Largura igual à largura da viewport */
+    height: 100vh; /* Altura igual à altura da viewport */
+    z-index: -999; /* Coloca o elemento atrás de outros elementos com z-index maior */
+    overflow: hidden; /* Garante que o conteúdo das partículas não ultrapasse os limites do elemento */
+}
+
+
+/* Botão de Voltar ao Topo */
+/* Botão para voltar ao topo */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px; /* Ajustado para uma posição mais padrão */
+    right: 20px; /* Posição fixa no canto inferior direito */
+    width: 50px; /* Tamanho padrão */
+    height: 50px; /* Tamanho padrão */
+    background-color: var(--color-blue, #007bff); /* Cor principal com fallback */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    opacity: 0; /* Inicialmente invisível */
+    transform: scale(0.8); /* Escala reduzida */
+    z-index: 999;
+}
+
+/* Mostrar o botão quando a classe 'show' é adicionada */
+#scroll-to-top.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Estilo do botão ao passar o mouse */
+#scroll-to-top:hover {
+    background-color: var(--color-dark-blue, #0056b3); /* Cor mais escura ao passar o mouse */
+}
+
+/* Estilos para tamanhos de tela menores */
+@media (max-width: 768px) {
+    #scroll-to-top {
+        width: 40px; /* Reduzido para telas menores */
+        height: 40px; /* Reduzido para telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    #scroll-to-top {
+        width: 35px; /* Reduzido ainda mais para telas muito pequenas */
+        height: 35px; /* Reduzido ainda mais para telas muito pequenas */
+    }
+}

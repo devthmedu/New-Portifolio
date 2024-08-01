@@ -1,3 +1,4 @@
+// Inicializa ParticlesJS
 particlesJS('particles-js', {
   particles: {
     number: {
@@ -11,13 +12,13 @@ particlesJS('particles-js', {
       value: '#ffffff',
     },
     shape: {
-      type: 'circle', // Outros tipos: 'edge', 'triangle', 'polygon'
+      type: 'circle',
       stroke: {
         width: 0,
         color: '#000000',
       },
       polygon: {
-        nb_sides: 5, // Número de lados se a forma for um polígono
+        nb_sides: 5,
       },
       image: {
         src: 'img/github.svg',
@@ -58,7 +59,7 @@ particlesJS('particles-js', {
       direction: 'none',
       random: false,
       straight: false,
-      out_mode: 'out', // Ou 'bounce'
+      out_mode: 'out',
       bounce: false,
       attract: {
         enable: false,
@@ -108,6 +109,8 @@ particlesJS('particles-js', {
   },
   retina_detect: true,
 });
+
+// Inicializa AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function () {
   AOS.init({
     duration: 1000, // duração da animação
@@ -115,3 +118,22 @@ document.addEventListener('DOMContentLoaded', function () {
     once: true, // animação executada apenas uma vez
   });
 });
+
+// Animação com Anime.js
+anime
+  .timeline({ loop: true })
+  .add({
+    targets: '.ml15 .word',
+    scale: [14, 1],
+    opacity: [0, 1],
+    easing: 'easeOutCirc',
+    duration: 800,
+    delay: (el, i) => 800 * i,
+  })
+  .add({
+    targets: '.ml15',
+    opacity: 0,
+    duration: 1000,
+    easing: 'easeOutExpo',
+    delay: 1000,
+  });

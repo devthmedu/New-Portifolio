@@ -1,110 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
-
-/* Root Variables */
-:root {
-    --color-black: #000;
-    --color-white: #d3d3d3;
-    --color-title: #c5c5c5;
-    --color-blue: #4336a0;
-    --color-dark-blue: #001b6b;
-    --color-loading-bg: rgba(0, 0, 0, 0.991);
-    --color-loading-text: #fff;
-    --color-scroll-thumb: #4336a0;
-    --color-scroll-thumb-hover: #001b6b;
-    --background-gradient: linear-gradient(13deg, rgba(0, 0, 0, 0.8), rgba(0, 98, 255, 0.6));
+.ml15 {
+    font-weight: 800;
+    font-size: 5vw; /* Usa viewport width para dimensionar o texto em relação à largura da tela */
+    text-transform: uppercase;
+    letter-spacing: 0.1em; /* Ajuste leve para espaçamento entre letras */
+    text-align: center; /* Garante que o texto esteja centralizado */
 }
 
-/* Corpo da Página com Gradiente e Textura */
-body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    position: relative;
-    background-blend-mode: overlay;
-    background-size: cover; /* Ajusta o tamanho da textura */
-    background-attachment: fixed; /* Mantém o fundo fixo durante o scroll */
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
-}
-
-/* Scrollbar */
-body::-webkit-scrollbar {
-    width: 8px;
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: var(--color-scroll-thumb);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-scroll-thumb-hover);
-}
-
-/* Navegação Geral */
-/* Estilo do cabeçalho */
-.header {
-    color: #eee;
-    padding: 2rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid transparent;
-    z-index: 10;
-    background-color: #1e1e1e; /* Adiciona fundo ao cabeçalho para melhor contraste */
-}
-
-/* Borda lateral colorida para o header */
-.header::before {
-    content: '';
-    position: absolute;
-    top: -30px;
-    bottom: -30px;
-    left: 0;
-    width: 10px;
-    background-color: var(--color-blue);
-    border-top-left-radius: 40px;
-    border-bottom-left-radius: 40px;
-}
-
-/* Responsividade do cabeçalho */
-@media (max-width: 1559px) {
-    .header {
-        padding: 1.5rem 2rem;
-    }
-
-    .header::before {
-        top: -20px;
-        bottom: -20px;
-    }
-}
-
-@media (max-width: 975px) {
-    .header {
-        padding: 1rem 1.5rem;
-    }
-
-    .header::before {
-        top: -10px;
-        bottom: -10px;
-    }
-}
-
-@media (max-width: 820px) {
-    .header {
-        padding: 0.5rem 1rem;
-    }
-
-    .header::before {
-        top: -5px;
-        bottom: -5px;
-    }
+/* Ajustes para palavras dentro da classe ml15 */
+.ml15 .word {
+    display: inline-block;
+    line-height: 1.1em; /* Ajusta a altura da linha para melhorar a legibilidade */
 }
 
 .container-primary {
@@ -120,6 +25,7 @@ body::-webkit-scrollbar-thumb:hover {
     transition: transform 1s ease-out, opacity 1s ease-out;
     padding: 0 20px; /* Adiciona algum espaçamento lateral */
     box-sizing: border-box; /* Garante que o padding não afete a altura total */
+    margin-top: 10rem;
 }
 
 /* Conteúdo da seção principal */
@@ -152,6 +58,7 @@ body::-webkit-scrollbar-thumb:hover {
     gap: 1rem; /* Espaçamento entre o texto e a imagem */
     flex-wrap: wrap; /* Permite quebra de linha em telas menores */
     margin-bottom: 1rem; /* Espaçamento abaixo do parágrafo para separar do botão */
+     margin-top: 1rem; /* Espaçamento abaixo do parágrafo para separar do botão */
 }
 
 /* Estilo para o parágrafo */
@@ -207,103 +114,6 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
-/* Responsividade para dispositivos móveis */
-@media (max-width: 1559px) {
-    .header {
-        padding: 1.5rem 2rem;
-    }
-
-    .container-primary {
-        height: auto;
-        padding: 0 15px;
-    }
-
-    .container-content h1 {
-        font-size: 5rem;
-    }
-
-    #span {
-        font-size: 3.5rem;
-    }
-
-    .container-primary p {
-        font-size: 1.6rem;
-    }
-
-    .scroll-button {
-        bottom: 15px;
-        animation: pulse 1s infinite, blink 0.8s infinite;
-    }
-
-    .scroll-button img {
-        width: 40px;
-    }
-}
-
-@media (max-width: 975px) {
-    .header {
-        padding: 1rem 1.5rem;
-    }
-
-    .container-primary {
-        padding: 0 10px;
-    }
-
-    .container-content h1 {
-        font-size: 4rem;
-    }
-
-    #span {
-        font-size: 3rem;
-    }
-
-    .container-primary p {
-        font-size: 1.5rem;
-    }
-
-    .scroll-button {
-        bottom: 5px;
-        animation: pulse 0.8s infinite, blink 0.6s infinite;
-    }
-
-    .scroll-button img {
-        width: 35px;
-    }
-}
-
-@media (max-width: 820px) {
-    .header {
-        padding: 0.5rem 1rem;
-    }
-
-    .container-primary {
-        padding: 0 5px;
-    }
-
-    .container-content h1 {
-        font-size: 4rem;
-    }
-
-    #span {
-        font-size: 2.3rem;
-    }
-
-    .container-primary p {
-        font-size: 1.2rem;
-    }
-
-    .scroll-button {
-        width: 40px;
-        height: 40px;
-        bottom: 5px;
-        animation: pulse 0.6s infinite, blink 0.4s infinite;
-    }
-
-    .scroll-button img {
-        width: 25px;
-    }
-}
-
 
 /* Estilo para a seção inicial */
 .section-inicial {
@@ -318,6 +128,29 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     overflow: hidden;
 }
+.span {
+    display: block;
+    color: #4336a0; /* Cor do texto */
+}
+/* Animação bounce para o elemento .animate */
+.animate {
+    display: inline-block;
+    margin: 0 0.2rem; /* Margem lateral um pouco mais ampla */
+    animation: bounce 2s infinite; /* Duração e repetição da animação */
+    color: #4336a0; /* Cor do texto animado */
+    font-weight: bold; /* Adiciona negrito para maior destaque */
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
 
 /* Contêiner do perfil e título */
 .user-profile {
@@ -331,24 +164,6 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 0 1rem;
 }
 
-/* Responsividade */
-@media (min-width: 975px) {
-    .user-profile {
-        flex-direction: row; /* Alinha a imagem e o texto lado a lado em telas maiores */
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .profile-text {
-        text-align: left; /* Garante que o texto fique alinhado à esquerda */
-        max-width: 60%; /* Define a largura máxima do texto em relação à imagem */
-    }
-
-    .profile-image {
-        margin-bottom: 0; /* Remove o espaçamento inferior em telas grandes */
-    }
-}
-
 /* Estilo da imagem do perfil */
 .profile-image {
     width: 100%;
@@ -358,7 +173,7 @@ body::-webkit-scrollbar-thumb:hover {
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, border-color 0.3s ease;
     filter: brightness(1) contrast(1);
-    border: 1px solid #444;
+    border: 1px solid #1e1e1e;
     position: relative;
     margin-bottom: 1.5rem; /* Espaçamento inferior em telas pequenas */
 }
@@ -366,7 +181,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Efeito ao passar o mouse */
 .profile-image:hover {
     transform: scale(1.1); /* Aumenta o tamanho da imagem ao passar o mouse */
-    box-shadow: 0 12px 30px rgba(59, 59, 59, 0.25); /* Adiciona sombra para profundidade */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     filter: brightness(1.15) contrast(1.2); /* Ajusta brilho e contraste */
     border-color: rgba(136, 136, 136, 0.5); /* Ajusta a cor da borda */
 }
@@ -459,86 +274,6 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 0 1rem;
 }
 
-/* Estilos Responsivos */
-
-/* Para telas menores que 1559px */
-@media (max-width: 1559px) {
-    .profile-text h1 {
-        font-size: 2.8rem; /* Ajusta o tamanho do texto do título */
-        margin: 0.5rem 0; /* Espaçamento vertical ao redor do título */
-    }
-
-    .profile-text .intro-text,
-    .profile-text .summary {
-        font-size: 1.1rem; /* Tamanho do texto para uma leitura confortável */
-        line-height: 1.5; /* Melhora a legibilidade */
-        margin-bottom: 1rem; /* Espaçamento abaixo dos blocos de texto */
-    }
-
-    .profile-image {
-        max-width: 350px; /* Largura máxima da imagem */
-        width: 100%; /* Garante que a imagem ocupe o máximo disponível */
-        height: auto; /* Mantém a proporção da imagem */
-        margin-bottom: 1rem; /* Espaçamento inferior para uma boa separação */
-    }
-}
-
-/* Para telas menores que 975px */
-@media (max-width: 975px) {
-    .profile-text h1 {
-        font-size: 2.5rem; /* Ajusta o tamanho do título para telas menores */
-        margin: 0.5rem 0; /* Espaçamento vertical ao redor do título */
-    }
-
-    .profile-text .intro-text,
-    .profile-text .summary {
-        font-size: 1rem; /* Tamanho do texto para uma leitura confortável */
-        line-height: 1.4; /* Melhora a legibilidade */
-        margin-bottom: 1rem; /* Espaçamento abaixo dos blocos de texto */
-    }
-
-    .user-profile {
-        flex-direction: column; /* Empilha os itens verticalmente em telas menores */
-        align-items: center; /* Centraliza os itens horizontalmente */
-        gap: 1.5rem; /* Espaçamento entre os itens */
-        padding: 1rem; /* Adiciona preenchimento ao redor do conteúdo */
-    }
-
-    .profile-image {
-        max-width: 300px; /* Largura máxima da imagem para telas menores */
-        width: 100%; /* Garante que a imagem ocupe o máximo disponível */
-        height: auto; /* Mantém a proporção da imagem */
-        margin-bottom: 1rem; /* Espaçamento inferior para uma boa separação */
-    }
-}
-
-/* Estilo para telas menores que 820px */
-@media (max-width: 820px) {
-    .profile-text h1 {
-        font-size: 2rem; /* Ajusta o tamanho da fonte do título */
-        margin: 0.5rem 0; /* Adiciona espaçamento vertical ao redor do título */
-    }
-
-    .profile-text .intro-text,
-    .profile-text .summary {
-        font-size: 0.9rem; /* Ajusta o tamanho da fonte do texto */
-        line-height: 1.4; /* Melhora a legibilidade com espaçamento entre linhas */
-        margin-bottom: 1rem; /* Adiciona espaçamento abaixo dos blocos de texto */
-    }
-
-    .profile-image {
-        max-width: 250px; /* Define a largura máxima da imagem */
-        width: 100%; /* Garante que a imagem se ajuste ao contêiner */
-        height: auto; /* Mantém a proporção da imagem */
-        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
-    }
-
-    .profile-container {
-        padding: 1rem; /* Adiciona preenchimento ao redor do conteúdo */
-        text-align: center; /* Centraliza o texto e a imagem */
-    }
-}
-
 /* Estilo dos ícones sociais */
 .social-icons {
     display: flex;
@@ -555,7 +290,7 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100px; /* Tamanho padrão dos ícones */
     height: 100px;
     color: #eee;
-    font-size: 2rem;
+    font-size: 2.4rem;
     transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
     text-decoration: none;
     border-radius: 20px;
@@ -565,7 +300,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Estilo dos ícones sociais ao passar o mouse */
 .social-icon:hover {
-    transform: scale(1.2); /* Aumenta o tamanho do ícone */
+    transform: scale(1); /* Aumenta o tamanho do ícone */
     color: #fff; /* Garante que o texto seja visível */
 }
 
@@ -586,30 +321,6 @@ body::-webkit-scrollbar-thumb:hover {
     color: #819bf8; /* Cor do ícone Discord */
 }
 
-/* Ajustes responsivos para telas menores */
-@media (max-width: 1024px) {
-    .social-icon {
-        width: 80px; /* Reduz o tamanho dos ícones em telas menores */
-        height: 80px;
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .social-icon {
-        width: 60px; /* Reduz ainda mais o tamanho dos ícones em telas menores */
-        height: 60px;
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .social-icon {
-        width: 50px; /* Tamanho dos ícones em telas muito pequenas */
-        height: 50px;
-        font-size: 1rem;
-    }
-}
 
 
 /* Estilo para a seção Sobre Mim */
@@ -656,9 +367,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Estilo das colunas */
 .col {
-    border: 1px solid #444; /* Cor da borda */
+    border: 1px solid #1e1e1e; /* Cor da borda */
     border-radius: 10px; /* Arredondamento das bordas */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra leve */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     padding: 2rem; /* Espaçamento interno */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
     position: relative;
@@ -755,77 +466,7 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(0); /* Retorno à posição original */
 }
 
-/* Estilos Responsivos */
 
-/* Ajuste para dispositivos móveis */
-@media (max-width: 1559px) {
-    .about {
-        padding: 4rem 3rem; /* Ajusta o espaçamento para telas menores */
-    }
-
-    .section-title {
-        font-size: 2.5rem; /* Ajusta o tamanho do título */
-    }
-
-    .ci-icon img {
-        font-size: 2.5rem; /* Ajusta o tamanho dos ícones */
-        max-width: 120px; /* Ajusta a largura máxima dos ícones */
-    }
-
-    .ci-text h4 {
-        font-size: 1.3rem; /* Ajusta o tamanho do texto */
-    }
-
-    .ci-text p {
-        font-size: 0.9rem; /* Ajusta o tamanho do texto */
-    }
-}
-
-@media (max-width: 975px) {
-    .about {
-        padding: 3rem 1.5rem; /* Reduz o espaçamento para dispositivos móveis */
-    }
-
-    .section-title {
-        font-size: 2rem; /* Ajusta o tamanho do título */
-    }
-
-    .ci-icon img {
-        font-size: 2rem; /* Ajusta o tamanho dos ícones */
-        max-width: 100px; /* Ajusta a largura máxima dos ícones */
-    }
-
-    .ci-text h4 {
-        font-size: 1.2rem; /* Ajusta o tamanho do texto */
-    }
-
-    .ci-text p {
-        font-size: 0.8rem; /* Ajusta o tamanho do texto */
-    }
-}
-
-@media (max-width: 820px) {
-    .about {
-        padding: 2rem 1rem; /* Reduz ainda mais o espaçamento */
-    }
-
-    .section-title {
-        font-size: 1.8rem; /* Ajusta o tamanho do título */
-    }
-
-    .ci-icon img {
-        font-size: 1.8rem; /* Ajusta o tamanho dos ícones */
-        max-width: 80px; /* Ajusta a largura máxima dos ícones */
-    }
-
-    .ci-text h4 {
-        font-size: 1rem; /* Ajusta o tamanho do texto */
-    }
-
-    .ci-text p {
-        font-size: 0.7rem; /* Ajusta o tamanho do texto */
-    }
-}
 
 
 /* Estilos para a seção de Certificados e Educação */
@@ -936,106 +577,7 @@ body::-webkit-scrollbar-thumb:hover {
     line-height: 1.5; /* Ajuste na altura da linha */
 }
 
-/* Ajuste para dispositivos maiores */
-@media (max-width: 1559px) {
-    .certificates-education {
-        padding: 4rem 2rem; /* Ajuste do espaçamento para telas menores */
-    }
 
-    .certificates-education .section-title {
-        font-size: 2rem; /* Ajusta o tamanho do título */
-    }
-
-    .certificates-list {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas para telas menores */
-    }
-
-    .certificates-list .item {
-        padding: 1rem; /* Reduz o padding interno dos itens */
-    }
-
-    .certificates-list .item .icon {
-        width: 60px; /* Ajusta o tamanho dos ícones */
-        height: 60px;
-    }
-
-    .certificates-list .item .info h4 {
-        font-size: 1rem; /* Ajusta o tamanho do título */
-    }
-
-    .certificates-list .item .info p {
-        font-size: 0.8rem; /* Ajusta o tamanho do texto */
-    }
-}
-
-/* Ajuste para dispositivos menores */
-@media (max-width: 975px) {
-    .certificates-education {
-        padding: 3rem 1rem; /* Reduz o espaçamento para dispositivos móveis */
-    }
-
-    .certificates-education .section-title {
-        font-size: 1.8rem; /* Ajusta o tamanho do título */
-    }
-
-    .certificates-list {
-        grid-template-columns: 1fr; /* 1 coluna para telas pequenas */
-    }
-
-    .certificates-list .item {
-        flex-direction: column; /* Empilha o ícone e as informações verticalmente */
-        padding: 1rem; /* Reduz o padding interno dos itens */
-    }
-
-    .certificates-list .item .icon {
-        margin-bottom: 1rem; /* Ajusta o espaçamento abaixo do ícone */
-    }
-
-    .certificates-list .item .icon img {
-        width: 50px; /* Ajusta o tamanho dos ícones */
-        height: 50px;
-    }
-
-    .certificates-list .item .info h4 {
-        font-size: 0.9rem; /* Ajusta o tamanho do título */
-    }
-
-    .certificates-list .item .info p {
-        font-size: 0.7rem; /* Ajusta o tamanho do texto */
-    }
-}
-
-/* Ajuste para dispositivos muito pequenos */
-@media (max-width: 820px) {
-    .certificates-education {
-        padding: 2rem 0.5rem; /* Reduz ainda mais o padding */
-    }
-
-    .certificates-education .section-title {
-        font-size: 1.6rem; /* Ajusta o tamanho do título */
-    }
-
-    .certificates-list .item {
-        padding: 0.8rem; /* Ajusta o padding interno dos itens */
-    }
-
-    .certificates-list .item .icon {
-        width: 50px; /* Ajusta o tamanho dos ícones */
-        height: 50px;
-    }
-
-    .certificates-list .item .icon img {
-        width: 50%; /* Ajusta o tamanho da imagem dentro do ícone */
-    }
-
-    .certificates-list .item .info h4 {
-        font-size: 0.8rem; /* Ajusta o tamanho do título */
-    }
-
-    .certificates-list .item .info p {
-        font-size: 0.6rem; /* Ajusta o tamanho do texto */
-    }
-}
 /* Estilos para a seção de Educação */
 .education {
     padding: 40px 15px; /* Reduzido o padding geral */
@@ -1142,101 +684,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 1rem; /* Tamanho do texto reduzido */
 }
 
-/* Ajustes para dispositivos maiores */
-@media (max-width: 1559px) {
-    .education {
-        padding: 30px 10px; /* Reduzido o padding geral */
-    }
 
-    .education .section-title {
-        font-size: 2rem; /* Ajusta o tamanho do título */
-    }
-
-    .education .education-wrapper {
-        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
-    }
-
-    .education .education-wrapper .item {
-        padding: 12px; /* Ajusta o padding interno */
-    }
-
-    .education .education-wrapper .item .icon {
-        width: 50px; /* Ajusta o tamanho dos ícones */
-        height: 50px;
-    }
-
-    .education .education-wrapper .item .info h4 {
-        font-size: 1.2rem; /* Ajusta o tamanho do título */
-    }
-
-    .education .education-wrapper .item .info p {
-        font-size: 0.9rem; /* Ajusta o tamanho do texto */
-    }
-}
-
-/* Ajustes para dispositivos menores */
-@media (max-width: 975px) {
-    .education {
-        padding: 20px 5px; /* Reduzido o padding */
-    }
-
-    .education .section-title {
-        font-size: 1.6rem; /* Ajusta o tamanho do título */
-    }
-
-    .education .education-wrapper {
-        grid-template-columns: 1fr; /* 1 coluna para telas pequenas */
-    }
-
-    .education .education-wrapper .item {
-        padding: 8px; /* Reduzido o padding interno */
-        margin-bottom: 8px; /* Reduz o espaçamento entre itens */
-    }
-
-    .education .education-wrapper .item .icon {
-        width: 50px; /* Ajusta o tamanho dos ícones */
-        height: 50px;
-        margin-bottom: 8px; /* Ajusta o espaçamento abaixo do ícone */
-    }
-
-    .education .education-wrapper .item .info h4 {
-        font-size: 1rem; /* Ajusta o tamanho do título */
-    }
-
-    .education .education-wrapper .item .info p {
-        font-size: 0.8rem; /* Ajusta o tamanho do texto */
-    }
-}
-
-/* Ajustes para dispositivos muito pequenos */
-@media (max-width: 820px) {
-    .education {
-        padding: 15px 5px; /* Reduzido ainda mais o padding */
-    }
-
-    .education .section-title {
-        font-size: 1.4rem; /* Ajusta o tamanho do título */
-    }
-
-    .education .education-wrapper .item {
-        padding: 6px; /* Reduzido o padding interno */
-        margin-bottom: 6px; /* Reduz o espaçamento entre itens */
-    }
-
-    .education .education-wrapper .item .icon {
-        width: 40px; /* Ajusta o tamanho dos ícones */
-        height: 40px;
-        margin-bottom: 6px; /* Ajusta o espaçamento abaixo do ícone */
-    }
-
-    .education .education-wrapper .item .info h4 {
-        font-size: 0.9rem; /* Ajusta o tamanho do título */
-    }
-
-    .education .education-wrapper .item .info p {
-        font-size: 0.7rem; /* Ajusta o tamanho do texto */
-    }
-}
 /* Estilos gerais para a seção */
 .aesthetics {
   padding: 3rem 1.5rem;
@@ -1318,20 +766,7 @@ body::-webkit-scrollbar-thumb:hover {
   color: #d3d3d3;
 }
 
-/* Responsividade */
-@media (max-width: 975px) {
-  .section-title {
-    font-size: 1.5rem;
-  }
 
-  .number-aesthetics {
-    font-size: 2rem;
-  }
-
-  .description-aesthetics {
-    font-size: 0.875rem;
-  }
-}
 
 /* Estilos para a seção de habilidades */
 .skills {
@@ -1443,75 +878,7 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateY(0); /* Move a descrição para sua posição original */
 }
 
-/* Responsividade para Dispositivos Menores que 1559px */
-@media (max-width: 1559px) {
-    .skills {
-        padding: 4rem 1.5rem; /* Reduz o padding para telas menores */
-    }
 
-    .section-title {
-        font-size: 2rem; /* Ajusta o tamanho do título */
-    }
-
-    .skill-grid-wrapper {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
-    }
-
-    .skill-icon {
-        width: 60px; /* Ajusta o tamanho da imagem */
-        height: 60px;
-    }
-
-    .skill-description {
-        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
-    }
-}
-
-@media (max-width: 975px) {
-    .skills {
-        padding: 3rem 1rem; /* Reduz o padding para dispositivos móveis */
-    }
-
-    .section-title {
-        font-size: 1.6rem; /* Ajusta o tamanho do título */
-    }
-
-    .skill-grid-wrapper {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em dispositivos móveis */
-    }
-
-    .skill-icon {
-        width: 50px; /* Ajusta o tamanho da imagem */
-        height: 50px;
-    }
-
-    .skill-description {
-        font-size: 0.8rem; /* Ajusta o tamanho da fonte */
-    }
-}
-
-@media (max-width: 820px) {
-    .skills {
-        padding: 2rem 0.5rem; /* Reduz ainda mais o padding */
-    }
-
-    .section-title {
-        font-size: 1.4rem; /* Ajusta o tamanho do título */
-    }
-
-    .skill-grid-wrapper {
-        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
-    }
-
-    .skill-icon {
-        width: 40px; /* Ajusta o tamanho da imagem */
-        height: 40px;
-    }
-
-    .skill-description {
-        font-size: 0.7rem; /* Ajusta o tamanho da fonte */
-    }
-}
 
 /* Estilos para a seção de portfólio */
 .portfolio {
@@ -1720,33 +1087,6 @@ ul li {
     transform: translateY(0);
 }
 
-/* Resposividade para Dispositivos Menores que 975px */
-@media (max-width: 975px) {
-    .portfolio-item {
-        height: auto; /* Ajuste a altura para proporcionalidade */
-        max-width: 100%; /* Garante que o item do portfólio não ultrapasse o contêiner pai */
-    }
-
-    .img-projeto {
-        height: 200px; /* Mantém a altura da imagem proporcional */
-    }
-
-    .portfolio-item-info {
-        height: auto; /* Ajuste a altura da descrição */
-    }
-
-    .img-projeto::before {
-        content: ''; /* Remove o indicador de carregamento em telas menores */
-    }
-}
-
-/* Responsividade para Dispositivos Maiores que 1200px */
-@media (min-width: 1200px) {
-    .img-projeto {
-        height: 300px; /* Ajusta a altura da imagem para telas grandes */
-    }
-}
-
 
 /* Seção de Serviços */
 .services {
@@ -1881,46 +1221,6 @@ ul li {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* Responsividade para Dispositivos Menores que 975px */
-@media (max-width: 975px) {
-    .services {
-        padding: 60px 10px; /* Reduzir padding em dispositivos menores */
-    }
-
-    .services .section-title {
-        font-size: 2rem; /* Reduzir o tamanho do título */
-    }
-
-    .service-item {
-        padding: 20px;
-        max-width: 100%; /* Permite que os itens ocupem toda a largura disponível */
-    }
-
-    .service-item img {
-        max-width: 60px; /* Reduzir o tamanho da imagem */
-    }
-
-    .service-item h3 {
-        font-size: 1.5rem; /* Reduzir o tamanho do título do serviço */
-    }
-
-    .service-item li {
-        font-size: 1rem; /* Reduzir o tamanho da fonte da lista */
-    }
-
-    .btn-solicitar {
-        padding: 12px 30px; /* Ajustar o padding do botão */
-        font-size: 1rem; /* Reduzir o tamanho da fonte do botão */
-    }
-}
-
-/* Responsividade para Dispositivos Maiores que 1200px */
-@media (min-width: 1200px) {
-    .service-item {
-        max-width: 400px; /* Largura máxima dos itens em telas grandes */
     }
 }
 
@@ -2120,65 +1420,35 @@ ul li {
     font-size: 0.9rem;
 }
 
-/* Responsividade para Dispositivos Menores que 975px */
-@media (max-width: 975px) {
-    .contact {
-        padding: 60px 10px; /* Reduzir padding em dispositivos menores */
+#like-button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
     }
 
-    .contact .section-title {
-        font-size: 2rem; /* Reduzir o tamanho do título */
+    #like-count {
+      font-size: 1.5rem;
+      margin-top: 10px;
     }
 
-    .contact-content {
-        flex-direction: column;
-        gap: 30px; /* Maior espaçamento entre os itens em dispositivos menores */
+    .animation {
+      display: none;
+      font-size: 2rem;
+      color: #ff6f61;
+      margin-top: 20px;
     }
 
-    .contact-info {
-        max-width: 100%; /* Permitir que os itens ocupem toda a largura disponível */
+    .animation.show {
+      display: block;
+      animation: pulse 1s infinite;
     }
 
-    .contact-form {
-        max-width: 100%; /* Permitir que o formulário ocupe toda a largura disponível */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
     }
-
-    .info-item i {
-        font-size: 1.5rem; /* Reduzir o tamanho do ícone */
-    }
-
-    .info-item p {
-        font-size: 0.9rem; /* Reduzir o tamanho da fonte */
-    }
-
-    .form-group label {
-        font-size: 0.9rem; /* Reduzir o tamanho da fonte do rótulo */
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group input[type="file"] {
-        font-size: 0.9rem; /* Reduzir o tamanho da fonte dos campos de entrada */
-    }
-
-    .btn-submit {
-        padding: 10px 20px; /* Reduzir o padding do botão */
-        font-size: 1rem; /* Reduzir o tamanho da fonte do botão */
-    }
-}
-
-/* Responsividade para Dispositivos Maiores que 1200px */
-@media (min-width: 1200px) {
-    .contact-content {
-        max-width: 1200px; /* Manter a largura máxima para grandes telas */
-    }
-
-    .contact-info {
-        max-width: 350px; /* Largura máxima dos itens em telas grandes */
-    }
-
-    .contact-form {
-        max-width: 600px; /* Largura máxima do formulário em telas grandes */
-    }
-}
-
