@@ -128,7 +128,9 @@
     position: relative;
     overflow: hidden;
 }
-.span {
+.span
+.institution
+.tech-item {
     display: block;
     color: #4336a0; /* Cor do texto */
 }
@@ -153,7 +155,6 @@
 }
 
 /* Contêiner do perfil e título */
-/* Estilo padrão para telas grandes ou não especificadas */
 .user-profile {
     display: flex;
     flex-direction: column; /* Empilha os itens verticalmente em telas pequenas */
@@ -210,19 +211,6 @@
     50% { border-color: #4336a0; }
 }
 
-/* Estilo do resumo */
-.summary {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.3rem;
-    color: #eee;
-    line-height: 1.8;
-    margin: 10px 0;
-    padding: 0 1rem;
-    max-width: 800px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
 /* Estilo para a seção do perfil */
 .profile-text {
     text-align: center;
@@ -256,7 +244,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     color: #b0b0b0;
-    line-height: 1.6;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
 }
 
@@ -265,7 +253,7 @@
     font-weight: 600;
 }
 
-.profile-text .summary {
+.profile-text {
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
     color: #b0b0b0;
@@ -274,105 +262,6 @@
     margin: 0 auto;
     padding: 0 1rem;
 }
-
-/* Ajustes para telas menores que 1040px */
-@media (max-width: 1040px) {
-    .user-profile {
-        padding: 0 0.5rem;
-    }
-
-    .profile-image {
-        max-width: 350px; /* Ajusta a largura máxima da imagem */
-        margin-bottom: 1rem; /* Ajusta o espaçamento inferior */
-    }
-
-    .typing-text {
-        font-size: 1.8rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .summary {
-        font-size: 1.2rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .profile-text h1 {
-        font-size: 2.5rem; /* Ajusta o tamanho da fonte */
-    }
-}
-
-/* Ajustes para telas menores que 975px */
-@media (max-width: 975px) {
-    .user-profile {
-        gap: 1.5rem; /* Reduz o espaçamento entre os itens */
-        padding: 0 0.5rem;
-    }
-
-    .profile-image {
-        max-width: 300px; /* Ajusta a largura máxima da imagem */
-        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
-    }
-
-    .typing-text {
-        font-size: 1.6rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .summary {
-        font-size: 1.1rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .profile-text h1 {
-        font-size: 2.2rem; /* Ajusta o tamanho da fonte */
-    }
-}
-
-/* Ajustes para telas menores que 820px */
-@media (max-width: 820px) {
-    .user-profile {
-        padding: 0 0.25rem;
-    }
-
-    .profile-image {
-        max-width: 250px; /* Ajusta a largura máxima da imagem */
-        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
-    }
-
-    .typing-text {
-        font-size: 1.4rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .summary {
-        font-size: 1rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .profile-text h1 {
-        font-size: 1.8rem; /* Ajusta o tamanho da fonte */
-    }
-}
-
-/* Ajustes para telas menores que 768px */
-@media (max-width: 768px) {
-    .user-profile {
-        padding: 0 0.5rem;
-        gap: 1rem; /* Ajusta o espaçamento entre os itens */
-    }
-
-    .profile-image {
-        max-width: 200px; /* Ajusta a largura máxima da imagem */
-        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
-    }
-
-    .typing-text {
-        font-size: 1.2rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .summary {
-        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
-    }
-
-    .profile-text h1 {
-        font-size: 1.5rem; /* Ajusta o tamanho da fonte */
-    }
-}
-
 
 /* Estilo dos ícones sociais */
 .social-icons {
@@ -387,8 +276,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px; /* Tamanho padrão dos ícones */
-    height: 100px;
+    width: 80px; /* Tamanho padrão dos ícones */
+    height: 80px;
     color: #eee;
     font-size: 2.4rem;
     transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
@@ -998,36 +887,41 @@
 
 .section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem; /* Aumenta o tamanho da fonte para mais destaque */
     font-weight: 700;
-    color: #d3d3d3;
-    border-bottom: 3px solid #4336a0;
-    padding-bottom: 10px;
+    color: #e0e0e0; /* Usa uma cor mais clara para melhor contraste */
+    border-bottom: 4px solid #4336a0; /* Aumenta a espessura da borda */
+    padding-bottom: 15px; /* Aumenta o preenchimento inferior */
     margin: 0;
     text-transform: uppercase;
+    letter-spacing: 1px; /* Adiciona espaçamento entre letras */
 }
 
 /* Contêiner dos itens do portfólio */
 .portfolio-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta a largura mínima das colunas */
     gap: 30px;
     justify-content: center;
     width: 100%;
     max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Estilo dos itens do portfólio */
 .portfolio-item {
     position: relative;
     width: 100%;
-    max-width: 400px; /* Largura máxima para itens do portfólio */
-    border-radius: 20px;
-    border: 2px solid #4336a0; /* Cor da borda padrão */
+    max-width: 400px;
+    border-radius: 15px; /* Reduz o raio da borda para um visual mais moderno */
+    border: 2px solid #4336a0;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra padrão */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para profundidade */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
     display: flex;
-    flex-direction: column; /* Garante que o item do portfólio use flexbox */
+    flex-direction: column;
 }
 
 /* Borda lateral colorida com base no índice do item */
@@ -1038,16 +932,29 @@
     bottom: 0;
     left: 0;
     width: 8px;
-    background-color: #4336a0; /* Azul escuro */
+    background-color: #4336a0;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
 
+/* Estilo ao passar o mouse */
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+}
+
 /* Imagem do projeto */
-.img-projeto {
+.contêiner-imagem {
+    width: 100%; /* Ajusta a largura para 100% */
+    height: 200px; /* Define uma altura fixa para as imagens */
+    overflow: hidden;
+}
+
+.contêiner-imagem img {
     width: 100%;
-    height: 200px; /* Altura fixada para a imagem */
+    height: 100%;
     object-fit: cover; /* Garante que a imagem cubra o contêiner sem distorção */
+    display: block;
 }
 
 /* Indicador de carregamento para imagens */
@@ -1065,38 +972,37 @@
 /* Informações do item do portfólio */
 .portfolio-item-info {
     padding: 20px;
-     background-color: #1e1e1e;
-     position: relative; /* Ajustado para evitar problemas de sobreposição */
-    flex-grow: 1; /* Garante que a área de informações cresça conforme necessário */
+    background-color: #2c2c2c; /* Usa uma cor de fundo ligeiramente diferente para contrastar melhor com o texto */
+    position: relative;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-top: 2px solid #4336a0;
     border-radius: 0 0 15px 15px;
-    opacity: 1; /* Mantém a visibilidade da descrição o tempo todo */
 }
 
 /* Estilo dos títulos e texto */
 .portfolio-item-info h3 {
-    font-size: 1.6rem;
+    font-size: 1.8rem; /* Aumenta o tamanho da fonte do título */
     margin: 0 0 10px;
-    color: #d3d3d3;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: #e0e0e0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Aumenta o desfoque da sombra */
 }
 
 .technologies {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .tech-item {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte dos itens tecnológicos */
     display: flex;
     align-items: center;
     gap: 5px;
-    color: #d3d3d3;
+    color: #e0e0e0;
 }
 
 .tech-item i {
@@ -1104,8 +1010,8 @@
 }
 
 .description {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1.2rem;
+    line-height: 1.8; /* Ajusta o espaçamento entre linhas para melhor legibilidade */
     margin: 10px 0;
     color: #dcdcdc;
 }
@@ -1121,7 +1027,7 @@ ul {
 }
 
 ul li {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte das listas */
     color: #dcdcdc;
 }
 
@@ -1130,20 +1036,25 @@ ul li {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 16px;
+    padding: 10px 20px;
     background-color: #4336a0;
     color: #fff;
     text-decoration: none;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
-    transition: background-color 0.3s ease; /* Transição suave */
+    transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item-button:hover {
+    background-color: #5a4d9c; /* Adiciona uma cor mais clara ao passar o mouse */
+    transform: translateY(-2px); /* Pequeno movimento para cima ao passar o mouse */
 }
 
 .portfolio-item-button i {
     margin-right: 8px;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /* Setas para o item do portfólio */
@@ -1153,21 +1064,26 @@ ul li {
     right: 15px;
     cursor: pointer;
     text-align: center;
-    padding: 15px;
-    width: 30px;
-    height: 30px;
+    padding: 12px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: #4336a0;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-item-arrow:hover {
+    background-color: #5a4d9c;
+    transform: scale(1.1); /* Pequeno aumento ao passar o mouse */
 }
 
 .portfolio-item-arrow i {
-    color: #e0e0e0; /* Cor do ícone das setas */
+    color: #e0e0e0;
 }
 
 /* Adiciona a rotação quando a seta está ativa */
@@ -1519,36 +1435,3 @@ ul li {
     margin: 0;
     font-size: 0.9rem;
 }
-
-#like-button {
-      background-color: #ff6f61;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    #like-count {
-      font-size: 1.5rem;
-      margin-top: 10px;
-    }
-
-    .animation {
-      display: none;
-      font-size: 2rem;
-      color: #ff6f61;
-      margin-top: 20px;
-    }
-
-    .animation.show {
-      display: block;
-      animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
