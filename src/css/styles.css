@@ -1091,7 +1091,7 @@ ul li {
 /* Seção de Serviços */
 .services {
     padding: 80px 20px;
-    color: #f1f1f1;
+    color: #d3d3d3;
     text-align: center;
     background-color: #1e1e1e;
 }
@@ -1228,7 +1228,7 @@ ul li {
 /* Estilos para a seção de contato */
 .contact {
     padding: 80px 20px;
-    color: #f1f1f1; /* Texto claro para contraste */
+    color: #d3d3d3; /* Texto claro para contraste */
     background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
@@ -1322,7 +1322,7 @@ ul li {
 .info-item p {
     margin: 0;
     font-size: 1rem;
-    color: #f1f1f1;
+    color: #d3d3d3;
 }
 
 .info-item a {
@@ -1412,7 +1412,7 @@ ul li {
 .footer {
     text-align: center;
     padding: 20px;
-    color: #f1f1f1;
+    color: #d3d3d3;
 }
 
 .footer p {
