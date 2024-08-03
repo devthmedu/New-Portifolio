@@ -153,6 +153,7 @@
 }
 
 /* Contêiner do perfil e título */
+/* Estilo padrão para telas grandes ou não especificadas */
 .user-profile {
     display: flex;
     flex-direction: column; /* Empilha os itens verticalmente em telas pequenas */
@@ -273,6 +274,105 @@
     margin: 0 auto;
     padding: 0 1rem;
 }
+
+/* Ajustes para telas menores que 1040px */
+@media (max-width: 1040px) {
+    .user-profile {
+        padding: 0 0.5rem;
+    }
+
+    .profile-image {
+        max-width: 350px; /* Ajusta a largura máxima da imagem */
+        margin-bottom: 1rem; /* Ajusta o espaçamento inferior */
+    }
+
+    .typing-text {
+        font-size: 1.8rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .summary {
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .profile-text h1 {
+        font-size: 2.5rem; /* Ajusta o tamanho da fonte */
+    }
+}
+
+/* Ajustes para telas menores que 975px */
+@media (max-width: 975px) {
+    .user-profile {
+        gap: 1.5rem; /* Reduz o espaçamento entre os itens */
+        padding: 0 0.5rem;
+    }
+
+    .profile-image {
+        max-width: 300px; /* Ajusta a largura máxima da imagem */
+        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
+    }
+
+    .typing-text {
+        font-size: 1.6rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .summary {
+        font-size: 1.1rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .profile-text h1 {
+        font-size: 2.2rem; /* Ajusta o tamanho da fonte */
+    }
+}
+
+/* Ajustes para telas menores que 820px */
+@media (max-width: 820px) {
+    .user-profile {
+        padding: 0 0.25rem;
+    }
+
+    .profile-image {
+        max-width: 250px; /* Ajusta a largura máxima da imagem */
+        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
+    }
+
+    .typing-text {
+        font-size: 1.4rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .summary {
+        font-size: 1rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .profile-text h1 {
+        font-size: 1.8rem; /* Ajusta o tamanho da fonte */
+    }
+}
+
+/* Ajustes para telas menores que 768px */
+@media (max-width: 768px) {
+    .user-profile {
+        padding: 0 0.5rem;
+        gap: 1rem; /* Ajusta o espaçamento entre os itens */
+    }
+
+    .profile-image {
+        max-width: 200px; /* Ajusta a largura máxima da imagem */
+        margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
+    }
+
+    .typing-text {
+        font-size: 1.2rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .summary {
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte */
+    }
+
+    .profile-text h1 {
+        font-size: 1.5rem; /* Ajusta o tamanho da fonte */
+    }
+}
+
 
 /* Estilo dos ícones sociais */
 .social-icons {
