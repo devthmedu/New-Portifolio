@@ -40,15 +40,15 @@
           href="./src/css/mobile.css">
     <link rel="stylesheet"
           href="./src/css/id.css">
+
+    <!-- Favicon -->
     <link rel="icon"
           href="./src/img/Perfil/favicon.png"
-          type="image/svg+xml">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
-          rel="stylesheet">
-
+          type="image/png">
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"
+            defer></script>
     <script src="https://cdn.lordicon.com/lordicon.js"
             defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
@@ -59,15 +59,20 @@
             defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/owl.carousel/2.3.4/owl.carousel.min.js"
             defer></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-            defer></script>
     <script src="./src/js/scripts.js"
             defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"
+            defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- AOS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   </head>
 
   <body>
-
     <!-- Tela de Carregamento -->
     <div id="loading">
       <div id="loading-bar">
@@ -81,52 +86,52 @@
     <div id="particles-js"></div>
 
     <!-- Container do Cabeçalho -->
-  <header>
-    <div class="container-header">
-      <!-- Logo -->
-      <div class="logo"
-           id="container-header">
-        <a href="#home"
-           aria-label="Ir para a página inicial">
-          <img src="./src/img/Perfil/logo.svg"
-               alt="Logo de Thomas Eduardo">
-        </a>
+    <header>
+      <div class="container-header">
+        <!-- Logo -->
+        <div class="logo"
+             id="container-header">
+          <a href="#home"
+             aria-label="Ir para a página inicial">
+            <img src="./src/img/Perfil/logo.svg"
+                 alt="Logo de Thomas Eduardo">
+          </a>
+        </div>
+
+        <!-- Navegação Desktop -->
+        <nav class="desktop-nav"
+             aria-label="Navegação principal"
+             id="container-header-nav">
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </nav>
+
+        <!-- Menu Hamburger -->
+        <button class="hamburger-menu"
+                id="hamburger-menu"
+                aria-label="Menu móvel">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navegação Móvel -->
+        <nav class="mobile-nav"
+             id="mobile-nav"
+             aria-label="Navegação móvel">
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </nav>
       </div>
-  
-      <!-- Navegação Desktop -->
-      <nav class="desktop-nav"
-           aria-label="Navegação principal"
-           id="container-header-nav">
-        <ul>
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
-      </nav>
-  
-      <!-- Menu Hamburger -->
-      <button class="hamburger-menu"
-              id="hamburger-menu"
-              aria-label="Menu móvel">
-        <i class="fas fa-bars"></i>
-      </button>
-  
-      <!-- Navegação Móvel -->
-      <nav class="mobile-nav"
-           id="mobile-nav"
-           aria-label="Navegação móvel">
-        <ul>
-          <li><a href="#home">Inicio</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </header>
 
     <!-- Botão para voltar ao topo -->
     <button id="scroll-to-top"
@@ -152,7 +157,7 @@
           <p class="hello">Bem-vindo ao meu site!</p>
           <img src="./src/img/Icons/coffee.svg"
                class="coffee"
-               alt="coffee">
+               alt="Café">
         </div>
         <div>
           <button class="scroll-button">
@@ -164,82 +169,78 @@
           </button>
         </div>
       </div>
-
-
     </section>
 
     <!-- Seção Inicial -->
-    <section class="section-inicial"
-             id="section-inicial"
+    <section id="section-inicial"
+             class="section-inicial py-5"
              data-aos="fade-up"
              data-aos-duration="1200"
              aria-labelledby="section-inicial-heading">
-      <div class="user-profile"
-           data-aos="fade-right"
-           data-aos-duration="1000"
-           data-aos-delay="300">
-        <img src="./src/img/Perfil/perfil.jpg"
-             alt="Foto de perfil de Thomas Eduardo"
-             class="profile-image"
-             loading="lazy">
-        <div class="profile-text">
-          <h1 id="section-inicial-heading">Olá, sou Thomas Eduardo</h1>
-          <p class="intro-text">Sou um desenvolvedor web focado em <span>Frontend</span> e <span>UX/UI Design</span>. Venho de uma trajetória de carreira de um ano na área de tecnologia e hoje possuo habilidades avançadas em criação de interfaces intuitivas e eficientes.</p>
-          <p class="intro-text">
-            Minha experiência inclui o uso de HTML, CSS, JavaScript, e frameworks como React e Node.js. Estou sempre buscando inovações para otimizar a experiência do usuário e criar soluções que combinam estética e funcionalidade.
-          </p>
-          <div class="social-icons"
-               data-aos="fade-up"
-               data-aos-duration="1200"
-               data-aos-delay="600"
-               aria-label="Redes sociais de Thomas Eduardo">
-            <a class="social-icon instagram"
-               href="https://www.instagram.com/thomas.fromtend/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Instagram de Thomas Eduardo">
-              <i class="fab fa-instagram"
-                 aria-hidden="true"></i>
-            </a>
-            <a class="social-icon github"
-               href="https://github.com/devthmedu"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="GitHub de Thomas Eduardo">
-              <i class="fab fa-github"
-                 aria-hidden="true"></i>
-            </a>
-            <a class="social-icon linkedin"
-               href="https://www.linkedin.com/in/thmedu/"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="LinkedIn de Thomas Eduardo">
-              <i class="fab fa-linkedin-in"
-                 aria-hidden="true"></i>
-            </a>
-            <a class="social-icon discord"
-               href="https://discord.gg/seu-servidor-discord"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Discord de Thomas Eduardo">
-              <i class="fab fa-discord"
-                 aria-hidden="true"></i>
-            </a>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4 text-center"
+               data-aos="fade-right"
+               data-aos-duration="1000"
+               data-aos-delay="300">
+            <img src="./src/img/Perfil/perfil.jpg"
+                 alt="Foto de perfil de Thomas Eduardo"
+                 class="profile-image img-fluid"
+                 loading="lazy">
+          </div>
+          <div class="col-md-8">
+            <h1 id="section-inicial-heading"
+                class="display-4">Olá, sou Thomas Eduardo</h1>
+            <p class="intro-text">Sou um desenvolvedor web focado em <span>Frontend</span> e <span>UX/UI Design</span>. Venho de uma trajetória de carreira de um ano na área de tecnologia e hoje possuo habilidades avançadas em criação de interfaces intuitivas e eficientes.</p>
+            <p class="intro-text">Minha experiência inclui o uso de HTML, CSS, JavaScript, e frameworks como React e Node.js. Estou sempre buscando inovações para otimizar a experiência do usuário e criar soluções que combinam estética e funcionalidade.</p>
+            <div class="social-icons"
+                 data-aos="fade-up"
+                 data-aos-duration="1200"
+                 data-aos-delay="600"
+                 aria-label="Redes sociais de Thomas Eduardo">
+              <a class="social-icon instagram"
+                 href="https://www.instagram.com/thomas.fromtend/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Instagram de Thomas Eduardo">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="social-icon github"
+                 href="https://github.com/devthmedu"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="GitHub de Thomas Eduardo">
+                <i class="fab fa-github"></i>
+              </a>
+              <a class="social-icon linkedin"
+                 href="https://www.linkedin.com/in/thmedu/"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="LinkedIn de Thomas Eduardo">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a class="social-icon discord"
+                 href="https://discord.gg/seu-servidor-discord"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Discord de Thomas Eduardo">
+                <i class="fab fa-discord"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-
+    <!-- Seção Sobre -->
     <section class="about"
              id="about">
       <div class="title-section">
         <h2 class="section-title">Sobre Mim</h2>
         <p class="section-subtitle">Competências e Tecnologias Profissionais</p>
       </div>
-
       <div class="row">
-        <div class="col col-1">
+        <div class="col-md-3 col-sm-6 mb-4">
           <div class="info-block"
                data-aos="fade-up">
             <div class="ci-icon">
@@ -253,7 +254,7 @@
           </div>
         </div>
 
-        <div class="col col-2">
+        <div class="col-md-3 col-sm-6 mb-4">
           <div class="info-block"
                data-aos="fade-up">
             <div class="ci-icon">
@@ -267,7 +268,7 @@
           </div>
         </div>
 
-        <div class="col col-3">
+        <div class="col-md-3 col-sm-6 mb-4">
           <div class="info-block"
                data-aos="fade-up">
             <div class="ci-icon">
@@ -281,7 +282,7 @@
           </div>
         </div>
 
-        <div class="col col-4">
+        <div class="col-md-3 col-sm-6 mb-4">
           <div class="info-block"
                data-aos="fade-up">
             <div class="ci-icon">
@@ -297,8 +298,6 @@
       </div>
     </section>
 
-
-    <!-- Seção de Habilidades -->
     <!-- Seção de Habilidades -->
     <section class="skills"
              data-aos="fade-up"
@@ -313,63 +312,63 @@
         <div class="skill-box"
              aria-label="Bootstrap">
           <img src="./src/img/skill/bootstrap.svg"
-               alt="Bootstrap logo"
+               alt="Logo do Bootstrap"
                class="skill-icon">
           <div class="skill-description">Bootstrap</div>
         </div>
         <div class="skill-box"
              aria-label="Git">
           <img src="./src/img/skill/git.svg"
-               alt="Git logo"
+               alt="Logo do Git"
                class="skill-icon">
           <div class="skill-description">Git</div>
         </div>
         <div class="skill-box"
              aria-label="JavaScript">
           <img src="./src/img/skill/js.svg"
-               alt="JavaScript logo"
+               alt="Logo do JavaScript"
                class="skill-icon">
           <div class="skill-description">JavaScript</div>
         </div>
         <div class="skill-box"
              aria-label="Babel">
           <img src="./src/img/skill/babel.svg"
-               alt="Babel logo"
+               alt="Logo do Babel"
                class="skill-icon">
           <div class="skill-description">Babel</div>
         </div>
         <div class="skill-box"
              aria-label="Figma">
           <img src="./src/img/skill/figma.svg"
-               alt="Figma logo"
+               alt="Logo do Figma"
                class="skill-icon">
           <div class="skill-description">Figma</div>
         </div>
         <div class="skill-box"
              aria-label="Vite.js">
           <img src="./src/img/skill/vitejs.svg"
-               alt="Vite.js logo"
+               alt="Logo do Vite.js"
                class="skill-icon">
           <div class="skill-description">Vite.js</div>
         </div>
         <div class="skill-box"
              aria-label="React Bootstrap">
           <img src="./src/img/skill/reactbootstrap.svg"
-               alt="React Bootstrap logo"
+               alt="Logo do React Bootstrap"
                class="skill-icon">
           <div class="skill-description">React Bootstrap</div>
         </div>
         <div class="skill-box"
              aria-label="Node.js">
           <img src="./src/img/skill/node.svg"
-               alt="Node.js logo"
+               alt="Logo do Node.js"
                class="skill-icon">
           <div class="skill-description">Node.js</div>
         </div>
       </div>
     </section>
 
-
+    <!-- Seção de Estatísticas -->
     <section class="aesthetics"
              id="aesthetics"
              data-aos="fade-up"
@@ -388,7 +387,7 @@
 
         <div class="box-aesthetics">
           <p class="number-aesthetics">365 Dias</p>
-          <p class="description-aesthetics">Em experiência</p>
+          <p class="description-aesthetics">De experiência</p>
         </div>
 
         <div class="box-aesthetics">
@@ -397,7 +396,6 @@
         </div>
       </div>
     </section>
-
 
     <!-- Seção de Certificados -->
     <section class="certificates-education"
@@ -457,25 +455,40 @@
 
         <article class="item"
                  data-aos="fade-up"
-                 data-aos-delay="200">
+                 data-aos-delay="300">
+          <div class="icon">
+            <img src="./src/img/certificados e educacao/fiap logo.jpeg"
+                 alt="Certificado em User Experience pela Fiap">
+          </div>
+          <div class="info">
+            <h4><a href="https://on.fiap.com.br/pluginfile.php/1/local_nanocourses/certificado_nanocourse/120425/9f1272cacb82231c0efd10298a4295bb/certificado.png"
+                 target="_blank"
+                 rel="noopener noreferrer">User Experience</a></h4>
+            <p>Certificado em <span class="institution">Fiap</span>.</p>
+          </div>
+        </article>
+
+        <article class="item"
+                 data-aos="fade-up"
+                 data-aos-delay="400">
           <div class="icon">
             <img src="./src/img/certificados e educacao/SAP_logo-700x357.png"
-                 alt="Certificado em sap">
+                 alt="Certificado em SAP">
           </div>
           <div class="info">
             <h4><a href="https://ada.tech/certificado?code=c72a7d09-dbea-846f-3181-392317851a61"
                  target="_blank"
-                 rel="noopener noreferrer">Sap</a></h4>
+                 rel="noopener noreferrer">SAP</a></h4>
             <p>Certificado em <span class="institution">Grandes projetos</span>.</p>
           </div>
         </article>
 
         <article class="item"
                  data-aos="fade-up"
-                 data-aos-delay="300">
+                 data-aos-delay="500">
           <div class="icon">
             <img src="./src/img/certificados e educacao/basesocial.png"
-                 alt="Certificado basesocial">
+                 alt="Certificado em Cloud Computing">
           </div>
           <div class="info">
             <h4><a href="https://www.credly.com/badges/c30c9bd7-0fb6-4dd2-94b8-df24db6a4cc1/linked_in_profile"
@@ -487,7 +500,7 @@
 
         <article class="item"
                  data-aos="fade-up"
-                 data-aos-delay="400">
+                 data-aos-delay="600">
           <div class="icon">
             <img src="./src/img/certificados e educacao/cubos.png"
                  alt="Certificado em TypeScript pela Cubos Academy">
@@ -502,7 +515,7 @@
 
         <article class="item"
                  data-aos="fade-up"
-                 data-aos-delay="500">
+                 data-aos-delay="700">
           <div class="icon">
             <img src="./src/img/certificados e educacao/cubos.png"
                  alt="Certificado em Desenvolvimento de Software pela Cubos Academy">
@@ -516,7 +529,6 @@
         </article>
       </div>
     </section>
-
     <!-- Seção de Educação -->
     <section class="education"
              id="education"
@@ -555,132 +567,141 @@
     </section>
 
     <!-- Seção de Portfólio -->
-    <section class="portfolio"
+    <section class="portfolio py-5"
              id="portfolio"
              data-aos="fade-down"
              data-aos-duration="1000">
-      <div class="title-section">
-        <h2 class="section-title">Portfólio</h2>
-        <p class="section-subtitle">Projetos e Trabalhos Recentes</p>
-      </div>
-
-      <div class="portfolio-items">
-        <!-- Item 1 -->
-        <div class="portfolio-item"
-             data-aos="zoom-in"
-             data-aos-duration="1500">
-          <img src="./src/projetos/Animais Fantasticos.jpg"
-               alt="Projeto Animais Fantásticos"
-               class="img-projeto">
-          <div class="portfolio-item-info">
-            <h3>Animais Fantásticos</h3>
-            <p class="technologies">
-              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-            </p>
-            <div class="description">
-              <p>O projeto Animais Fantásticos foi desenvolvido como parte do curso de JavaScript da Origamid. Ele é um site interativo que permite explorar informações detalhadas sobre diferentes criaturas fantásticas.</p>
-
-              <!-- Adicione as funcionalidades aqui -->
-            </div>
-            <a href="https://thmedu.github.io/Animais-Fantasticos/"
-               class="portfolio-item-button"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="fas fa-external-link-alt"></i> Ver Projeto
-            </a>
-          </div>
+      <div class="container">
+        <div class="title-section text-center mb-5">
+          <h2 class="section-title">Portfólio</h2>
+          <p class="section-subtitle">Projetos e Trabalhos Recentes</p>
         </div>
 
-        <!-- Item 2 -->
-        <div class="portfolio-item"
-             data-aos="zoom-in"
-             data-aos-duration="1500">
-          <img src="./src/projetos/Red Pets .jpg"
-               alt="Projeto Rede Pets"
-               class="img-projeto">
-          <div class="portfolio-item-info">
-            <h3>Rede Pets</h3>
-            <p class="technologies">
-              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-              <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
-              <span class="tech-item"><i class="fab fa-react"></i> React</span>
-            </p>
-            <div class="description">
-              <p>O projeto Rede Pets visa criar uma plataforma interativa para amantes de animais de estimação, oferecendo uma experiência envolvente e funcional aos usuários.</p>
-
-              <!-- Adicione as funcionalidades aqui -->
+        <div class="row">
+          <!-- Item 1 -->
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="portfolio-item"
+                 data-aos="zoom-in"
+                 data-aos-duration="1500">
+              <div class="contêiner-imagem">
+                <img src="./src/projetos/Animais Fantasticos.jpg"
+                     alt="Projeto Animais Fantásticos"
+                     class="img-projeto img-fluid">
+              </div>
+              <div class="portfolio-item-info p-3">
+                <h3>Animais Fantásticos</h3>
+                <p class="technologies mb-2">
+                  <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                  <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                  <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                </p>
+                <div class="description mb-3">
+                  <p>O projeto Animais Fantásticos foi desenvolvido como parte do curso de JavaScript da Origamid. Ele é um site interativo que permite explorar informações detalhadas sobre diferentes criaturas fantásticas.</p>
+                </div>
+                <a href="https://thmedu.github.io/Animais-Fantasticos/"
+                   class="portfolio-item-button btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  <i class="fas fa-external-link-alt"></i> Ver Projeto
+                </a>
+              </div>
             </div>
-            <a href="https://rede-pets.vercel.app/"
-               class="portfolio-item-button"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="fas fa-external-link-alt"></i> Ver Projeto
-            </a>
           </div>
-        </div>
 
-        <!-- Item 3 -->
-        <div class="portfolio-item"
-             data-aos="zoom-in"
-             data-aos-duration="1500">
-          <img src="./src/projetos/The Cofee.jpg"
-               alt="Projeto The Coffee"
-               class="img-projeto">
-          <div class="portfolio-item-info">
-            <h3>The Coffee</h3>
-            <p class="technologies">
-              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-            </p>
-            <div class="description">
-              <p>O projeto The Coffee foi desenvolvido para demonstrar habilidades avançadas em desenvolvimento web, focando em uma aplicação de cafeteria com menu, endereço, sobre e carrinho de compras.</p>
-
-              <!-- Adicione as funcionalidades aqui -->
+          <!-- Item 2 -->
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="portfolio-item"
+                 data-aos="zoom-in"
+                 data-aos-duration="1500">
+              <div class="contêiner-imagem">
+                <img src="./src/projetos/Red Pets .jpg"
+                     alt="Projeto Rede Pets"
+                     class="img-projeto img-fluid">
+              </div>
+              <div class="portfolio-item-info p-3">
+                <h3>Rede Pets</h3>
+                <p class="technologies mb-2">
+                  <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                  <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                  <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                  <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                  <span class="tech-item"><i class="fab fa-react"></i> React</span>
+                </p>
+                <div class="description mb-3">
+                  <p>O projeto Rede Pets visa criar uma plataforma interativa para amantes de animais de estimação, oferecendo uma experiência envolvente e funcional aos usuários.</p>
+                </div>
+                <a href="https://rede-pets.vercel.app/"
+                   class="portfolio-item-button btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  <i class="fas fa-external-link-alt"></i> Ver Projeto
+                </a>
+              </div>
             </div>
-            <a href="https://thmedu.github.io/The-Coffee/"
-               class="portfolio-item-button"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="fas fa-external-link-alt"></i> Ver Projeto
-            </a>
           </div>
-        </div>
 
-        <!-- Item 4 -->
-        <div class="portfolio-item"
-             data-aos="zoom-in"
-             data-aos-duration="1500">
-          <img src="./src/projetos/Luxe Barbershop.jpg"
-               alt="Projeto Luxe Barbershop"
-               class="img-projeto">
-          <div class="portfolio-item-info">
-            <h3>Luxe Barbershop</h3>
-            <p class="technologies">
-              <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
-              <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
-              <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
-            </p>
-            <div class="description">
-              <p>O projeto Luxe Barbershop tem como objetivo melhorar o atendimento ao cliente de uma barbearia, apresentando serviços oferecidos e permitindo agendamentos através de API e WhatsApp.</p>
-
-              <!-- Adicione as funcionalidades aqui -->
+          <!-- Item 3 -->
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="portfolio-item"
+                 data-aos="zoom-in"
+                 data-aos-duration="1500">
+              <div class="contêiner-imagem">
+                <img src="./src/projetos/The Cofee.jpg"
+                     alt="Projeto The Coffee"
+                     class="img-projeto img-fluid">
+              </div>
+              <div class="portfolio-item-info p-3">
+                <h3>The Coffee</h3>
+                <p class="technologies mb-2">
+                  <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                  <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                  <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                </p>
+                <div class="description mb-3">
+                  <p>O projeto The Coffee foi desenvolvido para demonstrar habilidades avançadas em desenvolvimento web, focando em uma aplicação de cafeteria com menu, endereço, sobre e carrinho de compras.</p>
+                </div>
+                <a href="https://thmedu.github.io/The-Coffee/"
+                   class="portfolio-item-button btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  <i class="fas fa-external-link-alt"></i> Ver Projeto
+                </a>
+              </div>
             </div>
-            <a href="https://barbearia-luxe.vercel.app/"
-               class="portfolio-item-button"
-               target="_blank"
-               rel="noopener noreferrer">
-              <i class="fas fa-external-link-alt"></i> Ver Projeto
-            </a>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="portfolio-item"
+                 data-aos="zoom-in"
+                 data-aos-duration="1500">
+              <div class="contêiner-imagem">
+                <img src="./src/projetos/Luxe Barbershop.jpg"
+                     alt="Projeto Luxe Barbershop"
+                     class="img-projeto img-fluid">
+              </div>
+              <div class="portfolio-item-info p-3">
+                <h3>Luxe Barbershop</h3>
+                <p class="technologies mb-2">
+                  <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                  <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3</span>
+                  <span class="tech-item"><i class="fab fa-js"></i> JavaScript</span>
+                </p>
+                <div class="description mb-3">
+                  <p>O projeto Luxe Barbershop tem como objetivo melhorar o atendimento ao cliente de uma barbearia, apresentando serviços oferecidos e permitindo agendamentos através de API e WhatsApp.</p>
+                </div>
+                <a href="https://barbearia-luxe.vercel.app/"
+                   class="portfolio-item-button btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  <i class="fas fa-external-link-alt"></i> Ver Projeto
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
 
     <!-- Seção de Serviços -->
     <section class="services"
@@ -699,7 +720,7 @@
                  data-aos="fade-up"
                  data-aos-delay="100">
           <img src="./src/img/Icons/Desenvolvimento Web.svg"
-               alt="Ícone de Desenvolvimento Web" />
+               alt="Ícone de Desenvolvimento Web">
           <h3>Desenvolvimento Web</h3>
           <ul>
             <li><i class="fa-solid fa-check-double"></i> Criação de sites personalizados com design responsivo.</li>
@@ -714,7 +735,7 @@
                  data-aos="fade-up"
                  data-aos-delay="300">
           <img src="./src/img/Icons/SEO.svg"
-               alt="Ícone de Otimização SEO" />
+               alt="Ícone de Otimização SEO">
           <h3>Otimização SEO</h3>
           <ul>
             <li><i class="fa-solid fa-check-double"></i> Análise e otimização de palavras-chave.</li>
@@ -729,7 +750,7 @@
                  data-aos="fade-up"
                  data-aos-delay="500">
           <img src="./src/img/Icons/Manutenção.svg"
-               alt="Ícone de Manutenção de Sistemas" />
+               alt="Ícone de Manutenção de Sistemas">
           <h3>Manutenção de Sistemas</h3>
           <ul>
             <li><i class="fa-solid fa-check-double"></i> Monitoramento contínuo e manutenção proativa.</li>
@@ -748,8 +769,6 @@
            class="btn-solicitar">Solicite Orçamento</a>
       </div>
     </section>
-<div>
-
 
     <!-- Seção de Contato -->
     <section class="contact"
@@ -816,7 +835,7 @@
                         id="message"
                         cols="30"
                         rows="10"
-                        placeholder="Digite sua mensagem "
+                        placeholder="Digite sua mensagem"
                         required></textarea>
             </div>
             <div class="form-group">
@@ -833,22 +852,39 @@
             id="footer">
       <p>&copy; 2024 Thomas Eduardo. Todos os direitos reservados.</p>
     </footer>
-
     <!-- Scripts -->
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Bundle (includes Popper) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Owl Carousel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- AOS (Animate On Scroll) -->
     <script src="https://cdn.jsdelivr.net/npm/aos@next/dist/aos.js"></script>
+
+    <!-- Anime.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <!-- CountUp.js -->
     <script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.9/dist/countUp.min.js"></script>
+
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-
-
 
     <!-- Seus scripts personalizados -->
     <script src="./src/js/script.js"></script>
     <script src="./src/js/animate.js"></script>
     <script src="./src/js/portifolio.js"></script>
+    <script src="path/to/your/script.js"></script>
+
+    <!-- Inicialização do AOS -->
+    <script>
+      AOS.init();
+    </script>
 
   </body>
 

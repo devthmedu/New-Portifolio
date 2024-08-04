@@ -3,15 +3,22 @@
     display: block;
     font-size: clamp(2rem, 4vw, 4rem); /* Ajuste responsivo do tamanho da fonte */
     color: #4336a0; /* Cor do texto */
+    font-family: "Poppins", sans-serif; /* Fonte moderna e legível */
+    text-align: center; /* Centraliza o texto */
+    margin: 0 auto; /* Margem automática para centralização */
+    padding: 10px; /* Adiciona padding para melhorar o espaçamento */
 }
 
 /* Estilo para o título principal */
 #h1 {
-    color: var(--color-white);
-    font-size: clamp(2rem, 10vw, 10rem); /* Ajuste responsivo do tamanho da fonte */
+    color: var(--color-white, #ffffff); /* Cor do texto padrão branca */
+    font-size: clamp(2.5rem, 8vw, 10rem); /* Ajuste responsivo do tamanho da fonte */
     line-height: 1.2;
     text-align: center; /* Garante que o texto esteja centralizado */
     margin: 0;
+    font-family: "Poppins", sans-serif; /* Fonte moderna e legível */
+    font-weight: 700; /* Aumenta o peso da fonte para maior destaque */
+    text-transform: uppercase; /* Maiúsculas para impacto visual */
 }
 
 /* Tela de Carregamento */
@@ -19,9 +26,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-loading-bg);
+    width: 100vw; /* Ajustado para largura da tela */
+    height: 100vh; /* Ajustado para altura da tela */
+    background-color: var(--color-loading-bg, rgba(0, 0, 0, 0.8)); /* Cor de fundo com opacidade */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,6 +39,7 @@
     transition: opacity 0.3s ease-out;
 }
 
+/* Animação de Fade In Up */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -48,16 +56,17 @@
 }
 
 #loading img {
-    width: clamp(100px, 20vw, 150px); /* Tamanho ajustável da imagem */
+    width: clamp(80px, 15vw, 120px); /* Tamanho ajustável da imagem */
     height: auto; /* Mantém a proporção da imagem */
     margin-bottom: 1rem; /* Espaço entre a imagem e o texto */
+    border-radius: 8px; /* Adiciona bordas arredondadas à imagem */
 }
 
 #loading-text {
     font-family: "Poppins", sans-serif;
-    font-size: clamp(0.8rem, 1vw, 1rem); /* Tamanho da fonte ajustável */
-    font-weight: bold;
-    color: var(--color-loading-text);
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem); /* Tamanho da fonte ajustável */
+    font-weight: 600; /* Peso da fonte um pouco mais leve */
+    color: var(--color-loading-text, #e0e0e0); /* Cor do texto mais clara */
     text-align: center;
     margin: 0;
 }
@@ -71,6 +80,8 @@
     height: 100vh;
     z-index: -999;
     overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo sutil para a camada de partículas */
+    background-size: cover; /* Adiciona cobertura ao fundo */
 }
 
 /* Botão de Voltar ao Topo */
@@ -78,8 +89,8 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: clamp(35px, 10vw, 50px); /* Tamanho responsivo */
-    height: clamp(35px, 10vw, 50px); /* Tamanho responsivo */
+    width: clamp(40px, 8vw, 50px); /* Tamanho responsivo */
+    height: clamp(40px, 8vw, 50px); /* Tamanho responsivo */
     background-color: var(--color-blue, #007bff); /* Cor principal com fallback */
     color: #fff;
     border: none;
@@ -88,10 +99,11 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     opacity: 0; /* Inicialmente invisível */
     transform: scale(0.8); /* Escala reduzida */
     z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
 
 /* Mostrar o botão quando a classe 'show' é adicionada */
@@ -103,19 +115,6 @@
 /* Estilo do botão ao passar o mouse */
 #scroll-to-top:hover {
     background-color: var(--color-dark-blue, #0056b3); /* Cor mais escura ao passar o mouse */
-}
-
-/* Estilos para tamanhos de tela menores */
-@media (max-width: 768px) {
-    #scroll-to-top {
-        width: 40px; /* Reduzido para telas menores */
-        height: 40px; /* Reduzido para telas menores */
-    }
-}
-
-@media (max-width: 480px) {
-    #scroll-to-top {
-        width: 35px; /* Reduzido ainda mais para telas muito pequenas */
-        height: 35px; /* Reduzido ainda mais para telas muito pequenas */
-    }
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+    transform: scale(1.1); /* Leve aumento ao passar o mouse */
 }

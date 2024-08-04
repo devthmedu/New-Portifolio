@@ -2,60 +2,60 @@
 particlesJS('particles-js', {
   particles: {
     number: {
-      value: 80,
+      value: 100, // Aumentei o número de partículas para uma aparência mais densa
       density: {
         enable: true,
         value_area: 800,
       },
     },
     color: {
-      value: '#ffffff',
+      value: '#ffffff', // Cor das partículas
     },
     shape: {
-      type: 'circle',
+      type: 'circle', // Forma das partículas
       stroke: {
         width: 0,
         color: '#000000',
       },
       polygon: {
-        nb_sides: 5,
+        nb_sides: 5, // Usado se a forma for 'polygon'
       },
       image: {
-        src: 'img/github.svg',
+        src: '', // Removido, deixe vazio se não for usar imagens
         width: 100,
         height: 100,
       },
     },
     opacity: {
-      value: 0.5,
+      value: 0.5, // Opacidade das partículas
       random: false,
       anim: {
-        enable: false,
+        enable: true, // Adicionado animação para opacidade
         speed: 1,
         opacity_min: 0.1,
         sync: false,
       },
     },
     size: {
-      value: 3,
+      value: 3, // Tamanho das partículas
       random: true,
       anim: {
-        enable: false,
-        speed: 40,
-        size_min: 0.1,
+        enable: true, // Adicionado animação para tamanho
+        speed: 3,
+        size_min: 1,
         sync: false,
       },
     },
     line_linked: {
       enable: true,
       distance: 150,
-      color: '#ffffff',
+      color: '#ffffff', // Cor das linhas de conexão
       opacity: 0.4,
       width: 1,
     },
     move: {
       enable: true,
-      speed: 6,
+      speed: 4, // Ajustado para uma movimentação mais suave
       direction: 'none',
       random: false,
       straight: false,
@@ -73,11 +73,11 @@ particlesJS('particles-js', {
     events: {
       onhover: {
         enable: true,
-        mode: 'grab',
+        mode: 'grab', // Modo de interação ao passar o mouse
       },
       onclick: {
         enable: true,
-        mode: 'push',
+        mode: 'push', // Modo de interação ao clicar
       },
       resize: true,
     },
@@ -92,7 +92,7 @@ particlesJS('particles-js', {
         distance: 400,
         size: 40,
         duration: 2,
-        opacity: 8,
+        opacity: 0.8, // Ajustado para uma opacidade mais sutil
         speed: 3,
       },
       repulse: {
@@ -100,10 +100,10 @@ particlesJS('particles-js', {
         duration: 0.4,
       },
       push: {
-        particles_nb: 8,
+        particles_nb: 4, // Reduzido para não sobrecarregar
       },
       remove: {
-        particles_nb: 6,
+        particles_nb: 2, // Reduzido para não sobrecarregar
       },
     },
   },

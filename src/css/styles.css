@@ -1,6 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Root Variables */
+:root {
+    --color-black: #000;
+    --color-white: #d3d3d3;
+    --color-title: #c5c5c5;
+    --color-blue: #4336a0;
+    --color-dark-blue: #001b6b;
+    --color-loading-bg: rgba(0, 0, 0, 0.991);
+    --color-loading-text: #d3d3d3;
+    --color-scroll-thumb: #4336a0;
+    --color-scroll-thumb-hover: #001b6b;
+    --background-gradient: linear-gradient(13deg, rgba(0, 0, 0, 0.8), rgba(0, 98, 255, 0.6));
+}
+
+/* Corpo da Página */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #000000ce;
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Scrollbar */
+body::-webkit-scrollbar {
+    width: 8px;
+    background-color: #1e1e1e;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scroll-thumb-hover);
+}
+
+/* Estilo do Cabeçalho */
+header {
+    color: var(--color-white);
+    padding: 2rem 0; /* Padding ajustado para uma aparência espaçosa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: calc(100% - 20px); 
+    top: 0;
+    left: 10px;
+    z-index: 1000;
+}
+
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.desktop-nav {
+    display: flex;
+}
+
+.desktop-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.desktop-nav ul li {
+    margin: 0 10px;
+}
+
+.desktop-nav ul li a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+/* Texto estilizado */
 .ml15 {
     font-weight: 800;
-    font-size: 5vw; /* Usa viewport width para dimensionar o texto em relação à largura da tela */
+    font-size: 6vw; /* Usa viewport width para dimensionar o texto em relação à largura da tela */
     text-transform: uppercase;
     letter-spacing: 0.1em; /* Ajuste leve para espaçamento entre letras */
     text-align: center; /* Garante que o texto esteja centralizado */
@@ -9,9 +100,8 @@
 /* Ajustes para palavras dentro da classe ml15 */
 .ml15 .word {
     display: inline-block;
-    line-height: 1.1em; /* Ajusta a altura da linha para melhorar a legibilidade */
+    line-height: 2em; /* Ajusta a altura da linha para melhorar a legibilidade */
 }
-
 .container-primary {
     position: relative;
     overflow: hidden;
@@ -20,7 +110,6 @@
     flex-direction: column; /* Empilha os filhos verticalmente */
     justify-content: center;
     align-items: center;
-    background-color: #1e1e1e;
     color: #d3d3d3;
     transition: transform 1s ease-out, opacity 1s ease-out;
     padding: 0 20px; /* Adiciona algum espaçamento lateral */
@@ -36,8 +125,8 @@
     transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
-/* Quando o título é visível */
-.container-primary.h1.visible .container-content {
+/* Quando a classe 'visible' é adicionada ao contêiner principal */
+.container-primary.visible .container-content {
     transform: translateY(0);
     opacity: 1;
 }
@@ -57,8 +146,7 @@
     justify-content: center;
     gap: 1rem; /* Espaçamento entre o texto e a imagem */
     flex-wrap: wrap; /* Permite quebra de linha em telas menores */
-    margin-bottom: 1rem; /* Espaçamento abaixo do parágrafo para separar do botão */
-     margin-top: 1rem; /* Espaçamento abaixo do parágrafo para separar do botão */
+    margin: 1rem 0; /* Espaçamento acima e abaixo para separar de outros elementos */
 }
 
 /* Estilo para o parágrafo */
@@ -77,7 +165,6 @@
 .scroll-button {
     background: transparent; /* Remove fundo padrão do botão */
     border: none; /* Remove borda padrão do botão */
-    position: relative; /* Garante que o botão esteja posicionado relativamente ao seu contêiner */
     cursor: pointer; /* Altera o cursor para indicar que é clicável */
     animation: pulse 1.5s infinite, blink 1s infinite; /* Aplica animações de pulsar e piscar */
     margin-top: 1rem; /* Espaçamento acima do botão para garantir que fique abaixo do parágrafo */
@@ -114,209 +201,184 @@
     }
 }
 
-
 /* Estilo para a seção inicial */
 .section-inicial {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 7rem 3rem;
-    color: #eee;
-    text-align: center;
+    color: #d8d8d8; /* Cor do texto escuro para contraste */
+    text-align: center; /* Centraliza o texto */
     position: relative;
     overflow: hidden;
 }
-.span
-.institution
-.tech-item {
-    display: block;
-    color: #4336a0; /* Cor do texto */
+
+/* Estilo para o display-4 */
+.display-4 {
+    font-family: 'Roboto', sans-serif; /* Família de fontes personalizada */
+    font-size: 4rem; /* Tamanho da fonte grande */
+    font-weight: 700; /* Negrito para destaque */
+    color: #d3d3d3; /* Cor do texto clara */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 1.5rem; /* Espaçamento inferior */
+    line-height: 1.2; /* Altura da linha ajustada para uma leitura confortável */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra ao texto para melhorar a visibilidade */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave para mudanças de cor e sombra */
 }
-/* Animação bounce para o elemento .animate */
-.animate {
-    display: inline-block;
-    margin: 0 0.2rem; /* Margem lateral um pouco mais ampla */
-    animation: bounce 2s infinite; /* Duração e repetição da animação */
-    color: #4336a0; /* Cor do texto animado */
-    font-weight: bold; /* Adiciona negrito para maior destaque */
+
+/* Estilo para hover, se necessário */
+.display-4:hover {
+    color: #4336a0; /* Cor do texto ao passar o mouse */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Aumenta a sombra ao passar o mouse */
 }
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
+
+/* Estilo responsivo para tamanhos menores de tela */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem; /* Ajusta o tamanho da fonte em telas menores */
+        margin-bottom: 1rem; /* Ajusta o espaçamento inferior */
     }
 }
 
-/* Contêiner do perfil e título */
-.user-profile {
-    display: flex;
-    flex-direction: column; /* Empilha os itens verticalmente em telas pequenas */
-    align-items: center;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 2rem;
-    padding: 0 1rem;
+/* Texto de introdução */
+.intro-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem; /* Tamanho da fonte ajustado */
+    color: #99a3ab; /* Cor do texto de introdução */
+    line-height: 1.5; /* Altura da linha para melhorar a legibilidade */
+    margin-bottom: 1.5rem; /* Espaçamento inferior */
 }
 
-/* Estilo da imagem do perfil */
+/* Destaque para partes do texto */
+.intro-text span {
+    color: #4336a0; 
+    font-weight: 600; 
+}
+
+/* Estilo moderno da imagem do perfil */
 .profile-image {
     width: 100%;
-    max-width: 400px; /* Define a largura máxima da imagem */
+    max-width: 250px; /* Largura máxima ajustada para um visual mais moderno */
     height: auto; /* Mantém a proporção da imagem */
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, border-color 0.3s ease;
-    filter: brightness(1) contrast(1);
-    border: 1px solid #1e1e1e;
-    position: relative;
-    margin-bottom: 1.5rem; /* Espaçamento inferior em telas pequenas */
+    border-radius: 50%; /* Bordas arredondadas */
+    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
+    position: relative; /* Para posicionar o efeito de gradiente de sobreposição */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; 
+    border: 4px solid transparent; 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)); /* Gradiente sutil */
 }
 
-/* Efeito ao passar o mouse */
+/* Efeito ao passar o mouse sobre a imagem do perfil */
 .profile-image:hover {
     transform: scale(1.1); /* Aumenta o tamanho da imagem ao passar o mouse */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    filter: brightness(1.15) contrast(1.2); /* Ajusta brilho e contraste */
-    border-color: rgba(136, 136, 136, 0.5); /* Ajusta a cor da borda */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra mais forte ao passar o mouse */
+    filter: brightness(1.2) contrast(1.1); /* Aumenta brilho e contraste ao passar o mouse */
+    border: 4px solid rgba(0, 123, 255, 0.7); /* Cor da borda ao passar o mouse com efeito de destaque */
 }
 
-/* Estilo do texto digitado */
-.typing-text {
-    font-family: "Roboto", sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #4336a0;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 0.20em solid #4336a0;
-    animation: typing 5.5s steps(50, end), blink-caret 0.95s step-end infinite;
-}
-
-/* Animações do texto digitado */
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #4336a0; }
-}
-
-/* Estilo para a seção do perfil */
-.profile-text {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1.5rem;
-}
-
-.profile-text h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #d3d3d3;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    position: relative;
-    display: inline-block;
-}
-
-.profile-text h1::after {
+/* Efeito de carregamento */
+.profile-image::before {
     content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background-color: #4336A0;
-    margin: 10px auto 0;
-    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1)); /* Gradiente radial de carregamento */
+    animation: loading 1.5s infinite; /* Animação de carregamento */
+    z-index: 1; /* Garante que o efeito de carregamento fique sobre a imagem */
+    pointer-events: none; /* Evita que o efeito interfira na interação com a imagem */
 }
 
-.profile-text .intro-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    color: #b0b0b0;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+/* Animação de carregamento */
+@keyframes loading {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
 }
 
-.profile-text .intro-text span {
-    color: #4336A0;
-    font-weight: 600;
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Ajusta o tamanho do título */
+    .section-inicial h1 {
+        font-size: 2.5rem; /* Ajusta o tamanho da fonte em telas menores */
+    }
+
+    /* Ajusta o tamanho do texto de introdução */
+    .intro-text {
+        font-size: 1rem; /* Ajusta o tamanho da fonte em telas menores */
+    }
+
+    /* Ajusta o tamanho dos ícones sociais */
+    .social-icons {
+        gap: 0.5rem; /* Reduz o espaçamento entre ícones em telas menores */
+    }
+
+    .social-icon {
+        width: 40px; /* Ajusta o tamanho dos ícones em telas menores */
+        height: 40px;
+        font-size: 1.2rem; /* Ajusta o tamanho dos ícones em telas menores */
+    }
 }
 
-.profile-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    color: #b0b0b0;
-    line-height: 1.6;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Estilo dos ícones sociais */
+/* Ícones sociais */
 .social-icons {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    justify-content: center; /* Centraliza os ícones sociais */
+    gap: 1rem; /* Espaçamento entre ícones */
+    margin-top: 1.5rem; /* Espaçamento superior */
     flex-wrap: wrap; /* Permite que os ícones se movam para a linha seguinte em telas menores */
 }
 
+/* Ícones sociais individuais */
 .social-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px; /* Tamanho padrão dos ícones */
-    height: 80px;
-    color: #eee;
-    font-size: 2.4rem;
-    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    width: 50px; /* Tamanho padrão dos ícones */
+    height: 50px;
+    color: #ffffff; /* Cor dos ícones */
+    font-size: 1.5rem; /* Tamanho dos ícones */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para alterações */
     text-decoration: none;
-    border-radius: 20px;
-    background-color: rgba(41, 41, 41, 0.6);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona profundidade */
+    border-radius: 50%; /* Bordas arredondadas para os ícones */
+
 }
 
-/* Estilo dos ícones sociais ao passar o mouse */
+/* Efeito ao passar o mouse sobre os ícones sociais */
 .social-icon:hover {
-    transform: scale(1); /* Aumenta o tamanho do ícone */
-    color: #fff; /* Garante que o texto seja visível */
+    background-color: #007bff; /* Cor de fundo ao passar o mouse */
+    color: #ffffff; /* Cor dos ícones ao passar o mouse */
 }
 
-/* Estilos específicos para diferentes ícones sociais ao passar o mouse */
+/* Cores específicas para cada ícone social ao passar o mouse */
 .social-icon.instagram:hover {
-    color: #E1306C; /* Cor do ícone Instagram */
+    background-color: #e1306c; /* Cor de fundo para Instagram */
 }
 
 .social-icon.github:hover {
-    color: #525252; /* Cor do ícone GitHub */
+    background-color: #333; /* Cor de fundo para GitHub */
 }
 
 .social-icon.linkedin:hover {
-    color: #4336a0; /* Cor do ícone LinkedIn */
+    background-color: #0077b5; /* Cor de fundo para LinkedIn */
 }
 
 .social-icon.discord:hover {
-    color: #819bf8; /* Cor do ícone Discord */
+    background-color: #7289da; /* Cor de fundo para Discord */
 }
-
 
 
 /* Estilo para a seção Sobre Mim */
 .about {
     padding: 4rem 6rem; /* Espaçamento padrão */
     color: #d3d3d3; /* Cor do texto padrão */
-    background-color: #1e1e1e; /* Cor de fundo para contraste */
 }
 
 /* Estilo do título da seção */
@@ -352,6 +414,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
     gap: 2rem; /* Espaçamento entre os containers */
+
 }
 
 /* Estilo das colunas */
@@ -367,8 +430,14 @@
 }
 
 /* Estilo individual das colunas para diferenciação */
-.col {
-    border-left: 4px solid #4336a0; /* Borda lateral esquerda azul */
+.col::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px; /* Largura da borda lateral */
+    height: 100%;
+    background-color: #4336a0; /* Cor da borda lateral esquerda azul */
 }
 
 .col:hover {
@@ -377,7 +446,7 @@
 }
 
 /* Sobreposição de gradiente no hover */
-.col::before {
+.col::after {
     content: "";
     position: absolute;
     top: 0;
@@ -389,7 +458,7 @@
     transition: opacity 0.3s ease; /* Transição suave para a sobreposição */
 }
 
-.col:hover::before {
+.col:hover::after {
     opacity: 1; /* Sobreposição visível no hover */
 }
 
@@ -455,14 +524,11 @@
     transform: translateY(0); /* Retorno à posição original */
 }
 
-
-
-
 /* Estilos para a seção de Certificados e Educação */
 .certificates-education {
     padding: 4rem 3rem; /* Ajuste do espaçamento para um layout mais compacto */
     color: #f4f4f4; /* Cor do texto padrão clara */
-    background-color: #1e1e1e; /* Cor de fundo escura para contraste */
+
 }
 
 /* Estilo do título da seção */
@@ -486,7 +552,7 @@
 /* Lista de certificados */
 .certificates-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Colunas responsivas */
     gap: 1.5rem; /* Espaçamento entre os itens */
     justify-content: center; /* Centraliza os itens no grid */
 }
@@ -497,13 +563,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 10px; /* Bordas arredondadas */
+    background-color: #1e1e1e;
+    border-radius: 20px; /* Bordas arredondadas */
     border-left: 4px solid #4336a0; /* Cor inicial da borda lateral */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
     padding: 1rem; /* Padding ajustado */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
     overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas */
-    background-color: #1e1e1e; /* Cor de fundo dos itens */
     text-align: center; /* Centraliza o texto */
 }
 
@@ -521,14 +587,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #4336a0; /* Cor de fundo do ícone */
+    background-color: #4236a0; /* Cor de fundo do ícone */
     border-radius: 50%; /* Bordas arredondadas para os ícones */
 }
 
 .certificates-list .item .icon img {
     width: 70%; /* Ajusta a imagem para ocupar parte do ícone */
     height: auto;
-    border-radius: 50%; /* Bordas arredondadas para as imagens */
+    border-radius: 80%; /* Bordas arredondadas para as imagens */
     transition: transform 0.3s ease; /* Transição suave */
 }
 
@@ -565,36 +631,33 @@
     font-size: 0.9rem; /* Tamanho do texto ajustado */
     line-height: 1.5; /* Ajuste na altura da linha */
 }
-
-
 /* Estilos para a seção de Educação */
 .education {
-    padding: 40px 15px; /* Reduzido o padding geral */
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
+    padding: 4rem 1.5rem; /* Ajuste no padding para um espaçamento mais uniforme */
 }
 
 /* Título da seção de Educação */
 .education .title-section {
     text-align: center;
-    margin-bottom: 40px; /* Espaçamento abaixo do título reduzido */
+    margin-bottom: 3rem; /* Ajuste no espaçamento abaixo do título */
 }
 
 .education .section-title {
-    font-size: 2.4rem; /* Tamanho do título reduzido */
-    color: #d3d3d3; /* Cor do título branca */
+    font-size: 2.4rem; /* Tamanho do título */
+    color: #d3d3d3; /* Cor do título */
     font-weight: 700; /* Título em negrito */
     text-transform: uppercase; /* Título em maiúsculas */
     letter-spacing: 1.5px; /* Espaçamento entre letras */
     border-bottom: 2px solid #4336a0; /* Linha embaixo do título para destaque */
     display: inline-block; /* Para a linha embaixo */
-    padding-bottom: 8px; /* Espaço entre o texto e a linha reduzido */
+    padding-bottom: 8px; /* Espaço entre o texto e a linha */
 }
 
 /* Layout dos itens da seção de Educação */
 .education .education-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-    gap: 15px; /* Espaçamento entre os itens reduzido */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: 1.5rem; /* Espaçamento entre os itens */
 }
 
 /* Estilo dos itens da seção de Educação */
@@ -603,10 +666,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column; /* Alinha o conteúdo verticalmente */
-    border-radius: 8px; /* Bordas arredondadas mais sutis */
+    border-radius: 20px; /* Bordas arredondadas mais sutis */
     border: 2px solid transparent; /* Borda inicial transparente */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Sombra mais leve */
-    padding: 15px; /* Padding reduzido */
+    padding: 1rem; /* Padding ajustado */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transições suaves */
     background-color: #1e1e1e; /* Cor de fundo dos itens */
     position: relative; /* Necessário para a borda lateral colorida */
@@ -619,7 +682,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 6px; /* Largura da borda lateral colorida reduzida */
+    width: 6px; /* Largura da borda lateral colorida */
     background-color: #4336a0; /* Azul escuro */
     border-top-left-radius: 8px; /* Arredonda o canto superior esquerdo */
     border-bottom-left-radius: 8px; /* Arredonda o canto inferior esquerdo */
@@ -634,9 +697,9 @@
 
 /* Estilo do ícone dentro do item */
 .education .education-wrapper .item .icon {
-    width: 60px; /* Tamanho dos ícones reduzido */
+    width: 60px; /* Tamanho dos ícones */
     height: 60px;
-    margin-bottom: 10px; /* Espaçamento abaixo do ícone reduzido */
+    margin-bottom: 1rem; /* Espaçamento abaixo do ícone */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -656,10 +719,10 @@
 }
 
 .education .education-wrapper .item .info h4 {
-    font-size: 1.3rem; /* Tamanho do título reduzido */
+    font-size: 1.3rem; /* Tamanho do título */
     color: #4336a0; /* Cor azul do título */
     font-weight: 600; /* Peso da fonte ajustado */
-    margin-bottom: 4px; /* Espaçamento abaixo do título reduzido */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
     transition: color 0.3s ease; /* Transição suave para a cor */
 }
 
@@ -670,104 +733,101 @@
 .education .education-wrapper .item .info p {
     margin: 0;
     color: #e0e0e0; /* Cor do texto clara */
-    font-size: 1rem; /* Tamanho do texto reduzido */
+    font-size: 1rem; /* Tamanho do texto */
 }
 
 
-/* Estilos gerais para a seção */
+/* Estilos gerais para a seção estética */
 .aesthetics {
-  padding: 3rem 1.5rem;
-  background-color: #1e1e1e;
-  color: #4336a0;
-  border-radius: 10px;
-  text-align: center;
-  transition: background-color 0.3s ease;
+    padding: 3rem 1.5rem;
+    color: #4336a0;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .aesthetics.dark {
-  background-color: #1e1e1e;
-  color: #e5e7eb;
+    background-color: #1e1e1e;
+    color: #e5e7eb;
 }
 
 /* Título da seção */
 .title-section {
-  margin-bottom: 2rem;
-  margin-top:5rem ;
+    margin-bottom: 2rem;
+    margin-top: 5rem; /* Espaço acima do título */
 }
 
 .section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #4336a0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4336a0;
 }
 
 .section-title.dark {
-  color: #4336a0;
+    color: #4336a0;
 }
 
 /* Layout da grade */
 .quick-aesthetics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Estilo dos boxes */
 .box-aesthetics {
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1e1e1e;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .box-aesthetics.dark {
-  background-color: #1e1e1e;
+    background-color: #1e1e1e;
 }
 
 /* Efeito hover para os boxes */
 .box-aesthetics:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Estilo dos números */
 .number-aesthetics {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #4336a0;
-  margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4336a0;
+    margin-bottom: 0.5rem;
 }
 
 .number-aesthetics.dark {
-  color: #4336a0;
+    color: #4336a0;
 }
 
 /* Estilo das descrições */
 .description-aesthetics {
-  font-size: 1rem;
-  color: #d3d3d3;
+    font-size: 1rem;
+    color: #d3d3d3;
 }
 
 .description-aesthetics.dark {
-  color: #d3d3d3;
+    color: #d3d3d3;
 }
-
 
 
 /* Estilos para a seção de habilidades */
 .skills {
-    padding: 5rem 2rem;
+    padding: 3rem 5rem;
     text-align: center;
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
     min-height: 100vh; /* Garante que a seção ocupe pelo menos a altura total da tela */
 }
 
 /* Título e subtítulo da seção de habilidades */
 .title-section {
-    margin-bottom: 60px;
+    margin-bottom: 4rem; /* Espaçamento abaixo do título */
 }
 
 .section-title {
@@ -794,7 +854,7 @@
 /* Estilo para o contêiner de habilidades */
 .skill-grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta automaticamente o número de colunas */
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); /* Ajusta automaticamente o número de colunas */
     gap: 20px;
     max-width: 1200px; /* Largura máxima */
     margin: 0 auto;
@@ -810,7 +870,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
     background-color: #1e1e1e; /* Cor de fundo do card */
-    border-radius: 12px; /* Bordas arredondadas dos cards */
+    border-radius: 20px; /* Bordas arredondadas dos cards */
     border: 2px solid transparent; /* Inicialmente, a borda é transparente para permitir a borda lateral colorida */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
@@ -822,10 +882,10 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 8px; /* Largura da borda lateral colorida */
+    width: 20px; /* Largura da borda lateral colorida */
     background-color: #4336a0; /* Azul escuro */
-    border-top-left-radius: 15px; /* Arredonda o canto superior esquerdo */
-    border-bottom-left-radius: 15px; /* Arredonda o canto inferior esquerdo */
+    border-top-left-radius: 25px; /* Arredonda o canto superior esquerdo */
+    border-bottom-left-radius: 25px; /* Arredonda o canto inferior esquerdo */
     transition: background-color 0.3s ease; /* Transição suave para a cor da borda */
 }
 
@@ -839,7 +899,7 @@
 /* Imagem de habilidade */
 .skill-icon {
     width: 80px; /* Tamanho da imagem */
-    height: 80px;
+    height: 90px;
     transition: transform 0.3s ease, filter 0.3s ease;
     margin-bottom: 1rem; /* Espaço abaixo da imagem */
 }
@@ -868,15 +928,12 @@
 }
 
 
-
 /* Estilos para a seção de portfólio */
 .portfolio {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 80px 20px;
+    padding: 30px 20px;
     color: #fff;
-    background-color: #1e1e1e;
 }
 
 /* Título da seção */
@@ -887,25 +944,24 @@
 
 .section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem; /* Aumenta o tamanho da fonte para mais destaque */
+    font-size: 3rem; /* Ajusta o tamanho para um destaque moderado */
     font-weight: 700;
-    color: #e0e0e0; /* Usa uma cor mais clara para melhor contraste */
-    border-bottom: 4px solid #4336a0; /* Aumenta a espessura da borda */
-    padding-bottom: 15px; /* Aumenta o preenchimento inferior */
+    color: #e0e0e0; /* Cor clara para melhor contraste */
+    border-bottom: 4px solid #4336a0; /* Borda espessa para destaque */
+    padding-bottom: 15px;
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 1px; /* Adiciona espaçamento entre letras */
+    letter-spacing: 2px;
 }
 
 /* Contêiner dos itens do portfólio */
 .portfolio-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta a largura mínima das colunas */
-    gap: 30px;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas de igual largura */
+    gap: 20px; /* Espaço entre os itens */
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 1200px; /* Limite máximo de largura */
+    margin: 0 auto; /* Centraliza o contêiner */
     padding: 20px;
     box-sizing: border-box;
 }
@@ -914,12 +970,13 @@
 .portfolio-item {
     position: relative;
     width: 100%;
-    max-width: 400px;
-    border-radius: 15px; /* Reduz o raio da borda para um visual mais moderno */
-    border: 2px solid #4336a0;
+    height: auto; /* Ajuste a altura automaticamente */
+    max-width: 100%; /* Ajusta o item para se ajustar ao contêiner */
+    border-radius: 20px; /* Bordas arredondadas mais sutis */
+    border: 2px solid #4336a0; /* Borda azul escuro */
     overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para profundidade */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra mais leve para profundidade */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
 }
@@ -933,27 +990,27 @@
     left: 0;
     width: 8px;
     background-color: #4336a0;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 /* Estilo ao passar o mouse */
 .portfolio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Aumenta a sombra ao passar o mouse */
+    transform: translateY(-8px); /* Movimento de elevação mais suave */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra mais profunda ao passar o mouse */
 }
 
 /* Imagem do projeto */
 .contêiner-imagem {
-    width: 100%; /* Ajusta a largura para 100% */
-    height: 200px; /* Define uma altura fixa para as imagens */
+    width: 100%;
+    height: 300px; /* Ajustado para manter o layout uniforme */
     overflow: hidden;
 }
 
 .contêiner-imagem img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem cubra o contêiner sem distorção */
+    object-fit: cover;
     display: block;
 }
 
@@ -972,22 +1029,22 @@
 /* Informações do item do portfólio */
 .portfolio-item-info {
     padding: 20px;
-    background-color: #2c2c2c; /* Usa uma cor de fundo ligeiramente diferente para contrastar melhor com o texto */
+    background-color: #1e1e1e; /* Cor de fundo para contraste com o texto */
     position: relative;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-top: 2px solid #4336a0;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0 0 12px 12px;
 }
 
 /* Estilo dos títulos e texto */
 .portfolio-item-info h3 {
-    font-size: 1.8rem; /* Aumenta o tamanho da fonte do título */
+    font-size: 1.6rem; /* Ajusta o tamanho da fonte do título */
     margin: 0 0 10px;
     color: #e0e0e0;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Aumenta o desfoque da sombra */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil para destaque */
 }
 
 .technologies {
@@ -998,7 +1055,7 @@
 }
 
 .tech-item {
-    font-size: 1.2rem; /* Aumenta o tamanho da fonte dos itens tecnológicos */
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -1010,8 +1067,8 @@
 }
 
 .description {
-    font-size: 1.2rem;
-    line-height: 1.8; /* Ajusta o espaçamento entre linhas para melhor legibilidade */
+    font-size: 1rem; /* Ajusta o tamanho da fonte da descrição */
+    line-height: 1.6; /* Ajusta o espaçamento entre linhas */
     margin: 10px 0;
     color: #dcdcdc;
 }
@@ -1027,8 +1084,9 @@ ul {
 }
 
 ul li {
-    font-size: 1.2rem; /* Aumenta o tamanho da fonte das listas */
+    font-size: 1rem;
     color: #dcdcdc;
+    margin-bottom: 10px;
 }
 
 /* Estilo do botão */
@@ -1048,8 +1106,8 @@ ul li {
 }
 
 .portfolio-item-button:hover {
-    background-color: #5a4d9c; /* Adiciona uma cor mais clara ao passar o mouse */
-    transform: translateY(-2px); /* Pequeno movimento para cima ao passar o mouse */
+    background-color: #5a4d9c; /* Cor mais clara no hover */
+    transform: translateY(-2px);
 }
 
 .portfolio-item-button i {
@@ -1057,44 +1115,10 @@ ul li {
     font-size: 1.1rem;
 }
 
-/* Setas para o item do portfólio */
-.portfolio-item-arrow {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    cursor: pointer;
-    text-align: center;
-    padding: 12px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #4336a0;
-    color: #fff;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.portfolio-item-arrow:hover {
-    background-color: #5a4d9c;
-    transform: scale(1.1); /* Pequeno aumento ao passar o mouse */
-}
-
-.portfolio-item-arrow i {
-    color: #e0e0e0;
-}
-
-/* Adiciona a rotação quando a seta está ativa */
-.portfolio-item-arrow.active {
-    transform: rotate(180deg);
-}
-
 /* Animações de entrada para os itens do portfólio */
 .portfolio-item {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -1103,13 +1127,11 @@ ul li {
     transform: translateY(0);
 }
 
-
 /* Seção de Serviços */
 .services {
     padding: 80px 20px;
     color: #d3d3d3;
     text-align: center;
-    background-color: #1e1e1e;
 }
 
 /* Título da seção de serviços */
@@ -1119,7 +1141,7 @@ ul li {
 
 .services .section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.75rem;
+    font-size: 2.5rem; /* Ajusta o tamanho do título */
     color: #d3d3d3;
     font-weight: 700;
     position: relative;
@@ -1142,14 +1164,15 @@ ul li {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+
 }
 
 /* Item de serviço */
 .service-item {
-    border-radius: 15px;
+    border-radius: 20px; /* Bordas arredondadas mais sutis */
     border: 2px solid transparent;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-    padding: 30px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    padding: 20px;
     width: 100%;
     max-width: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -1157,6 +1180,7 @@ ul li {
     position: relative;
     animation: fadeInUp 1s ease-out;
     overflow: hidden;
+    background-color: #1e1e1e;
 }
 
 /* Borda lateral colorida com base no índice do item */
@@ -1167,20 +1191,20 @@ ul li {
     bottom: 0;
     left: 0;
     width: 8px;
-    background-color: #4336a0; /* Azul escuro */
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    background-color: #4336a0;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 /* Imagem do serviço */
 .service-item img {
-    max-width: 90px;
+    max-width: 80px; /* Ajusta o tamanho da imagem */
     margin-bottom: 20px;
 }
 
 /* Título do serviço */
 .service-item h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem; /* Ajusta o tamanho do título */
     color: #d3d3d3;
     margin-bottom: 15px;
     font-family: 'Roboto', sans-serif;
@@ -1195,16 +1219,16 @@ ul li {
 }
 
 .service-item li {
-    font-size: 1.1rem;
+    font-size: 1rem; /* Ajusta o tamanho da fonte */
     color: #d3d3d3;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .service-item i {
-    color: #4336a0; /* Azul claro para destacar ícones */
+    color: #4336a0;
 }
 
 /* Botão de solicitar orçamento */
@@ -1213,7 +1237,7 @@ ul li {
 }
 
 .btn-solicitar {
-    background: linear-gradient(90deg, #4336a0, #4336a0);
+    background: linear-gradient(90deg, #4336a0, #5a4d9c); /* Gradiente mais sutil */
     color: #d3d3d3;
     text-decoration: none;
     padding: 14px 40px;
@@ -1224,7 +1248,7 @@ ul li {
 }
 
 .btn-solicitar:hover {
-    background: linear-gradient(90deg, #4336a0, #4336a0);
+    background: linear-gradient(90deg, #5a4d9c, #4336a0); /* Inverte a ordem do gradiente no hover */
     transform: scale(1.05);
 }
 
@@ -1245,7 +1269,6 @@ ul li {
 .contact {
     padding: 80px 20px;
     color: #d3d3d3; /* Texto claro para contraste */
-    background-color: #1e1e1e; /* Fundo escuro para contraste */
 }
 
 /* Título da seção de contato */
@@ -1263,6 +1286,7 @@ ul li {
     display: inline-block;
     padding-bottom: 10px;
     position: relative;
+    text-transform: uppercase; /* Transformar o título em maiúsculas para destaque */
 }
 
 .contact .section-title::after {
@@ -1284,17 +1308,21 @@ ul li {
     justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Informações de Contato */
 .contact-info {
     flex: 1 1 300px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px; /* Bordas arredondadas mais suaves */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     position: relative;
     border: 2px solid transparent;
     overflow: hidden;
+    background-color: #1e1e1e; /* Fundo para os itens de contato */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Borda lateral colorida com base no índice do item */
@@ -1306,10 +1334,11 @@ ul li {
     left: 0;
     width: 8px;
     background-color: transparent; /* Cor padrão como transparente */
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
+/* Cores variadas para as bordas laterais dos itens */
 .contact-info:nth-child(1)::before {
     background-color: #4336a0; /* Azul escuro */
 }
@@ -1319,7 +1348,7 @@ ul li {
 }
 
 .contact-info:nth-child(3)::before {
-    background-color: #4336a0; /* Azul claro */
+    background-color: #28a745; /* Verde */
 }
 
 /* Informações de contato dentro dos itens */
@@ -1365,8 +1394,8 @@ ul li {
 .contact-form {
     flex: 1 1 600px;
     padding: 20px;
-    border-radius: 10px;
-    background-color: #1a1a1a; /* Fundo escuro para o formulário */
+    border-radius: 12px;
+    background-color: #1e1e1e; /* Fundo escuro para o formulário */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -1390,7 +1419,6 @@ ul li {
     border-radius: 6px;
     font-size: 1rem;
     color: #d3d3d3;
-    background: #1a1a1a; /* Fundo escuro para campos de entrada */
     box-sizing: border-box; /* Inclui o padding e border no width total */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1407,6 +1435,7 @@ ul li {
     resize: vertical; /* Permite redimensionar verticalmente */
 }
 
+/* Botão de envio */
 .btn-submit {
     display: inline-block;
     padding: 12px 24px;
@@ -1429,9 +1458,28 @@ ul li {
     text-align: center;
     padding: 20px;
     color: #d3d3d3;
+    border-top: 1px solid #000000; /* Linha superior azul escuro para separar do conteúdo */
 }
 
 .footer p {
     margin: 0;
     font-size: 0.9rem;
+    color: #d3d3d3;
+}
+
+/* Adiciona uma animação suave no carregamento dos elementos */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplica a animação aos elementos com a classe fade-in */
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
 }
