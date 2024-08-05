@@ -1,3 +1,19 @@
+/* Container do cabeçalho para posicionar a logo e o menu hambúrguer */
+.header {
+  display: flex;
+  justify-content: space-between; /* Espaça logo e menu hambúrguer */
+  align-items: center; /* Alinha verticalmente */
+  padding: 20px; /* Adiciona espaçamento ao redor do cabeçalho */
+  background-color: #1e1e1e; /* Fundo para o cabeçalho */
+  position: relative; /* Necessário para a posição absoluta do menu hambúrguer */
+}
+
+/* Estilo para a logo */
+.logo {
+  display: flex;
+  align-items: center; /* Alinha verticalmente a logo */
+}
+
 /* Estilo para o botão de menu hambúrguer */
 .hamburger-menu {
   display: none;
@@ -27,6 +43,7 @@
   transition: transform 0.3s ease, opacity 0.3s ease; /* Transições suaves */
   z-index: 1000; /* Garante que o menu fique acima de outros elementos */
   overflow-y: auto; /* Permite rolar o menu se necessário */
+  background-color: #1e1e1e; /* Fundo para o menu móvel */
 }
 
 /* Estilo da lista de itens dentro do menu móvel */

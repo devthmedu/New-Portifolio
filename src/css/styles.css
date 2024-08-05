@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* Root Variables */
+/* Reseta margens e paddings padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis Globais */
 :root {
     --color-black: #000;
     --color-white: #d3d3d3;
@@ -12,25 +19,23 @@
     --color-loading-text: #d3d3d3;
     --color-scroll-thumb: #4336a0;
     --color-scroll-thumb-hover: #001b6b;
+    --background-gradient: linear-gradient(13deg, rgba(0, 0, 0, 0.8), rgba(0, 98, 255, 0.6));
 }
 
 /* Corpo da Página */
 body {
     font-family: 'Roboto', Arial, sans-serif;
+    background: var(--background-gradient);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     position: relative;
-    background-color: #000000ce;
-    background-blend-mode: overlay;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
+/* Scrollbar personalizada */
 body::-webkit-scrollbar-thumb {
     background-color: var(--color-scroll-thumb);
     border-radius: 10px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
@@ -41,34 +46,37 @@ body::-webkit-scrollbar-thumb:hover {
 /* Estilo do Cabeçalho */
 header {
     color: var(--color-white);
-    padding: 2rem 0; /* Padding ajustado para uma aparência espaçosa */
+    padding: 1rem 2rem; /* Padding reduzido para um visual mais limpo */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: fixed;
-    width: calc(100% - 20px); 
+    width: 100%;
     top: 0;
-    left: 10px;
+    left: 0;
     z-index: 1000;
+    background: rgba(0, 0, 0, 0.8); /* Fundo transparente para o cabeçalho */
 }
 
+/* Container do Cabeçalho */
 .container-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o container do cabeçalho */
 }
 
+/* Logo */
 .logo img {
     height: 40px;
 }
 
+/* Navegação Desktop */
 .desktop-nav {
     display: flex;
 }
 
 .desktop-nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
 }
 
@@ -79,88 +87,89 @@ header {
 .desktop-nav ul li a {
     color: var(--color-white);
     text-decoration: none;
+    font-size: 1rem; /* Tamanho da fonte ajustado */
 }
 
 /* Texto estilizado */
 .ml15 {
     font-weight: 800;
-    font-size: 6vw; /* Usa viewport width para dimensionar o texto em relação à largura da tela */
+    font-size: 6vw; /* Ajustado para melhor responsividade */
     text-transform: uppercase;
-    letter-spacing: 0.1em; /* Ajuste leve para espaçamento entre letras */
-    text-align: center; /* Garante que o texto esteja centralizado */
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: var(--color-white);
 }
 
-/* Ajustes para palavras dentro da classe ml15 */
+/* Palavras dentro da classe ml15 */
 .ml15 .word {
     display: inline-block;
-    line-height: 2em; /* Ajusta a altura da linha para melhorar a legibilidade */
+    line-height: 4em;
 }
+
+/* Container Principal */
 .container-primary {
     position: relative;
     overflow: hidden;
-    height: 100vh; /* Ocupa a altura completa da viewport */
+    height: 100vh;
     display: flex;
-    flex-direction: column; /* Empilha os filhos verticalmente */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #d3d3d3;
+    color: var(--color-white);
     transition: transform 1s ease-out, opacity 1s ease-out;
-    padding: 0 20px; /* Adiciona algum espaçamento lateral */
-    box-sizing: border-box; /* Garante que o padding não afete a altura total */
-    margin-top: 10rem;
+    padding: 0 20px;
 }
 
-/* Conteúdo da seção principal */
+/* Conteúdo da Seção Principal */
 .container-content {
     text-align: center;
-    transform: translateY(100%); /* Inicialmente fora da tela */
+    transform: translateY(100%);
     opacity: 0;
     transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
-/* Quando a classe 'visible' é adicionada ao contêiner principal */
+/* Quando a classe 'visible' é adicionada */
 .container-primary.visible .container-content {
     transform: translateY(0);
     opacity: 1;
 }
 
-/* Estilo do título principal */
+/* Título Principal */
 .container-content h1 {
-    font-size: 4rem;
-    color: #d3d3d3;
+    font-size: 3rem; /* Tamanho reduzido para melhor legibilidade */
+    color: var(--color-white);
     margin: 0;
     line-height: 1.2;
 }
 
-/* Parágrafo e imagem lado a lado */
+/* Parágrafo e Imagem Lado a Lado */
 .content-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem; /* Espaçamento entre o texto e a imagem */
-    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
-    margin: 1rem 0; /* Espaçamento acima e abaixo para separar de outros elementos */
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
 }
 
-/* Estilo para o parágrafo */
+/* Parágrafo */
 .container-primary p {
-    font-size: 1.8rem;
-    margin: 0;
+    font-size: 1.2rem; /* Ajustado para melhor legibilidade */
 }
 
-/* Estilo para a imagem */
+/* Imagem */
 .coffee {
     max-width: 30px;
     height: auto;
 }
 
-/* Estilo do botão de rolagem */
+/* Botão de Rolagem */
 .scroll-button {
-    background: transparent; /* Remove fundo padrão do botão */
-    border: none; /* Remove borda padrão do botão */
-    cursor: pointer; /* Altera o cursor para indicar que é clicável */
-    animation: pulse 1.5s infinite, blink 1s infinite; /* Aplica animações de pulsar e piscar */
-    margin-top: 1rem; /* Espaçamento acima do botão para garantir que fique abaixo do parágrafo */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    animation: pulse 1.5s infinite, blink 1s infinite;
+    margin-top: 1rem;
 }
 
 .scroll-button img {
@@ -168,7 +177,7 @@ header {
     height: auto;
 }
 
-/* Animação de pulsação */
+/* Animação de Pulsação */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -184,7 +193,7 @@ header {
     }
 }
 
-/* Animação de piscar */
+/* Animação de Piscar */
 @keyframes blink {
     0%, 100% {
         opacity: 1;
@@ -194,336 +203,368 @@ header {
     }
 }
 
+/* Responsividade */
+@media (max-width: 820px) {
+    .container-header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .desktop-nav {
+        display: none; /* Esconde a navegação desktop em telas menores */
+    }
+
+    .ml15 {
+        font-size: 8vw; /* Ajusta o tamanho da fonte */
+    }
+
+    .container-content h1 {
+        font-size: 2.5rem; /* Ajusta o tamanho do título */
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .container-primary p {
+        font-size: 1rem; /* Ajusta o tamanho do parágrafo */
+    }
+}
+
+@media (max-width: 568px) {
+    .ml15 {
+        font-size: 6vw; /* Ajusta o tamanho da fonte */
+    }
+
+    .container-content h1 {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+    }
+
+    .coffee {
+        max-width: 25px; /* Ajusta o tamanho da imagem */
+    }
+}
+
+@media (max-width: 480px) {
+    .ml15 {
+        font-size: 5vw; /* Ajusta o tamanho da fonte */
+    }
+
+    .container-content h1 {
+        font-size: 1.5rem; /* Ajusta o tamanho do título */
+    }
+
+    .coffee {
+        max-width: 20px; /* Ajusta o tamanho da imagem */
+    }
+
+    .scroll-button img {
+        width: 40px; /* Ajusta o tamanho do ícone */
+    }
+}
+
+@media (max-width: 393px) {
+    .ml15 {
+        font-size: 4vw; /* Ajusta o tamanho da fonte */
+    }
+
+    .container-content h1 {
+        font-size: 1.2rem; /* Ajusta o tamanho do título */
+    }
+
+    .coffee {
+        max-width: 15px; /* Ajusta o tamanho da imagem */
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-header {
+        max-width: 1200px; /* Ajusta a largura do cabeçalho em telas grandes */
+    }
+}
+
+
 /* Estilo para a seção inicial */
 .section-inicial {
-    color: #d8d8d8; /* Cor do texto escuro para contraste */
-    text-align: center; /* Centraliza o texto */
-    position: relative;
-    overflow: hidden;
+  color: #d8d8d8; /* Cor do texto clara para contraste */
+  text-align: center; /* Centraliza o texto */
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem; /* Padding ajustado para melhor espaçamento */
 }
 
 /* Estilo para o display-4 */
 .display-4 {
-    font-family: 'Roboto', sans-serif; /* Família de fontes personalizada */
-    font-size: 4rem; /* Tamanho da fonte grande */
-    font-weight: 700; /* Negrito para destaque */
-    color: #d3d3d3; /* Cor do texto clara */
-    text-align: center; /* Centraliza o texto */
-    margin-bottom: 1.5rem; /* Espaçamento inferior */
-    line-height: 1.2; /* Altura da linha ajustada para uma leitura confortável */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra ao texto para melhorar a visibilidade */
-    transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave para mudanças de cor e sombra */
+  font-size: 3.5rem; /* Tamanho da fonte grande ajustado */
+  font-weight: 700; /* Negrito para destaque */
+  color: #d3d3d3; /* Cor do texto clara */
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 1rem; /* Espaçamento inferior ajustado */
+  line-height: 1.2; /* Altura da linha ajustada */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra no texto */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Transição suave */
 }
 
 /* Estilo para hover, se necessário */
 .display-4:hover {
-    color: #4336a0; /* Cor do texto ao passar o mouse */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Aumenta a sombra ao passar o mouse */
+  color: #4336a0; /* Cor do texto ao passar o mouse */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Aumenta a sombra ao passar o mouse */
 }
 
 /* Estilo responsivo para tamanhos menores de tela */
 @media (max-width: 768px) {
-    .display-4 {
-        font-size: 2.5rem; /* Ajusta o tamanho da fonte em telas menores */
-        margin-bottom: 1rem; /* Ajusta o espaçamento inferior */
-    }
+  .display-4 {
+    font-size: 2.5rem; /* Ajusta o tamanho da fonte em telas menores */
+    margin-bottom: 0.5rem; /* Ajusta o espaçamento inferior */
+  }
 }
 
-/* Texto de introdução */
-.intro-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem; /* Tamanho da fonte ajustado */
-    color: #99a3ab; /* Cor do texto de introdução */
-    line-height: 1.5; /* Altura da linha para melhorar a legibilidade */
-    margin-bottom: 1.5rem; /* Espaçamento inferior */
+/* Layout Flexível para a imagem e texto */
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens horizontalmente */
+  gap: 1rem; /* Espaçamento entre a imagem e o texto */
 }
 
-/* Destaque para partes do texto */
-.intro-text span {
-    color: #4336a0; 
-    font-weight: 600; 
-}
-
-/* Estilo moderno da imagem do perfil */
+/* Imagem de perfil */
 .profile-image {
-    width: 100%;
-    max-width: 250px; /* Largura máxima ajustada para um visual mais moderno */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 50%; /* Bordas arredondadas */
-    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
-    position: relative; /* Para posicionar o efeito de gradiente de sobreposição */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; 
-    border: 4px solid transparent; 
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)); /* Gradiente sutil */
+  width: 100%;
+  max-width: 300px; /* Largura máxima ajustada */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 50%; /* Bordas arredondadas */
+  object-fit: cover; /* Ajusta a imagem para cobrir o contêiner */
+  border: 6px solid transparent; 
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)); /* Gradiente sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+  margin-bottom: 1rem; /* Espaçamento inferior ajustado */
 }
 
 /* Efeito ao passar o mouse sobre a imagem do perfil */
 .profile-image:hover {
-    transform: scale(1.1); /* Aumenta o tamanho da imagem ao passar o mouse */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra mais forte ao passar o mouse */
-    filter: brightness(1.2) contrast(1.1); /* Aumenta brilho e contraste ao passar o mouse */
-    border: 4px solid rgba(0, 123, 255, 0.7); /* Cor da borda ao passar o mouse com efeito de destaque */
+  transform: scale(1.1); /* Aumenta o tamanho da imagem ao passar o mouse */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra mais forte ao passar o mouse */
+  border-color: rgba(0, 123, 255, 0.7); /* Cor da borda ao passar o mouse com efeito de destaque */
 }
 
-/* Efeito de carregamento */
-.profile-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1)); /* Gradiente radial de carregamento */
-    animation: loading 1.5s infinite; /* Animação de carregamento */
-    z-index: 1; /* Garante que o efeito de carregamento fique sobre a imagem */
-    pointer-events: none; /* Evita que o efeito interfira na interação com a imagem */
+/* Texto de introdução */
+.intro-text {
+  font-size: 1.25rem; /* Tamanho da fonte ajustado */
+  color: #99a3ab; /* Cor do texto de introdução */
+  line-height: 1.6; /* Altura da linha para melhorar a legibilidade */
+  max-width: 90%; /* Expande a largura do texto */
+  padding: 0 1rem; /* Adiciona preenchimento horizontal */
+  text-align: justify; /* Justifica o texto */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra sutil */
+  margin: 0 auto 1rem; /* Espaçamento inferior ajustado */
 }
 
-/* Animação de carregamento */
-@keyframes loading {
-    0% {
-        transform: scale(0.95);
-        opacity: 0.5;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(0.95);
-        opacity: 0.5;
-    }
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    /* Ajusta o tamanho do título */
-    .section-inicial h1 {
-        font-size: 2.5rem; /* Ajusta o tamanho da fonte em telas menores */
-    }
-
-    /* Ajusta o tamanho do texto de introdução */
-    .intro-text {
-        font-size: 1rem; /* Ajusta o tamanho da fonte em telas menores */
-    }
-
-    /* Ajusta o tamanho dos ícones sociais */
-    .social-icons {
-        gap: 0.5rem; /* Reduz o espaçamento entre ícones em telas menores */
-    }
-
-    .social-icon {
-        width: 40px; /* Ajusta o tamanho dos ícones em telas menores */
-        height: 40px;
-        font-size: 1.2rem; /* Ajusta o tamanho dos ícones em telas menores */
-    }
+/* Destaque para partes do texto */
+.intro-text span {
+  color: #4336a0; 
+  font-weight: 600; 
 }
 
 /* Ícones sociais */
 .social-icons {
-    display: flex;
-    justify-content: center; /* Centraliza os ícones sociais */
-    gap: 1rem; /* Espaçamento entre ícones */
-    margin-top: 1.5rem; /* Espaçamento superior */
-    flex-wrap: wrap; /* Permite que os ícones se movam para a linha seguinte em telas menores */
+  display: flex;
+  justify-content: center; /* Centraliza os ícones sociais */
+  gap: 1rem; /* Espaçamento entre ícones */
+  margin-top: 1.5rem; /* Espaçamento superior */
+  flex-wrap: wrap; /* Permite que os ícones se movam para a linha seguinte em telas menores */
 }
 
 /* Ícones sociais individuais */
 .social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px; /* Tamanho padrão dos ícones */
-    height: 50px;
-    color: #ffffff; /* Cor dos ícones */
-    font-size: 1.5rem; /* Tamanho dos ícones */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para alterações */
-    text-decoration: none;
-    border-radius: 50%; /* Bordas arredondadas para os ícones */
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Tamanho padrão dos ícones */
+  height: 50px;
+  color: #ffffff; /* Cor dos ícones */
+  font-size: 1.5rem; /* Tamanho dos ícones */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para alterações */
+  text-decoration: none;
+  border-radius: 50%; /* Bordas arredondadas para os ícones */
 }
 
 /* Efeito ao passar o mouse sobre os ícones sociais */
 .social-icon:hover {
-    background-color: #007bff; /* Cor de fundo ao passar o mouse */
-    color: #ffffff; /* Cor dos ícones ao passar o mouse */
+  background-color: #007bff; /* Cor de fundo ao passar o mouse */
+  color: #ffffff; /* Cor dos ícones ao passar o mouse */
 }
 
 /* Cores específicas para cada ícone social ao passar o mouse */
 .social-icon.instagram:hover {
-    background-color: #e1306c; /* Cor de fundo para Instagram */
+  background-color: #e1306c; /* Cor de fundo para Instagram */
 }
 
 .social-icon.github:hover {
-    background-color: #333; /* Cor de fundo para GitHub */
+  background-color: #333; /* Cor de fundo para GitHub */
 }
 
 .social-icon.linkedin:hover {
-    background-color: #0077b5; /* Cor de fundo para LinkedIn */
+  background-color: #0077b5; /* Cor de fundo para LinkedIn */
 }
 
 .social-icon.discord:hover {
-    background-color: #7289da; /* Cor de fundo para Discord */
+  background-color: #7289da; /* Cor de fundo para Discord */
 }
-
 
 /* Estilo para a seção Sobre Mim */
 .about {
-    padding: 4rem 6rem; /* Espaçamento padrão */
-    color: #d3d3d3; /* Cor do texto padrão */
+  padding: 4rem 3rem; /* Ajuste do espaçamento para um layout mais compacto */
+  color: #d3d3d3; /* Cor do texto padrão clara */
 }
 
 /* Estilo do título da seção */
 .title-section {
-    margin-bottom: 3rem; /* Espaçamento abaixo do título */
-    text-align: center; /* Centraliza o título */
+  margin-bottom: 3rem; /* Espaçamento abaixo do título */
+  text-align: center; /* Centraliza o título */
 }
 
 .section-title {
-    font-family: "Poppins", sans-serif;
-    font-size: 3.5rem; /* Tamanho do título */
-    font-weight: 700;
-    color: #d3d3d3; /* Cor do título */
-    position: relative;
-    display: inline-block;
-    padding-bottom: 15px; /* Espaçamento inferior */
+  font-family: "Poppins", sans-serif;
+  font-size: 3.5rem; /* Tamanho do título */
+  font-weight: 700;
+  color: #d3d3d3; /* Cor do título */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px; /* Espaçamento inferior */
 }
 
 .section-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 50%; /* Largura da linha de destaque */
-    height: 4px; /* Altura da linha de destaque */
-    background: #4336a0; /* Cor de destaque */
-    transform: translateX(-50%);
-    border-radius: 5px; /* Arredondamento da linha */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%; /* Largura da linha de destaque */
+  height: 4px; /* Altura da linha de destaque */
+  background: #4336a0; /* Cor de destaque */
+  transform: translateX(-50%);
+  border-radius: 5px; /* Arredondamento da linha */
 }
 
 /* Layout de Grid */
 .row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
-    gap: 2rem; /* Espaçamento entre os containers */
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
+  gap: 2rem; /* Espaçamento entre os containers */
 }
 
 /* Estilo das colunas */
 .col {
-    border: 1px solid #1e1e1e; /* Cor da borda */
-    border-radius: 10px; /* Arredondamento das bordas */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    padding: 2rem; /* Espaçamento interno */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
-    position: relative;
-    overflow: hidden;
-    color: #d3d3d3; /* Cor do texto */
+  border: 1px solid #1e1e1e; /* Cor da borda */
+  border-radius: 10px; /* Arredondamento das bordas */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  padding: 2rem; /* Espaçamento interno */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+  position: relative;
+  overflow: hidden;
+  color: #d3d3d3; /* Cor do texto */
 }
 
 /* Estilo individual das colunas para diferenciação */
 .col::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px; /* Largura da borda lateral */
-    height: 100%;
-    background-color: #4336a0; /* Cor da borda lateral esquerda azul */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px; /* Largura da borda lateral */
+  height: 100%;
+  background-color: #4336a0; /* Cor da borda lateral esquerda azul */
 }
 
 .col:hover {
-    transform: translateY(-8px); /* Efeito de elevação no hover */
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+  transform: translateY(-8px); /* Efeito de elevação no hover */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
 }
 
 /* Sobreposição de gradiente no hover */
 .col::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease; /* Transição suave para a sobreposição */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Transição suave para a sobreposição */
 }
 
 .col:hover::after {
-    opacity: 1; /* Sobreposição visível no hover */
+  opacity: 1; /* Sobreposição visível no hover */
 }
 
 /* Estilo do ícone */
 .ci-icon {
-    text-align: center; /* Centraliza o ícone */
-    margin-bottom: 1rem; /* Espaçamento abaixo do ícone */
+  text-align: center; /* Centraliza o ícone */
+  margin-bottom: 1rem; /* Espaçamento abaixo do ícone */
 }
 
 .ci-icon img {
-    font-size: 3rem; /* Tamanho dos ícones ajustado */
-    color: #d3d3d3; /* Cor dos ícones */
-    transition: transform 0.3s ease, color 0.3s ease; /* Transição suave */
-    max-width: 150px;
-    margin-bottom: 20px;
+  font-size: 3rem; /* Tamanho dos ícones ajustado */
+  color: #d3d3d3; /* Cor dos ícones */
+  transition: transform 0.3s ease; /* Transição suave */
+  max-width: 150px;
+  margin-bottom: 20px;
 }
 
 .ci-icon img:hover {
-    transform: scale(1.2); /* Aumento no hover */
-    color: #4336a0; /* Cor de destaque no hover */
+  transform: scale(1.2); /* Aumento no hover */
 }
 
 /* Texto dos blocos de informações */
 .ci-text h4 {
-    font-family: "Poppins", sans-serif;
-    font-size: 1.5rem; /* Tamanho do título ajustado */
-    color: #d3d3d3; /* Cor do título */
-    margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
-    transition: color 0.3s ease; /* Transição suave para a cor do texto */
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem; /* Tamanho do título ajustado */
+  color: #d3d3d3; /* Cor do título */
+  margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
+  transition: color 0.3s ease; /* Transição suave para a cor do texto */
 }
 
 .ci-text h4:hover {
-    color: #4336a0; /* Cor de destaque no hover */
+  color: #4336a0; /* Cor de destaque no hover */
 }
 
 .ci-text p {
-    font-family: "Roboto", sans-serif;
-    font-size: 1rem; /* Tamanho do texto ajustado */
-    color: #dfdfdf; /* Cor do texto */
-    line-height: 1.5; /* Altura da linha */
-    margin-bottom: 1rem; /* Espaçamento abaixo do parágrafo */
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem; /* Tamanho do texto ajustado */
+  color: #dfdfdf; /* Cor do texto */
+  line-height: 1.5; /* Altura da linha */
+  margin-bottom: 1rem; /* Espaçamento abaixo do parágrafo */
 }
 
 /* Detalhes adicionais */
 .info-detail {
-    font-family: "Roboto", sans-serif;
-    font-size: 0.9rem; /* Tamanho do texto reduzido */
-    color: #4336a0; /* Destaque azul */
-    font-weight: 500;
-    display: block;
-    margin-top: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem; /* Tamanho do texto reduzido */
+  color: #4336a0; /* Destaque azul */
+  font-weight: 500;
+  display: block;
+  margin-top: 0.5rem;
 }
 
 /* Efeito de animação */
 [data-aos="fade-up"] {
-    opacity: 0;
-    transform: translateY(20px); /* Deslocamento inicial */
-    transition: opacity 0.6s ease, transform 0.6s ease; /* Transição suave */
+  opacity: 0;
+  transform: translateY(20px); /* Deslocamento inicial */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Transição suave */
 }
 
 [data-aos="fade-up"].aos-animate {
-    opacity: 1;
-    transform: translateY(0); /* Retorno à posição original */
+  opacity: 1;
+  transform: translateY(0); /* Retorno à posição original */
 }
 
 /* Estilos para a seção de Certificados e Educação */
 .certificates-education {
-    padding: 4rem 3rem; /* Ajuste do espaçamento para um layout mais compacto */
-    color: #f4f4f4; /* Cor do texto padrão clara */
-
+  padding: 4rem 3rem; /* Ajuste do espaçamento para um layout mais compacto */
+  color: #f4f4f4; /* Cor do texto padrão clara */
 }
-
 /* Estilo do título da seção */
 .certificates-education .title-section {
     text-align: center;
@@ -533,7 +574,7 @@ header {
 .certificates-education .section-title {
     font-family: "Poppins", sans-serif;
     font-size: 2.5rem; /* Tamanho do título ajustado */
-    color: #d3d3d3; /* Cor do título branca */
+    color: #d3d3d3; /* Cor do título clara */
     font-weight: 700; /* Título em negrito */
     text-transform: uppercase; /* Maiúsculas */
     letter-spacing: 1px; /* Espaçamento entre letras ajustado */
@@ -584,13 +625,15 @@ header {
     border-radius: 50%; /* Bordas arredondadas para os ícones */
 }
 
+/* Imagem dentro do ícone */
 .certificates-list .item .icon img {
     width: 70%; /* Ajusta a imagem para ocupar parte do ícone */
-    height: auto;
-    border-radius: 80%; /* Bordas arredondadas para as imagens */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 50%; /* Bordas arredondadas para as imagens */
     transition: transform 0.3s ease; /* Transição suave */
 }
 
+/* Efeito de aumento na imagem ao passar o mouse */
 .certificates-list .item .icon img:hover {
     transform: scale(1.1); /* Aumento no hover */
 }
@@ -624,9 +667,11 @@ header {
     font-size: 0.9rem; /* Tamanho do texto ajustado */
     line-height: 1.5; /* Ajuste na altura da linha */
 }
+
 /* Estilos para a seção de Educação */
 .education {
     padding: 4rem 1.5rem; /* Ajuste no padding para um espaçamento mais uniforme */
+    color: #d3d3d3; /* Cor padrão do texto */
 }
 
 /* Título da seção de Educação */
@@ -729,7 +774,6 @@ header {
     font-size: 1rem; /* Tamanho do texto */
 }
 
-
 /* Estilos gerais para a seção estética */
 .aesthetics {
     padding: 3rem 1.5rem;
@@ -809,7 +853,6 @@ header {
 .description-aesthetics.dark {
     color: #d3d3d3;
 }
-
 
 /* Estilos para a seção de habilidades */
 .skills {
@@ -920,18 +963,17 @@ header {
     transform: translateY(0); /* Move a descrição para sua posição original */
 }
 
-
 /* Estilos para a seção de portfólio */
 .portfolio {
     display: flex;
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 3rem 2rem;
     color: #fff;
 }
 
 /* Título da seção */
 .title-section {
-    margin-bottom: 60px;
+    margin-bottom: 4rem;
     text-align: center;
 }
 
@@ -950,7 +992,7 @@ header {
 /* Contêiner dos itens do portfólio */
 .portfolio-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas de igual largura */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta automaticamente o número de colunas */
     gap: 20px; /* Espaço entre os itens */
     width: 100%; /* Ocupa toda a largura disponível */
     max-width: 1200px; /* Limite máximo de largura */
@@ -963,7 +1005,7 @@ header {
 .portfolio-item {
     position: relative;
     width: 100%;
-    height: auto; /* Ajuste a altura automaticamente */
+    height: auto; /* Ajusta a altura automaticamente */
     max-width: 100%; /* Ajusta o item para se ajustar ao contêiner */
     border-radius: 20px; /* Bordas arredondadas mais sutis */
     border: 2px solid #4336a0; /* Borda azul escuro */
@@ -1120,6 +1162,7 @@ ul li {
     transform: translateY(0);
 }
 
+
 /* Seção de Serviços */
 .services {
     padding: 80px 20px;
@@ -1134,10 +1177,12 @@ ul li {
 
 .services .section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.5rem; /* Ajusta o tamanho do título */
+    font-size: 2.5rem; /* Tamanho do título ajustado */
     color: #d3d3d3;
     font-weight: 700;
     position: relative;
+    display: inline-block; /* Ajusta a exibição */
+    padding-bottom: 10px;
 }
 
 .services .section-title::after {
@@ -1157,12 +1202,11 @@ ul li {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-
 }
 
 /* Item de serviço */
 .service-item {
-    border-radius: 20px; /* Bordas arredondadas mais sutis */
+    border-radius: 20px;
     border: 2px solid transparent;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     padding: 20px;
@@ -1197,7 +1241,7 @@ ul li {
 
 /* Título do serviço */
 .service-item h3 {
-    font-size: 1.5rem; /* Ajusta o tamanho do título */
+    font-size: 1.5rem;
     color: #d3d3d3;
     margin-bottom: 15px;
     font-family: 'Roboto', sans-serif;
@@ -1212,7 +1256,7 @@ ul li {
 }
 
 .service-item li {
-    font-size: 1rem; /* Ajusta o tamanho da fonte */
+    font-size: 1rem;
     color: #d3d3d3;
     margin-bottom: 10px;
     display: flex;
@@ -1230,7 +1274,7 @@ ul li {
 }
 
 .btn-solicitar {
-    background: linear-gradient(90deg, #4336a0, #5a4d9c); /* Gradiente mais sutil */
+    background: linear-gradient(90deg, #4336a0, #5a4d9c); /* Gradiente sutil */
     color: #d3d3d3;
     text-decoration: none;
     padding: 14px 40px;
@@ -1261,7 +1305,7 @@ ul li {
 /* Estilos para a seção de contato */
 .contact {
     padding: 80px 20px;
-    color: #d3d3d3; /* Texto claro para contraste */
+    color: #d3d3d3;
 }
 
 /* Título da seção de contato */
@@ -1275,11 +1319,11 @@ ul li {
     font-size: 2.5rem;
     color: #d3d3d3;
     font-weight: 600;
-    border-bottom: 3px solid #4336a0; /* Azul vibrante para destaque */
+    border-bottom: 3px solid #4336a0;
     display: inline-block;
     padding-bottom: 10px;
     position: relative;
-    text-transform: uppercase; /* Transformar o título em maiúsculas para destaque */
+    text-transform: uppercase;
 }
 
 .contact .section-title::after {
@@ -1289,7 +1333,7 @@ ul li {
     bottom: -10px;
     width: 50px;
     height: 3px;
-    background-color: #4336a0; /* Azul vibrante para o destaque */
+    background-color: #4336a0;
     transform: translateX(-50%);
 }
 
@@ -1309,12 +1353,12 @@ ul li {
 .contact-info {
     flex: 1 1 300px;
     padding: 20px;
-    border-radius: 12px; /* Bordas arredondadas mais suaves */
+    border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     position: relative;
     border: 2px solid transparent;
     overflow: hidden;
-    background-color: #1e1e1e; /* Fundo para os itens de contato */
+    background-color: #1e1e1e;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1326,7 +1370,7 @@ ul li {
     bottom: 0;
     left: 0;
     width: 8px;
-    background-color: transparent; /* Cor padrão como transparente */
+    background-color: transparent;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
 }
@@ -1353,7 +1397,7 @@ ul li {
 
 .info-item i {
     font-size: 2rem;
-    color: #4336a0; /* Azul vibrante para ícones */
+    color: #4336a0;
     margin-right: 15px;
 }
 
@@ -1388,7 +1432,7 @@ ul li {
     flex: 1 1 600px;
     padding: 20px;
     border-radius: 12px;
-    background-color: #1e1e1e; /* Fundo escuro para o formulário */
+    background-color: #1e1e1e;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -1400,7 +1444,7 @@ ul li {
     display: block;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #4336a0; /* Azul vibrante para rótulos */
+    color: #4336a0;
 }
 
 .form-group input,
@@ -1412,20 +1456,20 @@ ul li {
     border-radius: 6px;
     font-size: 1rem;
     color: #d3d3d3;
-    box-sizing: border-box; /* Inclui o padding e border no width total */
+    box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group input[type="file"]:focus {
-    border-color: #1c75bc; /* Azul escuro para foco */
+    border-color: #1c75bc;
     outline: none;
     box-shadow: 0 0 0 2px rgba(28, 123, 188, 0.25);
 }
 
 .form-group textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+    resize: vertical;
 }
 
 /* Botão de envio */
@@ -1442,7 +1486,7 @@ ul li {
 }
 
 .btn-submit:hover {
-    background-color: #1c75bc; /* Azul escuro para hover */
+    background-color: #1c75bc;
     transform: scale(1.05);
 }
 
@@ -1451,7 +1495,7 @@ ul li {
     text-align: center;
     padding: 20px;
     color: #d3d3d3;
-    border-top: 1px solid #000000; /* Linha superior azul escuro para separar do conteúdo */
+    border-top: 1px solid #000000; /* Linha superior escura para separar do conteúdo */
 }
 
 .footer p {

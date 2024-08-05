@@ -9,13 +9,13 @@ particlesJS('particles-js', {
       },
     },
     color: {
-      value: '#4336a0', // Cor das partículas
+      value: '#fff', // Cor das partículas
     },
     shape: {
       type: 'circle', // Forma das partículas
       stroke: {
         width: 0,
-        color: '#000000',
+        color: '#4336a0',
       },
       polygon: {
         nb_sides: 5, // Usado se a forma for 'polygon'
@@ -49,7 +49,7 @@ particlesJS('particles-js', {
     line_linked: {
       enable: true,
       distance: 150,
-      color: '#4336a0', // Cor das linhas de conexão
+      color: '#fff', // Cor das linhas de conexão
       opacity: 0.4,
       width: 1,
     },
@@ -91,7 +91,7 @@ particlesJS('particles-js', {
       bubble: {
         distance: 400,
         size: 40,
-        duration: 2,
+        duration: 5,
         opacity: 0.8, // Ajustado para uma opacidade mais sutil
         speed: 3,
       },
