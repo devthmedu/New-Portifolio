@@ -12,7 +12,6 @@
     --color-loading-text: #d3d3d3;
     --color-scroll-thumb: #4336a0;
     --color-scroll-thumb-hover: #001b6b;
-    --background-gradient: linear-gradient(13deg, rgba(0, 0, 0, 0.8), rgba(0, 98, 255, 0.6));
 }
 
 /* Corpo da Página */
@@ -26,12 +25,6 @@ body {
     background-blend-mode: overlay;
     background-size: cover;
     background-attachment: fixed;
-}
-
-/* Scrollbar */
-body::-webkit-scrollbar {
-    width: 8px;
-    background-color: #000000ce;
 }
 
 body::-webkit-scrollbar-thumb {

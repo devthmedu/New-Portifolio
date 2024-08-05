@@ -5,11 +5,11 @@ particlesJS('particles-js', {
       value: 100, // Aumentei o número de partículas para uma aparência mais densa
       density: {
         enable: true,
-        value_area: 800,
+        value_area: 900,
       },
     },
     color: {
-      value: '#ffffff', // Cor das partículas
+      value: '#4336a0', // Cor das partículas
     },
     shape: {
       type: 'circle', // Forma das partículas
@@ -49,7 +49,7 @@ particlesJS('particles-js', {
     line_linked: {
       enable: true,
       distance: 150,
-      color: '#ffffff', // Cor das linhas de conexão
+      color: '#4336a0', // Cor das linhas de conexão
       opacity: 0.4,
       width: 1,
     },

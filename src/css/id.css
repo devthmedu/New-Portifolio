@@ -73,15 +73,16 @@
 
 /* Fundo de Partículas */
 #particles-js {
-    position: fixed;
+    position: fixed; /* Fixa o elemento em relação à janela de visualização */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -999;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo sutil para a camada de partículas */
+    width: 100%; /* Ajusta a largura para ocupar toda a largura da janela */
+    height: 100%; /* Ajusta a altura para ocupar toda a altura da janela */
+    z-index: -999; /* Coloca o elemento atrás de outros conteúdos */
+    overflow: hidden; /* Remove barras de rolagem */
+    background-color: rgb(0, 0, 0); /* Cor de fundo sutil para a camada de partículas */
     background-size: cover; /* Adiciona cobertura ao fundo */
+    background-position: center; /* Centraliza o fundo */
 }
 
 /* Botão de Voltar ao Topo */
