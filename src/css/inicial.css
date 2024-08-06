@@ -1,0 +1,720 @@
+/* Estilos iniciais, com body, header, root, section inicial e footer */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* Reseta margens e paddings padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis Globais */
+:root {
+    --color-black: #000;
+    --color-white: #d3d3d3;
+    --color-title: #c5c5c5;
+    --color-blue: #4336a0;
+    --color-dark-blue: #001b6b;
+    --color-loading-bg: rgba(0, 0, 0, 0.991);
+    --color-loading-text: #d3d3d3;
+    --color-scroll-thumb: #4336a0;
+    --color-scroll-thumb-hover: #001b6b;
+    --background-gradient: linear-gradient(13deg, rgba(0, 0, 0, 0.8), rgba(0, 98, 255, 0.6));
+}
+
+/* Corpo da Página */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: var(--background-gradient);
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Remove todas as barras de rolagem */
+    position: relative;
+}
+
+/* Remove barras de rolagem personalizadas do WebKit (Chrome, Safari) */
+body::-webkit-scrollbar {
+    display: none; /* Remove a barra de rolagem */
+}
+
+/* Tipografia melhorada */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilo do Cabeçalho */
+header {
+    color: var(--color-white);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Container do Cabeçalho */
+.container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo img {
+    height: 40px;
+}
+
+/* Navegação Desktop */
+.desktop-nav {
+    display: flex;
+}
+
+.desktop-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.desktop-nav ul li {
+    margin: 0 10px;
+}
+
+.desktop-nav ul li a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.close:hover {
+    color: var(--color-blue);
+}
+
+#modal-title {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+
+/* Texto estilizado */
+.ml15 {
+    font-weight: 800;
+    font-size: 7vw;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    text-align: center;
+    color: var(--color-white);
+}
+
+/* Palavras dentro da classe ml15 */
+.ml15 .word {
+    display: inline-block;
+    line-height: 6em;
+}
+
+/* Container Principal */
+.container-primary {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    padding: 0 20px;
+}
+
+/* Conteúdo da Seção Principal */
+.container-content {
+    text-align: center;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+/* Quando a classe 'visible' é adicionada */
+.container-primary.visible .container-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Título Principal */
+.container-content h1 {
+    font-size: 4rem;
+    color: var(--color-white);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Parágrafo e Imagem Lado a Lado */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+/* Parágrafo */
+.container-primary p {
+    font-size: 1.2rem;
+}
+
+/* Imagem */
+.coffee {
+    max-width: 30px;
+    height: auto;
+}
+
+/* Botão de Rolagem */
+.scroll-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    animation: pulse 1.5s infinite, blink 1s infinite;
+    margin-top: 1rem;
+}
+
+.scroll-button img {
+    width: 50px;
+    height: auto;
+}
+
+/* Animação de Pulsação */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animação de Piscar */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Estilo para a seção inicial */
+.section-inicial {
+  color: #d8d8d8;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+/* Estilo para o display-4 */
+.display-4 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #d3d3d3;
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Estilo para hover, se necessário */
+.display-4:hover {
+  color: #4336a0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo responsivo para tamanhos menores de tela */
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .container-content h1 {
+    font-size: 2rem; /* Ajustado para telas menores */
+  }
+
+  .content-wrapper {
+    flex-direction: column; /* Imagem e texto empilhados em telas menores */
+  }
+
+  .coffee {
+    max-width: 20px; /* Ajustado para telas menores */
+  }
+
+  .scroll-button img {
+    width: 40px; /* Ajustado para telas menores */
+  }
+
+  .intro-text {
+    font-size: 1rem; /* Ajustado para melhor leitura em telas menores */
+    padding: 0 0.5rem; /* Reduzido para telas menores */
+  }
+}
+
+/* iPads, tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .desktop-nav {
+    display: none; /* Esconde a navegação desktop em tablets */
+  }
+
+  .mobile-nav {
+    display: flex; /* Mostra a navegação móvel em tablets */
+  }
+
+  .container-content h1 {
+    font-size: 2.5rem; /* Ajusta o tamanho da fonte */
+  }
+
+  .intro-text {
+    font-size: 1.125rem; /* Ajusta o tamanho da fonte para tablets */
+    padding: 0 1rem; /* Ajusta o preenchimento para tablets */
+  }
+}
+
+/* Telas pequenas, laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .desktop-nav {
+    display: flex; /* Mostra a navegação desktop */
+  }
+
+  .mobile-nav {
+    display: none; /* Esconde a navegação móvel */
+  }
+
+  .container-content h1 {
+    font-size: 2.5rem; /* Ajusta o tamanho da fonte */
+  }
+}
+
+/* Desktops, telas grandes */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .container-content h1 {
+    font-size: 2.8rem; /* Ajusta o tamanho da fonte */
+  }
+}
+
+/* Telas muito grandes, TVs */
+@media (min-width: 1201px) {
+  .container-content h1 {
+    font-size: 3.5rem; /* Ajusta o tamanho da fonte */
+  }
+
+  .container-header {
+    max-width: 1400px; /* Ajusta a largura máxima do cabeçalho */
+  }
+}
+
+/* Layout Flexível para a imagem e texto */
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Imagem de perfil */
+.profile-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid transparent;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+/* Efeito ao passar o mouse sobre a imagem do perfil */
+.profile-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 123, 255, 0.7);
+}
+
+/* Texto de introdução */
+.intro-text {
+  font-size: 1.25rem;
+  color: #99a3ab;
+  line-height: 1.6;
+  max-width: 90%;
+  padding: 0 1rem;
+  text-align: justify;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto 1rem;
+}
+
+/* Destaque para partes do texto */
+.intro-text span {
+  color: #4336a0;
+  font-weight: 600;
+}
+
+/* Ícones sociais */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Ícones sociais individuais */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+/* Efeito ao passar o mouse sobre os ícones sociais */
+.social-icon:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Cores específicas para cada ícone social ao passar o mouse */
+.social-icon.instagram:hover {
+  background-color: #e1306c;
+}
+
+.social-icon.github:hover {
+  background-color: #333;
+}
+
+.social-icon.linkedin:hover {
+  background-color: #0077b5;
+}
+
+.social-icon.discord:hover {
+  background-color: #7289da;
+}
+/* Estilo para a seção Sobre Mim */
+.about {
+  padding: 4rem 3rem; /* Ajuste do espaçamento para um layout mais compacto */
+  color: #d3d3d3; /* Cor do texto padrão clara */
+}
+
+/* Estilo do título da seção */
+.title-section {
+  margin-bottom: 3rem; /* Espaçamento abaixo do título */
+  text-align: center; /* Centraliza o título */
+}
+
+.section-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 3.5rem; /* Tamanho do título */
+  font-weight: 700;
+  color: #d3d3d3; /* Cor do título */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px; /* Espaçamento inferior */
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%; /* Largura da linha de destaque */
+  height: 4px; /* Altura da linha de destaque */
+  background: #4336a0; /* Cor de destaque */
+  transform: translateX(-50%);
+  border-radius: 5px; /* Arredondamento da linha */
+}
+
+/* Layout de Grid */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
+  gap: 2rem; /* Espaçamento entre os containers */
+}
+
+/* Estilo das colunas */
+.col {
+  border: 1px solid #1e1e1e; /* Cor da borda */
+  border-radius: 10px; /* Arredondamento das bordas */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  padding: 2rem; /* Espaçamento interno */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+  position: relative;
+  overflow: hidden;
+  color: #d3d3d3; /* Cor do texto */
+}
+
+/* Estilo individual das colunas para diferenciação */
+.col::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px; /* Largura da borda lateral */
+  height: 100%;
+  background-color: #4336a0; /* Cor da borda lateral esquerda azul */
+}
+
+.col:hover {
+  transform: translateY(-8px); /* Efeito de elevação no hover */
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Sombra mais forte no hover */
+}
+
+/* Sobreposição de gradiente no hover */
+.col::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Transição suave para a sobreposição */
+}
+
+.col:hover::after {
+  opacity: 1; /* Sobreposição visível no hover */
+}
+
+/* Estilo do ícone */
+.ci-icon {
+  text-align: center; /* Centraliza o ícone */
+  margin-bottom: 1rem; /* Espaçamento abaixo do ícone */
+}
+
+.ci-icon img {
+  font-size: 3rem; /* Tamanho dos ícones ajustado */
+  color: #d3d3d3; /* Cor dos ícones */
+  transition: transform 0.3s ease; /* Transição suave */
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.ci-icon img:hover {
+  transform: scale(1.2); /* Aumento no hover */
+}
+
+/* Texto dos blocos de informações */
+.ci-text h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem; /* Tamanho do título ajustado */
+  color: #d3d3d3; /* Cor do título */
+  margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
+  transition: color 0.3s ease; /* Transição suave para a cor do texto */
+}
+
+.ci-text h4:hover {
+  color: #4336a0; /* Cor de destaque no hover */
+}
+
+.ci-text p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem; /* Tamanho do texto ajustado */
+  color: #dfdfdf; /* Cor do texto */
+  line-height: 1.5; /* Altura da linha */
+  margin-bottom: 1rem; /* Espaçamento abaixo do parágrafo */
+}
+
+/* Detalhes adicionais */
+.info-detail {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.9rem; /* Tamanho do texto reduzido */
+  color: #4336a0; /* Destaque azul */
+  font-weight: 500;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Efeito de animação */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px); /* Deslocamento inicial */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Transição suave */
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0); /* Retorno à posição original */
+}
+
+/* Estilos para o rodapé */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #d3d3d3;
+  border-top: 1px solid #000000; /* Linha superior escura para separar do conteúdo */
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #d3d3d3;
+}
+
+/* Adiciona uma animação suave no carregamento dos elementos */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplica a animação aos elementos com a classe fade-in */
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Estilos responsivos */
+
+/* Tablets e telas pequenas */
+@media (max-width: 768px) {
+  .about {
+    padding: 2rem 1rem; /* Reduz o padding em telas menores */
+  }
+
+  .section-title {
+    font-size: 2.5rem; /* Reduz o tamanho da fonte do título */
+    padding-bottom: 10px; /* Ajusta o padding inferior */
+  }
+
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Ajusta o número de colunas */
+    gap: 1.5rem; /* Reduz o espaçamento entre os containers */
+  }
+
+  .col {
+    padding: 1.5rem; /* Reduz o padding interno */
+  }
+
+  .ci-icon img {
+    font-size: 2.5rem; /* Reduz o tamanho dos ícones */
+    max-width: 120px; /* Reduz o tamanho máximo dos ícones */
+  }
+
+  .ci-text h4 {
+    font-size: 1.25rem; /* Reduz o tamanho do título */
+  }
+
+  .ci-text p {
+    font-size: 0.9rem; /* Reduz o tamanho do texto */
+  }
+
+  .info-detail {
+    font-size: 0.8rem; /* Reduz o tamanho do texto de detalhes */
+  }
+}
+
+/* Smartphones e telas muito pequenas */
+@media (max-width: 480px) {
+  .about {
+    padding: 1.5rem 0.5rem; /* Ajusta o padding para telas muito pequenas */
+  }
+
+  .section-title {
+    font-size: 2rem; /* Reduz ainda mais o tamanho da fonte do título */
+    padding-bottom: 5px; /* Ajusta o padding inferior */
+  }
+
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajusta o número de colunas */
+    gap: 1rem; /* Reduz o espaçamento entre os containers */
+  }
+
+  .col {
+    padding: 1rem; /* Reduz ainda mais o padding interno */
+  }
+
+  .ci-icon img {
+    font-size: 2rem; /* Reduz o tamanho dos ícones */
+    max-width: 100px; /* Reduz o tamanho máximo dos ícones */
+  }
+
+  .ci-text h4 {
+    font-size: 1rem; /* Reduz o tamanho do título */
+  }
+
+  .ci-text p {
+    font-size: 0.85rem; /* Reduz o tamanho do texto */
+  }
+
+  .info-detail {
+    font-size: 0.75rem; /* Reduz o tamanho do texto de detalhes */
+  }
+}

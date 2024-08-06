@@ -1,4 +1,8 @@
-/* Estilo para o span */
+/*
+Estilos dos ID, como span, H1, loading, particles-js, scroll-to-top
+*/
+
+/* Estilo para o texto dentro do span */
 #span {
     display: block;
     font-size: clamp(2rem, 4vw, 4rem); /* Ajuste responsivo do tamanho da fonte */
@@ -7,7 +11,7 @@
     text-align: center; /* Centraliza o texto */
     margin: 0 auto; /* Margem automática para centralização */
     padding: 10px; /* Adiciona padding para melhorar o espaçamento */
-    line-height: 1.2; /* Ajusta o espaçamento entre linhas */
+    line-height: 1; /* Ajusta o espaçamento entre linhas */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra suave para melhorar a legibilidade */
 }
 

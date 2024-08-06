@@ -1,3 +1,7 @@
+/*
+Estilos Mobile
+*/
+
 /* Container do cabeçalho para posicionar a logo e o menu hambúrguer */
 .header {
   display: flex;
@@ -16,7 +20,7 @@
 
 /* Estilo para o botão de menu hambúrguer */
 .hamburger-menu {
-  display: none;
+  display: none; /* Inicialmente oculto */
   background: none;
   border: none;
   color: #d3d3d3;
@@ -32,7 +36,7 @@
 
 /* Estilo para o menu de navegação móvel */
 .mobile-nav {
-  display: none;
+  display: none; /* Inicialmente oculto */
   position: fixed; /* Corrige a posição para fixar o menu no topo */
   top: 0;
   right: 0;
@@ -78,15 +82,17 @@
   .hamburger-menu {
     display: block; /* Exibe o botão do menu hambúrguer */
   }
+}
 
-  .mobile-nav.active {
-    transform: translateX(0); /* Move o menu para dentro da tela */
-    opacity: 1; /* Garante que o menu seja visível */
-  }
+/* Exibição do menu móvel ao ativar */
+.mobile-nav.active {
+  transform: translateX(0); /* Move o menu para dentro da tela */
+  opacity: 1; /* Garante que o menu seja visível */
+}
 
-  body.no-scroll {
-    overflow: hidden; /* Impede o rolar da página quando o menu está aberto */
-  }
+/* Previne o rolar da página quando o menu está aberto */
+body.no-scroll {
+  overflow: hidden; /* Impede o rolar da página */
 }
 
 /* Adiciona animação e suaviza a exibição do menu móvel */
